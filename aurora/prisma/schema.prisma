@@ -1,15 +1,13 @@
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "darwin"]
 }
 
 datasource db {
   provider = "mongodb"
-  url      = "mongodb+srv://next_js:VzqsSNc2yEBYs0aR@aurora.p3jx0.mongodb.net/Aurora/"
+  url      = env("DATABASE_URL")
 }
 
-model Project{
-  id            String      @id @default(auto()) @map("_id") @db.ObjectId
-  title         String      @unique
-  description   String?
-  stack String[]
+model aurora_collection {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
 }

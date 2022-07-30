@@ -53,3 +53,23 @@ It creates a new SQL migration file for this migration
 It runs the SQL migration file against the database
 
 npx prisma generate
+
+
+# Risto's notes
+
+*Due to using Apple Silicon, some nuiances and trade-offs have to be made; please test on your hardware*
+
+## `package.json` commands
+- run `replicakey:generate` for generating a key for MongoDB (required for replica set)
+- run `prisma:connect` to validate MongoDB connection
+
+## Environment file (examples)
+```
+DATABASE_URL=mongodb://nextjs:aurora@localhost:27017/aurora
+MONGO_INITDB_DATABASE=aurora
+MONGO_INITDB_ROOT_USERNAME=nextjs
+MONGO_INITDB_ROOT_PASSWORD=aurora
+```
+
+## VS Code extensions
+[Prisma](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma)
