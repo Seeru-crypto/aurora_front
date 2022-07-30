@@ -1,6 +1,8 @@
-import Footer from './footer';
-import Layout from './layout';
-import Navbar from './navbar';
-import ProjectList from './ProjectList';
+import Layout from './layout/layout';
+import Work from './work/Work';
+import LandingPage from './landing/LandingPage';
+import About from './about/About';
+import Experience from './experience/Experience';
+import Contact from './contact/Contact';
 
-export { Footer, Layout, Navbar, ProjectList };
+export { Layout, Contact, Work, LandingPage, About, Experience };

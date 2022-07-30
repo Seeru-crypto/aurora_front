@@ -1,14 +1,18 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import { ProjectList } from '../components/index';
-import { Project, PrismaClient } from '@prisma/client';
+import {
+    Work,
+    Experience,
+    LandingPage,
+    About,
+    Contact,
+} from '../components/index';
+import { ProjectInterface } from '../components/work/Work';
 
-export interface Props {
-    projects: Project[];
-}
+export interface Props {}
 
-export default function Home({ projects }: Props) {
+export default function Home({ projects }: { projects: ProjectInterface[] }) {
     return (
         <div className={styles.container}>
             <Head>
@@ -21,11 +25,12 @@ export default function Home({ projects }: Props) {
             </Head>
 
             <main className={styles.main}>
-                <h3>Index</h3>
+                <LandingPage />
+                <About />
+                <Experience />
+                <Work projects={projects} />
 
-                <section>
-                    <ProjectList projects={projects} />
-                </section>
+                <Contact />
             </main>
         </div>
     );
@@ -34,7 +39,7 @@ export default function Home({ projects }: Props) {
 export async function getStaticProps() {
     console.log('here');
 
-    const prisma = new PrismaClient();
+    /*     const prisma = new PrismaClient();
 
     await prisma.$connect();
 
@@ -44,8 +49,8 @@ export async function getStaticProps() {
             stack: ['mongoDB', 'prisma'],
         },
     });
-
-    console.log('created project', createdProject);
+console.log('created project', createdProject);
+ */
 
     const req = await fetch(
         `https://e469abe1-ffd5-4df1-89d9-d80090a1779b.mock.pstmn.io/projects`

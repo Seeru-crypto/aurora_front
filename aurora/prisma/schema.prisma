@@ -4,7 +4,9 @@ generator client {
 
 datasource db {
   provider = "mongodb"
-  url      = "mongodb+srv://next_js:VzqsSNc2yEBYs0aR@aurora.p3jx0.mongodb.net/Aurora/"
+  //url      = env("DATABASE_URL")
+  url= "mongodb+srv://next:htE4ALg3jKZh3rZZ@aurora.p3jx0.mongodb.net/Aurora/?retryWrites=true&w=majority"
+  // url= "mongodb://localhost:27017/aurora"
 }
 
 model Project{
