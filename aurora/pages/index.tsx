@@ -1,14 +1,15 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import styles from '../styles/Home.module.css';
 import {
-    Work,
-    Experience,
-    LandingPage,
     About,
     Contact,
+    Experience,
+    LandingPage,
+    Work,
 } from '../components/index';
 import { ProjectInterface } from '../components/work/Work';
+import { GITHUB_PROJECTS_URL } from '../config.json';
+import styles from '../styles/Home.module.css';
 
 export interface Props {}
 
@@ -29,7 +30,6 @@ export default function Home({ projects }: { projects: ProjectInterface[] }) {
                 <About />
                 <Experience />
                 <Work projects={projects} />
-
                 <Contact />
             </main>
         </div>
@@ -37,27 +37,21 @@ export default function Home({ projects }: { projects: ProjectInterface[] }) {
 }
 
 export async function getStaticProps() {
-    console.log('here');
+    let dataResponse;
+    const response = await fetch(GITHUB_PROJECTS_URL);
+    if (response.status >= 200 && response.status <= 299) {
+        const jsonResponse = await response.json();
+        dataResponse = {
+            props: { projects: jsonResponse.projects },
+            revalidate: process.env.REVALIDATE_VALUE,
+        };
+    } else {
+        console.log(response.status);
+        dataResponse = {
+            props: { projects: [] },
+            revalidate: process.env.REVALIDATE_VALUE,
+        };
+    }
 
-    /*     const prisma = new PrismaClient();
-
-    await prisma.$connect();
-
-    const createdProject = await prisma.project.create({
-        data: {
-            title: 'test1',
-            stack: ['mongoDB', 'prisma'],
-        },
-    });
-console.log('created project', createdProject);
- */
-
-    const req = await fetch(
-        `https://e469abe1-ffd5-4df1-89d9-d80090a1779b.mock.pstmn.io/projects`
-    );
-    const data = await req.json();
-    return {
-        props: { projects: data.projects },
-        revalidate: process.env.REVALIDATE_VALUE,
-    };
+    return dataResponse;
 }

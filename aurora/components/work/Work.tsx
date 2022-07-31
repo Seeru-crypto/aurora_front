@@ -1,6 +1,6 @@
 import { Project } from '@prisma/client';
-import Card from './Card';
 import styles from '../../styles/Work.module.css';
+import Card from './Card';
 
 export type ProjectTypes = ['personal', 'freelance', 'main'];
 export type TechTypes = ['front', 'back', 'db'];
