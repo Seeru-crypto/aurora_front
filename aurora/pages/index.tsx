@@ -38,20 +38,24 @@ export default function Home({ projects }: { projects: ProjectInterface[] }) {
 
 export async function getStaticProps() {
     let dataResponse;
-    const response = await fetch(GITHUB_PROJECTS_URL);
-    if (response.status >= 200 && response.status <= 299) {
-        const jsonResponse = await response.json();
-        dataResponse = {
-            props: { projects: jsonResponse.projects },
-            revalidate: process.env.REVALIDATE_VALUE,
-        };
-    } else {
-        console.log(response.status);
-        dataResponse = {
-            props: { projects: [] },
-            revalidate: process.env.REVALIDATE_VALUE,
-        };
-    }
-
+    await fetch(GITHUB_PROJECTS_URL)
+        .then((requestPromise) => {
+            if (!requestPromise.ok)
+                throw new Error(`HTTP Error: ${requestPromise.status}`);
+            return requestPromise.json();
+        })
+        .then((data) => {
+            dataResponse = {
+                props: { projects: data.projects },
+                revalidate: process.env.REVALIDATE_VALUE,
+            };
+        })
+        .catch((error) => {
+            console.log(`request error: ${error}`);
+            dataResponse = {
+                props: { projects: [] },
+                revalidate: process.env.REVALIDATE_VALUE,
+            };
+        });
     return dataResponse;
 }

@@ -10,7 +10,7 @@ export interface AboutInterface {
 const About = () => {
     return (
         <section id="about" className={styles.container}>
-            <h1 id="about-header">About</h1>
+            <h1>About</h1>
         </section>
     );
 };

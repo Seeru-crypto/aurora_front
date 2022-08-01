@@ -5,12 +5,12 @@ export interface ExperienceInterface {
     employer: string;
     job_title: string;
     job_description: string;
-    job_type: string;
+    job_type: JobTypes;
 }
 
-const Experience = () => {
-    const jobTypes = new Set().add('main').add('freelance').add('course');
+export type JobTypes = ['course', 'freelance', 'main'];
 
+const Experience = () => {
     return (
         <section id="experience" className={styles.container}>
             <h2>Experience</h2>
