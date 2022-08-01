@@ -1,18 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
 
+:root {
+    --blue: #1e90ff;
+    --white: #ffffff;
+    --link-bkg-color: red;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5vmax;
+}
+
 body {
     background: #f2f2f2;
     color: #333;
     font-family: 'Nunito';
 }
 
-a {
+a,
+.resume {
     color: #333;
     text-decoration: none;
 }
 
 nav a:hover {
     border-bottom: 1px solid blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+}
+
+nav a,
+.resume {
+    margin-left: 12px;
+    border-bottom: 1px solid transparent;
+    padding: 0 5px 0 5px;
+    font-weight: bold;
+}
+
+nav button {
+    all: unset;
+    cursor: pointer;
+}
+
+nav .resume {
+    border: 1px solid black;
+    border-radius: 0.35rem;
+    padding: 0 1rem;
+    border-color: purple;
+    color: purple;
+}
+
+nav .resume:hover {
+    background-color: purple;
+    color: white;
 }
 
 .content {
@@ -27,10 +69,13 @@ nav {
     justify-content: flex-end;
     align-items: flex-end;
     border-bottom: 1px solid #ddd;
-}
-
-nav a {
-    margin-left: 12px;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    flex-grow: 1;
 }
 
 nav .logo {

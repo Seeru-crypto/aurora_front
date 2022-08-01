@@ -1,0 +1,9 @@
+.container {
+    height: 100vh;
+    border: 1px solid gray;
+}
+
+.workCards {
+    display: flex;
+    flex-direction: row;
+}

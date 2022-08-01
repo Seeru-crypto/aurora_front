@@ -3,11 +3,13 @@ import Footer from './footer';
 
 const Layout = ({ children }: any) => {
     return (
-        <div className="content">
+        <>
             <Navbar />
-            {children}
-            <Footer />
-        </div>
+            <div className="content">
+                {children}
+                <Footer />
+            </div>
+        </>
     );
 };
 export default Layout;

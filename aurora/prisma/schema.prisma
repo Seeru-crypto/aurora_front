@@ -1,35 +1,17 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
-
-model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-  posts Post[]
-}
-
-model Post {
-  id        Int     @id @default(autoincrement())
-  title     String
-  content   String?
-  published Boolean @default(false)
-  author    User    @relation(fields: [authorId], references: [id])
-  authorId  Int 
+  provider = "mongodb"
+  //url      = env("DATABASE_URL")
+  url= "mongodb+srv://next:htE4ALg3jKZh3rZZ@aurora.p3jx0.mongodb.net/Aurora/?retryWrites=true&w=majority"
+  // url= "mongodb://localhost:27017/aurora"
 }
 
 model Project{
-  id            Int     @id @default(autoincrement())
-  title         String
+  id            String      @id @default(auto()) @map("_id") @db.ObjectId
+  title         String      @unique
   description   String?
   stack String[]
-
 }
