@@ -1,0 +1,10 @@
+{
+    "GITHUB_PROJECTS_URL": "https://e469abe1-ffd5-4df1-89d9-d80090a1779b.mock.pstmn.io/projects",
+    "NAVIGATION_PATHS": [
+        { "value": "Home", "key": "/" },
+        { "value": "About", "key": "#about" },
+        { "value": "Experience", "key": "#experience" },
+        { "value": "Work", "key": "#work" },
+        { "value": "Contact", "key": "#contact" }
+    ]
+}
