@@ -1,0 +1,11 @@
+{
+    "projects": [
+        {
+            "repo_name": 1,
+            "project_name": "Post 1",
+            "picture_url": "This is the full content of post 1",
+            "project_type": "This is the full content of post 1",
+            "showcase": true
+        }
+    ]
+}

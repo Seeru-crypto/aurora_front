@@ -1,4 +1,3 @@
-import type { NextPage } from 'next';
 import Head from 'next/head';
 import {
     About,
@@ -8,12 +7,21 @@ import {
     Work,
 } from '../components/index';
 import { ProjectInterface } from '../components/work/Work';
-import { GITHUB_PROJECTS_URL } from '../config.json';
+import config from '../config.json';
+import { getThirdPartyData, loadProjects } from '../lib/load-data';
 import styles from '../styles/Home.module.css';
 
 export interface Props {}
 
-export default function Home({ projects }: { projects: ProjectInterface[] }) {
+export default function Home({
+    projects,
+    jsonProjects,
+}: {
+    projects: ProjectInterface[];
+    jsonProjects: any;
+}) {
+    console.log('json is ', jsonProjects);
+
     return (
         <div className={styles.container}>
             <Head>
@@ -37,25 +45,14 @@ export default function Home({ projects }: { projects: ProjectInterface[] }) {
 }
 
 export async function getStaticProps() {
-    let dataResponse;
-    await fetch(GITHUB_PROJECTS_URL)
-        .then((requestPromise) => {
-            if (!requestPromise.ok)
-                throw new Error(`HTTP Error: ${requestPromise.status}`);
-            return requestPromise.json();
-        })
-        .then((data) => {
-            dataResponse = {
-                props: { projects: data.projects },
-                revalidate: process.env.REVALIDATE_VALUE,
-            };
-        })
-        .catch((error) => {
-            console.log(`request error: ${error}`);
-            dataResponse = {
-                props: { projects: [] },
-                revalidate: process.env.REVALIDATE_VALUE,
-            };
-        });
-    return dataResponse;
+    const projects = await getThirdPartyData(config.GITHUB_PROJECTS_URL);
+    const jsonProjects = await loadProjects();
+
+    return {
+        props: {
+            jsonProjects: jsonProjects,
+            projects: projects,
+        },
+        revalidate: process.env.REVALIDATE_VALUE,
+    };
 }

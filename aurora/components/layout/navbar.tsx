@@ -1,10 +1,10 @@
 import Link from 'next/link';
-import { NAVIGATION_PATHS } from '../../config.json';
+import config from '../../config.json';
 
 const Navbar = () => {
     return (
         <nav>
-            {NAVIGATION_PATHS.map((object) => (
+            {config.NAVIGATION_PATHS.map((object) => (
                 <Link href={object.key} key={object.value}>
                     {object.value}
                 </Link>
