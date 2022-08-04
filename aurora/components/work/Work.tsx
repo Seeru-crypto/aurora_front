@@ -1,26 +1,8 @@
-import { Project } from '@prisma/client';
+import { ProjectInterface } from '../../lib/load-data';
 import styles from '../../styles/Work.module.css';
 import Card from './Card';
 
-export type ProjectTypes = ['personal', 'freelance', 'main'];
 export type TechTypes = ['front', 'back', 'db'];
-
-export interface ProjectInterface {
-    title: string;
-    description: string;
-    github_url_1: string;
-    github_url_2: string;
-    live_url: string;
-    showcase: boolean;
-    project_type: ProjectTypes;
-    build_version: number;
-    picture_url: string;
-    date_first_commit: Date;
-    date_latest_commit: Date;
-    number_of_commits: number;
-    stack: Tech[];
-    id: string;
-}
 
 export interface Tech {
     name: string;

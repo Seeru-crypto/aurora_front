@@ -1,8 +1,7 @@
 import fsPromises from 'fs/promises';
 import path from 'path';
-import { ProjectTypes } from '../components/work/Work';
 
-interface JsonProject {
+export interface ProjectJsonInterface {
     repo_name: string;
     project_name: string;
     picture_url: string;
@@ -10,26 +9,44 @@ interface JsonProject {
     showcase: boolean;
 }
 
-interface ProjectReturn {
-    projects: JsonProject[];
+export type ProjectTypes = ['personal', 'freelance', 'main'];
+
+export interface ProjectInterface
+    extends ProjectGitRepoInterface,
+        ProjectJsonInterface {}
+
+export interface ProjectGitRepoInterface {
+    description: string;
+    created_at: EpochTimeStamp;
+    updated_at: EpochTimeStamp;
+    homepage: string;
+    topics: string[];
 }
 
-export async function loadProjects(): Promise<ProjectReturn> {
+export async function loadLocalData() {
     const filePath = path.join(process.cwd(), 'data.json');
     const jsonData = await fsPromises.readFile(filePath);
     return JSON.parse(jsonData.toString());
 }
 
-export async function getThirdPartyData(url: string): Promise<any> {
+export async function getThirdPartyData(
+    url: string,
+    token?: string
+): Promise<any> {
     let response;
-    await fetch(url)
+    await fetch(url, {
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    })
         .then((requestPromise) => {
             if (!requestPromise.ok)
                 throw new Error(`HTTP Error: ${requestPromise.status}`);
             return requestPromise.json();
         })
         .then((data) => {
-            response = data.projects;
+            response = data;
         })
         .catch((error) => {
             console.log(`request error: ${error}`);
