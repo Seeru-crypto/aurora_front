@@ -1,4 +1,3 @@
-import { log } from 'console';
 import Head from 'next/head';
 import {
     About,
@@ -20,7 +19,7 @@ import styles from '../styles/Home.module.css';
 export interface Props {}
 
 export default function Home({ projects }: { projects: ProjectInterface[] }) {
-    console.log('projects is ', projects);
+    console.log(projects.length);
 
     return (
         <div className={styles.container}>
@@ -50,6 +49,8 @@ async function mergeGitData(
 ): Promise<ProjectInterface[]> {
     return Promise.all(
         projects.map(async (project) => {
+            if (project.repo_name === '') return { ...project };
+
             const gitData: ProjectGitRepoInterface = await getThirdPartyData(
                 config.GIT_REPO_DATA_URL + project.repo_name,
                 token
@@ -70,7 +71,6 @@ async function mergeGitData(
 export async function getStaticProps() {
     const jsonProjects: { projects: ProjectJsonInterface[] } =
         await loadLocalData();
-    console.log(jsonProjects);
 
     const projects = await mergeGitData(
         jsonProjects.projects,

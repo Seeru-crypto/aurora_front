@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
 
 :root {
-    --blue: #1e90ff;
-    --white: #ffffff;
-    --link-bkg-color: red;
+    --bkg-color: #fffffe;
+    --primary-color: #6246ea;
+    --secondary-color: #d1d1e9;
+    --button-text: #fffffe;
+    --paragraph: #2b2c34;
+    --header-color: #2b2c34;
 }
 
 html {
@@ -24,7 +27,7 @@ a,
 }
 
 nav a:hover {
-    border-bottom: 1px solid blue;
+    border-bottom: 1px solid var(--primary-color);
     display: flex;
     justify-content: center;
     align-items: center;

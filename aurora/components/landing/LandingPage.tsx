@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import styles from '../../styles/LandingPage.module.css';
-import creep from '../styles/Creeper2.jpg';
 
 const LandingPage = () => {
     return (

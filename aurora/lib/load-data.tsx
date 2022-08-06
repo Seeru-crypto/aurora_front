@@ -11,9 +11,13 @@ export interface ProjectJsonInterface {
 
 export type ProjectTypes = ['personal', 'freelance', 'main'];
 
-export interface ProjectInterface
-    extends ProjectGitRepoInterface,
-        ProjectJsonInterface {}
+export interface ProjectInterface extends ProjectJsonInterface {
+    description?: string;
+    created_at?: EpochTimeStamp;
+    updated_at?: EpochTimeStamp;
+    homepage?: string;
+    topics?: string[];
+}
 
 export interface ProjectGitRepoInterface {
     description: string;

@@ -3,17 +3,41 @@ import { ProjectInterface } from '../../lib/load-data';
 import styles from '../../styles/Card.module.css';
 
 const Card = ({ project }: { project: ProjectInterface }) => {
-    console.log('project is ', project);
-
     return (
         <div className={styles.container} key={project.repo_name}>
-            {project.project_name}
-            <Image
-                src={project.picture_url}
-                width={500}
-                height={400}
-                alt="no-creep!"
-            />
+            <h2 className={styles.cardTitle}>{project.project_name}</h2>
+
+            <div className={styles.imageContainer}>
+                <Image
+                    src={project.picture_url}
+                    layout="fill"
+                    alt="no-creep!"
+                />
+            </div>
+            <div>Languages:</div>
+            <div className={styles.topicList}>
+                {project.topics &&
+                    project.topics.map((topic) => (
+                        <span key={topic} className={styles.topic}>
+                            {' ' + topic}
+                        </span>
+                    ))}
+            </div>
+
+            <div className={styles.showcaseButtons}>
+                <button
+                    onClick={() => console.log('show source code')}
+                    className={styles.sourceCode}
+                >
+                    Source
+                </button>
+                <button
+                    onClick={() => console.log('show live demo')}
+                    className={styles.liveDemo}
+                >
+                    Live Example
+                </button>
+            </div>
         </div>
     );
 };
