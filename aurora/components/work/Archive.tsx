@@ -9,6 +9,7 @@ export default function Archive({
         <div>
             <h3>Arhive list!</h3>
             <p>number of arhcive projects {projects.length}</p>
+            <p>{projects[0].project_name}</p>
         </div>
     );
 }

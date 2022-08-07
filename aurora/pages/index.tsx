@@ -16,11 +16,7 @@ import {
 } from '../lib/load-data';
 import styles from '../styles/Home.module.css';
 
-export interface Props {}
-
 export default function Home({ projects }: { projects: ProjectInterface[] }) {
-    console.log(projects.length);
-
     return (
         <div className={styles.container}>
             <Head>
@@ -31,7 +27,6 @@ export default function Home({ projects }: { projects: ProjectInterface[] }) {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-
             <main className={styles.main}>
                 <LandingPage />
                 <About />

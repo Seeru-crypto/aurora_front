@@ -8,6 +8,6 @@ module.exports = {
     reactStrictMode: true,
     swcMinify: true,
     env: {
-        REVALIDATE_VALUE: 604800,
+        REVALIDATE_VALUE: 7 * 86400,
     },
 };
