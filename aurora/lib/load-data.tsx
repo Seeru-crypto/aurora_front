@@ -9,20 +9,27 @@ export interface ProjectJsonInterface {
     showcase: boolean;
 }
 
+export interface WorkProps {
+    projects: ProjectInterface[];
+    techTypes: TechTypes;
+}
+
+export type TechTypes = Map<string, string>;
+
 export type ProjectTypes = ['personal', 'freelance', 'main'];
 
 export interface ProjectInterface extends ProjectJsonInterface {
     description?: string;
-    created_at?: EpochTimeStamp;
-    updated_at?: EpochTimeStamp;
+    created_at?: string;
+    updated_at?: string;
     homepage?: string;
     topics?: string[];
 }
 
 export interface ProjectGitRepoInterface {
     description: string;
-    created_at: EpochTimeStamp;
-    updated_at: EpochTimeStamp;
+    created_at: string;
+    updated_at: string;
     homepage: string;
     topics: string[];
 }

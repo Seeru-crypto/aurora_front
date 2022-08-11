@@ -1,17 +1,16 @@
 .container {
     margin: 1rem;
-    max-width: 33%;
     overflow: auto;
-    width: auto;
-    max-height: 25rem;
-    transition: max-height 0.5s;
     box-shadow: 0 15px 50px var(--box-shadow);
     overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 33%;
 }
 
-.container:hover {
-    max-height: fit-content;
-    transition: max-height 0.5s;
+.container:hover .cardDetails {
+    max-height: 15rem;
+    transition: all ease-in-out 0.5s;
 }
 
 .cardHeader {
@@ -33,19 +32,19 @@
 
 .cardBody .topic {
     text-transform: capitalize;
-}
-
-.cardBody .topic::after {
-    content: ', ';
-}
-
-.container:hover .cardDetails {
-    transform: translateY(0);
+    display: inline-block;
 }
 
 .cardDetails {
     padding: 0.5rem;
-    transform: translateY(15rem);
+    overflow: hidden;
+    transition: max-height 1s;
+    max-height: 0;
+}
+
+.cardDetails .projectDates {
+    display: flex;
+    flex-direction: column;
 }
 
 .cardDetails .showcaseButtons {

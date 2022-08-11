@@ -1,15 +1,27 @@
 import Image from 'next/image';
-import { ProjectInterface } from '../../lib/load-data';
+import { ProjectInterface, TechTypes } from '../../lib/load-data';
 import styles from '../../styles/Card.module.css';
+import TopicBubble from './TopicBubble';
 
-const Card = ({ project }: { project: ProjectInterface }) => {
+const Card = ({
+    project,
+    techTypes,
+}: {
+    project: ProjectInterface;
+    techTypes: TechTypes;
+}) => {
+    const formatDate = (date: string) => {
+        const newDate = new Date(date);
+        const monthName = newDate.toLocaleString('default', { month: 'short' });
+        return monthName + '/' + newDate.getFullYear();
+    };
+
     // ToDo: Show 4 or 5 topics and when on hover then display all
     return (
         <div className={styles.container} key={project.repo_name}>
             <div className={styles.cardHeader}>
                 <h2 className={styles.cardTitle}>{project.project_name}</h2>
             </div>
-
             <div className={styles.cardBody}>
                 <div className={styles.imageContainer}>
                     <Image
@@ -25,7 +37,10 @@ const Card = ({ project }: { project: ProjectInterface }) => {
                     {project.topics &&
                         project.topics.map((topic) => (
                             <span key={topic} className={styles.topic}>
-                                {topic}
+                                <TopicBubble
+                                    techTypes={techTypes}
+                                    topic={topic}
+                                />
                             </span>
                         ))}
                 </div>
@@ -34,6 +49,19 @@ const Card = ({ project }: { project: ProjectInterface }) => {
             <div className={styles.cardDetails}>
                 <div className={styles.cardDescription}>
                     {project.description}
+                </div>
+
+                <div className={styles.projectDates}>
+                    {project.updated_at && (
+                        <small>
+                            Date updated: {formatDate(project.updated_at)}
+                        </small>
+                    )}
+                    {project.created_at && (
+                        <small>
+                            Date created: {formatDate(project.created_at)}
+                        </small>
+                    )}
                 </div>
 
                 <div className={styles.showcaseButtons}>

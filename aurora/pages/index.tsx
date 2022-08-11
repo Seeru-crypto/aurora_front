@@ -13,10 +13,22 @@ import {
     ProjectGitRepoInterface,
     ProjectInterface,
     ProjectJsonInterface,
+    WorkProps,
 } from '../lib/load-data';
 import styles from '../styles/Home.module.css';
 
-export default function Home({ projects }: { projects: ProjectInterface[] }) {
+export default function Home({
+    projects,
+    techTypes,
+}: {
+    projects: ProjectInterface[];
+    techTypes: Iterable<readonly [string, string]>;
+}) {
+    const workProps: WorkProps = {
+        projects,
+        techTypes: new Map<string, string>(techTypes),
+    };
+
     return (
         <div className={styles.container}>
             <Head>
@@ -31,7 +43,7 @@ export default function Home({ projects }: { projects: ProjectInterface[] }) {
                 <LandingPage />
                 <About />
                 <Experience />
-                <Work projects={projects} />
+                <Work workProps={workProps} />
                 <Contact />
             </main>
         </div>
@@ -72,9 +84,12 @@ export async function getStaticProps() {
         process.env.GITHUB_TOKEN
     );
 
+    const list: string[][] = config.TECH_TYPES;
+
     return {
         props: {
             projects: projects,
+            techTypes: list,
         },
         revalidate: process.env.REVALIDATE_VALUE,
     };

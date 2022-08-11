@@ -1,7 +1,14 @@
 div .front {
-    border-color: lightcoral;
+    border-color: rgb(218, 44, 44);
 }
 
 div .back {
     border-color: green;
+}
+
+div .other {
+    border-color: purple;
+}
+div .db {
+    border-color: blue;
 }

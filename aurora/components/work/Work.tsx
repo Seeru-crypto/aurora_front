@@ -1,19 +1,10 @@
-import { ProjectInterface } from '../../lib/load-data';
+import { ProjectInterface, WorkProps } from '../../lib/load-data';
 import styles from '../../styles/Work.module.css';
 import Archive from './Archive';
 import Card from './Card';
-import TopicBubble from './TopicBubble';
 
-export type TechTypes = ['front', 'back', 'db'];
-
-export interface Tech {
-    name: string;
-    bytesOfCode: number;
-    type: TechTypes;
-}
-
-export default function Work({ projects }: { projects: ProjectInterface[] }) {
-    const showcaseList: ProjectInterface[] = projects.filter(
+export default function Work({ workProps }: { workProps: WorkProps }) {
+    const showcaseList: ProjectInterface[] = workProps.projects.filter(
         (project) => project.showcase
     );
 
@@ -22,17 +13,18 @@ export default function Work({ projects }: { projects: ProjectInterface[] }) {
             <h1>All projects</h1>
             <div className={styles.workCards}>
                 {showcaseList.map((project, index) => (
-                    <Card key={index} project={project} />
+                    <Card
+                        key={index}
+                        project={project}
+                        techTypes={workProps.techTypes}
+                    />
                 ))}
             </div>
             <Archive
-                projects={projects.filter((project) => !project.showcase)}
+                projects={workProps.projects.filter(
+                    (project) => !project.showcase
+                )}
             />
-            <TopicBubble topic="react" />
-            <TopicBubble topic="Spring-Boot" />
-            <TopicBubble topic="No type" />
         </section>
     );
 }
-
-// ToDo: AddTransfer list iteration proccess to a server side function!
