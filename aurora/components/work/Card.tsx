@@ -55,7 +55,7 @@ const Card = ({
                         })}
                     {nrOfTopics === 5 &&
                         project.topics &&
-                        project.topics.length >= 5 && <span>...</span>}
+                        project.topics.length >= 6 && <span>...</span>}
                 </div>
             </div>
 

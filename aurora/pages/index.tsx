@@ -8,7 +8,6 @@ import {
 } from '../components/index';
 import config from '../config.json';
 import {
-    getProjectData,
     loadLocalData,
     mergeGitProjectData,
     ProjectInterface,

@@ -9,6 +9,7 @@ export interface ProjectJsonInterface {
     project_type: ProjectTypes;
     showcase: boolean;
     topics?: string[];
+    description?: string;
 }
 
 export interface WorkProps {

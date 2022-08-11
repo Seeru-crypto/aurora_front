@@ -23,11 +23,12 @@
         },
         {
             "repo_name": "",
-            "project_name": "FreeNas server",
+            "project_name": "NAS server",
             "picture_url": "/resources/FreeNAS.png",
             "project_type": "personal",
             "showcase": true,
-            "topics": ["freenas"]
+            "topics": ["freenas"],
+            "description": "A freeNas home server"
         }
     ]
 }
