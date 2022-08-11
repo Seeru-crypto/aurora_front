@@ -8,9 +8,9 @@ import {
 } from '../components/index';
 import config from '../config.json';
 import {
-    getThirdPartyData,
+    getProjectData,
     loadLocalData,
-    ProjectGitRepoInterface,
+    mergeGitProjectData,
     ProjectInterface,
     ProjectJsonInterface,
     WorkProps,
@@ -50,37 +50,11 @@ export default function Home({
     );
 }
 
-async function mergeGitData(
-    projects: ProjectJsonInterface[],
-    token: string | undefined
-): Promise<ProjectInterface[]> {
-    return Promise.all(
-        projects.map(async (project) => {
-            if (project.repo_name === '') return { ...project };
-
-            const gitData: ProjectGitRepoInterface = await getThirdPartyData(
-                config.GIT_REPO_DATA_URL + project.repo_name,
-                token
-            );
-
-            return {
-                ...project,
-                description: gitData.description,
-                created_at: gitData.created_at,
-                updated_at: gitData.updated_at,
-                homepage: gitData.homepage,
-                topics: gitData.topics,
-            };
-        })
-    );
-}
-
 export async function getStaticProps() {
-    const jsonProjects: { projects: ProjectJsonInterface[] } =
+    const localJsonData: { projects: ProjectJsonInterface[] } =
         await loadLocalData();
-
-    const projects = await mergeGitData(
-        jsonProjects.projects,
+    const projects = await mergeGitProjectData(
+        localJsonData.projects,
         process.env.GITHUB_TOKEN
     );
 
