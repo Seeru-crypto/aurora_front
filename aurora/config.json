@@ -15,7 +15,7 @@
         ["ngnix", "other"],
         ["primereact", "front"],
         ["redux", "front"],
-        ["styled-Components", "front"],
+        ["styled-components", "front"],
         ["twilio", "other"],
         ["docker-compose", "other"],
         ["github-api", "other"],

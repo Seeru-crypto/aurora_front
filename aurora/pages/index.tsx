@@ -84,12 +84,12 @@ export async function getStaticProps() {
         process.env.GITHUB_TOKEN
     );
 
-    const list: string[][] = config.TECH_TYPES;
+    const techTypeList: string[][] = config.TECH_TYPES;
 
     return {
         props: {
             projects: projects,
-            techTypes: list,
+            techTypes: techTypeList,
         },
         revalidate: process.env.REVALIDATE_VALUE,
     };

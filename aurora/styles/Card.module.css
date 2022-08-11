@@ -6,6 +6,7 @@
     margin-left: auto;
     margin-right: auto;
     max-width: 33%;
+    border-radius: 1rem;
 }
 
 .container:hover .cardDetails {
@@ -14,7 +15,7 @@
 }
 
 .cardHeader {
-    margin-left: 0.25rem;
+    margin-left: 1rem;
 }
 
 .cardBody {
@@ -33,9 +34,14 @@
 .cardBody .topic {
     text-transform: capitalize;
     display: inline-block;
+    margin-left: 0.5rem;
 }
 
+.cardBody .topicHeader {
+    margin-left: 0.5rem;
+}
 .cardDetails {
+    margin-left: 1rem;
     padding: 0.5rem;
     overflow: hidden;
     transition: max-height 1s;

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useState } from 'react';
 import { ProjectInterface, TechTypes } from '../../lib/load-data';
 import styles from '../../styles/Card.module.css';
 import TopicBubble from './TopicBubble';
@@ -10,15 +11,21 @@ const Card = ({
     project: ProjectInterface;
     techTypes: TechTypes;
 }) => {
+    const [nrOfTopics, setNrOfTopics] = useState(5);
+
     const formatDate = (date: string) => {
         const newDate = new Date(date);
         const monthName = newDate.toLocaleString('default', { month: 'short' });
         return monthName + '/' + newDate.getFullYear();
     };
 
-    // ToDo: Show 4 or 5 topics and when on hover then display all
     return (
-        <div className={styles.container} key={project.repo_name}>
+        <div
+            onMouseEnter={() => setNrOfTopics(30)}
+            onMouseLeave={() => setNrOfTopics(5)}
+            className={styles.container}
+            key={project.repo_name}
+        >
             <div className={styles.cardHeader}>
                 <h2 className={styles.cardTitle}>{project.project_name}</h2>
             </div>
@@ -31,18 +38,24 @@ const Card = ({
                         alt="no image found!"
                     />
                 </div>
-                <span>Languages:</span>
+                <span className={styles.topicHeader}>Languages:</span>
 
                 <div className={styles.topicList}>
                     {project.topics &&
-                        project.topics.map((topic) => (
-                            <span key={topic} className={styles.topic}>
-                                <TopicBubble
-                                    techTypes={techTypes}
-                                    topic={topic}
-                                />
-                            </span>
-                        ))}
+                        project.topics.map((topic, index) => {
+                            if (index < nrOfTopics)
+                                return (
+                                    <span key={topic} className={styles.topic}>
+                                        <TopicBubble
+                                            techTypes={techTypes}
+                                            topic={topic}
+                                        />
+                                    </span>
+                                );
+                        })}
+                    {nrOfTopics === 5 &&
+                        project.topics &&
+                        project.topics.length >= 5 && <span>...</span>}
                 </div>
             </div>
 
