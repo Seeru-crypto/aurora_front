@@ -9,12 +9,9 @@ const Navbar = () => {
                     {object.value}
                 </Link>
             ))}
-            <button
-                onClick={() => console.log('download resume')}
-                className="resume"
-            >
-                resume
-            </button>
+            <Link className="resume" href={config.CV_DOWNLOAD_LINK}>
+                <button className="resume">resume</button>
+            </Link>
         </nav>
     );
 };

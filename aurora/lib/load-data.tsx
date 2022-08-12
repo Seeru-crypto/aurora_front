@@ -63,7 +63,7 @@ export async function getThirdPartyData(
             response = data;
         })
         .catch((error) => {
-            console.log(`request error: ${error}`);
+            throw new Error(`HTTP Error: ${error}`);
         });
 
     return response;
