@@ -43,6 +43,10 @@ nav a,
     font-weight: bold;
 }
 
+nav a.inView {
+    color: purple;
+}
+
 nav button {
     all: unset;
     cursor: pointer;

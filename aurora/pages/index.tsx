@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { useEffect, useRef, useState } from 'react';
 import {
     About,
     Contact,
@@ -28,6 +29,22 @@ export default function Home({
         techTypes: new Map<string, string>(techTypes),
     };
 
+    const aboutRef = useRef();
+
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            const entry = entries[0];
+            console.log(entry);
+            if (entry.isIntersecting) {
+                console.log('it works');
+            }
+        });
+
+        if (aboutRef.current) {
+            observer.observe(aboutRef.current);
+        }
+    }, [aboutRef]);
+
     return (
         <div className={styles.container}>
             <Head>
@@ -40,7 +57,10 @@ export default function Home({
             </Head>
             <main className={styles.main}>
                 <LandingPage />
-                <About />
+                <div ref={aboutRef}>
+                    <About />
+                </div>
+
                 <Experience />
                 <Work workProps={workProps} />
                 <Contact />
