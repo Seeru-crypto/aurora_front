@@ -1,0 +1,15 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "darwin"]
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+  // url= "mongodb+srv://next:htE4ALg3jKZh3rZZ@aurora.p3jx0.mongodb.net/Aurora/?retryWrites=true&w=majority"
+  // url= "mongodb://localhost:27017/aurora"
+}
+
+model aurora_collection {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+}

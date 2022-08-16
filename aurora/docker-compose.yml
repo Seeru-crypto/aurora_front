@@ -1,23 +1,40 @@
-version: '3.9' # Docker Engine release 19.03.0+ [https://docs.docker.com/compose/compose-file/]
-
+version: "3.9"
 services:
-    # setup MongoDB cluster for production
-    web:
-        build: .
-        restart: always
-        container_name: aurora_front
-        ports:
-            - 5001:3000
+  nextjs:
+    container_name: aurora_front
+    build: .
+    # restart: always
+    environment:
+      - DATABASE_URL
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - 5001:3000
+    # depends_on:
+    #   - mongo
+  mongo:
+    container_name: mongo
+    hostname: mongodb
+    image: mongo:4.4
+    networks:
+      - mongo-shards
+    # restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD
+      - MONGO_INITDB_DATABASE
+    command:
+      ["--replSet", "rs0", "--bind_ip_all", "--keyFile", "/data/replica.key"]
+    volumes:
+      - /tmp:/aurora
+      - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - ./mongo/replica.key:/data/replica.key
+    ports:
+      - 27017:27017
 
-    mongo1:
-        container_name: 'mongo-db'
-        image: 'mongo:4.2'
-        restart: 'on-failure'
-        expose:
-            - 27017
-        ports:
-            - 30001:27017
-        environment:
-            MONGO_INITDB_ROOT_USERNAME: root
-            MONGO_INITDB_ROOT_PASSWORD: pass
-            MONGO_INITDB_DATABASE: db
+networks:
+  mongo-shards:
+    driver: bridge
+
+volumes:
+  mongo: ~
