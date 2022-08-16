@@ -36,7 +36,10 @@ const Contact = () => {
           {isEmailFieldVisible ? (
             <EmailDisplayField />
           ) : (
-            <Button buttonData={resumeButtonData} />
+            <>
+              <Button buttonData={resumeButtonData} />
+              <Button buttonData={{ ...resumeButtonData, bordered: true }} />
+            </>
           )}
         </div>
       </div>
