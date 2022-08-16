@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import config from '../../config.json';
 import styles from '../../styles/Contact.module.css';
 import Button, { ButtonInterface } from '../util/Button';
 import ExternalLink, { ExternalLinkInterface } from '../util/ExternalLink';
 import ContactIcon from './ContactIcon';
+import EmailDisplayField from './emailDisplayField';
 
 export interface ContactIconInterface {
     name: string;
@@ -10,32 +12,29 @@ export interface ContactIconInterface {
     href: string;
 }
 const Contact = () => {
+    const [isEmailFieldVisible, setIsEmailFieldVisible] = useState(false);
     const resumeLinkData: ExternalLinkInterface = {
         onClick: config.CV_DOWNLOAD_LINK,
         label: 'get my stuff',
     };
 
-    function logStuff() {
-        console.log('it Works!');
-    }
-
     const resumeButtonData: ButtonInterface = {
         label: 'my email',
-        onClickFunction: () => logStuff(),
+        onClickFunction: () => setIsEmailFieldVisible(!isEmailFieldVisible),
     };
 
-    const icons: ContactIconInterface[] = [
-        {
-            name: 'linkedin',
-            icon: 'linkedin-icon',
-            href: 'http://',
-        },
-        {
-            name: 'github',
-            icon: 'github-icon',
-            href: 'http://',
-        },
-    ];
+    // const icons: ContactIconInterface[] = [
+    //     {
+    //         name: 'linkedin',
+    //         icon: 'linkedin-icon',
+    //         href: 'http://',
+    //     },
+    //     {
+    //         name: 'github',
+    //         icon: 'github-icon',
+    //         href: 'http://',
+    //     },
+    // ];
 
     return (
         <section id="contact" className={styles.container}>
@@ -49,7 +48,11 @@ const Contact = () => {
                 <div className={styles.contactButtons}>
                     <ExternalLink linkData={resumeLinkData} />
                     <div>or</div>
-                    <Button buttonData={resumeButtonData} />
+                    {isEmailFieldVisible ? (
+                        <EmailDisplayField />
+                    ) : (
+                        <Button buttonData={resumeButtonData} />
+                    )}
                 </div>
             </div>
             {/* <div className={styles.contactIcons}>
