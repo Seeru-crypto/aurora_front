@@ -21,6 +21,10 @@ body {
     font-family: 'Nunito';
 }
 
+button {
+    font-family: 'Nunito';
+}
+
 a,
 .resume {
     color: #333;
