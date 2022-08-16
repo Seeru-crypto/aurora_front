@@ -1,11 +1,34 @@
 {
     "projects": [
         {
-            "repo_name": 1,
-            "project_name": "Post 1",
-            "picture_url": "This is the full content of post 1",
-            "project_type": "This is the full content of post 1",
+            "repo_name": "Dater_FE",
+            "project_name": "Dater",
+            "picture_url": "/resources/Dater.png",
+            "project_type": "personal",
             "showcase": true
+        },
+        {
+            "repo_name": "aurora_front",
+            "project_name": "Aurora",
+            "picture_url": "/Aurora",
+            "project_type": "personal",
+            "showcase": true
+        },
+        {
+            "repo_name": "",
+            "project_name": "Archive prj 1",
+            "picture_url": "/resources/FreeNAS.png",
+            "project_type": "personal",
+            "showcase": false
+        },
+        {
+            "repo_name": "",
+            "project_name": "NAS server",
+            "picture_url": "/resources/FreeNAS.png",
+            "project_type": "personal",
+            "showcase": true,
+            "topics": ["freenas"],
+            "description": "A freeNas home server"
         }
     ]
 }

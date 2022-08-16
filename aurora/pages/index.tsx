@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { useEffect, useRef, useState } from 'react';
 import {
     About,
     Contact,
@@ -6,21 +7,43 @@ import {
     LandingPage,
     Work,
 } from '../components/index';
-import { ProjectInterface } from '../components/work/Work';
 import config from '../config.json';
-import { getThirdPartyData, loadProjects } from '../lib/load-data';
+import {
+    loadLocalData,
+    mergeGitProjectData,
+    ProjectInterface,
+    ProjectJsonInterface,
+    WorkProps,
+} from '../lib/load-data';
 import styles from '../styles/Home.module.css';
-
-export interface Props {}
 
 export default function Home({
     projects,
-    jsonProjects,
+    techTypes,
 }: {
     projects: ProjectInterface[];
-    jsonProjects: any;
+    techTypes: Iterable<readonly [string, string]>;
 }) {
-    console.log('json is ', jsonProjects);
+    const workProps: WorkProps = {
+        projects,
+        techTypes: new Map<string, string>(techTypes),
+    };
+
+    const aboutRef = useRef();
+
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            const entry = entries[0];
+            console.log(entry);
+            if (entry.isIntersecting) {
+                console.log('it works');
+            }
+        });
+
+        if (aboutRef.current) {
+            observer.observe(aboutRef.current);
+        }
+    }, [aboutRef]);
 
     return (
         <div className={styles.container}>
@@ -32,12 +55,14 @@ export default function Home({
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-
             <main className={styles.main}>
                 <LandingPage />
-                <About />
+                <div ref={aboutRef}>
+                    <About />
+                </div>
+
                 <Experience />
-                <Work projects={projects} />
+                <Work workProps={workProps} />
                 <Contact />
             </main>
         </div>
@@ -45,13 +70,19 @@ export default function Home({
 }
 
 export async function getStaticProps() {
-    const projects = await getThirdPartyData(config.GITHUB_PROJECTS_URL);
-    const jsonProjects = await loadProjects();
+    const localJsonData: { projects: ProjectJsonInterface[] } =
+        await loadLocalData();
+    const projects = await mergeGitProjectData(
+        localJsonData.projects,
+        process.env.GITHUB_TOKEN
+    );
+
+    const techTypeList: string[][] = config.TECH_TYPES;
 
     return {
         props: {
-            jsonProjects: jsonProjects,
             projects: projects,
+            techTypes: techTypeList,
         },
         revalidate: process.env.REVALIDATE_VALUE,
     };

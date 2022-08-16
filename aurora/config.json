@@ -1,10 +1,28 @@
 {
-    "GITHUB_PROJECTS_URL": "https://e469abe1-ffd5-4df1-89d9-d80090a1779b.mock.pstmn.io/projects",
     "NAVIGATION_PATHS": [
         { "value": "Home", "key": "/" },
         { "value": "About", "key": "#about" },
         { "value": "Experience", "key": "#experience" },
         { "value": "Work", "key": "#work" },
         { "value": "Contact", "key": "#contact" }
-    ]
+    ],
+    "TECH_TYPES": [
+        ["react", "front"],
+        ["spring-boot", "back"],
+        ["docker", "other"],
+        ["heroku", "other"],
+        ["mongodb", "db"],
+        ["ngnix", "other"],
+        ["primereact", "front"],
+        ["redux", "front"],
+        ["styled-components", "front"],
+        ["twilio", "other"],
+        ["docker-compose", "other"],
+        ["github-api", "other"],
+        ["nextjs", "front"],
+        ["prisma", "front"]
+    ],
+    "GIT_REPO_DATA_URL_1": "https://api.github.com/repos/Seeru-crypto/",
+    "GIT_REPO_DATA_URL": "https://e469abe1-ffd5-4df1-89d9-d80090a1779b.mock.pstmn.io/",
+    "CV_DOWNLOAD_LINK": "https://dl.dropboxusercontent.com/s/x5riy30cqyyr3a1/dev-cv.pdf?dl=0"
 }

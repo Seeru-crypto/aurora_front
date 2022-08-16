@@ -1,39 +1,95 @@
 import fsPromises from 'fs/promises';
 import path from 'path';
-import { ProjectTypes } from '../components/work/Work';
+import config from '../config.json';
 
-interface JsonProject {
+export interface ProjectJsonInterface {
     repo_name: string;
     project_name: string;
     picture_url: string;
     project_type: ProjectTypes;
     showcase: boolean;
+    topics?: string[];
+    description?: string;
 }
 
-interface ProjectReturn {
-    projects: JsonProject[];
+export interface WorkProps {
+    projects: ProjectInterface[];
+    techTypes: TechTypes;
 }
 
-export async function loadProjects(): Promise<ProjectReturn> {
+export type TechTypes = Map<string, string>;
+
+export type ProjectTypes = ['personal', 'freelance', 'main'];
+
+export interface ProjectInterface extends ProjectJsonInterface {
+    description?: string;
+    created_at?: string;
+    updated_at?: string;
+    homepage?: string;
+    topics?: string[];
+}
+
+export interface ProjectGitRepoInterface {
+    description: string;
+    created_at: string;
+    updated_at: string;
+    homepage: string;
+    topics: string[];
+}
+
+export async function loadLocalData() {
     const filePath = path.join(process.cwd(), 'data.json');
     const jsonData = await fsPromises.readFile(filePath);
     return JSON.parse(jsonData.toString());
 }
 
-export async function getThirdPartyData(url: string): Promise<any> {
+export async function getThirdPartyData(
+    url: string,
+    token?: string
+): Promise<any> {
     let response;
-    await fetch(url)
+    await fetch(url, {
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    })
         .then((requestPromise) => {
             if (!requestPromise.ok)
                 throw new Error(`HTTP Error: ${requestPromise.status}`);
             return requestPromise.json();
         })
         .then((data) => {
-            response = data.projects;
+            response = data;
         })
         .catch((error) => {
-            console.log(`request error: ${error}`);
+            throw new Error(`HTTP Error: ${error}`);
         });
 
     return response;
+}
+
+export async function mergeGitProjectData(
+    projects: ProjectJsonInterface[],
+    token: string | undefined
+): Promise<ProjectInterface[]> {
+    return Promise.all(
+        projects.map(async (project) => {
+            if (project.repo_name === '') return { ...project };
+
+            const gitData: ProjectGitRepoInterface = await getThirdPartyData(
+                config.GIT_REPO_DATA_URL + project.repo_name,
+                token
+            );
+
+            return {
+                ...project,
+                description: gitData.description,
+                created_at: gitData.created_at,
+                updated_at: gitData.updated_at,
+                homepage: gitData.homepage,
+                topics: gitData.topics,
+            };
+        })
+    );
 }
