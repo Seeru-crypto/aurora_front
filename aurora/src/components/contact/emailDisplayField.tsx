@@ -1,13 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const emailAddress = 'email@gmail.com';
 const EmailDisplayField = () => {
-    return <EmailStyle>email@gmail.com</EmailStyle>;
+    navigator.clipboard.writeText(emailAddress);
+
+    return <EmailStyle>{emailAddress}</EmailStyle>;
 };
 
 export default EmailDisplayField;
 
 const EmailStyle = styled.div`
+    border-radius: 0.5rem;
+    border: transparent;
     padding: 0.5rem 1rem;
-    border: 1px solid black;
+    background-color: var(--primary-color);
+    color: var(--button-text);
+
+    padding: 0.5rem 1rem;
 `;

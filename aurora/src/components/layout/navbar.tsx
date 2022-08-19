@@ -10,7 +10,7 @@ const Navbar = () => {
     return (
         <nav>
             {config.NAVIGATION_PATHS.map((object) => (
-                <Link className="test" href={object.key} key={object.value}>
+                <Link href={object.key} key={object.value}>
                     <a className={isInView(object.value)}>{object.value}</a>
                 </Link>
             ))}
