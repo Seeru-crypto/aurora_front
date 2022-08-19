@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import config from '../../config.json';
 import styles from '../../styles/Contact.module.css';
 import Button, { ButtonInterface } from '../util/Button';
@@ -36,6 +36,15 @@ const Contact = () => {
             href: 'https://github.com/Seeru-crypto',
         },
     ];
+
+    useEffect(() => {
+        if (isEmailFieldVisible) {
+            setTimeout(() => {
+                alert('saved to clipboard');
+            }, 100);
+        }
+    }, [isEmailFieldVisible]);
+
     // ToDo fix contactIcons css in mobile view!
     return (
         <section id="contact" className={styles.container}>
