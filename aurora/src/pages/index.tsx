@@ -7,6 +7,7 @@ import {
     LandingPage,
     Work,
 } from '../components/index';
+import Toast from '../components/util/Toast';
 import config from '../config.json';
 import {
     loadLocalData,
@@ -15,6 +16,8 @@ import {
     ProjectJsonInterface,
     WorkProps,
 } from '../lib/load-data';
+import { changeToastValue } from '../state/appSlice';
+import { RootState, useAppDispatch, useAppSelector } from '../state/store';
 import styles from '../styles/Home.module.css';
 
 export default function Home({
@@ -28,6 +31,19 @@ export default function Home({
         projects,
         techTypes: new Map<string, string>(techTypes),
     };
+
+    const isToastShown: boolean = useAppSelector(
+        (state: RootState) => state.counter.isToastShown
+    );
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        if (isToastShown) {
+            setTimeout(() => {
+                dispatch(changeToastValue());
+            }, 3000);
+        }
+    }, [isToastShown]);
 
     const aboutRef = useRef();
 
@@ -56,6 +72,7 @@ export default function Home({
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className={styles.main}>
+                {isToastShown && <Toast />}
                 <LandingPage />
                 <div ref={aboutRef}>
                     <About />

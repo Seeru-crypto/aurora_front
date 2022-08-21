@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import config from '../../config.json';
+import { changeToastValue } from '../../state/appSlice';
+import { RootState, useAppDispatch, useAppSelector } from '../../state/store';
 import styles from '../../styles/Contact.module.css';
 import Button, { ButtonInterface } from '../util/Button';
 import ExternalLink, { ExternalLinkInterface } from '../util/ExternalLink';
@@ -12,15 +14,23 @@ export interface ContactIconInterface {
     href: string;
 }
 const Contact = () => {
-    const [isEmailFieldVisible, setIsEmailFieldVisible] = useState(false);
     const resumeLinkData: ExternalLinkInterface = {
         onClick: config.CV_DOWNLOAD_LINK,
         label: 'get my stuff',
     };
+    const isToastShown: boolean = useAppSelector(
+        (state: RootState) => state.counter.isToastShown
+    );
+
+    const [isEmailShown, setIsEmailShown] = useState(isToastShown);
+
+    useEffect(() => {
+        if (isToastShown) setIsEmailShown(true);
+    }, [isToastShown]);
 
     const resumeButtonData: ButtonInterface = {
         label: 'my email',
-        onClickFunction: () => setIsEmailFieldVisible(!isEmailFieldVisible),
+        onClickFunction: () => dispatch(changeToastValue()),
         bordered: true,
     };
 
@@ -37,13 +47,7 @@ const Contact = () => {
         },
     ];
 
-    useEffect(() => {
-        if (isEmailFieldVisible) {
-            setTimeout(() => {
-                alert('saved to clipboard');
-            }, 100);
-        }
-    }, [isEmailFieldVisible]);
+    const dispatch = useAppDispatch();
 
     // ToDo fix contactIcons css in mobile view!
     return (
@@ -58,18 +62,16 @@ const Contact = () => {
                 <div className={styles.contactButtons}>
                     <ExternalLink linkData={resumeLinkData} />
                     <div>or</div>
-                    {isEmailFieldVisible ? (
+                    {isEmailShown ? (
                         <EmailDisplayField />
                     ) : (
-                        <>
-                            <Button buttonData={resumeButtonData} />
-                        </>
+                        <Button buttonData={resumeButtonData} />
                     )}
                 </div>
             </div>
             <div className={styles.contactIcons}>
                 {icons.map((icon) => (
-                    <ContactIcon icon={icon} />
+                    <ContactIcon key={icon.name} icon={icon} />
                 ))}
             </div>
         </section>
