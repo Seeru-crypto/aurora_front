@@ -14,26 +14,6 @@ export interface ContactIconInterface {
     href: string;
 }
 const Contact = () => {
-    const resumeLinkData: ExternalLinkInterface = {
-        onClick: config.CV_DOWNLOAD_LINK,
-        label: 'get my stuff',
-    };
-    const isToastShown: boolean = useAppSelector(
-        (state: RootState) => state.counter.isToastShown
-    );
-
-    const [isEmailShown, setIsEmailShown] = useState(isToastShown);
-
-    useEffect(() => {
-        if (isToastShown) setIsEmailShown(true);
-    }, [isToastShown]);
-
-    const resumeButtonData: ButtonInterface = {
-        label: 'my email',
-        onClickFunction: () => dispatch(changeToastValue()),
-        bordered: true,
-    };
-
     const icons: ContactIconInterface[] = [
         {
             name: 'linkedIn',
@@ -46,6 +26,25 @@ const Contact = () => {
             href: 'https://github.com/Seeru-crypto',
         },
     ];
+    const resumeLinkData: ExternalLinkInterface = {
+        onClick: config.CV_DOWNLOAD_LINK,
+        label: 'get my stuff',
+    };
+    const resumeButtonData: ButtonInterface = {
+        label: 'my email',
+        onClickFunction: () => dispatch(changeToastValue()),
+        bordered: true,
+    };
+
+    const isToastShown: boolean = useAppSelector(
+        (state: RootState) => state.counter.isToastShown
+    );
+
+    const [isEmailShown, setIsEmailShown] = useState(isToastShown);
+
+    useEffect(() => {
+        if (isToastShown && !isEmailShown) setIsEmailShown(true);
+    }, [isToastShown]);
 
     const dispatch = useAppDispatch();
 

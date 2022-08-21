@@ -4,12 +4,14 @@ export interface AppState {
     value: number;
     incrementAmount: number;
     isToastShown: boolean;
+    currentPage: string;
 }
 
 const initialState: AppState = {
     value: 0,
     incrementAmount: 1,
     isToastShown: false,
+    currentPage: '',
 };
 
 export const appSlice = createSlice({
@@ -29,10 +31,18 @@ export const appSlice = createSlice({
         changeToastValue: (state) => {
             state.isToastShown = !state.isToastShown;
         },
+        setCurrentPage: (state, action: PayloadAction<string>) => {
+            state.currentPage = action.payload;
+        },
     },
 });
 
-export const { increment, decrement, changeIncrementAmount, changeToastValue } =
-    appSlice.actions;
+export const {
+    increment,
+    decrement,
+    changeIncrementAmount,
+    changeToastValue,
+    setCurrentPage,
+} = appSlice.actions;
 
 export default appSlice.reducer;
