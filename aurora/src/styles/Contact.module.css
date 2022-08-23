@@ -28,7 +28,11 @@
 }
 
 .contactIcons {
+    margin-top: 25vh;
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    flex-direction: row;
+    padding: 0.5rem;
+    gap: 0.5rem;
 }
