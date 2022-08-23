@@ -1,5 +1,5 @@
-import Footer from "./footer";
-import Navbar from "./navbar";
+import Footer from '../components/layout/Footer';
+import Navbar from '../components/layout/Navbar';
 
 export default function Layout({ children }: any): JSX.Element {
   return (

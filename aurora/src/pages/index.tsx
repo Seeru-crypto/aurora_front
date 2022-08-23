@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useEffect, useRef } from 'react';
-import About from '../components/about/About';
+import About from '../components/About/About';
 import Contact from '../components/contact/Contact';
 import Experience from '../components/experience/Experience';
 import LandingPage from '../components/landing/LandingPage';
@@ -14,7 +14,8 @@ import {
   ProjectJsonInterface,
   WorkProps,
 } from '../services/load-data';
-// import { useAppSelector, RootState, useAppDispatch } from '../state/store';
+import { toggleToastVisibility } from '../state/appSlice';
+import { RootState, useAppDispatch, useAppSelector } from '../state/store';
 import styles from '../styles/Home.module.css';
 
 export default function Home({
@@ -29,20 +30,18 @@ export default function Home({
     techTypes: new Map<string, string>(techTypes),
   };
 
-  // const isToastShown: boolean = useAppSelector((state: RootState) => state.counter.isToastShown);
-  // const dispatch = useAppDispatch();
-  const isToastShown = false;
+  const isToastShown: boolean = useAppSelector((state: RootState) => state.app.isToastShown);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (isToastShown) {
       setTimeout(() => {
-        // TODO: Fix this issue
-        // dispatch(changeToastValue());
+        dispatch(toggleToastVisibility());
       }, 3000);
     }
-  }, [isToastShown]);
+  }, [dispatch, isToastShown]);
 
-  const aboutRef = useRef();
+  const aboutRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
