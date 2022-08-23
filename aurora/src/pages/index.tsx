@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import {
     About,
     Contact,
@@ -72,7 +72,7 @@ export default function Home({
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className={styles.main}>
-                {isToastShown && <Toast />}
+                {isToastShown && <Toast message="Added to clipboard" />}
                 <LandingPage />
                 <div ref={aboutRef}>
                     <About />

@@ -14,18 +14,7 @@ export interface ContactIconInterface {
     href: string;
 }
 const Contact = () => {
-    const icons: ContactIconInterface[] = [
-        {
-            name: 'linkedIn',
-            icon: 'svg-linkedin.svg',
-            href: 'https://www.linkedin.com',
-        },
-        {
-            name: 'gitHub',
-            icon: 'svg-github.svg',
-            href: 'https://github.com/Seeru-crypto',
-        },
-    ];
+    const icons: ContactIconInterface[] = config.ICONS;
     const resumeLinkData: ExternalLinkInterface = {
         onClick: config.CV_DOWNLOAD_LINK,
         label: 'get my stuff',
@@ -48,7 +37,6 @@ const Contact = () => {
 
     const dispatch = useAppDispatch();
 
-    // ToDo fix contactIcons css in mobile view!
     return (
         <section id="contact" className={styles.container}>
             <div className={styles.contactMain}>

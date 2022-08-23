@@ -1,13 +1,12 @@
 import Link from 'next/link';
 import { useEffect } from 'react';
 import config from '../../config.json';
-import { RootState, useAppDispatch, useAppSelector } from '../../state/store';
+import { RootState, useAppSelector } from '../../state/store';
 
 const Navbar = () => {
     const currentPage: string = useAppSelector(
         (state: RootState) => state.counter.currentPage
     );
-    const dispatch = useAppDispatch();
 
     useEffect(() => {
         console.log('currentPage ' + currentPage);
