@@ -1,4 +1,4 @@
-import { ProjectInterface } from '../../lib/load-data';
+import { ProjectInterface } from '../../services/load-data';
 
 export default function Archive({
     projects,

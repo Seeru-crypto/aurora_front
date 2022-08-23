@@ -10,7 +10,7 @@ export interface ContactIconInterface {
   icon: string;
   href: string;
 }
-const Contact = () => {
+export default function Contact(): JSX.Element {
   const [isEmailFieldVisible, setIsEmailFieldVisible] = useState(false);
   const resumeLinkData: ExternalLinkInterface = {
     onClick: config.CV_DOWNLOAD_LINK,
@@ -27,8 +27,11 @@ const Contact = () => {
       <div className={styles.contactMain}>
         <h1 className={styles.heading}>Get in touch with me!</h1>
         <section className={styles.contactText}>
-          You can share your impressions on why would someone need your services
-          or whatnot, I don't know, I'm not the all-seeing entity of all.
+          <p>
+            You can share your impressions on why would someone need your
+            services or whatnot, I don&apos;t know, I&apos;m not the all-seeing
+            entity of all.
+          </p>
         </section>
         <div className={styles.contactButtons}>
           <ExternalLink linkData={resumeLinkData} />
@@ -51,6 +54,4 @@ const Contact = () => {
             </div> */}
     </section>
   );
-};
-
-export default Contact;
+}

@@ -1,15 +1,14 @@
-import Navbar from './navbar';
-import Footer from './footer';
+import Footer from "./footer";
+import Navbar from "./navbar";
 
-const Layout = ({ children }: any) => {
-    return (
-        <>
-            <Navbar />
-            <div className="content">
-                {children}
-                <Footer />
-            </div>
-        </>
-    );
-};
-export default Layout;
+export default function Layout({ children }: any): JSX.Element {
+  return (
+    <>
+      <Navbar />
+      <div className="content">
+        {children}
+        <Footer />
+      </div>
+    </>
+  );
+}

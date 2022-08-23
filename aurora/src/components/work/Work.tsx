@@ -1,4 +1,4 @@
-import { ProjectInterface, WorkProps } from '../../lib/load-data';
+import { ProjectInterface, WorkProps } from '../../services/load-data';
 import styles from '../../styles/Work.module.css';
 import Archive from './Archive';
 import Card from './Card';

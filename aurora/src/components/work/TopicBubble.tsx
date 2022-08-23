@@ -1,4 +1,4 @@
-import { TechTypes } from '../../lib/load-data';
+import { TechTypes } from '../../services/load-data';
 import styles from '../../styles/TopicBubble.module.css';
 
 export default function TopicBubble({

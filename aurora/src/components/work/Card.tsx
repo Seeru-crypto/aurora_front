@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { useState } from 'react';
-import { ProjectInterface, TechTypes } from '../../lib/load-data';
+import { ProjectInterface, TechTypes } from '../../services/load-data';
 import styles from '../../styles/Card.module.css';
 import TopicBubble from './TopicBubble';
 

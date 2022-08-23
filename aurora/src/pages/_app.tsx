@@ -1,11 +1,11 @@
-import type { AppProps } from "next/app";
-import { Provider } from "react-redux";
-import Layout from "../components/layout/layout";
-import { store } from "../state/store";
-import "../styles/globals.css";
-import "../styles/topic.css";
+import type { AppProps } from 'next/app';
+import { Provider } from 'react-redux';
+import Layout from '../components/layout/layout';
+import { store } from '../state/store';
+import '../styles/globals.css';
+import '../styles/topic.css';
 
-function MyApp({ Component, pageProps }: AppProps) {
+export default function Aurora({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <Provider store={store}>
       <Layout>
@@ -14,5 +14,3 @@ function MyApp({ Component, pageProps }: AppProps) {
     </Provider>
   );
 }
-
-export default MyApp;

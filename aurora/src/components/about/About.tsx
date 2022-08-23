@@ -9,7 +9,7 @@ export interface AboutInterface {
   linkedIn__url: string;
   contact_email: string;
 }
-const About = () => {
+export default function About(): JSX.Element {
   const activeCount = useAppSelector((state: RootState) => state.counter.value);
   const dispatch = useAppDispatch();
 
@@ -21,6 +21,4 @@ const About = () => {
       <button onClick={() => dispatch(decrement())}>Decrement</button>
     </section>
   );
-};
-
-export default About;
+}
