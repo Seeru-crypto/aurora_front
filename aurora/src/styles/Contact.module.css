@@ -24,7 +24,9 @@
 .contactButtons {
     display: flex;
     flex-direction: row;
-    gap: 0.5rem;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
 }
 
 .contactIcons {
