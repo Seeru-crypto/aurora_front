@@ -24,5 +24,4 @@ export const appSlice = createSlice({
 });
 
 export const { toggleToastVisibility, setActiveSection } = appSlice.actions;
-
 export default appSlice.reducer;

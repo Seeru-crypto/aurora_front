@@ -1,4 +1,4 @@
-import styles from "../../styles/Experience.module.css";
+import { NAVIGATION_PATHS } from '../../Navigation';
 export interface ExperienceInterface {
   date_started: Date;
   date_ended: Date;
@@ -8,11 +8,11 @@ export interface ExperienceInterface {
   job_type: JobTypes;
 }
 
-export type JobTypes = ["course", "freelance", "main"];
+export type JobTypes = ['course', 'freelance', 'main'];
 
-export default function Experience(): JSX.Element {
+export default function ExperienceSection(): JSX.Element {
   return (
-    <section id="experience" className={styles.container}>
+    <section id={NAVIGATION_PATHS.Experience}>
       <h2>Experience</h2>
       <p>Option B</p>
     </section>

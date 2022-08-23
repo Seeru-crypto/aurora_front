@@ -1,113 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
-
 :root {
-    --bkg-color: #fffffe;
-    --primary-color: #6246ea;
-    --secondary-color: #d1d1e9;
-    --button-text: #fffffe;
-    --paragraph: #2b2c34;
-    --header-color: #2b2c34;
-    --box-shadow: #2b2c34;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 5vmax;
-}
-
-body {
-    background: #f2f2f2;
-    color: #333;
-    font-family: 'Nunito';
-}
-
-button {
-    font-family: 'Nunito';
-}
-
-a,
-.resume {
-    color: #333;
-    text-decoration: none;
-}
-
-nav a:hover {
-    border-bottom: 1px solid var(--primary-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 1s;
-}
-
-nav a,
-.resume {
-    margin-left: 12px;
-    border-bottom: 1px solid transparent;
-    padding: 0 5px 0 5px;
-    font-weight: bold;
-}
-
-nav a.inView {
-    color: purple;
-}
-
-nav button {
-    all: unset;
-    cursor: pointer;
-}
-
-nav .resume {
-    border: 1px solid black;
-    border-radius: 0.35rem;
-    padding: 0 1rem;
-    border-color: purple;
-    color: purple;
-}
-
-nav .resume:hover {
-    background-color: purple;
-    color: white;
+  --bkg-color: #fffffe;
+  --primary-color: #6246ea;
+  --secondary-color: #d1d1e9;
+  --button-text: #fffffe;
+  --paragraph: #2b2c34;
+  --header-color: #2b2c34;
+  --box-shadow: #2b2c34;
 }
 
 .content {
-    max-width: 960px;
-    margin: 0 auto;
-}
-
-nav {
-    margin: 10px auto 0px;
-    padding: 10px 0;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    border-bottom: 1px solid #ddd;
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    flex-grow: 1;
-}
-
-nav .logo {
-    margin-right: auto;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 footer {
-    display: block;
-    text-align: center;
-    padding: 30px 0;
-    margin-top: 60px;
-    color: #777;
-    border-top: 1px solid #eaeaea;
+  display: block;
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 60px;
+  color: #777;
+  border-top: 1px solid #eaeaea;
 }
 
 .not-found {
-    text-align: center;
+  text-align: center;
 }
 
 .not-found a {
-    color: #4979ff;
-    text-decoration: underline;
+  color: #4979ff;
+  text-decoration: underline;
 }
