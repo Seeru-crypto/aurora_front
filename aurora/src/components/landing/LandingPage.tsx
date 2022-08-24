@@ -1,9 +1,10 @@
 import Image from 'next/image';
 import styles from '../../styles/LandingPage.module.css';
+import React, {ForwardedRef} from "react";
 
-const LandingPage = () => {
+const LandingPage = React.forwardRef (( props,ref: ForwardedRef<HTMLElement>) => {
     return (
-        <section className={styles.container}>
+        <section id="home" ref={ref} className={styles.container}>
             <div className={styles.right}>
                 <Image
                     src="/resources/Creeper2.jpg"
@@ -19,6 +20,8 @@ const LandingPage = () => {
             </div>
         </section>
     );
-};
+});
+
+LandingPage.displayName="landing page"
 
 export default LandingPage;

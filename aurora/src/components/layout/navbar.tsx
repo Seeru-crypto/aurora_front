@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { useEffect } from 'react';
 import config from '../../config.json';
 import { RootState, useAppSelector } from '../../state/store';
 import {ExternalLink, ExternalLinkInterface} from "../util";
@@ -15,12 +14,8 @@ const Navbar = () => {
         isNavbarButton: true
     }
 
-    useEffect(() => {
-        console.log('currentPage ' + currentPage);
-    }, [currentPage]);
-
     function isInView(pageName: string) {
-        if (pageName === 'About') return 'inView';
+        if (pageName.toLowerCase() === currentPage) return 'inView';
         else return '';
     }
 

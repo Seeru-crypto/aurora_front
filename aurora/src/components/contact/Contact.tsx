@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, {ForwardedRef, useEffect, useState} from 'react';
 import config from '../../config.json';
 import data from "../../data.json"
 import { changeToastValue } from '../../state/appSlice';
@@ -14,7 +14,7 @@ export interface ContactIconInterface {
     href: string;
 }
 
-export default function Contact () : JSX.Element {
+const Contact = React.forwardRef ((props, ref: ForwardedRef<HTMLElement>) : JSX.Element => {
     const icons: ContactIconInterface[] = config.ICONS;
     const resumeLinkData: ExternalLinkInterface = {
         onClick: config.CV_DOWNLOAD_LINK,
@@ -40,7 +40,7 @@ export default function Contact () : JSX.Element {
     const dispatch = useAppDispatch();
 
     return (
-        <ContactStyle id="contact">
+        <ContactStyle ref={ref} id="contact">
             <div className={'contactMain'}>
                 <h1 className={'heading'}>{data.contactHeader}</h1>
                 <section className={'contactText'}>
@@ -63,7 +63,12 @@ export default function Contact () : JSX.Element {
             </div>
         </ContactStyle>
     );
-};
+});
+
+Contact.displayName="Contact display";
+
+export default Contact;
+
 
 const ContactStyle = styled.section`
     border: 1px solid purple;
@@ -105,5 +110,4 @@ const ContactStyle = styled.section`
     padding: 0.5rem;
     gap: 0.5rem;
   }
-
 `;

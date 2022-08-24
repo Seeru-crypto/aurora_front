@@ -15,7 +15,7 @@ import {
     ProjectJsonInterface,
     WorkProps,
 } from '../lib/load-data';
-import { changeToastValue } from '../state/appSlice';
+import {changeToastValue, setCurrentPage} from '../state/appSlice';
 import { RootState, useAppDispatch, useAppSelector } from '../state/store';
 import styles from '../styles/Home.module.css';
 import {Toast} from "../components/util";
@@ -36,6 +36,7 @@ export default function Home({
         (state: RootState) => state.counter.isToastShown
     );
     const dispatch = useAppDispatch();
+    const currentPage = useAppSelector((state: RootState) => state.counter.currentPage);
 
     useEffect(() => {
         if (isToastShown) {
@@ -45,21 +46,33 @@ export default function Home({
         }
     }, [isToastShown]);
 
-    const aboutRef = useRef();
+    const aboutRef = useRef<HTMLDivElement>(null)
+    const experienceRef = useRef<HTMLDivElement>(null)
+    const contactRef = useRef<HTMLDivElement>(null)
+    const landingRef = useRef<HTMLDivElement>(null)
+    const projectRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            const entry = entries[0];
-            console.log(entry);
-            if (entry.isIntersecting) {
-                console.log('it works');
-            }
-        });
+        if (!aboutRef.current || !experienceRef.current) return;
+        if (!landingRef.current || !contactRef.current) return;
+        if (!projectRef.current) return;
 
-        if (aboutRef.current) {
-            observer.observe(aboutRef.current);
-        }
-    }, [aboutRef]);
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    dispatch(setCurrentPage(entry.target.id))
+                }
+            });
+        });
+           observer.observe(aboutRef.current);
+         observer.observe(experienceRef.current);
+        observer.observe(contactRef.current);
+        observer.observe(landingRef.current);
+        observer.observe(projectRef.current);
+
+
+    }, [aboutRef, experienceRef, dispatch]);
 
     return (
         <div className={styles.container}>
@@ -73,14 +86,11 @@ export default function Home({
             </Head>
             <main className={styles.main}>
                 {isToastShown && <Toast message="Added to clipboard" />}
-                <LandingPage />
-                <div ref={aboutRef}>
-                    <About />
-                </div>
-
-                <Experience />
-                <Work workProps={workProps} />
-                <Contact />
+                <LandingPage ref={landingRef} />
+                <About ref={aboutRef} />
+                <Experience ref={experienceRef} />
+                <Work workProps={workProps} ref={projectRef} />
+                <Contact ref={contactRef} />
             </main>
         </div>
     );
