@@ -15,7 +15,12 @@ const Navbar = () => {
     }
 
     function isInView(pageName: string) {
-        if (pageName.toLowerCase() === currentPage) return 'inView';
+        if (pageName.toLowerCase() === currentPage) {
+            // Question how to handle this situation where user clicks but a url changes for a moment, thus cancelling
+            // navigation
+            // window.history.replaceState(null, "title", `${currentPage}`)
+            return 'inView';
+        }
         else return '';
     }
 

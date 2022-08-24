@@ -2,7 +2,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import { ContactIconInterface } from './Contact';
 
-export default function ({ icon }: { icon: ContactIconInterface }) {
+export default function ContactIcon ({ icon }: { icon: ContactIconInterface }) {
     return (
         <ImageStyle href={icon.href} target="_blank">
             <Image
