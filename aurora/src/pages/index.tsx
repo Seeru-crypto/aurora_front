@@ -36,7 +36,6 @@ export default function Home({
         (state: RootState) => state.counter.isToastShown
     );
     const dispatch = useAppDispatch();
-    const currentPage = useAppSelector((state: RootState) => state.counter.currentPage);
 
     useEffect(() => {
         if (isToastShown) {
@@ -53,26 +52,37 @@ export default function Home({
     const projectRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        if (!aboutRef.current || !experienceRef.current) return;
-        if (!landingRef.current || !contactRef.current) return;
-        if (!projectRef.current) return;
-
-
-        const observer = new IntersectionObserver((entries) => {
+        const intersectionCallback = (entries :  IntersectionObserverEntry[]) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     dispatch(setCurrentPage(entry.target.id))
                 }
             });
-        });
-           observer.observe(aboutRef.current);
-         observer.observe(experienceRef.current);
-        observer.observe(contactRef.current);
-        observer.observe(landingRef.current);
-        observer.observe(projectRef.current);
+        }
 
+        const intersectionOptions = {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0.80
+        }
 
-    }, [aboutRef, experienceRef, dispatch]);
+        const observer = new IntersectionObserver(intersectionCallback, intersectionOptions);
+
+        if (landingRef.current) observer.observe(landingRef.current);
+        if (aboutRef.current) observer.observe(aboutRef.current);
+        if (experienceRef.current) observer.observe(experienceRef.current);
+        if (projectRef.current) observer.observe(projectRef.current);
+        if (contactRef.current) observer.observe(contactRef.current);
+
+        return () => {
+            // ToDo fix potential error, where ref is already changed by the time this function runs
+            if (landingRef.current) observer.unobserve(landingRef.current);
+            if (aboutRef.current) observer.unobserve(aboutRef.current);
+            if (experienceRef.current) observer.unobserve(experienceRef.current);
+            if (projectRef.current) observer.unobserve(projectRef.current);
+            if (contactRef.current) observer.unobserve(contactRef.current);
+        }
+    }, [aboutRef, experienceRef, projectRef, landingRef, contactRef, dispatch]);
 
     return (
         <div className={styles.container}>
