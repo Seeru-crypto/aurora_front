@@ -7,7 +7,6 @@ import {
     LandingPage,
     Work,
 } from '../components/index';
-import Toast from '../components/util/Toast';
 import config from '../config.json';
 import {
     loadLocalData,
@@ -19,6 +18,7 @@ import {
 import { changeToastValue } from '../state/appSlice';
 import { RootState, useAppDispatch, useAppSelector } from '../state/store';
 import styles from '../styles/Home.module.css';
+import {Toast} from "../components/util";
 
 export default function Home({
     projects,

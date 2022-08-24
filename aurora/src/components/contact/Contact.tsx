@@ -1,23 +1,25 @@
 import { useEffect, useState } from 'react';
 import config from '../../config.json';
+import data from "../../data.json"
 import { changeToastValue } from '../../state/appSlice';
 import { RootState, useAppDispatch, useAppSelector } from '../../state/store';
-import styles from '../../styles/Contact.module.css';
-import Button, { ButtonInterface } from '../util/Button';
-import ExternalLink, { ExternalLinkInterface } from '../util/ExternalLink';
 import ContactIcon from './ContactIcon';
-import EmailDisplayField from './emailDisplayField';
+import ClipboardDisplayField from './ClipboardDisplayField';
+import styled from "styled-components";
+import {Button, ButtonInterface, ExternalLink, ExternalLinkInterface} from "../util";
 
 export interface ContactIconInterface {
     name: string;
     icon: string;
     href: string;
 }
-const Contact = () => {
+
+export default function Contact () : JSX.Element {
     const icons: ContactIconInterface[] = config.ICONS;
     const resumeLinkData: ExternalLinkInterface = {
         onClick: config.CV_DOWNLOAD_LINK,
         label: 'get my stuff',
+        isNavbarButton: false
     };
     const resumeButtonData: ButtonInterface = {
         label: 'my email',
@@ -38,31 +40,70 @@ const Contact = () => {
     const dispatch = useAppDispatch();
 
     return (
-        <section id="contact" className={styles.container}>
-            <div className={styles.contactMain}>
-                <h1 className={styles.heading}>Get in touch with me!</h1>
-                <section className={styles.contactText}>
-                    You can share your impressions on why would someone need
-                    your services or whatnot, I don't know, I'm not the
-                    all-seeing entity of all.
+        <ContactStyle id="contact">
+            <div className={'contactMain'}>
+                <h1 className={'heading'}>{data.contactHeader}</h1>
+                <section className={'contactText'}>
+                    {data.contactBody}
                 </section>
-                <div className={styles.contactButtons}>
+                <div className={'contactButtons'}>
                     <ExternalLink linkData={resumeLinkData} />
                     <div>or</div>
                     {isEmailShown ? (
-                        <EmailDisplayField />
+                        <ClipboardDisplayField text={config.EMAIL_ADDRESS} />
                     ) : (
                         <Button buttonData={resumeButtonData} />
                     )}
                 </div>
             </div>
-            <div className={styles.contactIcons}>
+            <div className={'contactIcons'}>
                 {icons.map((icon) => (
                     <ContactIcon key={icon.name} icon={icon} />
                 ))}
             </div>
-        </section>
+        </ContactStyle>
     );
 };
 
-export default Contact;
+const ContactStyle = styled.section`
+    border: 1px solid purple;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+  .contactMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50vh;
+  }
+
+  .heading {
+    font-weight: bold;
+  }
+
+  .contactText {
+    max-width: 60%;
+    padding: 1rem;
+  }
+
+  .contactButtons {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contactIcons {
+    margin-top: 25vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: row;
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+
+`;

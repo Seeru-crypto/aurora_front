@@ -30,5 +30,7 @@
             "topics": ["freenas"],
             "description": "A freeNas home server"
         }
-    ]
+    ],
+    "contactBody": "You can share your impressions on why would someone need your services or whatnot, I don't know, I'm not the all-seeing entity of all.",
+    "contactHeader" : "Get in touch with me!"
 }

@@ -1,14 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const emailAddress = 'email@gmail.com';
-const EmailDisplayField = () => {
-    navigator.clipboard.writeText(emailAddress);
-
-    return <EmailStyle>{emailAddress}</EmailStyle>;
+const ClipboardDisplayField = ({text} : {text:string}) => {
+    navigator.clipboard.writeText(text);
+    return <EmailStyle>{text}</EmailStyle>;
 };
 
-export default EmailDisplayField;
+export default ClipboardDisplayField;
 
 const EmailStyle = styled.div`
     border-radius: 0.5rem;
@@ -16,6 +14,4 @@ const EmailStyle = styled.div`
     padding: 0.5rem 1rem;
     background-color: var(--primary-color);
     color: var(--button-text);
-
-    padding: 0.5rem 1rem;
 `;

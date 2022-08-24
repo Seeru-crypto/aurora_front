@@ -39,8 +39,8 @@ nav a:hover {
     transition: 1s;
 }
 
-nav a,
-.resume {
+nav a
+{
     margin-left: 12px;
     border-bottom: 1px solid transparent;
     padding: 0 5px 0 5px;
@@ -54,19 +54,6 @@ nav a.inView {
 nav button {
     all: unset;
     cursor: pointer;
-}
-
-nav .resume {
-    border: 1px solid black;
-    border-radius: 0.35rem;
-    padding: 0 1rem;
-    border-color: purple;
-    color: purple;
-}
-
-nav .resume:hover {
-    background-color: purple;
-    color: white;
 }
 
 .content {

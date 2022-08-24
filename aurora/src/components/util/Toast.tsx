@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Toast = ({ message }: { message: string }) => {
+export  default function Toast ({ message }: { message: string }) : JSX.Element {
     return (
         <StyledToast>
             <div className="toast">{message}</div>
@@ -70,4 +70,3 @@ const StyledToast = styled.div`
         }
     }
 `;
-export default Toast;

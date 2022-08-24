@@ -36,5 +36,6 @@
     ],
     "GIT_REPO_DATA_URL_1": "https://api.github.com/repos/Seeru-crypto/",
     "GIT_REPO_DATA_URL": "https://e469abe1-ffd5-4df1-89d9-d80090a1779b.mock.pstmn.io/",
-    "CV_DOWNLOAD_LINK": "https://dl.dropboxusercontent.com/s/x5riy30cqyyr3a1/dev-cv.pdf?dl=0"
+    "CV_DOWNLOAD_LINK": "https://dl.dropboxusercontent.com/s/x5riy30cqyyr3a1/dev-cv.pdf?dl=0",
+    "EMAIL_ADDRESS" : "email@gmail.com"
 }
