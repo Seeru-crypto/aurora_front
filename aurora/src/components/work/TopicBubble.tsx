@@ -1,5 +1,5 @@
+import styled from 'styled-components';
 import { TechTypes } from '../../lib/load-data';
-import styles from '../../styles/TopicBubble.module.css';
 
 export default function TopicBubble({
     topic,
@@ -9,5 +9,32 @@ export default function TopicBubble({
     techTypes: TechTypes;
 }) {
     const topicType = techTypes.get(topic);
-    return <div className={`${styles.topicBubble} ${topicType}`}>{topic}</div>;
+    return (
+        <TopicStyle topicType={topicType} className={`${topicType}`}>
+            {topic}
+        </TopicStyle>
+    );
 }
+
+const TopicStyle = styled.div<{ topicType: string | undefined }>`
+    border: 2px solid purple;
+    width: fit-content;
+    padding: 0.15rem 0.25rem;
+    border-radius: 0.25rem;
+    margin: 0.15rem;
+
+    &.front {
+        border-color: rgb(218, 44, 44);
+    }
+
+    &.back {
+        border-color: green;
+    }
+
+    &.other {
+        border-color: purple;
+    }
+    &.db {
+        border-color: blue;
+    }
+`;
