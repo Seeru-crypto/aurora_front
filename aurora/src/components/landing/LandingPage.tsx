@@ -3,7 +3,7 @@ import React, { ForwardedRef } from 'react';
 import styled from 'styled-components';
 
 const LandingPage = React.forwardRef(
-    (props, ref: ForwardedRef<HTMLElement>) => {
+    (_props, ref: ForwardedRef<HTMLElement>) => {
         return (
             <LandingStyle id="home" ref={ref} className={'container'}>
                 <div className={'right'}>
