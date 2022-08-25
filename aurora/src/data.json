@@ -10,7 +10,7 @@
         {
             "repo_name": "aurora_front",
             "project_name": "Aurora",
-            "picture_url": "/Aurora",
+            "picture_url": "/resources/default.jpg",
             "project_type": "personal",
             "showcase": true
         },
@@ -32,5 +32,5 @@
         }
     ],
     "contactBody": "You can share your impressions on why would someone need your services or whatnot, I don't know, I'm not the all-seeing entity of all.",
-    "contactHeader" : "Get in touch with me!"
+    "contactHeader": "Get in touch with me!"
 }

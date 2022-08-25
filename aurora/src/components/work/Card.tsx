@@ -37,7 +37,7 @@ const Card = ({
                         src={project.picture_url}
                         width={200}
                         height={200}
-                        alt="no image found!"
+                        alt="image not found!"
                     />
                 </div>
                 <span className={'topicHeader'}>Languages:</span>
