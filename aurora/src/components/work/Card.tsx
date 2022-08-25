@@ -2,7 +2,6 @@ import Image from 'next/image';
 import { useState } from 'react';
 import styled from 'styled-components';
 import { ProjectInterface, TechTypes } from '../../lib/load-data';
-import styles from '../../styles/Card.module.css';
 import TopicBubble from './TopicBubble';
 
 const maxNumberOfTopics = 30;
@@ -15,7 +14,7 @@ const Card = ({
     project: ProjectInterface;
     techTypes: TechTypes;
 }) => {
-    const [nrOfTopics, setNrOfTopics] = useState(5);
+    const [nrOfTopics, setNrOfTopics] = useState(minNumberOfTopics);
 
     const formatDate = (date: string) => {
         const newDate = new Date(date);
@@ -24,17 +23,16 @@ const Card = ({
     };
 
     return (
-        <div
+        <CardStyle
             onMouseEnter={() => setNrOfTopics(maxNumberOfTopics)}
             onMouseLeave={() => setNrOfTopics(minNumberOfTopics)}
-            className={styles.container}
             key={project.repo_name}
         >
-            <div className={styles.cardHeader}>
-                <h2 className={styles.cardTitle}>{project.project_name}</h2>
+            <div className={'cardHeader'}>
+                <h2 className={'cardTitle'}>{project.project_name}</h2>
             </div>
-            <div className={styles.cardBody}>
-                <div className={styles.imageContainer}>
+            <div className={'cardBody'}>
+                <div className={'imageContainer'}>
                     <Image
                         src={project.picture_url}
                         width={200}
@@ -42,14 +40,14 @@ const Card = ({
                         alt="no image found!"
                     />
                 </div>
-                <span className={styles.topicHeader}>Languages:</span>
+                <span className={'topicHeader'}>Languages:</span>
 
-                <div className={styles.topicList}>
+                <div className="topicList">
                     {project.topics &&
                         project.topics.map((topic, index) => {
                             if (index < nrOfTopics)
                                 return (
-                                    <span key={topic} className={styles.topic}>
+                                    <span className="topic" key={topic}>
                                         <TopicBubble
                                             techTypes={techTypes}
                                             topic={topic}
@@ -63,12 +61,10 @@ const Card = ({
                 </div>
             </div>
 
-            <div className={styles.cardDetails}>
-                <div className={styles.cardDescription}>
-                    {project.description}
-                </div>
+            <div className={'cardDetails'}>
+                <div className={'cardDescription'}>{project.description}</div>
 
-                <div className={styles.projectDates}>
+                <div className={'projectDates'}>
                     {project.updated_at && (
                         <small>
                             Date updated: {formatDate(project.updated_at)}
@@ -81,11 +77,11 @@ const Card = ({
                     )}
                 </div>
 
-                <div className={styles.showcaseButtons}>
+                <div className={'showcaseButtons'}>
                     {project.repo_name && (
                         <a
                             href={`https://github.com/Seeru-crypto/${project.repo_name}`}
-                            className={styles.sourceCode}
+                            className={'sourceCode'}
                             target="_blank"
                         >
                             Source
@@ -94,7 +90,7 @@ const Card = ({
                     {project.homepage && (
                         <a
                             href={project.homepage}
-                            className={styles.liveDemo}
+                            className={'liveDemo'}
                             target="_blank"
                         >
                             Live example
@@ -102,7 +98,7 @@ const Card = ({
                     )}
                 </div>
             </div>
-        </div>
+        </CardStyle>
     );
 };
 
@@ -118,7 +114,7 @@ const CardStyle = styled.div`
     max-width: 33%;
     border-radius: 1rem;
 
-    .container:hover .cardDetails {
+    :hover .cardDetails {
         max-height: 15rem;
         transition: all ease-in-out 0.5s;
     }
@@ -129,67 +125,64 @@ const CardStyle = styled.div`
 
     .cardBody {
         padding: 0 0.5rem;
+
+        .imageContainer {
+            margin: 0.5rem;
+            border: 1px solid var(--secondary-color);
+            border-radius: 0.2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .topicHeader {
+            margin-left: 0.5rem;
+        }
+        .topic {
+            text-transform: capitalize;
+            margin-left: 0.5rem;
+            display: inline-block;
+        }
     }
 
-    .cardBody .imageContainer {
-        margin: 0.5rem;
-        border: 1px solid var(--secondary-color);
-        border-radius: 0.2rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .cardBody .topic {
-        text-transform: capitalize;
-        display: inline-block;
-        margin-left: 0.5rem;
-    }
-
-    .cardBody .topicHeader {
-        margin-left: 0.5rem;
-    }
     .cardDetails {
         margin-left: 1rem;
         padding: 0.5rem;
         overflow: hidden;
         transition: max-height 1s;
         max-height: 0;
-    }
 
-    .cardDetails .projectDates {
-        display: flex;
-        flex-direction: column;
-        margin-top: 0.25rem;
-    }
+        .projectDates {
+            display: flex;
+            flex-direction: column;
+            margin-top: 0.25rem;
+        }
 
-    .cardDetails .showcaseButtons {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-        margin: 0.5rem 0;
-    }
+        .showcaseButtons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 0.5rem 0;
+        }
 
-    .cardDetails .sourceCode {
-        border: 1px solid var(--secondary-color);
-        color: var(--secondary-color);
-        border-radius: 0.5rem;
-        padding: 0.5rem 1rem;
-        cursor: pointer;
-    }
-
-    .cardDetails .liveDemo {
-        border-radius: 0.5rem;
-        border: transparent;
-        padding: 0.5rem 1rem;
-        background-color: var(--primary-color);
-        color: var(--button-text);
-        cursor: pointer;
-    }
-
-    .cardDetails .cardDescription {
-        border-top: 1px solid #eaeaea;
-        margin-top: 0.25rem;
+        .sourceCode {
+            border: 1px solid var(--secondary-color);
+            color: var(--secondary-color);
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+        .liveDemo {
+            border-radius: 0.5rem;
+            border: transparent;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+            color: var(--button-text);
+            cursor: pointer;
+        }
+        .cardDescription {
+            border-top: 1px solid var(--button-text);
+            margin-top: 0.25rem;
+        }
     }
 `;

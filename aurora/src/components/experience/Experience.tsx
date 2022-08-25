@@ -1,5 +1,5 @@
-import styles from '../../styles/Experience.module.css';
-import React, {ForwardedRef} from "react";
+import React, { ForwardedRef } from 'react';
+import styled from 'styled-components';
 export interface ExperienceInterface {
     date_started: Date;
     date_ended: Date;
@@ -11,14 +11,19 @@ export interface ExperienceInterface {
 
 export type JobTypes = ['course', 'freelance', 'main'];
 
-const Experience = React.forwardRef (( props,ref: ForwardedRef<HTMLElement>) => {
+const Experience = React.forwardRef((props, ref: ForwardedRef<HTMLElement>) => {
     return (
-        <section id="experience" ref={ref} className={styles.container}>
+        <ExperienceStyle id="experience" ref={ref}>
             <h2>Experience</h2>
             <p>Option B</p>
-        </section>
+        </ExperienceStyle>
     );
 });
-Experience.displayName = "Experience display"
+Experience.displayName = 'Experience display';
 
 export default Experience;
+
+const ExperienceStyle = styled.section`
+    border: 1px solid red;
+    height: 100vh;
+`;
