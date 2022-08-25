@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import {
     About,
     Contact,
@@ -15,7 +15,10 @@ import {
     ProjectJsonInterface,
     WorkProps,
 } from '../lib/load-data';
+import {changeToastValue, setCurrentPage} from '../state/appSlice';
+import { RootState, useAppDispatch, useAppSelector } from '../state/store';
 import styles from '../styles/Home.module.css';
+import {Toast} from "../components/util";
 
 export default function Home({
     projects,
@@ -29,21 +32,57 @@ export default function Home({
         techTypes: new Map<string, string>(techTypes),
     };
 
-    const aboutRef = useRef();
+    const isToastShown: boolean = useAppSelector(
+        (state: RootState) => state.counter.isToastShown
+    );
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            const entry = entries[0];
-            console.log(entry);
-            if (entry.isIntersecting) {
-                console.log('it works');
-            }
-        });
-
-        if (aboutRef.current) {
-            observer.observe(aboutRef.current);
+        if (isToastShown) {
+            setTimeout(() => {
+                dispatch(changeToastValue());
+            }, 3000);
         }
-    }, [aboutRef]);
+    }, [isToastShown]);
+
+    const aboutRef = useRef<HTMLDivElement>(null)
+    const experienceRef = useRef<HTMLDivElement>(null)
+    const contactRef = useRef<HTMLDivElement>(null)
+    const landingRef = useRef<HTMLDivElement>(null)
+    const projectRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        const intersectionCallback = (entries :  IntersectionObserverEntry[]) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    dispatch(setCurrentPage(entry.target.id))
+                }
+            });
+        }
+
+        const intersectionOptions = {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0.80
+        }
+
+        const observer = new IntersectionObserver(intersectionCallback, intersectionOptions);
+
+        if (landingRef.current) observer.observe(landingRef.current);
+        if (aboutRef.current) observer.observe(aboutRef.current);
+        if (experienceRef.current) observer.observe(experienceRef.current);
+        if (projectRef.current) observer.observe(projectRef.current);
+        if (contactRef.current) observer.observe(contactRef.current);
+
+        return () => {
+            // ToDo fix potential error, where ref is already changed by the time this function runs
+            if (landingRef.current) observer.unobserve(landingRef.current);
+            if (aboutRef.current) observer.unobserve(aboutRef.current);
+            if (experienceRef.current) observer.unobserve(experienceRef.current);
+            if (projectRef.current) observer.unobserve(projectRef.current);
+            if (contactRef.current) observer.unobserve(contactRef.current);
+        }
+    }, [aboutRef, experienceRef, projectRef, landingRef, contactRef, dispatch]);
 
     return (
         <div className={styles.container}>
@@ -56,14 +95,12 @@ export default function Home({
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className={styles.main}>
-                <LandingPage />
-                <div ref={aboutRef}>
-                    <About />
-                </div>
-
-                <Experience />
-                <Work workProps={workProps} />
-                <Contact />
+                {isToastShown && <Toast message="Added to clipboard" />}
+                <LandingPage ref={landingRef} />
+                <About ref={aboutRef} />
+                <Experience ref={experienceRef} />
+                <Work workProps={workProps} ref={projectRef} />
+                <Contact ref={contactRef} />
             </main>
         </div>
     );

@@ -2,14 +2,15 @@ import { ProjectInterface, WorkProps } from '../../lib/load-data';
 import styles from '../../styles/Work.module.css';
 import Archive from './Archive';
 import Card from './Card';
+import React, {ForwardedRef} from "react";
 
-export default function Work({ workProps }: { workProps: WorkProps }) {
+const Work = React.forwardRef (({ workProps }: { workProps: WorkProps }, ref : ForwardedRef<HTMLElement>) => {
     const showcaseList: ProjectInterface[] = workProps.projects.filter(
         (project) => project.showcase
     );
 
     return (
-        <section className={styles.container} id="work">
+        <section ref={ref} className={styles.container} id="work">
             <h1>All projects</h1>
             <div className={styles.workCards}>
                 {showcaseList.map((project, index) => (
@@ -27,4 +28,8 @@ export default function Work({ workProps }: { workProps: WorkProps }) {
             />
         </section>
     );
-}
+});
+
+Work.displayName = "Work";
+
+export default Work;
