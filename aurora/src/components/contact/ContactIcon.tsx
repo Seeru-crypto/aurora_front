@@ -21,7 +21,7 @@ const ImageStyle = styled.a`
     filter: grayscale();
     cursor: pointer;
 
-    &&:hover {
+    :hover {
         filter: none;
     }
 `;
