@@ -32,5 +32,8 @@
         }
     ],
     "contactBody": "You can share your impressions on why would someone need your services or whatnot, I don't know, I'm not the all-seeing entity of all.",
-    "contactHeader": "Get in touch with me!"
+    "contactHeader": "Get in touch with me!",
+    "GREETING_MORNING": "Mornen!",
+    "GREETING_DAY": "Have a nice day!",
+    "GREETING_EVENING": "Good evening!"
 }
