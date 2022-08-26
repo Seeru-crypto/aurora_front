@@ -3,9 +3,9 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { ProjectInterface, TechTypes } from '../../lib/load-data';
 import TopicBubble from './TopicBubble';
+import config from "../../config.json"
 
-const maxNumberOfTopics = 30;
-const minNumberOfTopics = 5;
+const {MAX_TOPICS, MIN_TOPICS} = config;
 
 const Card = ({
     project,
@@ -14,7 +14,7 @@ const Card = ({
     project: ProjectInterface;
     techTypes: TechTypes;
 }) => {
-    const [nrOfTopics, setNrOfTopics] = useState(minNumberOfTopics);
+    const [nrOfTopics, setNrOfTopics] = useState(MIN_TOPICS);
 
     const formatDate = (date: string) => {
         const newDate = new Date(date);
@@ -24,8 +24,8 @@ const Card = ({
 
     return (
         <CardStyle
-            onMouseEnter={() => setNrOfTopics(maxNumberOfTopics)}
-            onMouseLeave={() => setNrOfTopics(minNumberOfTopics)}
+            onMouseEnter={() => setNrOfTopics(MAX_TOPICS)}
+            onMouseLeave={() => setNrOfTopics(MIN_TOPICS)}
             key={project.repo_name}
         >
             <div className={'cardHeader'}>
@@ -92,6 +92,7 @@ const Card = ({
                             href={project.homepage}
                             className={'liveDemo'}
                             target="_blank"
+                            rel="noreferrer"
                         >
                             Live example
                         </a>
@@ -108,7 +109,6 @@ const CardStyle = styled.div`
     margin: 1rem;
     overflow: auto;
     box-shadow: 0 15px 50px var(--box-shadow);
-    overflow: hidden;
     margin-left: auto;
     margin-right: auto;
     max-width: 33%;

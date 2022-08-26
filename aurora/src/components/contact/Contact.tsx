@@ -1,15 +1,10 @@
-import React, { ForwardedRef, useEffect, useState } from 'react';
+import React, {ForwardedRef, useEffect, useState} from 'react';
 import styled from 'styled-components';
 import config from '../../config.json';
 import data from '../../data.json';
-import { changeToastValue } from '../../state/appSlice';
-import { RootState, useAppDispatch, useAppSelector } from '../../state/store';
-import {
-    Button,
-    ButtonInterface,
-    ExternalLink,
-    ExternalLinkInterface,
-} from '../util';
+import {changeToastValue} from '../../state/appSlice';
+import {RootState, useAppDispatch, useAppSelector} from '../../state/store';
+import {Button, ButtonInterface, ExternalLink, ExternalLinkInterface,} from '../util';
 import ClipboardDisplayField from './ClipboardDisplayField';
 import ContactIcon from './ContactIcon';
 
@@ -45,19 +40,22 @@ const Contact = React.forwardRef(
 
         const dispatch = useAppDispatch();
 
+        const {CONTACT_HEADER, CONTACT_BODY} = data;
+        const {EMAIL_ADDRESS} = config;
+
         return (
             <ContactStyle ref={ref} id="contact">
                 <div className={'contactMain'}>
-                    <h1 className={'heading'}>{data.contactHeader}</h1>
+                    <h1 className={'heading'}>{CONTACT_HEADER}</h1>
                     <section className={'contactText'}>
-                        {data.contactBody}
+                        {CONTACT_BODY}
                     </section>
                     <div className={'contactButtons'}>
                         <ExternalLink linkData={resumeLinkData} />
                         <div>or</div>
                         {isEmailShown ? (
                             <ClipboardDisplayField
-                                text={config.EMAIL_ADDRESS}
+                                text={EMAIL_ADDRESS}
                             />
                         ) : (
                             <Button buttonData={resumeButtonData} />

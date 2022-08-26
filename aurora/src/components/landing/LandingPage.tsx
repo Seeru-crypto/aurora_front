@@ -6,21 +6,22 @@ import data from "../../data.json"
 const LandingPage = React.forwardRef(
     (_props, ref: ForwardedRef<HTMLElement>) => {
         const [greetingMessage, setGreetingMessage] = useState("");
+        const {GREETING_MORNING, GREETING_DAY, GREETING_EVENING, LANDING_HERO_TEXT} = data;
 
         useEffect(() => {
             const sysTimeHour = new Date().getHours();
             switch (true){
                 case (sysTimeHour < 6):
-                    setGreetingMessage(data.GREETING_EVENING);
+                    setGreetingMessage(GREETING_EVENING);
                     break;
                 case (7 <= sysTimeHour && sysTimeHour <= 11 ):
-                    setGreetingMessage(data.GREETING_MORNING);
+                    setGreetingMessage(GREETING_MORNING);
                     break;
                 case (12 <= sysTimeHour && sysTimeHour < 20):
-                    setGreetingMessage(data.GREETING_DAY);
+                    setGreetingMessage(GREETING_DAY);
                     break;
                 case (20 <= sysTimeHour):
-                    setGreetingMessage(data.GREETING_EVENING);
+                    setGreetingMessage(GREETING_EVENING);
                     break;
                 default: setGreetingMessage("Howdy");
             }
@@ -38,9 +39,8 @@ const LandingPage = React.forwardRef(
                 </div>
 
                 <div className={'left'}>
-                    <h1>{greetingMessage}</h1>
-                    <h1>My name is Fred</h1>
-                    <p>I do stuff for the interwebz</p>
+                    <h1>{greetingMessage} My name is Fred</h1>
+                    <p>{LANDING_HERO_TEXT}</p>
                 </div>
             </LandingStyle>
         );

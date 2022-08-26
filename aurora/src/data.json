@@ -31,9 +31,10 @@
             "description": "A freeNas home server"
         }
     ],
-    "contactBody": "You can share your impressions on why would someone need your services or whatnot, I don't know, I'm not the all-seeing entity of all.",
-    "contactHeader": "Get in touch with me!",
+    "CONTACT_BODY": "You can share your impressions on why would someone need your services or whatnot, I don't know, I'm not the all-seeing entity of all.",
+    "CONTACT_HEADER": "Get in touch with me!",
     "GREETING_MORNING": "Mornen!",
     "GREETING_DAY": "Have a nice day!",
-    "GREETING_EVENING": "Good evening!"
+    "GREETING_EVENING": "Good evening!",
+    "LANDING_HERO_TEXT": "I do stuff for the interwebz"
 }
