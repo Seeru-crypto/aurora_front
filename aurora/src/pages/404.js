@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import styled from 'styled-components';
 
 const NotFound = () => {
     const router = useRouter();
-    const timer = 5 * 1000;
+    const timer = 10 * 1000;
 
     useEffect(() => {
         setTimeout(() => {
@@ -13,16 +14,25 @@ const NotFound = () => {
     }, []);
 
     return (
-        <div className="not-found">
+        <NotFoundStyle>
             <h1>Ooops.. </h1>
             <h2>The page cannot be found</h2>
             <p>
                 Go back to the main page{' '}
                 <Link href="/">
-                    <a>Homepage</a>
+                    <a className="homeButton">Homepage</a>
                 </Link>
             </p>
-        </div>
+        </NotFoundStyle>
     );
 };
 export default NotFound;
+
+const NotFoundStyle = styled.div`
+    text-align: center;
+
+  .homeButton {
+    color: #4979ff;
+    text-decoration: underline;
+  }
+`
