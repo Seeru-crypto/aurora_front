@@ -1,4 +1,5 @@
 import { ProjectInterface } from '../../lib/load-data';
+import styled from "styled-components";
 
 export default function Archive({
     projects,
@@ -6,10 +7,16 @@ export default function Archive({
     projects: ProjectInterface[];
 }) {
     return (
-        <div>
+        <ArchiveStyle>
             <h3>Arhive list!</h3>
-            <p>number of arhcive projects {projects.length}</p>
-            <p>{projects[0].project_name}</p>
-        </div>
+            {projects.map((project, index) => (
+                <div key={index}>
+                    <p>{`${index+1}. ${project.project_name}`}</p>
+                </div>
+            ))}
+        </ArchiveStyle>
     );
 }
+const ArchiveStyle = styled.div`
+    height: 50vh;
+`

@@ -23,6 +23,13 @@
         },
         {
             "repo_name": "",
+            "project_name": "A old project",
+            "picture_url": "",
+            "project_type": "personal",
+            "showcase": false
+        },
+        {
+            "repo_name": "",
             "project_name": "NAS server",
             "picture_url": "/resources/FreeNAS.png",
             "project_type": "personal",

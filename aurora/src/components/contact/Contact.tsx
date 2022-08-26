@@ -42,7 +42,7 @@ const Contact = React.forwardRef(
             <ContactStyle ref={ref} id="contact">
                 <div className={'contactMain'}>
                     <h1 className={'heading'}>{CONTACT_HEADER}</h1>
-                    <section className={'contactText'}>
+                    <section className={'contactBody'}>
                         {CONTACT_BODY}
                     </section>
                     <div className={'contactButtons'}>
@@ -76,7 +76,7 @@ export default Contact;
 
 const ContactStyle = styled.section`
     border: 1px solid purple;
-    height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
 
@@ -85,16 +85,16 @@ const ContactStyle = styled.section`
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        margin-top: 50vh;
+        margin-top: 30vh;
     }
 
     .heading {
         font-weight: bold;
     }
 
-    .contactText {
-        max-width: 60%;
-        padding: 1rem;
+    .contactBody {
+        max-width: 40%;
+        padding: 2rem 1rem;
     }
 
     .contactButtons {
@@ -106,7 +106,7 @@ const ContactStyle = styled.section`
     }
 
     .contactIcons {
-        margin-top: 25vh;
+        margin-top: 30vh;
         display: flex;
         align-items: flex-end;
         justify-content: center;
@@ -121,11 +121,13 @@ const ImageStyle = styled.a`
     align-items: center;
     font-size: 2rem;
     cursor: pointer;
-    transition: 0.3s;
-  
-    :hover svg {
+
+  svg{
+    transition: var(--transition);
+  }
+
+  :hover svg {
       fill: purple;
       transform: translateY(-10px);
-      transition-duration: inherit;
     }
 `;

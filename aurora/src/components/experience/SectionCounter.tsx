@@ -6,7 +6,6 @@ export default function SectionCounter (){
     const numberOfProjects: number = useAppSelector(
         (state: RootState) => state.counter.numberOfProjects
     );
-
     return (
         <SectionCounterStyle>
                 <div className="card">
@@ -27,8 +26,7 @@ export default function SectionCounter (){
                 <div className="card">
                     <i className="icon"><MdOutlineLocationOn /></i>
                     <p>Current location</p>
-                    <h3>Estonia, Tallinn</h3>
-                    <h3 className={"additionalDetail"}>127.0.0.1</h3>
+                    <h3>Estonia, Tallinn <small>127.0.0.1</small></h3>
                 </div>
         </SectionCounterStyle>
     )
@@ -39,10 +37,6 @@ const SectionCounterStyle = styled.div`
   flex-direction: row;
   justify-content: space-around;
   padding: 1rem 0;
-  
-  .additionalDetail{
-    margin-top: -1.5rem;
-  }
   
   .icon{
     font-size: 2rem;
@@ -59,5 +53,9 @@ const SectionCounterStyle = styled.div`
     color: white;
     width: 21%;
     border-radius: 1rem;
+  }
+  
+  @media(max-width: 1200px){
+    border: 1px solid orange;
   }
 `

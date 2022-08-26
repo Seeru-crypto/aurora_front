@@ -8,6 +8,7 @@
     --paragraph: #2b2c34;
     --header-color: #2b2c34;
     --box-shadow: #2b2c34;
+    --transition: all 0.3s ease-in-out;
 }
 
 html {
