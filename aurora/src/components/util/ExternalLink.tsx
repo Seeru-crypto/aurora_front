@@ -24,6 +24,11 @@ const ButtonStyle = styled.a<{isNavbarButton: boolean}>`
     background-color: transparent;
     color: var(--primary-color);
     cursor: pointer;
+    opacity: 1;
+    transition: 0.3s;
+    :hover{
+      opacity: .6;
+    }
 
   ${(props) => props.isNavbarButton && NavLinkStyle}
 `;

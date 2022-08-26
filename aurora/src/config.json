@@ -6,18 +6,6 @@
         { "value": "Work", "key": "#work" },
         { "value": "Contact", "key": "#contact" }
     ],
-    "ICONS": [
-        {
-            "name": "linkedIn",
-            "icon": "svg-linkedin.svg",
-            "href": "https://www.linkedin.com"
-        },
-        {
-            "name": "gitHub",
-            "icon": "svg-github.svg",
-            "href": "https://github.com/Seeru-crypto"
-        }
-    ],
     "TECH_TYPES": [
         ["react", "front"],
         ["spring-boot", "back"],

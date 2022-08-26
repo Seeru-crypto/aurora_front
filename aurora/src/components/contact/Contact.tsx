@@ -6,19 +6,14 @@ import {changeToastValue} from '../../state/appSlice';
 import {RootState, useAppDispatch, useAppSelector} from '../../state/store';
 import {Button, ButtonInterface, ExternalLink, ExternalLinkInterface,} from '../util';
 import ClipboardDisplayField from './ClipboardDisplayField';
-import ContactIcon from './ContactIcon';
-
-export interface ContactIconInterface {
-    name: string;
-    icon: string;
-    href: string;
-}
+import { VscGithubAlt} from 'react-icons/Vsc'
+import { RiLinkedinFill} from 'react-icons/Ri'
 
 const Contact = React.forwardRef(
     (_props, ref: ForwardedRef<HTMLElement>): JSX.Element => {
-        const icons: ContactIconInterface[] = config.ICONS;
+        const {CV_DOWNLOAD_LINK} = config;
         const resumeLinkData: ExternalLinkInterface = {
-            onClick: config.CV_DOWNLOAD_LINK,
+            onClick: CV_DOWNLOAD_LINK,
             label: 'get my stuff',
             isNavbarButton: false,
         };
@@ -63,9 +58,12 @@ const Contact = React.forwardRef(
                     </div>
                 </div>
                 <div className={'contactIcons'}>
-                    {icons.map((icon) => (
-                        <ContactIcon key={icon.name} icon={icon} />
-                    ))}
+                    <ImageStyle href={"https://www.linkedin.com"} id={"linkedIn"} target="_blank">
+                        <RiLinkedinFill />
+                    </ImageStyle>
+                    <ImageStyle href={"https://github.com/Seeru-crypto"} id={"gitHub"} target="_blank">
+                        <VscGithubAlt />
+                    </ImageStyle>
                 </div>
             </ContactStyle>
         );
@@ -114,6 +112,20 @@ const ContactStyle = styled.section`
         justify-content: center;
         flex-direction: row;
         padding: 0.5rem;
-        gap: 0.5rem;
+        gap: 2rem;
+    }
+`;
+const ImageStyle = styled.a`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: 0.3s;
+  
+    :hover svg {
+      fill: purple;
+      transform: translateY(-10px);
+      transition-duration: inherit;
     }
 `;

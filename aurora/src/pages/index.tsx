@@ -17,7 +17,7 @@ import {
     ProjectJsonInterface,
     WorkProps,
 } from '../lib/load-data';
-import { changeToastValue, setCurrentPage } from '../state/appSlice';
+import {changeToastValue, setCurrentPage, setNumberOfProjects} from '../state/appSlice';
 import { RootState, useAppDispatch, useAppSelector } from '../state/store';
 
 export default function Home({
@@ -44,6 +44,10 @@ export default function Home({
             }, 3000);
         }
     }, [isToastShown]);
+
+    useEffect(() => {
+        dispatch(setNumberOfProjects(projects.length));
+    }, [projects, dispatch])
 
     const aboutRef = useRef<HTMLDivElement>(null);
     const experienceRef = useRef<HTMLDivElement>(null);
