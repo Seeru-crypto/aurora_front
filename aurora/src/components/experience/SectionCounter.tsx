@@ -6,6 +6,10 @@ export default function SectionCounter() {
     const numberOfProjects: number = useAppSelector(
         (state: RootState) => state.counter.numberOfProjects
     );
+
+    const auroraLastUpdated: string = useAppSelector(
+        (state: RootState) => state.counter.auroraLastUpdated
+    );
     return (
         <SectionCounterStyle>
             <div className="card">
@@ -27,7 +31,7 @@ export default function SectionCounter() {
                     <MdUpdate />
                 </i>
                 <p>Site last updated</p>
-                <h3>aug.2022</h3>
+                <h3>{auroraLastUpdated}</h3>
             </div>
             <div className="card">
                 <i className="icon">

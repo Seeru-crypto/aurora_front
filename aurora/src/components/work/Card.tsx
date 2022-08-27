@@ -16,12 +16,6 @@ const Card = ({
 }) => {
     const [nrOfTopics, setNrOfTopics] = useState(MIN_TOPICS);
 
-    const formatDate = (date: string) => {
-        const newDate = new Date(date);
-        const monthName = newDate.toLocaleString('default', { month: 'short' });
-        return monthName + '/' + newDate.getFullYear();
-    };
-
     return (
         <CardStyle
             onMouseEnter={() => setNrOfTopics(MAX_TOPICS)}
@@ -101,6 +95,12 @@ const Card = ({
 };
 
 export default Card;
+
+export const formatDate = (date: string) => {
+    const newDate = new Date(date);
+    const monthName = newDate.toLocaleString('default', { month: 'short' });
+    return monthName + '/' + newDate.getFullYear();
+};
 
 const CardStyle = styled.div`
     margin: 1rem;

@@ -9,6 +9,7 @@ import {
     Work,
 } from '../components/index';
 import { Toast } from '../components/util';
+import { formatDate } from '../components/work/Card';
 import config from '../config.json';
 import {
     loadLocalData,
@@ -17,7 +18,12 @@ import {
     ProjectJsonInterface,
     WorkProps,
 } from '../lib/load-data';
-import {changeToastValue, setCurrentPage, setNumberOfProjects} from '../state/appSlice';
+import {
+    changeToastValue,
+    setAuroraLastUpdated,
+    setCurrentPage,
+    setNumberOfProjects,
+} from '../state/appSlice';
 import { RootState, useAppDispatch, useAppSelector } from '../state/store';
 
 export default function Home({
@@ -47,7 +53,12 @@ export default function Home({
 
     useEffect(() => {
         dispatch(setNumberOfProjects(projects.length));
-    }, [projects, dispatch])
+        // Spike can this loop be transformed into a server side function?
+        projects.forEach((project) => {
+            if (project.project_name === 'Aurora' && project.updated_at)
+                dispatch(setAuroraLastUpdated(formatDate(project.updated_at)));
+        });
+    }, [projects, dispatch]);
 
     const aboutRef = useRef<HTMLDivElement>(null);
     const experienceRef = useRef<HTMLDivElement>(null);
