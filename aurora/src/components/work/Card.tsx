@@ -66,14 +66,10 @@ const Card = ({
 
                 <div className={'projectDates'}>
                     {project.updated_at && (
-                        <small>
-                            Date updated: {formatDate(project.updated_at)}
-                        </small>
+                        <small>Updated: {formatDate(project.updated_at)}</small>
                     )}
                     {project.created_at && (
-                        <small>
-                            Date created: {formatDate(project.created_at)}
-                        </small>
+                        <small>Created: {formatDate(project.created_at)}</small>
                     )}
                 </div>
 
@@ -81,7 +77,7 @@ const Card = ({
                     {project.repo_name && (
                         <a
                             href={`https://github.com/Seeru-crypto/${project.repo_name}`}
-                            className={'sourceCode'}
+                            className={'sourceCodeBtn'}
                             target="_blank"
                             rel="noreferrer"
                         >
@@ -91,7 +87,7 @@ const Card = ({
                     {project.homepage && (
                         <a
                             href={project.homepage}
-                            className={'liveDemo'}
+                            className={'liveDemoBtn'}
                             target="_blank"
                             rel="noreferrer"
                         >
@@ -166,20 +162,30 @@ const CardStyle = styled.div`
             margin: 0.5rem 0;
         }
 
-        .sourceCode {
+        .sourceCodeBtn {
             border: 1px solid var(--secondary-color);
             color: var(--secondary-color);
             border-radius: 0.5rem;
             padding: 0.5rem 1rem;
             cursor: pointer;
+            transition: var(--transition);
+
+            :hover {
+                background-color: purple;
+            }
         }
-        .liveDemo {
+        .liveDemoBtn {
             border-radius: 0.5rem;
             border: transparent;
             padding: 0.5rem 1rem;
             background-color: var(--primary-color);
             color: var(--button-text);
             cursor: pointer;
+            transition: var(--transition);
+
+            :hover {
+                background-color: purple;
+            }
         }
         .cardDescription {
             border-top: 1px solid var(--button-text);

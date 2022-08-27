@@ -60,7 +60,7 @@ const Contact = React.forwardRef(
                 </div>
                 <div className={'contactIcons'}>
                     <ImageStyle
-                        href={'https://www.linkedin.com'}
+                        href={'https://www.linkedin.com/in/fred-oja-8749b1182/'}
                         id={'linkedIn'}
                         target="_blank"
                     >
