@@ -1,17 +1,22 @@
-import React, {ForwardedRef, useEffect, useState} from 'react';
+import React, { ForwardedRef, useEffect, useState } from 'react';
+import { RiLinkedinFill } from 'react-icons/Ri';
+import { VscGithubAlt } from 'react-icons/Vsc';
 import styled from 'styled-components';
 import config from '../../config.json';
 import data from '../../data.json';
-import {changeToastValue} from '../../state/appSlice';
-import {RootState, useAppDispatch, useAppSelector} from '../../state/store';
-import {Button, ButtonInterface, ExternalLink, ExternalLinkInterface,} from '../util';
+import { changeToastValue } from '../../state/appSlice';
+import { RootState, useAppDispatch, useAppSelector } from '../../state/store';
+import {
+    Button,
+    ButtonInterface,
+    ExternalLink,
+    ExternalLinkInterface,
+} from '../util';
 import ClipboardDisplayField from './ClipboardDisplayField';
-import { VscGithubAlt} from 'react-icons/Vsc'
-import { RiLinkedinFill} from 'react-icons/Ri'
 
 const Contact = React.forwardRef(
     (_props, ref: ForwardedRef<HTMLElement>): JSX.Element => {
-        const {CV_DOWNLOAD_LINK} = config;
+        const { CV_DOWNLOAD_LINK } = config;
         const resumeLinkData: ExternalLinkInterface = {
             onClick: CV_DOWNLOAD_LINK,
             label: 'get my stuff',
@@ -35,33 +40,37 @@ const Contact = React.forwardRef(
 
         const dispatch = useAppDispatch();
 
-        const {CONTACT_HEADER, CONTACT_BODY} = data;
-        const {EMAIL_ADDRESS} = config;
+        const { CONTACT_HEADER, CONTACT_BODY } = data;
+        const { EMAIL_ADDRESS } = config;
 
         return (
             <ContactStyle ref={ref} id="contact">
                 <div className={'contactMain'}>
                     <h1 className={'heading'}>{CONTACT_HEADER}</h1>
-                    <section className={'contactBody'}>
-                        {CONTACT_BODY}
-                    </section>
+                    <section className={'contactBody'}>{CONTACT_BODY}</section>
                     <div className={'contactButtons'}>
                         <ExternalLink linkData={resumeLinkData} />
                         <div>or</div>
                         {isEmailShown ? (
-                            <ClipboardDisplayField
-                                text={EMAIL_ADDRESS}
-                            />
+                            <ClipboardDisplayField text={EMAIL_ADDRESS} />
                         ) : (
                             <Button buttonData={resumeButtonData} />
                         )}
                     </div>
                 </div>
                 <div className={'contactIcons'}>
-                    <ImageStyle href={"https://www.linkedin.com"} id={"linkedIn"} target="_blank">
+                    <ImageStyle
+                        href={'https://www.linkedin.com'}
+                        id={'linkedIn'}
+                        target="_blank"
+                    >
                         <RiLinkedinFill />
                     </ImageStyle>
-                    <ImageStyle href={"https://github.com/Seeru-crypto"} id={"gitHub"} target="_blank">
+                    <ImageStyle
+                        href={'https://github.com/Seeru-crypto'}
+                        id={'gitHub'}
+                        target="_blank"
+                    >
                         <VscGithubAlt />
                     </ImageStyle>
                 </div>
@@ -122,12 +131,12 @@ const ImageStyle = styled.a`
     font-size: 2rem;
     cursor: pointer;
 
-  svg{
-    transition: var(--transition);
-  }
+    svg {
+        transition: var(--transition);
+    }
 
-  :hover svg {
-      fill: purple;
-      transform: translateY(-10px);
+    :hover svg {
+        fill: purple;
+        transform: translateY(-10px);
     }
 `;

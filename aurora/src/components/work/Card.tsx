@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import styled from 'styled-components';
+import config from '../../config.json';
 import { ProjectInterface, TechTypes } from '../../lib/load-data';
 import TopicBubble from './TopicBubble';
-import config from "../../config.json"
 
-const {MAX_TOPICS, MIN_TOPICS} = config;
+const { MAX_TOPICS, MIN_TOPICS } = config;
 
 const Card = ({
     project,
@@ -83,6 +83,7 @@ const Card = ({
                             href={`https://github.com/Seeru-crypto/${project.repo_name}`}
                             className={'sourceCode'}
                             target="_blank"
+                            rel="noreferrer"
                         >
                             Source
                         </a>
