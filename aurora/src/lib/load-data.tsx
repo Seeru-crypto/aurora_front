@@ -64,10 +64,10 @@ export async function getThirdPartyData(
       response = data;
     })
     .catch((error) => {
-      throw new Error(`HTTP Error: ${error}`);
+      console.error(`${error}, for ${url}`)
     });
-
   return response;
+
 }
 
 export async function mergeGitProjectData(
@@ -81,7 +81,8 @@ export async function mergeGitProjectData(
       const gitData: ProjectGitRepoInterface = await getThirdPartyData(
         config.GIT_REPO_DATA_URL + project.repo_name,
         token
-      );
+      )
+      if (!gitData) return { ...project };
 
       return {
         ...project,

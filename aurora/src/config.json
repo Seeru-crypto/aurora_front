@@ -7,20 +7,26 @@
         { "value": "Contact", "key": "#contact" }
     ],
     "TECH_TYPES": [
-        ["react", "front"],
-        ["spring-boot", "back"],
-        ["docker", "other"],
-        ["heroku", "other"],
-        ["mongodb", "db"],
-        ["ngnix", "other"],
-        ["primereact", "front"],
-        ["redux", "front"],
-        ["styled-components", "front"],
-        ["twilio", "other"],
-        ["docker-compose", "other"],
-        ["github-api", "other"],
-        ["nextjs", "front"],
-        ["prisma", "front"]
+        ["react", "front"]
+        ,["spring-boot", "back"]
+        ,["docker", "other"]
+        ,["heroku", "other"]
+        ,["mongodb", "db"]
+        ,["ngnix", "other"]
+        ,["primereact", "front"]
+        ,["redux", "front"]
+        ,["styled-components", "front"]
+        ,["twilio", "other"]
+        ,["docker-compose", "other"]
+        ,["github-api", "other"]
+        ,["nextjs", "front"]
+        ,["prisma", "front"]
+        ,["azurespeechservices", "other"]
+        ,["nextauth", "other"]
+        ,["tailwind-css", "front"]
+        ,["vercel-deployment", "other"]
+
+
     ],
     "GIT_REPO_DATA_URL_1": "https://api.github.com/repos/Seeru-crypto/",
     "GIT_REPO_DATA_URL": "https://e469abe1-ffd5-4df1-89d9-d80090a1779b.mock.pstmn.io/",

@@ -14,7 +14,8 @@ const Card = ({
     project: ProjectInterface;
     techTypes: TechTypes;
 }) => {
-    const [nrOfTopics, setNrOfTopics] = useState(MIN_TOPICS);
+    const [nrOfTopics, setNrOfTopics] = useState<number>(MIN_TOPICS);
+    const pictureUrl : string = (project.picture_url ? project.picture_url : "/resources/default.jpg")
 
     return (
         <CardStyle
@@ -28,7 +29,7 @@ const Card = ({
             <div className={'cardBody'}>
                 <div className={'imageContainer'}>
                     <Image
-                        src={project.picture_url}
+                        src={pictureUrl}
                         width={200}
                         height={200}
                         alt="image not found!"
@@ -108,7 +109,7 @@ const CardStyle = styled.div`
     box-shadow: 0 15px 50px var(--box-shadow);
     margin-left: auto;
     margin-right: auto;
-    max-width: 33%;
+    width: 30%;
     border-radius: 1rem;
 
     :hover .cardDetails {

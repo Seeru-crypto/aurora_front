@@ -12,6 +12,7 @@ export default function SectionCounter() {
     );
     return (
         <SectionCounterStyle>
+                <div className="cards">
             <div className="card">
                 <i className={'icon'}>
                     <MdOutlineDone />
@@ -42,18 +43,22 @@ export default function SectionCounter() {
                     Estonia, Tallinn <small>127.0.0.1</small>
                 </h3>
             </div>
+            </div>
         </SectionCounterStyle>
     );
 }
 
 const SectionCounterStyle = styled.div`
+  
+  .cards{
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-wrap: wrap;
     padding: 1rem 0;
-
+  }
+  
     .icon {
         font-size: 2rem;
+      margin: .5rem 0;
     }
 
     .card {
@@ -62,11 +67,12 @@ const SectionCounterStyle = styled.div`
         justify-content: center;
         align-items: center;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        padding: 16px;
         background-color: #444;
         color: white;
-        width: 21%;
+        min-width: 21%;
         border-radius: 1rem;
+        flex: 1 1 auto;
+        margin: .5rem;
     }
 
     @media (max-width: 1200px) {

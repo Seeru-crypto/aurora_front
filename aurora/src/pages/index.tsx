@@ -132,7 +132,6 @@ export async function getStaticProps() {
         localJsonData.projects,
         process.env.GITHUB_TOKEN
     );
-
     const techTypeList: string[][] = config.TECH_TYPES;
 
     return {
