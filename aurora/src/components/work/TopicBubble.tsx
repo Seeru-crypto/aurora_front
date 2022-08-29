@@ -17,24 +17,24 @@ export default function TopicBubble({
 }
 
 const TopicStyle = styled.div<{ topicType: string | undefined }>`
-    border: 2px solid purple;
+    border: 2px solid yellow;
     width: fit-content;
     padding: 0.15rem 0.25rem;
     border-radius: 0.25rem;
     margin: 0.15rem;
 
     &.front {
-        border-color: rgb(218, 44, 44);
+        border-color: var(--front-topic-color);
     }
 
     &.back {
-        border-color: green;
+        border-color: var(--back-topic-color);
     }
 
     &.other {
-        border-color: purple;
+        border-color: var(--other-topic-color);
     }
     &.db {
-        border-color: blue;
+        border-color: var(--db-topic-color);
     }
 `;

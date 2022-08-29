@@ -25,8 +25,7 @@
         ,["nextauth", "other"]
         ,["tailwind-css", "front"]
         ,["vercel-deployment", "other"]
-
-
+        ,["freenas", "other"]
     ],
     "GIT_REPO_DATA_URL_1": "https://api.github.com/repos/Seeru-crypto/",
     "GIT_REPO_DATA_URL": "https://e469abe1-ffd5-4df1-89d9-d80090a1779b.mock.pstmn.io/",

@@ -9,6 +9,10 @@
     --header-color: #2b2c34;
     --box-shadow: #2b2c34;
     --transition: all 0.3s ease-in-out;
+    --front-topic-color: red;
+    --back-topic-color: green;
+    --other-topic-color: purple;
+    --db-topic-color: blue;
 }
 
 html {
