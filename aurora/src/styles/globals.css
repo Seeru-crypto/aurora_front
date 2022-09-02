@@ -7,7 +7,17 @@
     --button-text: #fffffe;
     --paragraph: #2b2c34;
     --header-color: #2b2c34;
+    --hero-section-bkg: #444;
+    --icon-highlight-border: purple;
+    --btn-hover-bkg: purple;
+    --nav-main-btn-color: purple;
+    --nav-active-color: purple;
     --box-shadow: #2b2c34;
+    --transition: all 0.3s ease-in-out;
+    --front-topic-color: red;
+    --back-topic-color: green;
+    --other-topic-color: purple;
+    --db-topic-color: blue;
 }
 
 html {
@@ -26,4 +36,3 @@ a,
     color: #333;
     text-decoration: none;
 }
-

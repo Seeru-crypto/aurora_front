@@ -35,4 +35,9 @@ const ButtonStyle = styled.button<{ bordered: boolean }>`
     background-color: var(--primary-color);
     color: var(--button-text);
     cursor: ${(props) => (props.bordered ? 'pointer' : 'cursor')};
+    transition: var(--transition);
+
+    :hover {
+        background-color: var(--btn-hover-bkg);
+    }
 `;

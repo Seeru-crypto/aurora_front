@@ -17,9 +17,6 @@ const Navbar = () => {
 
     function isInView(pageName: string) {
         if (pageName.toLowerCase() === currentPage) {
-            // Question how to handle this situation where user clicks but a url changes for a moment, thus cancelling
-            // navigation
-            // window.history.replaceState(null, "title", `${currentPage}`)
             return 'inView';
         } else return '';
     }
@@ -28,7 +25,9 @@ const Navbar = () => {
         <NavbarStyle>
             {config.NAVIGATION_PATHS.map((object) => (
                 <Link href={object.key} key={object.value}>
-                    <a className={`navigationLink ${isInView(object.value)}`}>{object.value}</a>
+                    <a className={`navigationLink ${isInView(object.value)}`}>
+                        {object.value}
+                    </a>
                 </Link>
             ))}
             <ExternalLink linkData={linkData} />
@@ -43,7 +42,7 @@ const NavbarStyle = styled.nav`
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--nav-active-color);
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
     position: -webkit-sticky;
@@ -51,26 +50,26 @@ const NavbarStyle = styled.nav`
     top: 0;
     z-index: 999;
     flex-grow: 1;
-  
-  .logo{
-    margin-right: auto;
-  }
 
-  .navigationLink {
-    margin-left: 12px;
-    border-bottom: 1px solid transparent;
-    padding: 0 5px 0 5px;
-    font-weight: bold;
-  }
-  .navigationLink:hover {
-    border-bottom: 1px solid var(--primary-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 1s;
-  }
-  
-  .navigationLink.inView {
-    color: purple;
-  }
+    .logo {
+        margin-right: auto;
+    }
+
+    .navigationLink {
+        margin-left: 12px;
+        border-bottom: 1px solid transparent;
+        padding: 0 5px 0 5px;
+        font-weight: bold;
+        transition: all ease-in-out 300ms;
+    }
+    .navigationLink:hover {
+        border-bottom: 1px solid var(--nav-active-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navigationLink.inView {
+        color: var(--nav-active-color);
+    }
 `;

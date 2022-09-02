@@ -16,6 +16,6 @@ const Layout = ({ children }: any) => {
 export default Layout;
 
 const LayoutStyle = styled.div`
-  max-width: 960px;
   margin: 0 auto;
+  max-width: 95%;
 `

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ClipboardDisplayField = ({text} : {text:string}) => {
+const ClipboardDisplayField = ({ text }: { text: string }) => {
     navigator.clipboard.writeText(text);
     return <EmailStyle>{text}</EmailStyle>;
 };

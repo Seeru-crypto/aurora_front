@@ -5,6 +5,8 @@ export interface AppState {
     incrementAmount: number;
     isToastShown: boolean;
     currentPage: string;
+    numberOfProjects: number;
+    auroraLastUpdated: string;
 }
 
 const initialState: AppState = {
@@ -12,6 +14,8 @@ const initialState: AppState = {
     incrementAmount: 1,
     isToastShown: false,
     currentPage: '',
+    numberOfProjects: 0,
+    auroraLastUpdated: '',
 };
 
 export const appSlice = createSlice({
@@ -34,6 +38,15 @@ export const appSlice = createSlice({
         setCurrentPage: (state, action: PayloadAction<string>) => {
             state.currentPage = action.payload;
         },
+        setNumberOfProjects: (state, action: PayloadAction<number>) => {
+            state.numberOfProjects = action.payload;
+        },
+        setAuroraLastUpdated: (
+            state,
+            action: PayloadAction<string | undefined>
+        ) => {
+            if (action.payload) state.auroraLastUpdated = action.payload;
+        },
     },
 });
 
@@ -43,6 +56,8 @@ export const {
     changeIncrementAmount,
     changeToastValue,
     setCurrentPage,
+    setNumberOfProjects,
+    setAuroraLastUpdated,
 } = appSlice.actions;
 
 export default appSlice.reducer;

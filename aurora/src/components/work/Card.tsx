@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import styled from 'styled-components';
+import config from '../../config.json';
 import { ProjectInterface, TechTypes } from '../../lib/load-data';
 import TopicBubble from './TopicBubble';
-import config from "../../config.json"
 
-const {MAX_TOPICS, MIN_TOPICS} = config;
+const { MAX_TOPICS, MIN_TOPICS } = config;
 
 const Card = ({
     project,
@@ -14,13 +14,10 @@ const Card = ({
     project: ProjectInterface;
     techTypes: TechTypes;
 }) => {
-    const [nrOfTopics, setNrOfTopics] = useState(MIN_TOPICS);
-
-    const formatDate = (date: string) => {
-        const newDate = new Date(date);
-        const monthName = newDate.toLocaleString('default', { month: 'short' });
-        return monthName + '/' + newDate.getFullYear();
-    };
+    const [nrOfTopics, setNrOfTopics] = useState<number>(MIN_TOPICS);
+    const pictureUrl: string = project.picture_url
+        ? project.picture_url
+        : '/resources/default.jpg';
 
     return (
         <CardStyle
@@ -34,7 +31,7 @@ const Card = ({
             <div className={'cardBody'}>
                 <div className={'imageContainer'}>
                     <Image
-                        src={project.picture_url}
+                        src={pictureUrl}
                         width={200}
                         height={200}
                         alt="image not found!"
@@ -66,14 +63,10 @@ const Card = ({
 
                 <div className={'projectDates'}>
                     {project.updated_at && (
-                        <small>
-                            Date updated: {formatDate(project.updated_at)}
-                        </small>
+                        <small>Updated: {formatDate(project.updated_at)}</small>
                     )}
                     {project.created_at && (
-                        <small>
-                            Date created: {formatDate(project.created_at)}
-                        </small>
+                        <small>Created: {formatDate(project.created_at)}</small>
                     )}
                 </div>
 
@@ -81,8 +74,9 @@ const Card = ({
                     {project.repo_name && (
                         <a
                             href={`https://github.com/Seeru-crypto/${project.repo_name}`}
-                            className={'sourceCode'}
+                            className={'sourceCodeBtn'}
                             target="_blank"
+                            rel="noreferrer"
                         >
                             Source
                         </a>
@@ -90,7 +84,7 @@ const Card = ({
                     {project.homepage && (
                         <a
                             href={project.homepage}
-                            className={'liveDemo'}
+                            className={'liveDemoBtn'}
                             target="_blank"
                             rel="noreferrer"
                         >
@@ -105,13 +99,19 @@ const Card = ({
 
 export default Card;
 
+export const formatDate = (date: string) => {
+    const newDate = new Date(date);
+    const monthName = newDate.toLocaleString('default', { month: 'short' });
+    return monthName + '/' + newDate.getFullYear();
+};
+
 const CardStyle = styled.div`
     margin: 1rem;
     overflow: auto;
     box-shadow: 0 15px 50px var(--box-shadow);
     margin-left: auto;
     margin-right: auto;
-    max-width: 33%;
+    width: 30%;
     border-radius: 1rem;
 
     :hover .cardDetails {
@@ -165,20 +165,30 @@ const CardStyle = styled.div`
             margin: 0.5rem 0;
         }
 
-        .sourceCode {
+        .sourceCodeBtn {
             border: 1px solid var(--secondary-color);
             color: var(--secondary-color);
             border-radius: 0.5rem;
             padding: 0.5rem 1rem;
             cursor: pointer;
+            transition: var(--transition);
+
+            :hover {
+                background-color: var(--btn-hover-bkg);
+            }
         }
-        .liveDemo {
+        .liveDemoBtn {
             border-radius: 0.5rem;
             border: transparent;
             padding: 0.5rem 1rem;
             background-color: var(--primary-color);
             color: var(--button-text);
             cursor: pointer;
+            transition: var(--transition);
+
+            :hover {
+                background-color: var(--btn-hover-bkg);
+            }
         }
         .cardDescription {
             border-top: 1px solid var(--button-text);

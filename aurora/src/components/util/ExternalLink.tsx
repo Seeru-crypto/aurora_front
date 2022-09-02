@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, {css} from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export interface ExternalLinkInterface {
     onClick: string;
@@ -7,8 +7,12 @@ export interface ExternalLinkInterface {
     isNavbarButton: boolean;
 }
 
-export default function ExternalLink ({ linkData }: { linkData: ExternalLinkInterface }) : JSX.Element {
-    const {onClick, isNavbarButton, label} = linkData;
+export default function ExternalLink({
+    linkData,
+}: {
+    linkData: ExternalLinkInterface;
+}): JSX.Element {
+    const { onClick, isNavbarButton, label } = linkData;
 
     return (
         <ButtonStyle isNavbarButton={isNavbarButton} href={onClick}>
@@ -17,26 +21,32 @@ export default function ExternalLink ({ linkData }: { linkData: ExternalLinkInte
     );
 }
 
-const ButtonStyle = styled.a<{isNavbarButton: boolean}>`
+const ButtonStyle = styled.a<{ isNavbarButton: boolean }>`
     border-radius: 0.5rem;
     border: 1px solid var(--secondary-color);
     padding: 0.5rem 1rem;
     background-color: transparent;
     color: var(--primary-color);
     cursor: pointer;
+    transition: var(--transition);
 
-  ${(props) => props.isNavbarButton && NavLinkStyle}
+    :hover {
+        color: var(--button-text);
+        background-color: var(--btn-hover-bkg);
+    }
+
+    ${(props) => props.isNavbarButton && NavLinkStyle}
 `;
 
 const NavLinkStyle = css`
-  margin-left: 12px;
-  font-weight: bold;
-  padding: 0 1rem;
-  border-color: purple;
-  color: purple;
-  
-  :hover{
-    background-color: purple;
-    color: white;
-  }
-`
+    margin-left: 12px;
+    font-weight: bold;
+    padding: 0 1rem;
+    border-color: var(--nav-main-btn-color);
+    color: var(--nav-main-btn-color);
+
+    :hover {
+        background-color: var(--btn-hover-bkg);
+        color: var(--button-text);
+    }
+`;

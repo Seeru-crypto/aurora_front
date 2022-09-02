@@ -42,9 +42,11 @@ export default Work;
 const WorkStyle = styled.section`
     border: 1px solid gray;
     transition: linear 0.25s;
+    padding: 1rem;
 
     .workCards {
         display: flex;
+        flex-wrap: wrap;
         flex-direction: row;
         justify-content: space-evenly;
         align-items: flex-start;
