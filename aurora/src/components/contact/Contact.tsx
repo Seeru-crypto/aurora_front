@@ -59,20 +59,20 @@ const Contact = React.forwardRef(
                     </div>
                 </div>
                 <div className={'contactIcons'}>
-                    <ImageStyle
+                    <IconStyle
                         href={'https://www.linkedin.com/in/fred-oja-8749b1182/'}
                         id={'linkedIn'}
                         target="_blank"
                     >
                         <RiLinkedinFill />
-                    </ImageStyle>
-                    <ImageStyle
+                    </IconStyle>
+                    <IconStyle
                         href={'https://github.com/Seeru-crypto'}
                         id={'gitHub'}
                         target="_blank"
                     >
                         <VscGithubAlt />
-                    </ImageStyle>
+                    </IconStyle>
                 </div>
             </ContactStyle>
         );
@@ -123,8 +123,25 @@ const ContactStyle = styled.section`
         padding: 0.5rem;
         gap: 2rem;
     }
-`;
-const ImageStyle = styled.a`
+
+  @media (max-width: 1200px) {
+    border: 1px solid orange;
+    .contactBody {
+      max-width: 80%;
+    }
+    .contactButtons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0.5rem;
+      gap: 1rem;
+    }
+    .contactIcons{
+      gap: 1rem;
+    }
+  }`;
+const IconStyle = styled.a`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -139,4 +156,10 @@ const ImageStyle = styled.a`
         fill: purple;
         transform: translateY(-10px);
     }
+  
+  @media(max-width: 1200px){
+    padding: .5rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 1rem;
+  }
 `;
