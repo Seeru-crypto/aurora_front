@@ -15,7 +15,9 @@ const Card = ({
     techTypes: TechTypes;
 }) => {
     const [nrOfTopics, setNrOfTopics] = useState<number>(MIN_TOPICS);
-    const pictureUrl : string = (project.picture_url ? project.picture_url : "/resources/default.jpg")
+    const pictureUrl: string = project.picture_url
+        ? project.picture_url
+        : '/resources/default.jpg';
 
     return (
         <CardStyle
@@ -172,7 +174,7 @@ const CardStyle = styled.div`
             transition: var(--transition);
 
             :hover {
-                background-color: purple;
+                background-color: var(--btn-hover-bkg);
             }
         }
         .liveDemoBtn {
@@ -185,7 +187,7 @@ const CardStyle = styled.div`
             transition: var(--transition);
 
             :hover {
-                background-color: purple;
+                background-color: var(--btn-hover-bkg);
             }
         }
         .cardDescription {

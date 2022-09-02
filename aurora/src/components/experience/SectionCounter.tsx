@@ -12,53 +12,52 @@ export default function SectionCounter() {
     );
     return (
         <SectionCounterStyle>
-                <div className="cards">
-            <div className="card">
-                <i className={'icon'}>
-                    <MdOutlineDone />
-                </i>
-                <p>Number of projects</p>
-                <h3>{numberOfProjects}</h3>
-            </div>
-            <div className="card">
-                <i className="icon">
-                    <BsCalendarCheck />
-                </i>
-                <p>Coding since</p>
-                <h3>2016</h3>
-            </div>
-            <div className="card">
-                <i className="icon">
-                    <MdUpdate />
-                </i>
-                <p>Site last updated</p>
-                <h3>{auroraLastUpdated}</h3>
-            </div>
-            <div className="card">
-                <i className="icon">
-                    <MdOutlineLocationOn />
-                </i>
-                <p>Current location</p>
-                <h3>
-                    Estonia, Tallinn <small>127.0.0.1</small>
-                </h3>
-            </div>
+            <div className="cards">
+                <div className="card">
+                    <i className={'icon'}>
+                        <MdOutlineDone />
+                    </i>
+                    <p>Number of projects</p>
+                    <h3>{numberOfProjects}</h3>
+                </div>
+                <div className="card">
+                    <i className="icon">
+                        <BsCalendarCheck />
+                    </i>
+                    <p>Coding since</p>
+                    <h3>2016</h3>
+                </div>
+                <div className="card">
+                    <i className="icon">
+                        <MdUpdate />
+                    </i>
+                    <p>Site last updated</p>
+                    <h3>{auroraLastUpdated}</h3>
+                </div>
+                <div className="card">
+                    <i className="icon">
+                        <MdOutlineLocationOn />
+                    </i>
+                    <p>Current location</p>
+                    <h3>
+                        Estonia, Tallinn <small>127.0.0.1</small>
+                    </h3>
+                </div>
             </div>
         </SectionCounterStyle>
     );
 }
 
 const SectionCounterStyle = styled.div`
-  
-  .cards{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 1rem 0;
-  }
-  
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 1rem 0;
+    }
+
     .icon {
         font-size: 2rem;
-      margin: .5rem 0;
+        margin: 0.5rem 0;
     }
 
     .card {
@@ -67,12 +66,12 @@ const SectionCounterStyle = styled.div`
         justify-content: center;
         align-items: center;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        background-color: #444;
-        color: white;
+        background-color: var(--hero-section-bkg);
+        color: var(--button-text);
         min-width: 21%;
         border-radius: 1rem;
         flex: 1 1 auto;
-        margin: .5rem;
+        margin: 0.5rem;
     }
 
     @media (max-width: 1200px) {

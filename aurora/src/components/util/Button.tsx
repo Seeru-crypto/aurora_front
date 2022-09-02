@@ -35,10 +35,9 @@ const ButtonStyle = styled.button<{ bordered: boolean }>`
     background-color: var(--primary-color);
     color: var(--button-text);
     cursor: ${(props) => (props.bordered ? 'pointer' : 'cursor')};
-    opacity: 1;
     transition: var(--transition);
 
-  :hover{
-    opacity: .6;
-  }
+    :hover {
+        background-color: var(--btn-hover-bkg);
+    }
 `;

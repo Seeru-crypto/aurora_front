@@ -16,7 +16,21 @@ import ClipboardDisplayField from './ClipboardDisplayField';
 
 const Contact = React.forwardRef(
     (_props, ref: ForwardedRef<HTMLElement>): JSX.Element => {
-        const { CV_DOWNLOAD_LINK } = config;
+        const isToastShown: boolean = useAppSelector(
+            (state: RootState) => state.counter.isToastShown
+        );
+
+        const [isEmailShown, setIsEmailShown] = useState(isToastShown);
+
+        useEffect(() => {
+            if (isToastShown && !isEmailShown) setIsEmailShown(true);
+        }, [isToastShown, isEmailShown]);
+
+        const dispatch = useAppDispatch();
+
+        const { CONTACT_HEADER, CONTACT_BODY } = data;
+        const { EMAIL_ADDRESS, CV_DOWNLOAD_LINK } = config;
+
         const resumeLinkData: ExternalLinkInterface = {
             onClick: CV_DOWNLOAD_LINK,
             label: 'get my stuff',
@@ -27,21 +41,6 @@ const Contact = React.forwardRef(
             onClickFunction: () => dispatch(changeToastValue()),
             bordered: true,
         };
-
-        const isToastShown: boolean = useAppSelector(
-            (state: RootState) => state.counter.isToastShown
-        );
-
-        const [isEmailShown, setIsEmailShown] = useState(isToastShown);
-
-        useEffect(() => {
-            if (isToastShown && !isEmailShown) setIsEmailShown(true);
-        }, [isToastShown]);
-
-        const dispatch = useAppDispatch();
-
-        const { CONTACT_HEADER, CONTACT_BODY } = data;
-        const { EMAIL_ADDRESS } = config;
 
         return (
             <ContactStyle ref={ref} id="contact">
@@ -124,23 +123,24 @@ const ContactStyle = styled.section`
         gap: 2rem;
     }
 
-  @media (max-width: 1200px) {
-    border: 1px solid orange;
-    .contactBody {
-      max-width: 80%;
+    @media (max-width: 1200px) {
+        border: 1px solid orange;
+        .contactBody {
+            max-width: 80%;
+        }
+        .contactButtons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0.5rem;
+            gap: 1rem;
+        }
+        .contactIcons {
+            gap: 1rem;
+        }
     }
-    .contactButtons {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      padding: 0.5rem;
-      gap: 1rem;
-    }
-    .contactIcons{
-      gap: 1rem;
-    }
-  }`;
+`;
 const IconStyle = styled.a`
     display: flex;
     justify-content: center;
@@ -153,13 +153,13 @@ const IconStyle = styled.a`
     }
 
     :hover svg {
-        fill: purple;
+        fill: var(--icon-highlight-border);
         transform: translateY(-10px);
     }
-  
-  @media(max-width: 1200px){
-    padding: .5rem;
-    border: 1px solid var(--primary-color);
-    border-radius: 1rem;
-  }
+
+    @media (max-width: 1200px) {
+        padding: 0.5rem;
+        border: 1px solid var(--primary-color);
+        border-radius: 1rem;
+    }
 `;
