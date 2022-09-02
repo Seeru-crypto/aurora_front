@@ -29,7 +29,8 @@ const Contact = React.forwardRef(
         const dispatch = useAppDispatch();
 
         const { CONTACT_HEADER, CONTACT_BODY } = data;
-        const { EMAIL_ADDRESS, CV_DOWNLOAD_LINK } = config;
+        const { EMAIL_ADDRESS, CV_DOWNLOAD_LINK, LINKEDIN_URL, GITHUB_URL } =
+            config;
 
         const resumeLinkData: ExternalLinkInterface = {
             onClick: CV_DOWNLOAD_LINK,
@@ -59,17 +60,13 @@ const Contact = React.forwardRef(
                 </div>
                 <div className={'contactIcons'}>
                     <IconStyle
-                        href={'https://www.linkedin.com/in/fred-oja-8749b1182/'}
+                        href={LINKEDIN_URL}
                         id={'linkedIn'}
                         target="_blank"
                     >
                         <RiLinkedinFill />
                     </IconStyle>
-                    <IconStyle
-                        href={'https://github.com/Seeru-crypto'}
-                        id={'gitHub'}
-                        target="_blank"
-                    >
+                    <IconStyle href={GITHUB_URL} id={'gitHub'} target="_blank">
                         <VscGithubAlt />
                     </IconStyle>
                 </div>
