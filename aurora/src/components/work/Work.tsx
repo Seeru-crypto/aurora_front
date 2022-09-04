@@ -43,6 +43,7 @@ const WorkStyle = styled.section`
     border: 1px solid gray;
     transition: linear 0.25s;
     padding: 1rem;
+    width: 100%;
 
     .workCards {
         display: flex;

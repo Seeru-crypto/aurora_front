@@ -10,7 +10,7 @@ export interface ProjectJsonInterface {
     showcase: boolean;
     topics?: string[];
     description?: string;
-    dateFinished?: string;
+    updatedAt?: string;
 }
 
 export interface WorkProps {
@@ -25,7 +25,7 @@ export type ProjectTypes = ['personal', 'freelance', 'main'];
 export interface ProjectInterface extends ProjectJsonInterface {
     description?: string;
     created_at?: string;
-    updated_at?: string;
+    updatedAt?: string;
     homepage?: string;
     topics?: string[];
 }
@@ -87,7 +87,7 @@ export async function mergeGitProjectData(
                 ...project,
                 description: gitData.description,
                 created_at: gitData.created_at,
-                updated_at: gitData.updated_at,
+                updatedAt: gitData.updated_at,
                 homepage: gitData.homepage,
                 topics: gitData.topics,
             };

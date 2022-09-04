@@ -62,8 +62,8 @@ const Card = ({
                 <div className={'cardDescription'}>{project.description}</div>
 
                 <div className={'projectDates'}>
-                    {project.updated_at && (
-                        <small>Updated: {formatDate(project.updated_at)}</small>
+                    {project.updatedAt && (
+                        <small>Updated: {formatDate(project.updatedAt)}</small>
                     )}
                     {project.created_at && (
                         <small>Created: {formatDate(project.created_at)}</small>

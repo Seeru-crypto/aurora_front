@@ -55,8 +55,8 @@ export default function Home({
         dispatch(setNumberOfProjects(projects.length));
         // Spike can this loop be transformed into a server side function?
         projects.forEach((project) => {
-            if (project.project_name === 'Aurora' && project.updated_at)
-                dispatch(setAuroraLastUpdated(formatDate(project.updated_at)));
+            if (project.project_name === 'Aurora' && project.updatedAt)
+                dispatch(setAuroraLastUpdated(formatDate(project.updatedAt)));
         });
     }, [projects, dispatch]);
 

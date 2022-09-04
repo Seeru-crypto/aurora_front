@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import config from '../../config.json';
 import { ProjectInterface } from '../../lib/load-data';
+import Tooltip from '../util/ToolTip';
 
 export default function Archive({
     projects,
@@ -8,6 +9,14 @@ export default function Archive({
     projects: ProjectInterface[];
 }) {
     const { GITHUB_URL } = config;
+
+    function getYear(project: ProjectInterface): number {
+        if (project.repo_name && project.updatedAt)
+            return new Date(project.updatedAt).getFullYear();
+        else if (project.updatedAt)
+            return new Date(project.updatedAt).getFullYear();
+        else return 1970;
+    }
     return (
         <ArchiveStyle>
             <h3>Arhive list!</h3>
@@ -21,8 +30,14 @@ export default function Archive({
                         <th>Links</th>
                     </tr>
                     {projects.map((project, index) => (
-                        <tr className="tableRow" key={index}>
-                            <td className="tableContent">{index + 1}</td>
+                        <tr
+                            className={`tableRow ${
+                                index % 2 === 0 ? 'even' : 'unEven'
+                            }`}
+                            key={index}
+                        >
+                            <Tooltip message="test" />
+                            <td className="tableContent">{getYear(project)}</td>
                             <td className="tableContent">
                                 {project.project_name}
                             </td>
@@ -38,6 +53,8 @@ export default function Archive({
                                 {project.repo_name && (
                                     <a
                                         href={`${GITHUB_URL}/${project.repo_name}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                     >
                                         repo_link
                                     </a>
@@ -55,9 +72,21 @@ const ArchiveStyle = styled.div`
     padding: 2rem 0;
     .table {
         width: 100%;
-        border: 1px solid black;
+        //border: 1px solid black;
     }
     .tableContent {
-        border: 1px solid orange;
+        text-transform: capitalize;
+
+        //border: 1px solid orange;
+    }
+    .tableHeader {
+        background-color: var(--table-header-bkg);
+        color: var(--button-text);
+    }
+    .even {
+        background-color: var(--table-even);
+    }
+    .unEven {
+        background-color: var(--table-uneven);
     }
 `;

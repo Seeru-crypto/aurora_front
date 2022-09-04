@@ -5,14 +5,8 @@
             "project_name": "Dater",
             "picture_url": "/resources/Dater.png",
             "project_type": "personal",
-            "showcase": true
-        },
-        {
-            "repo_name": "aurora_front",
-            "project_name": "Aurora",
-            "picture_url": "/resources/default.jpg",
-            "project_type": "personal",
-            "showcase": true
+            "showcase": true,
+            "updatedAt": ""
         },
         {
             "repo_name": "",
@@ -21,21 +15,25 @@
             "project_type": "personal",
             "showcase": true,
             "topics": ["freenas"],
-            "description": "A freeNas home server"
+            "description": "A freeNas home server",
+            "updatedAt": ""
         },
         {
             "repo_name": "",
             "project_name": "Archive prj 1",
             "picture_url": "/resources/FreeNAS.png",
             "project_type": "personal",
-            "showcase": false
+            "showcase": false,
+            "topics": ["a topic"],
+            "updatedAt": "2020-09-04T17:11:11.164Z"
         },
         {
             "repo_name": "protocol",
             "project_name": "Protocol",
             "picture_url": "",
             "project_type": "personal",
-            "showcase": false
+            "showcase": false,
+            "updatedAt": ""
         }
     ],
     "CONTACT_BODY": "You can share your impressions on why would someone need your services or whatnot, I don't know, I'm not the all-seeing entity of all.",
