@@ -11,11 +11,8 @@ export default function Archive({
     const { GITHUB_URL } = config;
 
     function getYear(project: ProjectInterface): number {
-        if (project.repo_name && project.updatedAt)
-            return new Date(project.updatedAt).getFullYear();
-        else if (project.updatedAt)
-            return new Date(project.updatedAt).getFullYear();
-        else return 1970;
+        if (project.updatedAt) return new Date(project.updatedAt).getFullYear();
+        return 1984;
     }
     return (
         <ArchiveStyle>
@@ -36,7 +33,6 @@ export default function Archive({
                             }`}
                             key={index}
                         >
-                            <Tooltip message="test" />
                             <td className="tableContent">{getYear(project)}</td>
                             <td className="tableContent">
                                 {project.project_name}
@@ -72,21 +68,24 @@ const ArchiveStyle = styled.div`
     padding: 2rem 0;
     .table {
         width: 100%;
-        //border: 1px solid black;
-    }
-    .tableContent {
+      
+      .tableContent {
         text-transform: capitalize;
-
-        //border: 1px solid orange;
-    }
-    .tableHeader {
+      }
+      
+      .tableHeader {
         background-color: var(--table-header-bkg);
         color: var(--button-text);
-    }
-    .even {
+      }
+      
+      .even {
         background-color: var(--table-even);
-    }
-    .unEven {
+      }
+      
+      .unEven {
         background-color: var(--table-uneven);
+      }
+      
     }
+   
 `;

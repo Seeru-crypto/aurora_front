@@ -52,4 +52,10 @@ const WorkStyle = styled.section`
         justify-content: space-evenly;
         align-items: flex-start;
     }
+
+  @media (max-width: 1200px) {
+    .workCards{
+      flex-direction: column;
+    }
+  }
 `;

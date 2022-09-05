@@ -7,6 +7,18 @@ import TopicBubble from './TopicBubble';
 
 const { MAX_TOPICS, MIN_TOPICS } = config;
 
+export const formatDate = (isoDateString: string, shortFormat: boolean) => {
+    const newDate = new Date(isoDateString);
+    if (shortFormat) {
+        const monthName = newDate.toLocaleString('en-US', {month: 'short'});
+        return monthName + '/' + newDate.getFullYear();
+    }
+    else {
+        const monthName = newDate.toLocaleString('en-US', {month: "long"});
+        return monthName + ' ' + newDate.getFullYear();
+    }
+};
+
 const Card = ({
     project,
     techTypes,
@@ -63,13 +75,12 @@ const Card = ({
 
                 <div className={'projectDates'}>
                     {project.updatedAt && (
-                        <small>Updated: {formatDate(project.updatedAt)}</small>
+                        <small>Updated: {formatDate(project.updatedAt, true)}</small>
                     )}
                     {project.created_at && (
-                        <small>Created: {formatDate(project.created_at)}</small>
+                        <small>Created: {formatDate(project.created_at, true)}</small>
                     )}
                 </div>
-
                 <div className={'showcaseButtons'}>
                     {project.repo_name && (
                         <a
@@ -98,12 +109,6 @@ const Card = ({
 };
 
 export default Card;
-
-export const formatDate = (date: string) => {
-    const newDate = new Date(date);
-    const monthName = newDate.toLocaleString('default', { month: 'short' });
-    return monthName + '/' + newDate.getFullYear();
-};
 
 const CardStyle = styled.div`
     margin: 1rem;

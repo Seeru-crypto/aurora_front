@@ -56,7 +56,7 @@ export default function Home({
         // Spike can this loop be transformed into a server side function?
         projects.forEach((project) => {
             if (project.project_name === 'Aurora' && project.updatedAt)
-                dispatch(setAuroraLastUpdated(formatDate(project.updatedAt)));
+                dispatch(setAuroraLastUpdated(formatDate(project.updatedAt, false)));
         });
     }, [projects, dispatch]);
 
@@ -133,6 +133,7 @@ export async function getStaticProps() {
         process.env.GITHUB_TOKEN
     );
     const techTypeList: string[][] = config.TECH_TYPES;
+    console.log("Fetched project: ", projects)
 
     return {
         props: {
