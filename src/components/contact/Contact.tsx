@@ -1,4 +1,5 @@
 import React, { ForwardedRef, useEffect, useState } from 'react';
+import { IconContext } from "react-icons/lib"
 import { RiLinkedinFill } from 'react-icons/Ri';
 import { VscGithubAlt } from 'react-icons/Vsc';
 import styled from 'styled-components';
