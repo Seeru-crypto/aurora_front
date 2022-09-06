@@ -14,7 +14,6 @@ export interface ProjectJsonInterface {
 }
 
 export interface WorkProps {
-    projects: ProjectInterface[];
     techTypes: TechTypes;
 }
 

@@ -41,7 +41,7 @@ export default function Archive({
                                 {project.project_type}
                             </td>
                             <td className="tableContent">
-                                {project.topics?.map((topic) => (
+                                {project.topics?.map((topic, index) => (
                                     <span key={topic}>{`${topic}, `}</span>
                                 ))}
                             </td>

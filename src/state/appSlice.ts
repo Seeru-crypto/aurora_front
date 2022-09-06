@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import {ProjectInterface} from "../lib/load-data";
 
 export interface AppState {
     value: number;
@@ -7,6 +8,7 @@ export interface AppState {
     currentPage: string;
     numberOfProjects: number;
     auroraLastUpdated: string;
+    projects: ProjectInterface[];
 }
 
 const initialState: AppState = {
@@ -16,6 +18,7 @@ const initialState: AppState = {
     currentPage: '',
     numberOfProjects: 0,
     auroraLastUpdated: '',
+    projects: []
 };
 
 export const appSlice = createSlice({
@@ -41,6 +44,9 @@ export const appSlice = createSlice({
         setNumberOfProjects: (state, action: PayloadAction<number>) => {
             state.numberOfProjects = action.payload;
         },
+        setProjects: (state, action: PayloadAction<ProjectInterface[]>) => {
+            state.projects = action.payload;
+        },
         setAuroraLastUpdated: (
             state,
             action: PayloadAction<string | undefined>
@@ -57,6 +63,7 @@ export const {
     changeToastValue,
     setCurrentPage,
     setNumberOfProjects,
+    setProjects,
     setAuroraLastUpdated,
 } = appSlice.actions;
 

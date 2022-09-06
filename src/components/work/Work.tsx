@@ -3,15 +3,22 @@ import styled from 'styled-components';
 import { ProjectInterface, WorkProps } from '../../lib/load-data';
 import Archive from './Archive';
 import Card from './Card';
+import {RootState, useAppSelector} from "../../state/store";
 
 const Work = React.forwardRef(
     (
         { workProps }: { workProps: WorkProps },
         ref: ForwardedRef<HTMLElement>
     ) => {
-        const showcaseList: ProjectInterface[] = workProps.projects.filter(
+
+        const projects: ProjectInterface[] = useAppSelector(
+            (state: RootState) => state.counter.projects
+        );
+
+        const showcaseList: ProjectInterface[] = projects.filter(
             (project) => project.showcase
         );
+
 
         return (
             <WorkStyle ref={ref} id="work">
@@ -26,7 +33,7 @@ const Work = React.forwardRef(
                     ))}
                 </div>
                 <Archive
-                    projects={workProps.projects.filter(
+                    projects={projects.filter(
                         (project) => !project.showcase
                     )}
                 />
