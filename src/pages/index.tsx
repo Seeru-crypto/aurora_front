@@ -7,7 +7,7 @@ import {
     Experience,
     LandingPage,
     Work,
-} from '../components/index';
+} from '../components';
 import { Toast } from '../components/util';
 import { formatDate } from '../components/work/Card';
 import config from '../config.json';

@@ -1,6 +1,6 @@
 import React, { ForwardedRef, useEffect, useState } from 'react';
-import { RiLinkedinFill } from 'react-icons/Ri';
-import { VscGithubAlt } from 'react-icons/Vsc';
+import { RiLinkedinFill } from 'react-icons/ri';
+import { VscGithubAlt } from 'react-icons/vsc';
 import styled from 'styled-components';
 import config from '../../config.json';
 import data from '../../data.json';
