@@ -1,7 +1,6 @@
 import React, { ForwardedRef, useEffect, useState } from 'react';
-import { IconContext } from "react-icons/lib"
-import { RiLinkedinFill } from 'react-icons/Ri';
-import { VscGithubAlt } from 'react-icons/Vsc';
+import { RiLinkedinFill } from 'react-icons/ri';
+import { VscGithubAlt } from 'react-icons/vsc';
 import styled from 'styled-components';
 import config from '../../config.json';
 import data from '../../data.json';
@@ -15,6 +14,7 @@ import {
 } from '../util';
 import ClipboardDisplayField from './ClipboardDisplayField';
 
+
 const Contact = React.forwardRef(
     (_props, ref: ForwardedRef<HTMLElement>): JSX.Element => {
         const isToastShown: boolean = useAppSelector(
@@ -22,6 +22,7 @@ const Contact = React.forwardRef(
         );
 
         const [isEmailShown, setIsEmailShown] = useState(isToastShown);
+
 
         useEffect(() => {
             if (isToastShown && !isEmailShown) setIsEmailShown(true);
