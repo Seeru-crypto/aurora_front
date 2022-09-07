@@ -3,6 +3,7 @@
         {
             "repo_name": "Dater_FE",
             "project_name": "Dater",
+            "description": "",
             "picture_url": "/resources/Dater.png",
             "project_type": "personal",
             "showcase": true,
@@ -25,7 +26,18 @@
             "project_type": "personal",
             "showcase": false,
             "topics": ["a topic"],
+            "description": "",
             "updatedAt": "2020-09-04T17:11:11.164Z"
+        },
+        {
+            "repo_name": "",
+            "project_name": "Archive prj 2",
+            "picture_url": "",
+            "project_type": "freelance",
+            "showcase": false,
+            "topics": ["react","a second topic!"],
+            "description": "",
+            "updatedAt": "2010-09-04T17:11:11.164Z"
         },
         {
             "repo_name": "protocol",
@@ -33,7 +45,8 @@
             "picture_url": "",
             "project_type": "personal",
             "showcase": false,
-            "updatedAt": ""
+            "updatedAt": "",
+            "description": ""
         },
         {
             "repo_name": "aurora_front",
@@ -41,7 +54,8 @@
             "picture_url": "/resources/default.jpg",
             "project_type": "personal",
             "showcase": true,
-            "updatedAt": ""
+            "updatedAt": "",
+            "description": ""
         }
     ],
     "CONTACT_BODY": "You can share your impressions on why would someone need your services or whatnot, I don't know, I'm not the all-seeing entity of all.",

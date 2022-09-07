@@ -29,6 +29,7 @@ export default function Button(props: {
 }
 
 const ButtonStyle = styled.button<{ bordered: boolean }>`
+  font-size: 1rem;
     border-radius: 0.5rem;
     border: transparent;
     padding: 0.5rem 1rem;

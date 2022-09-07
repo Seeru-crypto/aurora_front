@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import config from '../../config.json';
 import { ProjectInterface } from '../../lib/load-data';
-import Tooltip from '../util/ToolTip';
+import { FiExternalLink } from 'react-icons/fi';
 
 export default function Archive({
     projects,
@@ -47,13 +47,13 @@ export default function Archive({
                             </td>
                             <td>
                                 {project.repo_name && (
-                                    <a
+                                    <ArchiveIconStyle
                                         href={`${GITHUB_URL}/${project.repo_name}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        repo_link
-                                    </a>
+                                        <FiExternalLink />
+                                    </ArchiveIconStyle>
                                 )}
                             </td>
                         </tr>
@@ -89,3 +89,24 @@ const ArchiveStyle = styled.div`
     }
    
 `;
+
+const ArchiveIconStyle = styled.a`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+
+    svg {
+        transition: var(--transition);
+    }
+
+    :hover svg {
+      stroke: var(--icon-highlight-border);
+    }
+
+    @media (max-width: 1200px) {
+        padding: 0.5rem;
+    }
+`;
+

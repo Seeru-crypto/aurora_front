@@ -80,7 +80,7 @@ Contact.displayName = 'Contact display';
 export default Contact;
 
 const ContactStyle = styled.section`
-    border: 1px solid purple;
+    border: 1px solid var(--primary-color);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -121,7 +121,6 @@ const ContactStyle = styled.section`
     }
 
     @media (max-width: 1200px) {
-        border: 1px solid orange;
         .contactBody {
             max-width: 80%;
         }
@@ -156,7 +155,5 @@ const IconStyle = styled.a`
 
     @media (max-width: 1200px) {
         padding: 0.5rem;
-        border: 1px solid var(--primary-color);
-        border-radius: 1rem;
     }
 `;

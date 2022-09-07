@@ -23,6 +23,7 @@ export default function ExternalLink({
 
 const ButtonStyle = styled.a<{ isNavbarButton: boolean }>`
     border-radius: 0.5rem;
+  font-size: 1rem;
     border: 1px solid var(--secondary-color);
     padding: 0.5rem 1rem;
     background-color: transparent;

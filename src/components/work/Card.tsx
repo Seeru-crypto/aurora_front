@@ -200,4 +200,9 @@ const CardStyle = styled.div`
             margin-top: 0.25rem;
         }
     }
+
+  @media (max-width: 1200px) {
+    width: 50%;
+    
+  }
 `;
