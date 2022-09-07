@@ -35,5 +35,3 @@ yarn-error.log*
 *.tsbuildinfo
 .history
 ./idea
-
-./next.config.js
