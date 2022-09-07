@@ -10,5 +10,8 @@ export default function handler(
     req: NextApiRequest,
     res: NextApiResponse<Data>
 ) {
-    res.status(200).json({ name: 'Hello world!' });
+    const responseBody = {}
+
+    // @ts-ignore
+    res.status(200).json(responseBody);
 }
