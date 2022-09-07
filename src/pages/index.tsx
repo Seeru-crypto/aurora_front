@@ -1,13 +1,7 @@
 import Head from 'next/head';
 import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import {
-    About,
-    Contact,
-    Experience,
-    LandingPage,
-    Work,
-} from '../components';
+import { About, Contact, Experience, LandingPage, Work } from '../components';
 import { Toast } from '../components/util';
 import { formatDate } from '../components/work/Card';
 import config from '../config.json';
@@ -49,14 +43,16 @@ export default function Home({
                 dispatch(changeToastValue());
             }, 3000);
         }
-    }, [isToastShown]);
+    }, [isToastShown, dispatch]);
 
     useEffect(() => {
         dispatch(setNumberOfProjects(projects.length));
         // Spike can this loop be transformed into a server side function?
         projects.forEach((project) => {
             if (project.project_name === 'Aurora' && project.updatedAt)
-                dispatch(setAuroraLastUpdated(formatDate(project.updatedAt, false)));
+                dispatch(
+                    setAuroraLastUpdated(formatDate(project.updatedAt, false))
+                );
         });
     }, [projects, dispatch]);
 
@@ -126,7 +122,7 @@ export default function Home({
 }
 
 export async function getStaticProps() {
-    console.log("current url: ",process.env.GIT_REPO_DATA_URL )
+    console.log('current url: ', process.env.GIT_REPO_DATA_URL);
     const localJsonData: { projects: ProjectJsonInterface[] } =
         await loadLocalData();
     const projects = await mergeGitProjectData(
@@ -135,7 +131,7 @@ export async function getStaticProps() {
         process.env.GITHUB_TOKEN
     );
     const techTypeList: string[][] = config.TECH_TYPES;
-    console.log("Fetched project: ", projects)
+    console.log('Fetched project: ', projects);
 
     return {
         props: {
