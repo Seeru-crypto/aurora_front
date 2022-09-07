@@ -1,7 +1,7 @@
+import { FiExternalLink } from 'react-icons/fi';
 import styled from 'styled-components';
 import config from '../../config.json';
 import { ProjectInterface } from '../../lib/load-data';
-import { FiExternalLink } from 'react-icons/fi';
 
 export default function Archive({
     projects,
@@ -68,26 +68,24 @@ const ArchiveStyle = styled.div`
     padding: 2rem 0;
     .table {
         width: 100%;
-      
-      .tableContent {
-        text-transform: capitalize;
-      }
-      
-      .tableHeader {
-        background-color: var(--table-header-bkg);
-        color: var(--button-text);
-      }
-      
-      .even {
-        background-color: var(--table-even);
-      }
-      
-      .unEven {
-        background-color: var(--table-uneven);
-      }
-      
+
+        .tableContent {
+            text-transform: capitalize;
+        }
+
+        .tableHeader {
+            background-color: var(--table-header-bkg);
+            color: var(--button-text);
+        }
+
+        .even {
+            background-color: var(--table-even);
+        }
+
+        .unEven {
+            background-color: var(--table-uneven);
+        }
     }
-   
 `;
 
 const ArchiveIconStyle = styled.a`
@@ -102,11 +100,10 @@ const ArchiveIconStyle = styled.a`
     }
 
     :hover svg {
-      stroke: var(--icon-highlight-border);
+        stroke: var(--icon-highlight-border);
     }
 
     @media (max-width: 1200px) {
         padding: 0.5rem;
     }
 `;
-
