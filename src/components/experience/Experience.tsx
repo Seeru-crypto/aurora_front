@@ -1,16 +1,6 @@
 import React, { ForwardedRef } from 'react';
 import styled from 'styled-components';
-import SectionCounter from "./SectionCounter";
-export interface ExperienceInterface {
-    date_started: Date;
-    date_ended: Date;
-    employer: string;
-    job_title: string;
-    job_description: string;
-    job_type: JobTypes;
-}
-
-export type JobTypes = ['course', 'freelance', 'main'];
+import SectionCounter from './SectionCounter';
 
 const Experience = React.forwardRef((props, ref: ForwardedRef<HTMLElement>) => {
     return (
