@@ -1,5 +1,3 @@
-# Naively Simple Node Dockerfile
-
 FROM node:14.17-alpine
 
 RUN mkdir -p /home/app/ && chown -R node:node /home/app

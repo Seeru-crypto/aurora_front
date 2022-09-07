@@ -6,8 +6,7 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint",
-        "prisma:generate": "prisma generate --schema src/prisma/schema.prisma"
+        "lint": "next lint"
     },
     "dependencies": {
         "@reduxjs/toolkit": "^1.8.4",
