@@ -1,6 +1,5 @@
 import fsPromises from 'fs/promises';
 import path from 'path';
-import config from '../config.json';
 
 export interface ProjectJsonInterface {
     repo_name: string;
@@ -71,6 +70,7 @@ export async function getThirdPartyData(
 
 export async function mergeGitProjectData(
     projects: ProjectJsonInterface[],
+    url: string | undefined,
     token: string | undefined
 ): Promise<ProjectInterface[]> {
     return Promise.all(
@@ -78,7 +78,7 @@ export async function mergeGitProjectData(
             if (project.repo_name === '') return { ...project };
 
             const gitData: ProjectGitRepoInterface = await getThirdPartyData(
-                config.GIT_REPO_DATA_URL + project.repo_name,
+                url + project.repo_name,
                 token
             );
             if (!gitData) return { ...project };

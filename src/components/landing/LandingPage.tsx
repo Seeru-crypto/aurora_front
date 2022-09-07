@@ -1,31 +1,37 @@
 import Image from 'next/image';
-import React, {ForwardedRef, useEffect, useState} from 'react';
+import React, { ForwardedRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import data from "../../data.json"
+import data from '../../data.json';
 
 const LandingPage = React.forwardRef(
     (_props, ref: ForwardedRef<HTMLElement>) => {
-        const [greetingMessage, setGreetingMessage] = useState("");
-        const {GREETING_MORNING, GREETING_DAY, GREETING_EVENING, LANDING_HERO_TEXT} = data;
+        const [greetingMessage, setGreetingMessage] = useState('');
+        const {
+            GREETING_MORNING,
+            GREETING_DAY,
+            GREETING_EVENING,
+            LANDING_HERO_TEXT,
+        } = data;
 
         useEffect(() => {
             const sysTimeHour = new Date().getHours();
-            switch (true){
-                case (sysTimeHour < 6):
+            switch (true) {
+                case sysTimeHour < 6:
                     setGreetingMessage(GREETING_EVENING);
                     break;
-                case (7 <= sysTimeHour && sysTimeHour <= 11 ):
+                case 7 <= sysTimeHour && sysTimeHour <= 11:
                     setGreetingMessage(GREETING_MORNING);
                     break;
-                case (12 <= sysTimeHour && sysTimeHour < 20):
+                case 12 <= sysTimeHour && sysTimeHour < 20:
                     setGreetingMessage(GREETING_DAY);
                     break;
-                case (20 <= sysTimeHour):
+                case 20 <= sysTimeHour:
                     setGreetingMessage(GREETING_EVENING);
                     break;
-                default: setGreetingMessage("Howdy");
+                default:
+                    setGreetingMessage('Howdy');
             }
-        }, [])
+        }, [GREETING_EVENING, GREETING_MORNING, GREETING_DAY]);
 
         return (
             <LandingStyle id="home" ref={ref} className={'container'}>

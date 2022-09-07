@@ -26,7 +26,7 @@ Experience.displayName = 'Experience display';
 export default Experience;
 
 const ExperienceStyle = styled.section`
-    border: 1px solid red;
+    border: 1px solid var(--primary-color);
     height: 100vh;
     width: 100%;
 `;

@@ -1,7 +1,7 @@
+import { FiExternalLink } from 'react-icons/fi';
 import styled from 'styled-components';
 import config from '../../config.json';
 import { ProjectInterface } from '../../lib/load-data';
-import Tooltip from '../util/ToolTip';
 
 export default function Archive({
     projects,
@@ -47,13 +47,13 @@ export default function Archive({
                             </td>
                             <td>
                                 {project.repo_name && (
-                                    <a
+                                    <ArchiveIconStyle
                                         href={`${GITHUB_URL}/${project.repo_name}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        repo_link
-                                    </a>
+                                        <FiExternalLink />
+                                    </ArchiveIconStyle>
                                 )}
                             </td>
                         </tr>
@@ -68,24 +68,42 @@ const ArchiveStyle = styled.div`
     padding: 2rem 0;
     .table {
         width: 100%;
-      
-      .tableContent {
-        text-transform: capitalize;
-      }
-      
-      .tableHeader {
-        background-color: var(--table-header-bkg);
-        color: var(--button-text);
-      }
-      
-      .even {
-        background-color: var(--table-even);
-      }
-      
-      .unEven {
-        background-color: var(--table-uneven);
-      }
-      
+
+        .tableContent {
+            text-transform: capitalize;
+        }
+
+        .tableHeader {
+            background-color: var(--table-header-bkg);
+            color: var(--button-text);
+        }
+
+        .even {
+            background-color: var(--table-even);
+        }
+
+        .unEven {
+            background-color: var(--table-uneven);
+        }
     }
-   
+`;
+
+const ArchiveIconStyle = styled.a`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+
+    svg {
+        transition: var(--transition);
+    }
+
+    :hover svg {
+        stroke: var(--icon-highlight-border);
+    }
+
+    @media (max-width: 1200px) {
+        padding: 0.5rem;
+    }
 `;

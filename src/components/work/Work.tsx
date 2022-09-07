@@ -40,7 +40,7 @@ Work.displayName = 'Work';
 export default Work;
 
 const WorkStyle = styled.section`
-    border: 1px solid gray;
+    border: 1px solid var(--primary-color);
     transition: linear 0.25s;
     padding: 1rem;
     width: 100%;

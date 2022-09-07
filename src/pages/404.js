@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import styled from 'styled-components';
 
 const NotFound = () => {
@@ -11,7 +11,7 @@ const NotFound = () => {
         setTimeout(() => {
             router.push('/');
         }, timer);
-    }, []);
+    }, [timer, router]);
 
     return (
         <NotFoundStyle>
@@ -31,8 +31,9 @@ export default NotFound;
 const NotFoundStyle = styled.div`
     text-align: center;
 
-  .homeButton {
-    color: #4979ff;
-    text-decoration: underline;
-  }
-`
+    .homeButton {
+        color: #4979ff;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+`;
