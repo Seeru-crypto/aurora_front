@@ -126,10 +126,12 @@ export default function Home({
 }
 
 export async function getStaticProps() {
+    console.log("current url: ",process.env.GIT_REPO_DATA_URL )
     const localJsonData: { projects: ProjectJsonInterface[] } =
         await loadLocalData();
     const projects = await mergeGitProjectData(
         localJsonData.projects,
+        process.env.GIT_REPO_DATA_URL,
         process.env.GITHUB_TOKEN
     );
     const techTypeList: string[][] = config.TECH_TYPES;
