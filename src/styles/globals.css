@@ -3,6 +3,8 @@
 :root {
     --bkg-color: #fffffe;
     --primary-color: #6246ea;
+    --primary-color-300: hsla(250, 80%, 60%, 0.353);
+
     --secondary-color: #d1d1e9;
     --button-text: #fffffe;
     --paragraph: #2b2c34;

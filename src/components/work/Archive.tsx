@@ -66,24 +66,39 @@ export default function Archive({
 const ArchiveStyle = styled.div`
     height: 50vh;
     padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     .table {
+        border-collapse: collapse;
         width: 100%;
 
         .tableContent {
+            padding: 0.5rem;
             text-transform: capitalize;
         }
 
         .tableHeader {
             background-color: var(--primary-color);
             color: var(--button-text);
+            th {
+                padding: 0.5rem;
+            }
         }
 
         .even {
             background-color: var(--table-even);
+            :hover {
+                background-color: var(--primary-color-300);
+            }
         }
 
         .unEven {
             background-color: var(--table-uneven);
+            :hover {
+                background-color: var(--primary-color-300);
+            }
         }
     }
 `;
