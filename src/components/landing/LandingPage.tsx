@@ -62,10 +62,9 @@ const LandingStyle = styled.section`
     width: 95vw;
 
     .top {
-        border: 1px solid green;
-        //margin-top: -70vh;
     }
 
     .bottom {
+      width: 15%;
     }
 `;

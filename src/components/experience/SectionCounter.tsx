@@ -72,7 +72,7 @@ const SectionCounterStyle = styled.div`
         border-radius: 1rem;
         flex: 1 1 auto;
         margin: 0.5rem;
-        cursor: context-menu;
+        cursor: auto;
 
         :hover {
             border: 2px solid var(--icon-highlight-border);
