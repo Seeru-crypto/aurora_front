@@ -74,7 +74,7 @@ const ArchiveStyle = styled.div`
         }
 
         .tableHeader {
-            background-color: var(--table-header-bkg);
+            background-color: var(--primary-color);
             color: var(--button-text);
         }
 
