@@ -11,10 +11,22 @@ export interface ProjectJsonInterface {
     description?: string;
     updatedAt?: string;
 }
+export type typesOfEmployment = [
+    'full-time',
+    'part-time',
+    'self-employed',
+    'freelance',
+    'training'
+];
 
-export interface WorkProps {
-    projects: ProjectInterface[];
-    techTypes: TechTypes;
+export interface TimelineCard {
+    startDate: string;
+    employer: string;
+    title: string;
+    durationMonths?: number;
+    typeOfEmployment: typesOfEmployment;
+    responsibilities: string[];
+    achievements: string[];
 }
 
 export type TechTypes = Map<string, string>;

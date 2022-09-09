@@ -4,13 +4,13 @@ import styled from 'styled-components';
 import { About, Contact, Experience, LandingPage, Work } from '../components';
 import { Toast } from '../components/util';
 import { formatDate } from '../components/work/Card';
+import { WorkProps } from '../components/work/Work';
 import config from '../config.json';
 import {
     loadLocalData,
     mergeGitProjectData,
     ProjectInterface,
-    ProjectJsonInterface,
-    WorkProps,
+    TimelineCard,
 } from '../lib/load-data';
 import {
     changeToastValue,
@@ -23,8 +23,10 @@ import { RootState, useAppDispatch, useAppSelector } from '../state/store';
 export default function Home({
     projects,
     techTypes,
+    timeLineCards,
 }: {
     projects: ProjectInterface[];
+    timeLineCards: TimelineCard[];
     techTypes: Iterable<readonly [string, string]>;
 }) {
     const workProps: WorkProps = {
@@ -113,7 +115,7 @@ export default function Home({
                 {isToastShown && <Toast message="Added to clipboard" />}
                 <LandingPage ref={landingRef} />
                 <About ref={aboutRef} />
-                <Experience ref={experienceRef} />
+                <Experience timeLineCards={timeLineCards} ref={experienceRef} />
                 <Work workProps={workProps} ref={projectRef} />
                 <Contact ref={contactRef} />
             </main>
@@ -123,20 +125,20 @@ export default function Home({
 
 export async function getStaticProps() {
     console.log('current url: ', process.env.GIT_REPO_DATA_URL);
-    const localJsonData: { projects: ProjectJsonInterface[] } =
-        await loadLocalData();
+    const localJsonData = await loadLocalData();
     const projects = await mergeGitProjectData(
         localJsonData.projects,
         process.env.GIT_REPO_DATA_URL,
         process.env.GITHUB_TOKEN
     );
     const techTypeList: string[][] = config.TECH_TYPES;
-    console.log('Fetched project: ', projects);
+    const timeLineCards: TimelineCard[] = localJsonData.experience;
 
     return {
         props: {
             projects: projects,
             techTypes: techTypeList,
+            timeLineCards: timeLineCards,
         },
         revalidate: process.env.REVALIDATE_VALUE,
     };

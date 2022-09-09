@@ -1,8 +1,13 @@
 import React, { ForwardedRef } from 'react';
 import styled from 'styled-components';
-import { ProjectInterface, WorkProps } from '../../lib/load-data';
+import { ProjectInterface, TechTypes } from '../../lib/load-data';
 import Archive from './Archive';
 import Card from './Card';
+
+export interface WorkProps {
+    projects: ProjectInterface[];
+    techTypes: TechTypes;
+}
 
 const Work = React.forwardRef(
     (
@@ -53,9 +58,9 @@ const WorkStyle = styled.section`
         align-items: flex-start;
     }
 
-  @media (max-width: 1200px) {
-    .workCards{
-      flex-direction: column;
+    @media (max-width: 1200px) {
+        .workCards {
+            flex-direction: column;
+        }
     }
-  }
 `;
