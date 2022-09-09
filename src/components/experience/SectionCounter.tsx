@@ -66,12 +66,17 @@ const SectionCounterStyle = styled.div`
         justify-content: center;
         align-items: center;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        background-color: var(--hero-section-bkg);
-        color: var(--button-text);
+        border: 2px solid var(--table-uneven);
+        color: var(--paragraph);
         min-width: 21%;
         border-radius: 1rem;
         flex: 1 1 auto;
         margin: 0.5rem;
+        cursor: auto;
+
+        :hover {
+            border: 2px solid var(--icon-highlight-border);
+        }
     }
 
     @media (max-width: 1200px) {

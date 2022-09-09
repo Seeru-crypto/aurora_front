@@ -1,7 +1,7 @@
-import Image from 'next/image';
 import React, { ForwardedRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import data from '../../data.json';
+import CtaButton from './CtaButton';
 
 const LandingPage = React.forwardRef(
     (_props, ref: ForwardedRef<HTMLElement>) => {
@@ -35,18 +35,12 @@ const LandingPage = React.forwardRef(
 
         return (
             <LandingStyle id="home" ref={ref} className={'container'}>
-                <div className={'right'}>
-                    <Image
-                        src="/resources/Creeper2.jpg"
-                        width={500}
-                        height={400}
-                        alt="no-creep!"
-                    />
-                </div>
-
-                <div className={'left'}>
+                <div className="top">
                     <h1>{greetingMessage} My name is Fred</h1>
                     <p>{LANDING_HERO_TEXT}</p>
+                </div>
+                <div className="bottom">
+                    <CtaButton />
                 </div>
             </LandingStyle>
         );
@@ -60,17 +54,17 @@ export default LandingPage;
 const LandingStyle = styled.section`
     padding-top: 10px;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50vh;
     height: 100vh;
     width: 95vw;
 
-    .right {
-        border: 1px solid green;
-        width: 45%;
+    .top {
     }
 
-    .left {
-        border: 1px solid blue;
-        width: 45%;
+    .bottom {
+      width: 15%;
     }
 `;

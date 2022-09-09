@@ -3,6 +3,8 @@
 :root {
     --bkg-color: #fffffe;
     --primary-color: #6246ea;
+    --primary-color-300: hsla(250, 80%, 60%, 0.353);
+
     --secondary-color: #d1d1e9;
     --button-text: #fffffe;
     --paragraph: #2b2c34;
@@ -18,9 +20,8 @@
     --back-topic-color: green;
     --other-topic-color: purple;
     --db-topic-color: blue;
-    --table-header-bkg: #475569; /* Slate 600 */
-    --table-even: #94a3b8; /*Slate 400  */
-    --table-uneven: #e2e8f0; /* Slate 200 */
+    --table-even: #cbd5e1; /*Slate 300  */
+    --table-uneven: #f1f5f9; /* Slate 100 */
 }
 
 html {
