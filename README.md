@@ -14,5 +14,3 @@ navigate to `http://localhost:3001/`
 from content root run `npm i && npm run dev`
 which will install all the neccesary dependencies and run dev env
 Navigate to `http://localhost:3000/`
-
-update
