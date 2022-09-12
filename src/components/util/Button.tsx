@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export interface ButtonInterface {
     classes?: string;
@@ -29,33 +29,16 @@ export default function Button(props: {
 }
 
 const ButtonStyle = styled.button<{ bordered: boolean }>`
+  font-size: 1rem;
     border-radius: 0.5rem;
     border: transparent;
     padding: 0.5rem 1rem;
     background-color: var(--primary-color);
     color: var(--button-text);
     cursor: ${(props) => (props.bordered ? 'pointer' : 'cursor')};
+    transition: var(--transition);
 
-    ${(props) =>
-        props.bordered &&
-        `
-  background: blue;
-  `}
-
-    ${(props) => props.bordered && ToxicButtonStyle}
-    ${(props) => props.bordered && BorderedStyle};
-`;
-
-const BorderedStyle = css`
-    border: transparent;
-`;
-
-const PinkButtonStyle = css`
-    border-color: pink;
-`;
-const BlueButtonStyle = css`
-    border-color: blue;
-`;
-const ToxicButtonStyle = css`
-    border-color: yellow;
+    :hover {
+        background-color: var(--btn-hover-bkg);
+    }
 `;

@@ -1,32 +1,28 @@
 :root {
-  --bkg-color: #fffffe;
-  --primary-color: #6246ea;
-  --secondary-color: #d1d1e9;
-  --button-text: #fffffe;
-  --paragraph: #2b2c34;
-  --header-color: #2b2c34;
-  --box-shadow: #2b2c34;
+    --bkg-color: #fffffe;
+    --primary-color: #6246ea;
+    --primary-color-300: hsla(250, 80%, 60%, 0.353);
+
+    --secondary-color: #d1d1e9;
+    --button-text: #fffffe;
+    --paragraph: #2b2c34;
+    --header-color: #2b2c34;
+    --hero-section-bkg: #444;
+    --icon-highlight-border: purple;
+    --btn-hover-bkg: purple;
+    --nav-main-btn-color: purple;
+    --nav-active-color: purple;
+    --box-shadow: #2b2c34;
+    --transition: all 0.3s ease-in-out;
+    --front-topic-color: red;
+    --back-topic-color: green;
+    --other-topic-color: purple;
+    --db-topic-color: blue;
+    --table-even: #cbd5e1; /*Slate 300  */
+    --table-uneven: #f1f5f9; /* Slate 100 */
 }
 
-.content {
-  max-width: 960px;
-  margin: 0 auto;
-}
-
-footer {
-  display: block;
-  text-align: center;
-  padding: 30px 0;
-  margin-top: 60px;
-  color: #777;
-  border-top: 1px solid #eaeaea;
-}
-
-.not-found {
-  text-align: center;
-}
-
-.not-found a {
-  color: #4979ff;
-  text-decoration: underline;
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5vmax;
 }

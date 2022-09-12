@@ -1,11 +1,12 @@
-import type { AppProps } from 'next/app';
-import { Provider } from 'react-redux';
-import Layout from '../layout/Layout';
-import { store } from '../state/store';
-import '../styles/globals.css';
-import '../styles/topic.css';
+import type { AppProps } from "next/app";
+import { Provider } from "react-redux";
+import Layout from "../layout/Layout";
+import { store } from "../state/store";
 
-export default function Aurora({ Component, pageProps }: AppProps): JSX.Element {
+export default function Aurora({
+  Component,
+  pageProps,
+}: AppProps): JSX.Element {
   return (
     <Provider store={store}>
       <Layout>

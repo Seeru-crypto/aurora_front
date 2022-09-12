@@ -1,28 +1,53 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export interface ExternalLinkInterface {
-    classes?: string;
     onClick: string;
     label: string;
+    isNavbarButton: boolean;
 }
 
-const ExternalLink = ({ linkData }: { linkData: ExternalLinkInterface }) => {
+export default function ExternalLink({
+    linkData,
+}: {
+    linkData: ExternalLinkInterface;
+}): JSX.Element {
+    const { onClick, isNavbarButton, label } = linkData;
+
     return (
-        <ButtonStyle className={linkData.classes} href={linkData.onClick}>
-            {linkData.label}
+        <ButtonStyle isNavbarButton={isNavbarButton} href={onClick}>
+            {label}
         </ButtonStyle>
     );
-};
+}
 
-export default ExternalLink;
-
-const ButtonStyle = styled.a`
+const ButtonStyle = styled.a<{ isNavbarButton: boolean }>`
     border-radius: 0.5rem;
-    border: transparent;
+  font-size: 1rem;
+    border: 1px solid var(--secondary-color);
     padding: 0.5rem 1rem;
     background-color: transparent;
-    border: 1px solid gray;
     color: var(--primary-color);
     cursor: pointer;
+    transition: var(--transition);
+
+    :hover {
+        color: var(--button-text);
+        background-color: var(--btn-hover-bkg);
+    }
+
+    ${(props) => props.isNavbarButton && NavLinkStyle}
+`;
+
+const NavLinkStyle = css`
+    margin-left: 12px;
+    font-weight: bold;
+    padding: 0 1rem;
+    border-color: var(--nav-main-btn-color);
+    color: var(--nav-main-btn-color);
+
+    :hover {
+        background-color: var(--btn-hover-bkg);
+        color: var(--button-text);
+    }
 `;
