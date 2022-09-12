@@ -1,6 +1,6 @@
-import { HTMLProps } from 'react';
-import styled from 'styled-components';
-import Download from '../icons/Download.svg';
+import { HTMLProps } from "react";
+import styled from "styled-components";
+import Download from "../icons/Download.svg";
 
 interface ResumeLinkProps extends HTMLProps<HTMLAnchorElement> {
   label: string;
@@ -27,7 +27,8 @@ const ResumeLinkStyles = styled.a`
   font-size: 20px;
   padding: 0.5rem 1rem;
   text-decoration: none;
-  transition: background-color ${(props) => props.theme.transition}, border-color ${(props) => props.theme.transition},
+  transition: background-color ${(props) => props.theme.transition},
+    border-color ${(props) => props.theme.transition},
     color ${(props) => props.theme.transition};
 
   > svg {

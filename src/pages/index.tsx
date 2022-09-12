@@ -67,7 +67,7 @@ export default function Home({
 
   useEffect(() => {
     const intersectionCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
+      entries.forEach((entry: IntersectionObserverEntry) => {
         if (entry.isIntersecting) {
           dispatch(setCurrentPage(entry.target.id));
         }
@@ -111,7 +111,7 @@ export default function Home({
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={"main"}>
+      <main className="main">
         {isToastShown && <Toast message="Added to clipboard" />}
         <LandingPage ref={landingRef} />
         <About ref={aboutRef} />

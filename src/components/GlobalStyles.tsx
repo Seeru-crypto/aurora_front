@@ -44,7 +44,6 @@ body {
 main {
   display: flex;
   flex-flow: column wrap;
-  margin: 0 auto;
   max-width: 1200px;
 }
 

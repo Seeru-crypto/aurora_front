@@ -1,4 +1,11 @@
 {
+    "NAVIGATION_PATHS": [
+        { "value": "Home", "key": "/" },
+        { "value": "About", "key": "#about" },
+        { "value": "Experience", "key": "#experience" },
+        { "value": "Work", "key": "#work" },
+        { "value": "Contact", "key": "#contact" }
+    ],
     "TECH_TYPES": [
         ["react", "front"],
         ["spring-boot", "back"],
