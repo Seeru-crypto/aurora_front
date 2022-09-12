@@ -1,21 +1,16 @@
-import Link from 'next/link';
-import { useEffect } from 'react';
 import styled from 'styled-components';
 import config from '../../config.json';
 import Logo from '../../icons/Logo.svg';
 import { NAVIGATION_PATHS } from '../../Navigation';
 import { setActiveSection } from '../../state/appSlice';
 import { RootState, useAppDispatch, useAppSelector } from '../../state/store';
-import { changeTheme } from '../../state/themeSlice';
+import ResumeLink from '../ResumeLink';
+import ThemeSelector from '../ThemeSelector';
 import NavLink from './NavLink';
 
 export default function Header(): JSX.Element {
   const currentSection: string = useAppSelector((state: RootState) => state.app.currentSection);
   const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    console.log('Current section' + currentSection);
-  }, [currentSection]);
 
   return (
     <HeaderStyles>
@@ -32,10 +27,8 @@ export default function Header(): JSX.Element {
         ))}
       </nav>
       <div className="controls">
-        <button onClick={() => dispatch(changeTheme())}>This makes theme change</button>
-        <Link className="resume" href={config.CV_DOWNLOAD_LINK}>
-          <button className="resume">Résumé</button>
-        </Link>
+        <ThemeSelector />
+        <ResumeLink href={config.CV_DOWNLOAD_LINK} label="Résumé" />
       </div>
     </HeaderStyles>
   );
@@ -64,6 +57,8 @@ export const HeaderStyles = styled.header`
   }
 
   .controls {
-    text-align: right;
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
   }
 `;
