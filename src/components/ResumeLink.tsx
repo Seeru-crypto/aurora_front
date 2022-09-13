@@ -10,7 +10,7 @@ export default function ResumeLink(props: ResumeLinkProps): JSX.Element {
   const { label } = props;
 
   return (
-    <ResumeLinkStyles {...props}>
+    <ResumeLinkStyles>
       <Download className="download" />
       {label}
     </ResumeLinkStyles>

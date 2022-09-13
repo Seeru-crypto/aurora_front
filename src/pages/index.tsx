@@ -1,9 +1,8 @@
 import Head from "next/head";
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
-import About from "../components/About/About";
-import Contact from "../components/Contact/Contact";
-import Experience from "../components/Experience/Experience";
+import Contact from "../components/contact/Contact";
+import Experience from "../components/experience/Experience";
 import LandingPage from "../components/landing/LandingPage";
 import { Toast } from "../components/util";
 import { formatDate } from "../components/work/Card";
@@ -59,7 +58,6 @@ export default function Home({
     });
   }, [projects, dispatch]);
 
-  const aboutRef = useRef<HTMLDivElement>(null);
   const experienceRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
   const landingRef = useRef<HTMLDivElement>(null);
@@ -86,7 +84,6 @@ export default function Home({
     );
 
     if (landingRef.current) observer.observe(landingRef.current);
-    if (aboutRef.current) observer.observe(aboutRef.current);
     if (experienceRef.current) observer.observe(experienceRef.current);
     if (projectRef.current) observer.observe(projectRef.current);
     if (contactRef.current) observer.observe(contactRef.current);
@@ -94,12 +91,11 @@ export default function Home({
     return () => {
       // ToDo fix potential error, where ref is already changed by the time this function runs
       if (landingRef.current) observer.unobserve(landingRef.current);
-      if (aboutRef.current) observer.unobserve(aboutRef.current);
       if (experienceRef.current) observer.unobserve(experienceRef.current);
       if (projectRef.current) observer.unobserve(projectRef.current);
       if (contactRef.current) observer.unobserve(contactRef.current);
     };
-  }, [aboutRef, experienceRef, projectRef, landingRef, contactRef, dispatch]);
+  }, [experienceRef, projectRef, landingRef, contactRef, dispatch]);
 
   return (
     <IndexStyle>
@@ -114,7 +110,6 @@ export default function Home({
       <main className="main">
         {isToastShown && <Toast message="Added to clipboard" />}
         <LandingPage ref={landingRef} />
-        <About ref={aboutRef} />
         <Experience timeLineCards={timeLineCards} ref={experienceRef} />
         <Work workProps={workProps} ref={projectRef} />
         <Contact ref={contactRef} />

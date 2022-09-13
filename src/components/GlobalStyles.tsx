@@ -31,15 +31,7 @@ html {
   scroll-padding-top: 5vmax;
 }
 
-body {
-  background-color: ${(props) =>
-    props.activeTheme === ActiveTheme.NIGHT && props.theme.background};
-  color: ${(props) => props.theme.text};
-  font-family: 'Montserrat', sans-serif;
-  margin: 0;
-  padding: 0;
-  transition: background-color ${(props) => props.theme.transition};
-}
+// ToDo recover deleted styles
 
 main {
   display: flex;

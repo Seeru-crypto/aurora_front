@@ -9,7 +9,7 @@ export default function NavLink(props: NavLinkProps): JSX.Element {
   const { children, isActive = false } = props;
 
   return (
-    <NavLinkStyles isActive={isActive} {...props}>
+    <NavLinkStyles isActive={isActive}>
       {children}
     </NavLinkStyles>
   );
