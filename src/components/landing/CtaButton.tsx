@@ -1,85 +1,66 @@
-import React from 'react';
-import { MdArrowForwardIos } from 'react-icons/md';
+import { BiChevronsDown } from 'react-icons/bi';
 import styled from 'styled-components';
 
-const CtaButton = (): JSX.Element => {
-    const text = 'Check out my projects!';
-    return (
-        <CtaStyle>
-            <a className="btnContainer" href={'#work'}>
-                {text}
-                <svg id="more-arrows">
-                    <polygon
-                        className="arrow-top"
-                        points="37.6,27.9 1.8,1.3 3.3,0 37.6,25.3 71.9,0 73.7,1.3 "
-                    />
-                    <polygon
-                        className="arrow-middle"
-                        points="37.6,45.8 0.8,18.7 4.4,16.4 37.6,41.2 71.2,16.4 74.5,18.7 "
-                    />
-                    <polygon
-                        className="arrow-bottom"
-                        points="37.6,64 0,36.1 5.1,32.8 37.6,56.8 70.4,32.8 75.5,36.1 "
-                    />
-                </svg>
-            </a>
-        </CtaStyle>
-    );
-};
-export default CtaButton;
+export default function CtaButton(props: any): JSX.Element {
+  return (
+    <CtaStyle {...props}>
+      <a href="#showcase" className="cta">
+        Check out my projects
+      </a>
+      <BiChevronsDown className="chevrons" />
+    </CtaStyle>
+  );
+}
 
 const CtaStyle = styled.div`
-    padding: 0.5rem;
-    display: flex;
+  display: flex;
+  flex-flow: column wrap;
+  position: relative;
+
+  .cta {
+    background-color: ${(props) => props.theme.primary};
+    border: 2px solid transparent;
+    border-radius: ${(props) => props.theme.borderRadius};
     cursor: pointer;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border: 1px solid var(--icon-highlight-border);
-    border-radius: 1rem;
-    width: 100%;
+    color: ${(props) => props.theme.background};
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: -2rem 0 2rem 0;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    transition: border-color ${(props) => props.theme.transition}, background-color ${(props) => props.theme.transition},
+      color ${(props) => props.theme.transition};
+    z-index: 10;
 
-    .btnContainer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+    :hover {
+      border-color: ${(props) => props.theme.primary};
+      background-color: ${(props) => props.theme.background};
+      color: ${(props) => props.theme.primary};
+    }
+  }
+
+  .chevrons {
+    animation: float 3s ease-in-out infinite;
+    fill: ${(props) => props.theme.primary};
+    height: 48px;
+    margin: 0 auto;
+    width: 48px;
+    z-index: 0;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translate3d(0, -75%, 0);
+      opacity: 0;
     }
 
-    #more-arrows {
-        padding-top: 1rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 75px;
-        height: 65px;
-
-        &:hover {
-            polygon {
-                fill: var(--icon-highlight-border);
-                transition: all 0.2s ease-out;
-
-                &.arrow-bottom {
-                    transform: translateY(-18px);
-                }
-
-                &.arrow-top {
-                    transform: translateY(18px);
-                }
-            }
-        }
+    30% {
+      opacity: 100%;
     }
 
-    polygon {
-        fill: var(--icon-highlight-border);
-        transition: all 0.2s ease-out;
-
-        &.arrow-middle {
-            opacity: 0.75;
-        }
-
-        &.arrow-top {
-            opacity: 0.5;
-        }
+    100% {
+      transform: translate3d(0, 0, 0);
+      opacity: 0;
     }
+  }
 `;

@@ -1,20 +1,15 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-const Footer = () => {
-    return (
-        <FooterStyle>
-            <p>Copyright 2022 Aurora</p>
-        </FooterStyle>
-    );
-};
-
-export default Footer;
+export default function Footer(): JSX.Element {
+  return (
+    <FooterStyle>
+      <small>&copy; Aurora {new Date().getFullYear()}</small>
+    </FooterStyle>
+  );
+}
 
 const FooterStyle = styled.footer`
-  display: block;
+  font-family: ${(props) => props.theme.secondaryFont};
+  padding: 1rem 0;
   text-align: center;
-  padding: 30px 0;
-  margin-top: 60px;
-  color: #777;
-  border-top: 1px solid #eaeaea;
-`
+`;

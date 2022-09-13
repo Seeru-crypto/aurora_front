@@ -1,24 +1,36 @@
-import styled from "styled-components";
-import config from "../../config.json";
-import Logo from "../../icons/Logo.svg";
-import { setActiveSection } from "../../state/appSlice";
-import { RootState, useAppDispatch, useAppSelector } from "../../state/store";
-import ResumeLink from "../ResumeLink";
-import ThemeSelector from "../ThemeSelector";
-import NavLink from "./NavLink";
+import { transparentize } from 'polished';
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import config from '../../config.json';
+import Logo from '../../icons/Logo.svg';
+import { setActiveSection } from '../../state/appSlice';
+import { RootState, useAppDispatch, useAppSelector } from '../../state/store';
+import ResumeLink from '../ResumeLink';
+import ThemeSelector from '../ThemeSelector';
+import NavLink from './NavLink';
 
 export default function Header(): JSX.Element {
   const dispatch = useAppDispatch();
-  const currentPage = useAppSelector(
-    (state: RootState) => state.app.currentPage
-  );
+  const currentPage = useAppSelector((state: RootState) => state.app.currentPage);
+  const [isScrolling, setIsScrolling] = useState(false);
 
   function isInView(pageName: string): boolean {
     return pageName.toLowerCase() === currentPage.toLowerCase();
   }
 
+  useEffect(() => {
+    window.onscroll = () => {
+      window.pageYOffset === 0 && setIsScrolling(false);
+      window.pageYOffset > 0 && setIsScrolling(true);
+    };
+
+    return () => {
+      window.onscroll = null;
+    };
+  }, []);
+
   return (
-    <HeaderStyles>
+    <HeaderStyles isScrolling={isScrolling}>
       <Logo className="logo" />
       <nav className="navigation">
         {config.NAVIGATION_PATHS.map((object) => (
@@ -26,8 +38,7 @@ export default function Header(): JSX.Element {
             href={object.key}
             key={object.value}
             isActive={isInView(object.value)}
-            onClick={() => dispatch(setActiveSection(object.value))}
-          >
+            onClick={() => dispatch(setActiveSection(object.value))}>
             {object.value}
           </NavLink>
         ))}
@@ -40,14 +51,16 @@ export default function Header(): JSX.Element {
   );
 }
 
-export const HeaderStyles = styled.header`
+export const HeaderStyles = styled.header<{ isScrolling: boolean }>`
   align-items: center;
-  backdrop-filter: blur(10px);
+  background-color: ${(props) => (props.isScrolling ? transparentize(0.3, props.theme.secondary) : 'transparent')};
+  backdrop-filter: blur(8px);
   display: flex;
   max-height: 4.5rem;
-  padding: 1rem 2rem 0.5rem 2rem;
+  padding: 1rem 2rem;
   position: sticky;
   top: 0;
+  transition: background-color ${(props) => props.theme.transition};
   z-index: 999;
 
   .logo,

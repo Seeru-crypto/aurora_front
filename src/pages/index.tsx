@@ -1,45 +1,34 @@
-import Head from "next/head";
-import { useEffect, useRef } from "react";
-import styled from "styled-components";
-import Contact from "../components/contact/Contact";
-import Experience from "../components/experience/Experience";
-import LandingPage from "../components/landing/LandingPage";
-import { Toast } from "../components/util";
-import { formatDate } from "../components/work/Card";
-import Work, { WorkProps } from "../components/work/Work";
-import config from "../config.json";
-import {
-  loadLocalData,
-  mergeGitProjectData,
-  ProjectInterface,
-  TimelineCard,
-} from "../lib/load-data";
-import {
-  changeToastValue,
-  setAuroraLastUpdated,
-  setCurrentPage,
-  setNumberOfProjects,
-} from "../state/appSlice";
-import { RootState, useAppDispatch, useAppSelector } from "../state/store";
+import { useEffect, useRef } from 'react';
+import Contact from '../components/Contact/Contact';
+import Experience from '../components/Experience/Experience';
+import LandingPage from '../components/landing/LandingPage';
+import { Toast } from '../components/util';
+import { formatDate } from '../components/work/Card';
+import Showcase, { ShowcaseProps } from '../components/work/Showcase';
+import config from '../config.json';
+import { loadLocalData, mergeGitProjectData, ProjectInterface, TimelineCard } from '../lib/load-data';
+import { changeToastValue, setAuroraLastUpdated, setCurrentPage, setNumberOfProjects } from '../state/appSlice';
+import { RootState, useAppDispatch, useAppSelector } from '../state/store';
 
-export default function Home({
-  projects,
-  techTypes,
-  timeLineCards,
-}: {
+type HomeProps = {
   projects: ProjectInterface[];
   timeLineCards: TimelineCard[];
   techTypes: Iterable<readonly [string, string]>;
-}) {
-  const workProps: WorkProps = {
+};
+
+export default function Home({ projects, techTypes, timeLineCards }: HomeProps): JSX.Element {
+  const isToastShown: boolean = useAppSelector((state: RootState) => state.app.isToastShown);
+  const dispatch = useAppDispatch();
+
+  const showcaseProps: ShowcaseProps = {
     projects,
     techTypes: new Map<string, string>(techTypes),
   };
 
-  const isToastShown: boolean = useAppSelector(
-    (state: RootState) => state.app.isToastShown
-  );
-  const dispatch = useAppDispatch();
+  const experienceRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
+  const landingRef = useRef<HTMLDivElement>(null);
+  const projectRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isToastShown) {
@@ -51,17 +40,13 @@ export default function Home({
 
   useEffect(() => {
     dispatch(setNumberOfProjects(projects.length));
-    // Spike can this loop be transformed into a server side function?
-    projects.forEach((project) => {
-      if (project.project_name === "Aurora" && project.updatedAt)
+
+    // TODO: can this loop be transformed into a server side function?
+    projects.forEach((project: ProjectInterface) => {
+      if (project.project_name === 'Aurora' && project.updatedAt)
         dispatch(setAuroraLastUpdated(formatDate(project.updatedAt, false)));
     });
   }, [projects, dispatch]);
-
-  const experienceRef = useRef<HTMLDivElement>(null);
-  const contactRef = useRef<HTMLDivElement>(null);
-  const landingRef = useRef<HTMLDivElement>(null);
-  const projectRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const intersectionCallback = (entries: IntersectionObserverEntry[]) => {
@@ -74,52 +59,35 @@ export default function Home({
 
     const intersectionOptions = {
       root: null,
-      rootMargin: "0px",
+      rootMargin: '0px',
       threshold: 0.8,
     };
+    const observer = new IntersectionObserver(intersectionCallback, intersectionOptions);
+    const sections = [experienceRef.current, contactRef.current, landingRef.current, projectRef.current];
 
-    const observer = new IntersectionObserver(
-      intersectionCallback,
-      intersectionOptions
-    );
-
-    if (landingRef.current) observer.observe(landingRef.current);
-    if (experienceRef.current) observer.observe(experienceRef.current);
-    if (projectRef.current) observer.observe(projectRef.current);
-    if (contactRef.current) observer.observe(contactRef.current);
+    sections.map((section: HTMLDivElement | null) => {
+      return section && observer.observe(section);
+    });
 
     return () => {
-      // ToDo fix potential error, where ref is already changed by the time this function runs
-      if (landingRef.current) observer.unobserve(landingRef.current);
-      if (experienceRef.current) observer.unobserve(experienceRef.current);
-      if (projectRef.current) observer.unobserve(projectRef.current);
-      if (contactRef.current) observer.unobserve(contactRef.current);
+      sections.map((section: HTMLDivElement | null) => {
+        return section && observer.unobserve(section);
+      });
     };
   }, [experienceRef, projectRef, landingRef, contactRef, dispatch]);
 
   return (
-    <IndexStyle>
-      <Head>
-        <title>Aurora </title>
-        <meta
-          name="description"
-          content="Generated by create next app, made by FO"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main className="main">
-        {isToastShown && <Toast message="Added to clipboard" />}
-        <LandingPage ref={landingRef} />
-        <Experience timeLineCards={timeLineCards} ref={experienceRef} />
-        <Work workProps={workProps} ref={projectRef} />
-        <Contact ref={contactRef} />
-      </main>
-    </IndexStyle>
+    <>
+      {isToastShown && <Toast message="Added to clipboard" />}
+      <LandingPage ref={landingRef} />
+      <Experience timeLineCards={timeLineCards} ref={experienceRef} />
+      <Showcase showcaseProps={showcaseProps} ref={projectRef} />
+      <Contact ref={contactRef} />
+    </>
   );
 }
 
-export async function getStaticProps() {
-  console.log("current url: ", process.env.GIT_REPO_DATA_URL);
+export async function getStaticProps(): Promise<{ props: HomeProps; revalidate: string | undefined }> {
   const localJsonData = await loadLocalData();
   const projects = await mergeGitProjectData(
     localJsonData.projects,
@@ -129,25 +97,13 @@ export async function getStaticProps() {
   const techTypeList: string[][] = config.TECH_TYPES;
   const timeLineCards: TimelineCard[] = localJsonData.experience;
 
+  // TODO: Fix the actual type for 'techTypes' (see Iterator<Map> vs string[][])
   return {
     props: {
       projects: projects,
-      techTypes: techTypeList,
+      techTypes: techTypeList as any,
       timeLineCards: timeLineCards,
     },
     revalidate: process.env.REVALIDATE_VALUE,
   };
 }
-
-const IndexStyle = styled.div`
-  padding: 0 2rem;
-
-  .main {
-    min-height: 50vh;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-`;

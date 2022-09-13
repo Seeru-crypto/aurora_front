@@ -1,9 +1,8 @@
 {
     "NAVIGATION_PATHS": [
-        { "value": "Home", "key": "/" },
-        { "value": "About", "key": "#about" },
+        { "value": "About", "key": "/" },
         { "value": "Experience", "key": "#experience" },
-        { "value": "Work", "key": "#work" },
+        { "value": "Showcase", "key": "#showcase" },
         { "value": "Contact", "key": "#contact" }
     ],
     "TECH_TYPES": [

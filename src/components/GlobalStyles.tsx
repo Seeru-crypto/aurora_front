@@ -1,7 +1,10 @@
-import { createGlobalStyle } from "styled-components";
-import { ActiveTheme } from "../state/themeSlice";
+import { createGlobalStyle } from 'styled-components';
+import { ActiveTheme } from '../state/themeSlice';
+import { FredTheme } from '../Themes';
 
-export default createGlobalStyle<{ activeTheme: string }>`
+export default createGlobalStyle<{ activeTheme: string; theme: FredTheme }>`
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Montserrat&display=swap');
+
 :root {
     --bkg-color: #fffffe;
     --primary-color: #6246ea;
@@ -31,20 +34,24 @@ html {
   scroll-padding-top: 5vmax;
 }
 
-// ToDo recover deleted styles
+body {
+  background-color: ${(props) => props.activeTheme === ActiveTheme.NIGHT && props.theme.background};
+  color: ${(props) => props.theme.text};
+  font-family: ${(props) => props.theme.primaryFont};
+  margin: 0;
+  padding: 0;
+  transition: background-color ${(props) => props.theme.transition};
+}
 
 main {
   display: flex;
   flex-flow: column wrap;
+  margin: 0 auto;
   max-width: 1200px;
-}
 
-main > section {
-  border: 2px dashed pink;
-  min-height: calc(100vh - 4.5rem);
-}
-
-.unused {
-    font-family: 'IBM Plex Mono', monospace;
+  /* TODO: Get the dynamic size of Header */
+  > section {
+    min-height: calc(100vh - 80px);
+  }
 }
 `;

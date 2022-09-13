@@ -4,36 +4,36 @@ import { useEffect } from 'react';
 import styled from 'styled-components';
 
 const NotFound = () => {
-    const router = useRouter();
-    const timer = 10 * 1000;
+  const router = useRouter();
+  const timer = 10 * 1000;
 
-    useEffect(() => {
-        setTimeout(() => {
-            router.push('/');
-        }, timer);
-    }, [timer, router]);
+  useEffect(() => {
+    setTimeout(() => {
+      router.push('/');
+    }, timer);
+  }, [timer, router]);
 
-    return (
-        <NotFoundStyle>
-            <h1>Ooops.. </h1>
-            <h2>The page cannot be found</h2>
-            <p>
-                Go back to the main page{' '}
-                <Link href="/">
-                    <a className="homeButton">Homepage</a>
-                </Link>
-            </p>
-        </NotFoundStyle>
-    );
+  return (
+    <NotFoundStyle>
+      <h1>Ooops.. </h1>
+      <h2>The page cannot be found</h2>
+      <p>
+        Go back to the main page&nbsp;
+        <Link className="homeButton" href="/">
+          Homepage
+        </Link>
+      </p>
+    </NotFoundStyle>
+  );
 };
 export default NotFound;
 
 const NotFoundStyle = styled.div`
-    text-align: center;
+  text-align: center;
 
-    .homeButton {
-        color: #4979ff;
-        text-decoration: underline;
-        cursor: pointer;
-    }
+  .homeButton {
+    color: #4979ff;
+    text-decoration: underline;
+    cursor: pointer;
+  }
 `;
