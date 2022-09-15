@@ -1,20 +1,16 @@
-import { BsCalendarCheck } from "react-icons/bs";
-import { MdOutlineDone, MdOutlineLocationOn, MdUpdate } from "react-icons/md";
-import styled from "styled-components";
-import { RootState, useAppSelector } from "../../state/store";
+import { BsCalendarCheck } from 'react-icons/bs';
+import { MdOutlineDone, MdOutlineLocationOn, MdUpdate } from 'react-icons/md';
+import styled from 'styled-components';
+import { RootState, useAppSelector } from '../../state/store';
 export default function SectionCounter() {
-  const numberOfProjects: number = useAppSelector(
-    (state: RootState) => state.app.numberOfProjects
-  );
+  const numberOfProjects: number = useAppSelector((state: RootState) => state.app.numberOfProjects);
 
-  const auroraLastUpdated: string = useAppSelector(
-    (state: RootState) => state.app.auroraLastUpdated
-  );
+  const auroraLastUpdated: string = useAppSelector((state: RootState) => state.app.auroraLastUpdated);
   return (
     <SectionCounterStyle>
       <div className="cards">
         <div className="card">
-          <i className={"icon"}>
+          <i className={'icon'}>
             <MdOutlineDone />
           </i>
           <p>Number of projects</p>

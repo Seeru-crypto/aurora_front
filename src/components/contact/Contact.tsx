@@ -1,77 +1,67 @@
-import React, { ForwardedRef, useEffect, useState } from "react";
-import { RiLinkedinFill } from "react-icons/ri";
-import { VscGithubAlt } from "react-icons/vsc";
-import styled from "styled-components";
-import config from "../../config.json";
-import data from "../../data.json";
-import { changeToastValue } from "../../state/appSlice";
-import { RootState, useAppDispatch, useAppSelector } from "../../state/store";
-import {
-  Button,
-  ButtonInterface,
-  ExternalLink,
-  ExternalLinkInterface,
-} from "../util";
-import ClipboardDisplayField from "./ClipboardDisplayField";
+import React, { ForwardedRef, useEffect, useState } from 'react';
+import { RiLinkedinFill } from 'react-icons/ri';
+import { SiGoodreads } from 'react-icons/si';
+import { VscGithubAlt } from 'react-icons/vsc';
+import styled from 'styled-components';
+import config from '../../config.json';
+import data from '../../data.json';
+import { changeToastValue } from '../../state/appSlice';
+import { RootState, useAppDispatch, useAppSelector } from '../../state/store';
+import { Button, ButtonInterface, ExternalLink, ExternalLinkInterface } from '../util';
+import ClipboardDisplayField from './ClipboardDisplayField';
 
-const Contact = React.forwardRef(
-  (_props, ref: ForwardedRef<HTMLElement>): JSX.Element => {
-    const isToastShown: boolean = useAppSelector(
-      (state: RootState) => state.app.isToastShown
-    );
+const Contact = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JSX.Element => {
+  const isToastShown: boolean = useAppSelector((state: RootState) => state.app.isToastShown);
 
-    const [isEmailShown, setIsEmailShown] = useState(isToastShown);
+  const [isEmailShown, setIsEmailShown] = useState(isToastShown);
 
-    useEffect(() => {
-      if (isToastShown && !isEmailShown) setIsEmailShown(true);
-    }, [isToastShown, isEmailShown]);
+  useEffect(() => {
+    if (isToastShown && !isEmailShown) setIsEmailShown(true);
+  }, [isToastShown, isEmailShown]);
 
-    const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
-    const { CONTACT_HEADER, CONTACT_BODY } = data;
-    const { EMAIL_ADDRESS, CV_DOWNLOAD_LINK, LINKEDIN_URL, GITHUB_URL } =
-      config;
+  const { CONTACT_HEADER, CONTACT_BODY } = data;
+  const { EMAIL_ADDRESS, CV_DOWNLOAD_LINK, LINKEDIN_URL, GITHUB_URL, GOODREADS_URL } = config;
 
-    const resumeLinkData: ExternalLinkInterface = {
-      onClick: CV_DOWNLOAD_LINK,
-      label: "get my stuff",
-      isNavbarButton: false,
-    };
-    const resumeButtonData: ButtonInterface = {
-      label: "my email",
-      onClickFunction: () => dispatch(changeToastValue()),
-      bordered: true,
-    };
+  const resumeLinkData: ExternalLinkInterface = {
+    onClick: CV_DOWNLOAD_LINK,
+    label: 'get my stuff',
+    isNavbarButton: false,
+  };
+  const resumeButtonData: ButtonInterface = {
+    label: 'my email',
+    onClickFunction: () => dispatch(changeToastValue()),
+    bordered: true,
+  };
 
-    return (
-      <ContactStyle ref={ref} id="contact">
-        <div className={"contactMain"}>
-          <h1 className={"heading"}>{CONTACT_HEADER}</h1>
-          <section className={"contactBody"}>{CONTACT_BODY}</section>
-          <div className={"contactButtons"}>
-            <ExternalLink linkData={resumeLinkData} />
-            <div>or</div>
-            {isEmailShown ? (
-              <ClipboardDisplayField text={EMAIL_ADDRESS} />
-            ) : (
-              <Button buttonData={resumeButtonData} />
-            )}
-          </div>
+  return (
+    <ContactStyle ref={ref} id="contact">
+      <div className={'contactMain'}>
+        <h1 className={'heading'}>{CONTACT_HEADER}</h1>
+        <section className={'contactBody'}>{CONTACT_BODY}</section>
+        <div className={'contactButtons'}>
+          <ExternalLink linkData={resumeLinkData} />
+          <div>or</div>
+          {isEmailShown ? <ClipboardDisplayField text={EMAIL_ADDRESS} /> : <Button buttonData={resumeButtonData} />}
         </div>
-        <div className={"contactIcons"}>
-          <IconStyle href={LINKEDIN_URL} id={"linkedIn"} target="_blank">
-            <RiLinkedinFill />
-          </IconStyle>
-          <IconStyle href={GITHUB_URL} id={"gitHub"} target="_blank">
-            <VscGithubAlt />
-          </IconStyle>
-        </div>
-      </ContactStyle>
-    );
-  }
-);
+      </div>
+      <div className={'contactIcons'}>
+        <IconStyle href={LINKEDIN_URL} id={'linkedIn'} target="_blank">
+          <RiLinkedinFill />
+        </IconStyle>
+        <IconStyle href={GITHUB_URL} id={'gitHub'} target="_blank">
+          <VscGithubAlt />
+        </IconStyle>
+        <IconStyle href={GOODREADS_URL} id={'goodReads'} target="_blank">
+          <SiGoodreads />
+        </IconStyle>
+      </div>
+    </ContactStyle>
+  );
+});
 
-Contact.displayName = "Contact display";
+Contact.displayName = 'Contact display';
 
 export default Contact;
 
