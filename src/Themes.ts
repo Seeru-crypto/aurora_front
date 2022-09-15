@@ -1,11 +1,13 @@
 import { DefaultTheme } from 'styled-components';
 
-export const baseTheme: DefaultTheme = {
+export const baseTheme = {
   blurAmount: '8px',
   borderRadius: '8px',
   positive: '#2cb67d',
   negative: '#e45858',
   transition: '350ms linear',
+  primaryFont: "'Montserrat', sans-serif",
+  secondaryFont: "'IBM Plex Mono', monospace",
 };
 
 export const DayTheme = {
@@ -23,3 +25,5 @@ export const NightTheme = {
   secondary: '#72757e',
   text: '#94a1b2',
 };
+
+export type FredTheme = typeof baseTheme & (typeof DayTheme | typeof NightTheme) & DefaultTheme;
