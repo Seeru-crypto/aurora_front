@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
-import Contact from '../components/Contact/Contact';
-import Experience from '../components/Experience/Experience';
+import Contact from '../components/contact/Contact';
+import Experience from '../components/experience/Experience';
 import LandingPage from '../components/landing/LandingPage';
 import { Toast } from '../components/util';
 import { formatDate } from '../components/work/Card';
