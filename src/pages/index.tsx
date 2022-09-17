@@ -65,12 +65,12 @@ export default function Home({ projects, techTypes, timeLineCards }: HomeProps):
     const observer = new IntersectionObserver(intersectionCallback, intersectionOptions);
     const sections = [experienceRef.current, contactRef.current, landingRef.current, projectRef.current];
 
-    sections.map((section: HTMLDivElement | null) => {
+    sections.forEach((section: HTMLDivElement | null) => {
       return section && observer.observe(section);
     });
 
     return () => {
-      sections.map((section: HTMLDivElement | null) => {
+      sections.forEach((section: HTMLDivElement | null) => {
         return section && observer.unobserve(section);
       });
     };
