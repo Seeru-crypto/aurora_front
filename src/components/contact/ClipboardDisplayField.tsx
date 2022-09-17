@@ -1,17 +1,28 @@
-import React from 'react';
 import styled from 'styled-components';
+import { changeToastValue } from '../../state/appSlice';
+import { useAppDispatch } from '../../state/store';
+import Button from '../util/Button';
 
-const ClipboardDisplayField = ({ text }: { text: string }) => {
-    navigator.clipboard.writeText(text);
-    return <EmailStyle>{text}</EmailStyle>;
-};
+interface ContactButtonProps {
+  contactEmail: string;
+  label: string;
+  showEmail: boolean;
+}
 
-export default ClipboardDisplayField;
+export default function ContactButton(props: ContactButtonProps) {
+  const { contactEmail, label, showEmail } = props;
+  const dispatch = useAppDispatch();
+  // navigator.clipboard.writeText(contactEmail);
 
-const EmailStyle = styled.div`
-    border-radius: 0.5rem;
-    border: transparent;
-    padding: 0.5rem 1rem;
-    background-color: var(--primary-color);
-    color: var(--button-text);
+  return <ContactButtonStyles onClick={() => dispatch(changeToastValue())}>{label}</ContactButtonStyles>;
+}
+
+const ContactButtonStyles = styled(Button)`
+  /* border-radius: 0.5rem;
+  border: transparent;
+  padding: 0.5rem 1rem;
+  background-color: ${(props) => props.theme.primary};
+  color: ${(props) => props.theme.primary}; */
+
+  /* border: 3px solid red !important; */
 `;

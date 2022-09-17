@@ -8,6 +8,8 @@ export const baseTheme = {
   transition: '350ms linear',
   primaryFont: "'Montserrat', sans-serif",
   secondaryFont: "'IBM Plex Mono', monospace",
+  black: '#000',
+  white: '#fff',
 };
 
 export const DayTheme = {
