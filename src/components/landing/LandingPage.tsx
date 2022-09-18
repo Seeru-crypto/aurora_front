@@ -5,7 +5,8 @@ import CtaButton from './CtaButton';
 
 const LandingPage = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>) => {
   const [greetingMessage, setGreetingMessage] = useState('');
-  const { GREETING_MORNING, GREETING_DAY, GREETING_EVENING, LANDING_HERO_TEXT } = data;
+  const { GREETING_MORNING, GREETING_DAY, GREETING_MAIN_BODY, GREETING_EVENING, LANDING_HERO_TEXT, GREETING_DEFAULT } =
+    data.text;
 
   useEffect(() => {
     const sysTimeHour = new Date().getHours();
@@ -23,14 +24,17 @@ const LandingPage = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>) =>
         setGreetingMessage(GREETING_EVENING);
         break;
       default:
-        setGreetingMessage('Howdy');
+        setGreetingMessage(GREETING_DEFAULT);
     }
-  }, [GREETING_EVENING, GREETING_MORNING, GREETING_DAY]);
+  }, [GREETING_EVENING, GREETING_MORNING, GREETING_DAY, GREETING_DEFAULT]);
 
   return (
     <LandingStyle id="about" ref={ref} className="container">
       <div className="hero">
-        <h1>{greetingMessage} My name is Fred</h1>
+        <h1>
+          {greetingMessage}&nbsp;
+          {GREETING_MAIN_BODY}
+        </h1>
         <p>{LANDING_HERO_TEXT}</p>
       </div>
 

@@ -1,11 +1,13 @@
 import { BiChevronsDown } from 'react-icons/bi';
 import styled from 'styled-components';
+import data from '../../data.json';
 
 export default function CtaButton(props: any): JSX.Element {
+  const { CTA_LABEL } = data.text;
   return (
     <CtaStyle {...props}>
       <a href="#showcase" className="cta">
-        Check out my projects
+        {CTA_LABEL}
       </a>
       <BiChevronsDown className="chevrons" />
     </CtaStyle>

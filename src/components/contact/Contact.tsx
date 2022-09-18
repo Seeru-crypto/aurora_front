@@ -21,7 +21,7 @@ const Contact = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JSX.E
 
   const dispatch = useAppDispatch();
 
-  const { CONTACT_HEADER, CONTACT_BODY } = data;
+  const { CONTACT_HEADER, CONTACT_BODY } = data.text;
   const { EMAIL_ADDRESS, CV_DOWNLOAD_LINK, LINKEDIN_URL, GITHUB_URL, GOODREADS_URL } = config;
 
   const resumeLinkData: ExternalLinkInterface = {

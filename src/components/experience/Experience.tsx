@@ -1,25 +1,26 @@
-import React, { ForwardedRef } from "react";
-import styled from "styled-components";
-import { TimelineCard } from "../../lib/load-data";
-import SectionCounter from "./SectionCounter";
+import React, { ForwardedRef } from 'react';
+import styled from 'styled-components';
+import data from '../../data.json';
+import { TimelineCard } from '../../lib/load-data';
+import SectionCounter from './SectionCounter';
 
 interface ExperienceProps {
   timeLineCards: TimelineCard[];
 }
 
-const Experience = React.forwardRef(
-  (props: ExperienceProps, ref: ForwardedRef<HTMLElement>) => {
-    console.log(props.timeLineCards.length);
-    return (
-      <ExperienceStyle id="experience" ref={ref}>
-        <h2>Experience</h2>
-        <SectionCounter />
-        <p>Option B</p>
-      </ExperienceStyle>
-    );
-  }
-);
-Experience.displayName = "Experience display";
+const Experience = React.forwardRef((props: ExperienceProps, ref: ForwardedRef<HTMLElement>) => {
+  console.log(props.timeLineCards.length);
+  const { EXPERIENCE_SECTION_TITLE } = data.text;
+
+  return (
+    <ExperienceStyle id="experience" ref={ref}>
+      <h2>{EXPERIENCE_SECTION_TITLE}</h2>
+      <SectionCounter />
+      <p>Option B</p>
+    </ExperienceStyle>
+  );
+});
+Experience.displayName = 'Experience display';
 
 export default Experience;
 

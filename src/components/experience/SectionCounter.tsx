@@ -1,11 +1,20 @@
 import { BsCalendarCheck } from 'react-icons/bs';
 import { MdOutlineDone, MdOutlineLocationOn, MdUpdate } from 'react-icons/md';
 import styled from 'styled-components';
+import data from '../../data.json';
 import { RootState, useAppSelector } from '../../state/store';
+
 export default function SectionCounter() {
   const numberOfProjects: number = useAppSelector((state: RootState) => state.app.numberOfProjects);
 
   const auroraLastUpdated: string = useAppSelector((state: RootState) => state.app.auroraLastUpdated);
+  const {
+    HERO_SECTION_PROJECTS_TITLE,
+    HERO_SECTION_CODING_SINCE,
+    HERO_SECTION_LAST_UPDATED_TITLE,
+    HERO_SECTION_LOCATION,
+  } = data.text;
+
   return (
     <SectionCounterStyle>
       <div className="cards">
@@ -13,30 +22,30 @@ export default function SectionCounter() {
           <i className={'icon'}>
             <MdOutlineDone />
           </i>
-          <p>Number of projects</p>
+          <p>{HERO_SECTION_PROJECTS_TITLE}</p>
           <h3>{numberOfProjects}</h3>
         </div>
         <div className="card">
           <i className="icon">
             <BsCalendarCheck />
           </i>
-          <p>Coding since</p>
-          <h3>2016</h3>
+          <p>{HERO_SECTION_CODING_SINCE[0]}</p>
+          <h3>{HERO_SECTION_CODING_SINCE[1]}</h3>
         </div>
         <div className="card">
           <i className="icon">
             <MdUpdate />
           </i>
-          <p>Site last updated</p>
+          <p>{HERO_SECTION_LAST_UPDATED_TITLE}</p>
           <h3>{auroraLastUpdated}</h3>
         </div>
         <div className="card">
           <i className="icon">
             <MdOutlineLocationOn />
           </i>
-          <p>Current location</p>
+          <p>{HERO_SECTION_LOCATION[0]}</p>
           <h3>
-            Estonia, Tallinn <small>127.0.0.1</small>
+            {HERO_SECTION_LOCATION[1]} <small>{HERO_SECTION_LOCATION[2]}</small>
           </h3>
         </div>
       </div>
