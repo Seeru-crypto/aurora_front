@@ -1,5 +1,11 @@
 import { DefaultTheme } from 'styled-components';
 
+
+const red = {
+  200 : "sdsd",
+  300: "sss"
+}
+
 export const baseTheme = {
   blurAmount: '8px',
   borderRadius: '8px',
@@ -16,10 +22,12 @@ export const baseTheme = {
   other: '#8e44ad',
 };
 
+
 export const DayTheme = {
   ...baseTheme,
   background: '#fffffe',
   primary: '#6246ea',
+  red200: 'sdsds',
   secondary: '#d1d1e9',
   textColor: '#2b2c34',
 };
