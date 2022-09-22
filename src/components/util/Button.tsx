@@ -11,8 +11,7 @@ export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   isActive?: boolean;
 }
 
-// TODO: Have a look at the 'ref'
-const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<unknown>): JSX.Element => {
+const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>): JSX.Element => {
   const { buttonType = ButtonType.GHOST, children, isActive } = props;
 
   return (

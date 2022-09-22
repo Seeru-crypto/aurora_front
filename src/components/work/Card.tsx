@@ -40,13 +40,14 @@ const Card = ({ project, techTypes }: { project: ProjectInterface; techTypes: Te
 
         <div className="topicList">
           {project.topics &&
-            project.topics.map((topic, index) => {
-              if (index < nrOfTopics)
-                return (
-                  <span className="topic" key={topic}>
-                    <TopicBubble techTypes={techTypes} topic={topic} />
-                  </span>
-                );
+            project.topics.map((topic: string, index: number) => {
+              return index < nrOfTopics ? (
+                <span className="topic" key={topic}>
+                  <TopicBubble techTypes={techTypes} topic={topic} />
+                </span>
+              ) : (
+                <></>
+              );
             })}
           {nrOfTopics === 5 && project.topics && project.topics.length >= 6 && <span>...</span>}
         </div>

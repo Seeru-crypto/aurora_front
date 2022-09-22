@@ -1,8 +1,11 @@
-import { HTMLProps } from 'react';
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 
-interface NavLinkProps extends HTMLProps<HTMLAnchorElement> {
+interface NavLinkProps {
+  children?: ReactNode | ReactNode[];
   isActive?: boolean;
+  href: string;
+  onClick: () => void;
 }
 
 export default function NavLink(props: NavLinkProps): JSX.Element {
@@ -10,7 +13,7 @@ export default function NavLink(props: NavLinkProps): JSX.Element {
 
   return (
     <NavLinkStyles {...props} isActive={isActive}>
-      <>{children}</>
+      {children}
     </NavLinkStyles>
   );
 }
