@@ -8,6 +8,12 @@ export const baseTheme = {
   transition: '350ms linear',
   primaryFont: "'Montserrat', sans-serif",
   secondaryFont: "'IBM Plex Mono', monospace",
+  black: '#000',
+  white: '#fff',
+  frontend: '#c0392b',
+  backend: '#27ae60',
+  database: '#2980b9',
+  other: '#8e44ad',
 };
 
 export const DayTheme = {
@@ -15,7 +21,7 @@ export const DayTheme = {
   background: '#fffffe',
   primary: '#6246ea',
   secondary: '#d1d1e9',
-  text: '#2b2c34',
+  textColor: '#2b2c34',
 };
 
 export const NightTheme = {
@@ -23,7 +29,7 @@ export const NightTheme = {
   background: '#16161a',
   primary: '#7f5af0',
   secondary: '#72757e',
-  text: '#94a1b2',
+  textColor: '#94a1b2',
 };
 
 export type FredTheme = typeof baseTheme & (typeof DayTheme | typeof NightTheme) & DefaultTheme;

@@ -1,22 +1,25 @@
-import { HTMLProps } from 'react';
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 
-interface NavLinkProps extends HTMLProps<HTMLAnchorElement> {
+interface NavLinkProps {
+  children?: ReactNode | ReactNode[];
   isActive?: boolean;
+  href: string;
+  onClick: () => void;
 }
 
 export default function NavLink(props: NavLinkProps): JSX.Element {
   const { children, isActive = false } = props;
 
   return (
-    <NavLinkStyles isActive={isActive}>
+    <NavLinkStyles {...props} isActive={isActive}>
       {children}
     </NavLinkStyles>
   );
 }
 
 const NavLinkStyles = styled.a<{ isActive: boolean }>`
-  color: ${(props) => (props.isActive ? props.theme.primary : props.theme.text)};
+  color: ${(props) => (props.isActive ? props.theme.primary : props.theme.textColor)};
   cursor: pointer;
   font-size: 20px;
   font-weight: bold;

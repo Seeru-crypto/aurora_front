@@ -1,20 +1,17 @@
-import { BsCalendarCheck } from "react-icons/bs";
-import { MdOutlineDone, MdOutlineLocationOn, MdUpdate } from "react-icons/md";
-import styled from "styled-components";
-import { RootState, useAppSelector } from "../../state/store";
-export default function SectionCounter() {
-  const numberOfProjects: number = useAppSelector(
-    (state: RootState) => state.app.numberOfProjects
-  );
+import { BsCalendarCheck } from 'react-icons/bs';
+import { MdOutlineDone, MdOutlineLocationOn, MdUpdate } from 'react-icons/md';
+import styled from 'styled-components';
+import { RootState, useAppSelector } from '../../state/store';
 
-  const auroraLastUpdated: string = useAppSelector(
-    (state: RootState) => state.app.auroraLastUpdated
-  );
+export default function SectionCounter(): JSX.Element {
+  const numberOfProjects = useAppSelector<number>((state: RootState) => state.app.numberOfProjects);
+  const auroraLastUpdated = useAppSelector<string>((state: RootState) => state.app.auroraLastUpdated);
+
   return (
     <SectionCounterStyle>
       <div className="cards">
         <div className="card">
-          <i className={"icon"}>
+          <i className={'icon'}>
             <MdOutlineDone />
           </i>
           <p>Number of projects</p>
@@ -66,8 +63,8 @@ const SectionCounterStyle = styled.div`
     justify-content: center;
     align-items: center;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    border: 2px solid var(--table-uneven);
-    color: var(--paragraph);
+    border: 2px solid ${(props) => props.theme.secondary};
+    color: ${(props) => props.theme.textColor};
     min-width: 21%;
     border-radius: 1rem;
     flex: 1 1 auto;
@@ -75,7 +72,7 @@ const SectionCounterStyle = styled.div`
     cursor: auto;
 
     :hover {
-      border: 2px solid var(--icon-highlight-border);
+      border: 2px solid ${(props) => props.theme.primary};
     }
   }
 
