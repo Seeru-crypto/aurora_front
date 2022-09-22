@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import Contact from '../components/Contact/Contact';
 import Experience from '../components/Experience/Experience';
 import LandingPage from '../components/landing/LandingPage';
-import { Toast } from '../components/util';
+import Toast from '../components/util/Toast';
 import { formatDate } from '../components/work/Card';
 import Showcase, { ShowcaseProps } from '../components/work/Showcase';
 import config from '../config.json';

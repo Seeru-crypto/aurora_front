@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface AppState {
   currentSection: string;
@@ -11,17 +11,17 @@ export interface AppState {
 }
 
 const initialState: AppState = {
-  currentSection: "",
+  currentSection: '',
   value: 0,
   incrementAmount: 1,
   isToastShown: false,
-  currentPage: "",
+  currentPage: '',
   numberOfProjects: 0,
-  auroraLastUpdated: "",
+  auroraLastUpdated: '',
 };
 
 export const appSlice = createSlice({
-  name: "app",
+  name: 'app',
   initialState,
   reducers: {
     toggleToastVisibility: (state) => {
@@ -48,10 +48,7 @@ export const appSlice = createSlice({
     setNumberOfProjects: (state, action: PayloadAction<number>) => {
       state.numberOfProjects = action.payload;
     },
-    setAuroraLastUpdated: (
-      state,
-      action: PayloadAction<string | undefined>
-    ) => {
+    setAuroraLastUpdated: (state, action: PayloadAction<string | undefined>) => {
       if (action.payload) state.auroraLastUpdated = action.payload;
     },
   },

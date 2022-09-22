@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ForwardedRef, forwardRef, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 
 export enum ButtonType {
@@ -6,20 +6,29 @@ export enum ButtonType {
   GHOST = 'ghost',
 }
 
-export interface ButtonProps {
+export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   buttonType?: ButtonType;
-  children: string | ReactNode;
+  isActive?: boolean;
 }
 
-export default function Button(props: ButtonProps): JSX.Element {
-  const { buttonType = ButtonType.GHOST, children } = props;
+// TODO: Have a look at the 'ref'
+const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<unknown>): JSX.Element => {
+  const { buttonType = ButtonType.GHOST, children, isActive } = props;
 
   return (
-    <ButtonStyles {...props} buttonType={buttonType}>
+    <ButtonStyles
+      {...props}
+      className={`${props.className}${isActive ? ' active' : ''}`}
+      buttonType={buttonType}
+      ref={ref}>
       {children}
     </ButtonStyles>
   );
-}
+});
+
+Button.displayName = 'Button';
+
+export default Button;
 
 const DefaultStyles = css`
   background-color: ${(props) => props.theme.primary};
@@ -31,6 +40,7 @@ const DefaultStyles = css`
     transition: fill ${(props) => props.theme.transition};
   }
 
+  &.active,
   :hover {
     background-color: ${(props) => props.theme.secondary};
     border-color: ${(props) => props.theme.secondary};
@@ -47,11 +57,22 @@ const GhostStyles = css`
   border-color: ${(props) => props.theme.primary};
   color: ${(props) => props.theme.primary};
 
-  /* TODO: Fill in SVG as well */
+  > svg {
+    fill: ${(props) => props.theme.primary};
+    margin: 0 0.5rem 0 0;
+    transition: fill ${(props) => props.theme.transition};
+  }
 
+  &.active,
   :hover {
     background-color: ${(props) => props.theme.primary};
     color: ${(props) => props.theme.white};
+
+    > svg {
+      fill: ${(props) => props.theme.white};
+      margin: 0 0.5rem 0 0;
+      transition: fill ${(props) => props.theme.transition};
+    }
   }
 `;
 

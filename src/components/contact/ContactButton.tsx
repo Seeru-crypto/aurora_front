@@ -12,17 +12,20 @@ interface ContactButtonProps {
 export default function ContactButton(props: ContactButtonProps) {
   const { contactEmail, label, showEmail } = props;
   const dispatch = useAppDispatch();
-  // navigator.clipboard.writeText(contactEmail);
 
-  return <ContactButtonStyles onClick={() => dispatch(changeToastValue())}>{label}</ContactButtonStyles>;
+  return (
+    <ContactButtonStyles
+      isActive={showEmail}
+      showEmail={showEmail}
+      onClick={() => {
+        navigator.clipboard.writeText(contactEmail);
+        dispatch(changeToastValue());
+      }}>
+      {showEmail ? contactEmail : label}
+    </ContactButtonStyles>
+  );
 }
 
-const ContactButtonStyles = styled(Button)`
-  /* border-radius: 0.5rem;
-  border: transparent;
-  padding: 0.5rem 1rem;
-  background-color: ${(props) => props.theme.primary};
-  color: ${(props) => props.theme.primary}; */
-
-  /* border: 3px solid red !important; */
+const ContactButtonStyles = styled(Button)<{ showEmail: boolean }>`
+  cursor: ${(props) => (props.showEmail ? 'default' : 'pointer')};
 `;
