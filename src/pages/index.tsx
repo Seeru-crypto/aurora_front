@@ -1,6 +1,4 @@
 import { useEffect, useRef } from 'react';
-import Contact from '../components/Contact/Contact';
-import Experience from '../components/Experience/Experience';
 import LandingPage from '../components/landing/LandingPage';
 import Toast from '../components/util/Toast';
 import { formatDate } from '../components/work/Card';
@@ -9,6 +7,8 @@ import config from '../config.json';
 import { loadLocalData, mergeGitProjectData, ProjectInterface, TimelineCard } from '../lib/load-data';
 import { changeToastValue, setAuroraLastUpdated, setCurrentPage, setNumberOfProjects } from '../state/appSlice';
 import { RootState, useAppDispatch, useAppSelector } from '../state/store';
+import Experience from "../components/experience/Experience";
+import Contact from "../components/contact/Contact";
 
 type HomeProps = {
   projects: ProjectInterface[];

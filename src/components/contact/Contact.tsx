@@ -6,9 +6,9 @@ import styled from 'styled-components';
 import config from '../../config.json';
 import data from '../../data.json';
 import { RootState, useAppSelector } from '../../state/store';
-import Footer from '../layout/Footer';
 import Button, { ButtonType } from '../util/Button';
 import ContactButton from './ContactButton';
+import Footer from "../layout/footer";
 
 const Contact = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JSX.Element => {
   const isToastShown: boolean = useAppSelector((state: RootState) => state.app.isToastShown);
