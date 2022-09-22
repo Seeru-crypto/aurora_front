@@ -14,7 +14,7 @@ import Footer from "../layout/footer";
 const Contact = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JSX.Element => {
   const isToastShown: boolean = useAppSelector((state: RootState) => state.app.isToastShown);
   const [isEmailShown, setIsEmailShown] = useState(isToastShown);
-  const { CONTACT_HEADER, CONTACT_BODY } = data;
+  const { CONTACT_HEADER, CONTACT_BODY } = data.text;
   const { EMAIL_ADDRESS, CV_DOWNLOAD_LINK, LINKEDIN_URL, GITHUB_URL, GOODREADS_URL } = config;
 
   useEffect(() => {
