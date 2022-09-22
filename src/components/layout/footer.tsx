@@ -9,7 +9,10 @@ export default function Footer(): JSX.Element {
 }
 
 const FooterStyle = styled.footer`
+  align-items: center;
+  display: flex;
   font-family: ${(props) => props.theme.secondaryFont};
-  padding: 1rem 0;
+  height: 55px;
+  justify-content: center;
   text-align: center;
 `;

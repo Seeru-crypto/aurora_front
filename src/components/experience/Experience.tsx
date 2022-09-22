@@ -1,22 +1,21 @@
 import React, { ForwardedRef } from 'react';
 import styled from 'styled-components';
-import data from '../../data.json';
 import { TimelineCard } from '../../lib/load-data';
 import SectionCounter from './SectionCounter';
+import data from '../../data.json';
 
 interface ExperienceProps {
   timeLineCards: TimelineCard[];
 }
 
-const Experience = React.forwardRef((props: ExperienceProps, ref: ForwardedRef<HTMLElement>) => {
-  console.log(props.timeLineCards.length);
-  const { EXPERIENCE_SECTION_TITLE } = data.text;
+const Experience = React.forwardRef((props: ExperienceProps, ref: ForwardedRef<HTMLElement>): JSX.Element => {
+    const { EXPERIENCE_SECTION_TITLE } = data.text;
 
-  return (
+    return (
     <ExperienceStyle id="experience" ref={ref}>
-      <h2>{EXPERIENCE_SECTION_TITLE}</h2>
+        <h2>{EXPERIENCE_SECTION_TITLE}</h2>
       <SectionCounter />
-      <p>Option B</p>
+      {/* TODO: To be pair programmed */}
     </ExperienceStyle>
   );
 });
@@ -24,8 +23,4 @@ Experience.displayName = 'Experience display';
 
 export default Experience;
 
-const ExperienceStyle = styled.section`
-  border: 1px solid var(--primary-color);
-  height: 100vh;
-  width: 100%;
-`;
+const ExperienceStyle = styled.section``;

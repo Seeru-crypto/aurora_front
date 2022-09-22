@@ -34,17 +34,11 @@ Showcase.displayName = 'Showcase';
 export default Showcase;
 
 const ShowcaseStyles = styled.section`
-  border: 1px solid var(--primary-color);
-  transition: linear 0.25s;
-  padding: 1rem;
-  width: 100%;
-
   .workCards {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-evenly;
     align-items: flex-start;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
   }
 
   @media (max-width: 1200px) {

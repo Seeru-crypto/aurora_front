@@ -1,14 +1,14 @@
 import { useEffect, useRef } from 'react';
-import Contact from '../components/contact/Contact';
-import Experience from '../components/experience/Experience';
 import LandingPage from '../components/landing/LandingPage';
-import { Toast } from '../components/util';
+import Toast from '../components/util/Toast';
 import { formatDate } from '../components/work/Card';
 import Showcase, { ShowcaseProps } from '../components/work/Showcase';
 import config from '../config.json';
 import { loadLocalData, mergeGitProjectData, ProjectInterface, TimelineCard } from '../lib/load-data';
 import { changeToastValue, setAuroraLastUpdated, setCurrentPage, setNumberOfProjects } from '../state/appSlice';
 import { RootState, useAppDispatch, useAppSelector } from '../state/store';
+import Experience from "../components/experience/Experience";
+import Contact from "../components/contact/Contact";
 
 type HomeProps = {
   projects: ProjectInterface[];
@@ -65,12 +65,12 @@ export default function Home({ projects, techTypes, timeLineCards }: HomeProps):
     const observer = new IntersectionObserver(intersectionCallback, intersectionOptions);
     const sections = [experienceRef.current, contactRef.current, landingRef.current, projectRef.current];
 
-    sections.map((section: HTMLDivElement | null) => {
+    sections.forEach((section: HTMLDivElement | null) => {
       return section && observer.observe(section);
     });
 
     return () => {
-      sections.map((section: HTMLDivElement | null) => {
+      sections.forEach((section: HTMLDivElement | null) => {
         return section && observer.unobserve(section);
       });
     };
