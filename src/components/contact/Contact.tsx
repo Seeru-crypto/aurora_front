@@ -1,15 +1,15 @@
 import Link from 'next/link';
 import React, { ForwardedRef, useEffect, useState } from 'react';
 import { RiLinkedinFill } from 'react-icons/ri';
-import { VscGithubAlt } from 'react-icons/vsc';
 import { SiGoodreads } from 'react-icons/si';
+import { VscGithubAlt } from 'react-icons/vsc';
 import styled from 'styled-components';
 import config from '../../config.json';
 import data from '../../data.json';
 import { RootState, useAppSelector } from '../../state/store';
+import Footer from '../layout/footer';
 import Button, { ButtonType } from '../util/Button';
 import ContactButton from './ContactButton';
-import Footer from "../layout/footer";
 
 const Contact = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JSX.Element => {
   const isToastShown: boolean = useAppSelector((state: RootState) => state.app.isToastShown);
@@ -45,9 +45,9 @@ const Contact = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JSX.E
           <IconStyle href={GITHUB_URL} id="gitHub" target="_blank">
             <VscGithubAlt />
           </IconStyle>
-            <IconStyle href={GOODREADS_URL} id={'goodReads'} target="_blank">
-                <SiGoodreads />
-            </IconStyle>
+          <IconStyle href={GOODREADS_URL} id={'goodReads'} target="_blank">
+            <SiGoodreads />
+          </IconStyle>
         </div>
 
         <Footer />
@@ -111,9 +111,8 @@ const IconStyle = styled.a`
   }
 
   :hover svg {
-      fill: ${(props) => props.theme.primary};
+    fill: ${(props) => props.theme.primary};
 
-      transform: translate3d(0, -15%, 0);
-    }
+    transform: translate3d(0, -15%, 0);
   }
 `;
