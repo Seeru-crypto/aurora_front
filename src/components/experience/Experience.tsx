@@ -1,14 +1,16 @@
 import React, {ForwardedRef, useEffect} from 'react';
 import styled from 'styled-components';
-import {TimelineCard} from '../../lib/load-data';
+import {TimelineCard as TimelineCardType} from '../../lib/load-data';
 import SectionCounter from './SectionCounter';
 import data from '../../data.json';
+import YearBox from "./YearBox";
+import TimelineCard from './TimelineCard';
 
 interface ExperienceProps {
-    timeLineCards: TimelineCard[];
+    timeLineCards: TimelineCardType[];
 }
 
-type ExperienceType = {
+export type ExperienceType = {
     startDate: string,
     employer: string,
     title: string,
@@ -55,18 +57,10 @@ const Experience = React.forwardRef((props: ExperienceProps, ref: ForwardedRef<H
             <div className="timeline">
                 {eventYears.map((entry) => (
                     <>
-                        <h1 key={entry}>{entry}</h1>
+                        <YearBox key={entry} year={entry}/>
                         <div className="cards">
                         {Array.from(sortedEvents.get(entry) as ExperienceType[]).map((event: ExperienceType) => (
-                                <div className="eventCard" key={event.startDate}>
-                                    <h2>{event.title}</h2>
-                                    <p>Employer: {event.employer}</p>
-                                    <p>Type: {event.typeOfEmployment}</p>
-                                    <p>Start: {new Date(event.startDate).getDate()}</p>
-                                    <p>Duration: {event.durationMonths}</p>
-                                    <p>Responsibilities: {event.responsibilities.map((responsibility: string, index: number) => (<><span key={index}>{responsibility}</span><br /></>))}</p>
-                                    <p>{event.achievements.map((achievement: string, index: number) => (<><span key={index}>{achievement}</span><br /></>))}</p>
-                                </div>
+                            <TimelineCard key={event.startDate} event={event} />
                             )
                         )}
                         </div>
@@ -77,13 +71,16 @@ const Experience = React.forwardRef((props: ExperienceProps, ref: ForwardedRef<H
     );
 });
 
-
 Experience.displayName = 'Experience display';
 
 export default Experience;
 
 const ExperienceStyle = styled.section`
-
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  
   .cards{
     display: grid;
     grid-template-columns: 200px 200px;
@@ -91,11 +88,7 @@ const ExperienceStyle = styled.section`
     grid-column-gap: 1rem;
     grid-row-gap: 1rem;
     color: ${props => props.theme.red};
+    align-items: center;
     
   }
-  
-.eventCard{
-  border: orange 1px solid;
-}
-
 `;

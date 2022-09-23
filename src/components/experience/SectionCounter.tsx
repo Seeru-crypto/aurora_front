@@ -16,29 +16,29 @@ export default function SectionCounter(): JSX.Element {
 
   return (
     <SectionCounterStyle>
-      <div className="cards">
-        <div className="card">
+      <div className="sectionCards">
+        <div className="sectionCard">
           <i className='icon'>
             <MdOutlineDone />
           </i>
           <p>{HERO_SECTION_PROJECTS_TITLE}</p>
           <h3>{numberOfProjects}</h3>
         </div>
-        <div className="card">
+        <div className="sectionCard">
           <i className="icon">
             <BsCalendarCheck />
           </i>
           <p>{HERO_SECTION_CODING_SINCE[0]}</p>
           <h3>{HERO_SECTION_CODING_SINCE[1]}</h3>
         </div>
-        <div className="card">
+        <div className="sectionCard">
           <i className="icon">
             <MdUpdate />
           </i>
           <p>{HERO_SECTION_LAST_UPDATED_TITLE}</p>
           <h3>{auroraLastUpdated}</h3>
         </div>
-        <div className="card">
+        <div className="sectionCard">
           <i className="icon">
             <MdOutlineLocationOn />
           </i>
@@ -53,7 +53,7 @@ export default function SectionCounter(): JSX.Element {
 }
 
 const SectionCounterStyle = styled.div`
-  .cards {
+  .sectionCards {
     display: flex;
     flex-wrap: wrap;
     padding: 1rem 0;
@@ -64,7 +64,7 @@ const SectionCounterStyle = styled.div`
     margin: 0.5rem 0;
   }
 
-  .card {
+  .sectionCard {
     display: flex;
     flex-direction: column;
     justify-content: center;
