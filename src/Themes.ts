@@ -1,10 +1,9 @@
 import { DefaultTheme } from 'styled-components';
 
-
 const red = {
-  200 : "sdsd",
-  300: "sss"
-}
+  200: '#ff2b00',
+  300: 'sss',
+};
 
 export const baseTheme = {
   blurAmount: '8px',
@@ -21,7 +20,6 @@ export const baseTheme = {
   database: '#2980b9',
   other: '#8e44ad',
 };
-
 
 export const DayTheme = {
   ...baseTheme,

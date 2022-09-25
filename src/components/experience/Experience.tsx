@@ -17,7 +17,7 @@ export type ExperienceType = {
   typeOfEmployment: string;
   responsibilities: string[];
   achievements: string[];
-  durationMonths?: undefined;
+  durationMonths?: number;
 };
 
 const Experience = React.forwardRef((props: ExperienceProps, ref: ForwardedRef<HTMLElement>): JSX.Element => {
@@ -43,10 +43,6 @@ const Experience = React.forwardRef((props: ExperienceProps, ref: ForwardedRef<H
 
   const sortedEvents = getAllYears(experience);
   const eventYears = Array.from(sortedEvents.keys()) as number[];
-
-  useEffect(() => {
-    console.log(sortedEvents);
-  }, []);
 
   // https://excalidraw.com/#room=5ac138994a903ddb6b8b,FOI9bwwGzZM-R3KmGJzyqA
   return (

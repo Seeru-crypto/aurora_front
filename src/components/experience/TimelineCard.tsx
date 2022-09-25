@@ -18,7 +18,6 @@ const TimelineCard = ({ event, isLeftSide }: { event: ExperienceType; isLeftSide
           <p className="date">{new Date(event.startDate).toLocaleString('en-US', { month: 'long' })}</p>
           <p className="duration">{getDurationField(event.durationMonths)}</p>
         </div>
-
         {event.title}
       </div>
     </CardStyle>

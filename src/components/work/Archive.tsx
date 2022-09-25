@@ -20,14 +20,14 @@ export default function Archive({ projects }: { projects: ProjectInterface[] }) 
             <th>Year</th>
             <th>Name</th>
             <th>Type</th>
-            <th>Topics</th>
             <th>Links</th>
           </tr>
           {projects.map((project, index) => (
             <tr className={`tableRow ${index % 2 === 0 ? 'even' : 'unEven'}`} key={index}>
               <td className="tableContent">{getYear(project)}</td>
-              <td className="tableContent">{project.project_name}</td>
-              <td className="tableContent">{project.project_type}</td>
+              <td className="tableContent">
+                {project.project_name} <div className="projectType"> {project.project_type} </div>
+              </td>
               <td className="tableContent">
                 {project.topics?.map((topic) => (
                   <span key={topic}>{`${topic}, `}</span>
@@ -91,6 +91,11 @@ const ArchiveStyle = styled.div`
     .unEven {
       background-color: ${(props) => props.theme.white};
     }
+
+    .projectType {
+      font-size: 0.7rem;
+      color: #6f6e6ef3;
+    }
   }
 `;
 
@@ -108,9 +113,8 @@ const ArchiveIconStyle = styled.a`
   }
 
   :hover svg {
-      fill: ${(props) => props.theme.primary};
+    fill: ${(props) => props.theme.primary};
 
-      transform: translate3d(0, -15%, 0);
-    }
+    transform: translate3d(0, -15%, 0);
   }
 `;
