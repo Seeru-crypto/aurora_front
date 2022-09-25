@@ -52,7 +52,9 @@ const Experience = React.forwardRef((props: ExperienceProps, ref: ForwardedRef<H
       <div className="timeline">
         {eventYears.map((entry) => (
           <>
-            <YearBox key={entry} year={entry} />
+            <div className={`yearBox ${entry % 2 === 0 ? 'isLeftSide' : 'isRightSide'}`}>
+              <YearBox key={entry} year={entry} />
+            </div>
             <div className="cards">
               {Array.from(sortedEvents.get(entry) as ExperienceType[]).map((event: ExperienceType, index) => (
                 <TimelineCard key={event.startDate} event={event} isLeftSide={index % 2 === 0} />
@@ -70,12 +72,27 @@ Experience.displayName = 'Experience display';
 export default Experience;
 
 const ExperienceStyle = styled.section`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
   width: 95%;
-  border: 1px solid gray;
+
+  .yearBox {
+    padding-top: 0.5rem;
+    display: flex;
+    &.isLeftSide {
+      justify-self: flex-start;
+      align-self: flex-start;
+    }
+    &.isRightSide {
+      justify-self: flex-end;
+      align-self: flex-end;
+    }
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
   .cards {
     display: grid;

@@ -9,5 +9,10 @@ export default YearBox;
 const StyledYearBox = styled.div`
   font-weight: bold;
   padding: 1rem;
-  border-bottom: 2px solid black;
+  border: 2px solid black;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
 `;

@@ -56,6 +56,15 @@
       "showcase": true,
       "updatedAt": "",
       "description": ""
+    },
+    {
+      "repo_name": "user-registration",
+      "project_name": "user registration",
+      "picture_url": "",
+      "project_type": "personal",
+      "showcase": false,
+      "updatedAt": "",
+      "description": "A mini project"
     }
   ],
   "experience": [
@@ -63,7 +72,8 @@
       "startDate": "2022-09-09T16:04:47.318Z",
       "employer": "Best Kahvi OY",
       "title": " Junior whipping boy",
-      "typeOfEmployment": "full-time",
+      "durationMonths": 2,
+      "typeOfEmployment": "Self-employed",
       "responsibilities": ["Bring a lot of coffee", "Local bitch boy"],
       "achievements": ["Best Power bottom of 2022"]
     },
@@ -71,17 +81,32 @@
       "startDate": "2016-06-09T16:04:47.318Z",
       "employer": "Deep state",
       "title": "Local spy-man",
-      "durationMonths": 14,
+      "durationMonths": 0,
       "typeOfEmployment": "part-time",
       "responsibilities": ["Confidential"],
       "achievements": ["Ever heard of 9/11?"]
+    },
+
+    {
+      "startDate": "2022-09-09T16:04:47.318Z",
+      "employer": "Best Kahvi OY",
+      "durationMonths": 1,
+      "title": " Junior whipping boy;",
+      "typeOfEmployment": "Freelance",
+      "responsibilities": [
+        "Bring a lot of coffee",
+        "Local bitch boy",
+        "Manager´s power bottom",
+        "getting the job done"
+      ],
+      "achievements": ["Best Power bottom of 2022"]
     },
     {
       "startDate": "2021-04-09T16:04:47.318Z",
       "employer": "Net Grouz.RU",
       "title": "Local door stop",
-      "durationMonths": 9,
-      "typeOfEmployment": " full-time",
+      "durationMonths": 24,
+      "typeOfEmployment": " Training",
       "responsibilities": [
         "responsible for waste managment resources",
         "Front end development",
@@ -93,24 +118,16 @@
       "startDate": "2022-09-09T16:04:47.318Z",
       "employer": "Best Kahvi OY",
       "title": " Junior whipping boy;",
+      "durationMonths": 13,
       "typeOfEmployment": "full-time",
       "responsibilities": ["Bring a lot of coffee", "Local bitch boy"],
       "achievements": ["Best Power bottom of 2022"]
     },
     {
-      "startDate": "2016-06-09T16:04:47.318Z",
-      "employer": "Deep state",
-      "title": "Local spy-man",
-      "durationMonths": 14,
-      "typeOfEmployment": "part-time",
-      "responsibilities": ["Confidential"],
-      "achievements": ["Ever heard of 9/11?"]
-    },
-    {
       "startDate": "2021-04-09T16:04:47.318Z",
       "employer": "Net Grouz.RU",
       "title": "Local door stop",
-      "durationMonths": 9,
+      "durationMonths": 12,
       "typeOfEmployment": " full-time",
       "responsibilities": [
         "responsible for waste managment resources",
@@ -122,85 +139,17 @@
     {
       "startDate": "2022-09-09T16:04:47.318Z",
       "employer": "Best Kahvi OY",
+      "durationMonths": 34,
       "title": " Junior whipping boy;",
       "typeOfEmployment": "full-time",
       "responsibilities": ["Bring a lot of coffee", "Local bitch boy"],
       "achievements": ["Best Power bottom of 2022"]
     },
     {
-      "startDate": "2016-06-09T16:04:47.318Z",
-      "employer": "Deep state",
-      "title": "Local spy-man",
-      "durationMonths": 14,
-      "typeOfEmployment": "part-time",
-      "responsibilities": ["Confidential"],
-      "achievements": ["Ever heard of 9/11?"]
-    },
-    {
       "startDate": "2021-04-09T16:04:47.318Z",
       "employer": "Net Grouz.RU",
       "title": "Local door stop",
-      "durationMonths": 9,
-      "typeOfEmployment": " full-time",
-      "responsibilities": [
-        "responsible for waste managment resources",
-        "Front end development",
-        "Lead coffee procurer"
-      ],
-      "achievements": ["Caused only a few live crashes", "'good guy' by some dude"]
-    },
-    {
-      "startDate": "2022-09-09T16:04:47.318Z",
-      "employer": "Best Kahvi OY",
-      "title": " Junior whipping boy;",
-      "typeOfEmployment": "full-time",
-      "responsibilities": ["Bring a lot of coffee", "Local bitch boy"],
-      "achievements": ["Best Power bottom of 2022"]
-    },
-    {
-      "startDate": "2016-06-09T16:04:47.318Z",
-      "employer": "Deep state",
-      "title": "Local spy-man",
-      "durationMonths": 14,
-      "typeOfEmployment": "part-time",
-      "responsibilities": ["Confidential"],
-      "achievements": ["Ever heard of 9/11?"]
-    },
-    {
-      "startDate": "2021-04-09T16:04:47.318Z",
-      "employer": "Net Grouz.RU",
-      "title": "Local door stop",
-      "durationMonths": 9,
-      "typeOfEmployment": " full-time",
-      "responsibilities": [
-        "responsible for waste managment resources",
-        "Front end development",
-        "Lead coffee procurer"
-      ],
-      "achievements": ["Caused only a few live crashes", "'good guy' by some dude"]
-    },
-    {
-      "startDate": "2022-09-09T16:04:47.318Z",
-      "employer": "Best Kahvi OY",
-      "title": " Junior whipping boy;",
-      "typeOfEmployment": "full-time",
-      "responsibilities": ["Bring a lot of coffee", "Local bitch boy"],
-      "achievements": ["Best Power bottom of 2022"]
-    },
-    {
-      "startDate": "2016-06-09T16:04:47.318Z",
-      "employer": "Deep state",
-      "title": "Local spy-man",
-      "durationMonths": 14,
-      "typeOfEmployment": "part-time",
-      "responsibilities": ["Confidential"],
-      "achievements": ["Ever heard of 9/11?"]
-    },
-    {
-      "startDate": "2021-04-09T16:04:47.318Z",
-      "employer": "Net Grouz.RU",
-      "title": "Local door stop",
-      "durationMonths": 9,
+      "durationMonths": 1,
       "typeOfEmployment": " full-time",
       "responsibilities": [
         "responsible for waste managment resources",
