@@ -15,10 +15,27 @@ const TimelineCard = ({ event, isLeftSide }: { event: ExperienceType; isLeftSide
     <CardStyle>
       <div className={`container ${isLeftSide ? 'isLeftSide' : 'isRightSide'}`}>
         <div className="cardHeader">
-          <p className="date">{new Date(event.startDate).toLocaleString('en-US', { month: 'long' })}</p>
-          <p className="duration">{getDurationField(event.durationMonths)}</p>
+          <div className="firstRow">
+            <div className="centerGroup">
+              <p className="date">{new Date(event.startDate).toLocaleString('en-US', { month: 'long' })}</p>
+              <p className="eventType">{event.typeOfEmployment}</p>
+            </div>
+
+            <p className="duration">{getDurationField(event.durationMonths)}</p>
+          </div>
+          <div className="secondRow">
+            <span className="employerLabel">{event.employer}</span>
+          </div>
+          <div className="thirdRow">
+            <span className="titleLabel">{event.title}</span>
+          </div>
         </div>
-        {event.title}
+        <div className="cardBody">
+          <div className="responsibilities">
+            <p>Responsibilites:</p>
+            <span> {event.responsibilities[0]}</span>
+          </div>
+        </div>
       </div>
     </CardStyle>
   );
@@ -27,35 +44,66 @@ const TimelineCard = ({ event, isLeftSide }: { event: ExperienceType; isLeftSide
 export default TimelineCard;
 
 const CardStyle = styled.div`
-  .date {
-    border: 2px dashed gray;
-  }
-
-  .duration {
-    padding: 0 1rem;
-    display: inline-block;
-    width: 100%;
-  }
   .container {
     display: flex;
     flex-direction: column;
+    padding: 0 1rem;
+    font-size: 16px;
   }
   .isLeftSide {
     border: 1px solid orange;
 
     .cardHeader {
-      display: flex;
-      flex-direction: row-reverse;
-      align-items: center;
-      justify-content: center;
-      padding: 0 1rem;
+      margin-bottom: 1rem;
+
+      .firstRow {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        gap: 0.5rem;
+
+        .centerGroup {
+          display: flex;
+          flex: 1;
+          flex-direction: row-reverse;
+          gap: 0.5rem;
+
+          .date {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+          }
+
+          .eventType {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+          }
+        }
+
+        .duration {
+          font-size: 12px;
+          flex: 1;
+          padding-right: 1rem;
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+        }
+      }
     }
 
-    .date {
-      display: flex;
-      justify-content: flex-end;
-      align-items: flex-end;
-      margin: 0 0.5rem;
+    .secondRow {
+      padding: 0.5rem 0;
+      font-weight: 550;
+    }
+
+    .thirdRow {
+      font-weight: 700;
+      color: ${(props) => props.theme.primary};
+    }
+
+    .cardBody {
+      padding: 0;
     }
   }
 
@@ -63,18 +111,30 @@ const CardStyle = styled.div`
     border: 1px solid gray;
 
     .cardHeader {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: row;
-      padding: 0 1rem;
+      .firstRow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        padding: 0 1rem;
+
+        .date {
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+          margin: 0 0.5rem;
+        }
+
+        .duration {
+          padding: 0 1rem;
+          display: inline-block;
+          width: 100%;
+        }
+      }
     }
 
-    .date {
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      margin: 0 0.5rem;
+    .cardBody {
+      padding: 0 1.5rem;
     }
   }
 `;

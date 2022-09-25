@@ -75,10 +75,11 @@ const ExperienceStyle = styled.section`
   flex-direction: column;
   align-items: center;
   width: 95%;
+  border: 1px solid gray;
 
   .cards {
     display: grid;
-    grid-template-columns: 200px 200px;
+    grid-template-columns: 300px 300px;
     grid-row: auto;
     grid-column-gap: 1rem;
     grid-row-gap: 1rem;
