@@ -14,3 +14,11 @@ navigate to `http://localhost:3001/`
 from content root run `npm i && npm run dev`
 which will install all the neccesary dependencies and run dev env
 Navigate to `http://localhost:3000/`
+
+## Relevant links
+
+[CSS style system](https://www.figma.com/file/qHHDyOTIGeu9K574npyaQC/Untitled?node-id=0%3A1)
+
+[UI Design](https://xd.adobe.com/view/7287b312-a7b8-4109-bd3e-290e263ac828-27d4/)
+
+[Trello board](https://trello.com/b/O17GOkWF/aurora-board?filter=label:none,label:Nice+to+have,label:spike,label:ASAP,label:DOC,label:CI%2FCD,label:X-program,label:UI%2FUX)
