@@ -1,8 +1,47 @@
 import { DefaultTheme } from 'styled-components';
 
 const red = {
-  200: '#ff2b00',
-  300: 'sss',
+  $300: '#FCA5A5',
+  $400: '#F87171',
+  $500: '#EF4444',
+  $600: '#DC2626',
+  $700: '#B91C1C',
+};
+
+const size = {
+  $100: '12px',
+  $200: '16px',
+  $300: '24px',
+  $400: '32px',
+  $500: '48px',
+  $600: '64px',
+  $700: '96px',
+  $800: '128px',
+  $900: '192px',
+};
+
+const primaryColor = {
+  $100: '#E0E7FF',
+  $200: '#C7D2FE',
+  $300: '#A5B4FC',
+  $400: '#818CF8',
+  $500: '#6366F1',
+  $600: '#4F46E5',
+  $700: '#4338CA',
+  $800: '#3730A3',
+  $900: '#312E81',
+};
+
+const gray = {
+  $100: '#f1f5f9',
+  $200: '#e2e8f0',
+  $300: '#cbd5e1',
+  $400: '#94a3b8',
+  $500: '#64748b',
+  $600: '#475569',
+  $700: '#334155',
+  $800: '#1e293b',
+  $900: '#0f172a',
 };
 
 export const baseTheme = {
@@ -19,6 +58,10 @@ export const baseTheme = {
   backend: '#27ae60',
   database: '#2980b9',
   other: '#8e44ad',
+  red,
+  gray,
+  primaryColor,
+  size,
 };
 
 export const DayTheme = {

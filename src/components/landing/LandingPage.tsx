@@ -57,6 +57,7 @@ const LandingStyle = styled.section`
     flex-flow: column wrap;
     flex-grow: 1;
     justify-content: center;
+    color: ${(props) => props.theme.gray.$900};
   }
 
   .cta {
