@@ -3,6 +3,7 @@ import { MdOutlineDone, MdOutlineLocationOn, MdUpdate } from 'react-icons/md';
 import styled from 'styled-components';
 import data from '../../data.json';
 import { RootState, useAppSelector } from '../../state/store';
+import NumberCounter from '../util/NumberCounter';
 
 export default function SectionCounter(): JSX.Element {
   const auroraLastUpdated = useAppSelector<string>((state: RootState) => state.app.auroraLastUpdated);
@@ -22,14 +23,18 @@ export default function SectionCounter(): JSX.Element {
             <MdOutlineDone />
           </i>
           <p>{HERO_SECTION_PROJECTS_TITLE}</p>
-          <h3>{numberOfProjects}</h3>
+          <h3>
+            <NumberCounter numberValue={numberOfProjects} />
+          </h3>
         </div>
         <div className="sectionCard">
           <i className="icon">
             <BsCalendarCheck />
           </i>
           <p>{HERO_SECTION_CODING_SINCE[0]}</p>
-          <h3>{HERO_SECTION_CODING_SINCE[1]}</h3>
+          <h3>
+            <NumberCounter numberValue={HERO_SECTION_CODING_SINCE[1]} />
+          </h3>
         </div>
         <div className="sectionCard">
           <i className="icon">
