@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { setIsInitialHeroCounterAnimation } from '../../state/appSlice';
+import { RootState, useAppDispatch, useAppSelector } from '../../state/store';
 
 const NumberCounter = ({ numberValue }: any) => {
   const [currentValue, setCurrentValue] = useState(0);
+  const isInView = true;
+  const currentPage = useAppSelector<string>((state: RootState) => state.app.currentPage);
+
+  const isInitialAnimation = useAppSelector<boolean>((state: RootState) => state.app.isInitialHeroCounterAnimation);
+  const dispatch = useAppDispatch();
 
   // TODO: this should only run when user is in view and only once!
   function animateValue(start: number, end: number, duration: number) {
@@ -22,8 +29,11 @@ const NumberCounter = ({ numberValue }: any) => {
   }
 
   useEffect(() => {
-    animateValue(0, numberValue, 1500);
-  }, [numberValue]);
+    if (currentPage === 'experience' && isInitialAnimation) {
+      animateValue(0, numberValue, 1500);
+      dispatch(setIsInitialHeroCounterAnimation());
+    }
+  }, [numberValue, isInView, currentPage, isInitialAnimation, dispatch]);
 
   return <CounterStyle>{currentValue}</CounterStyle>;
 };

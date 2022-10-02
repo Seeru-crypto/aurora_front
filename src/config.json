@@ -1,6 +1,6 @@
 {
   "NAVIGATION_PATHS": [
-    { "value": "About", "key": "/" },
+    { "value": "Landing", "key": "/" },
     { "value": "Experience", "key": "#experience" },
     { "value": "Showcase", "key": "#showcase" },
     { "value": "Contact", "key": "#contact" }

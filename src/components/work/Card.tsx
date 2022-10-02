@@ -46,7 +46,7 @@ const Card = ({ project, techTypes }: { project: ProjectInterface; techTypes: Te
                   <TopicBubble techTypes={techTypes} topic={topic} />
                 </span>
               ) : (
-                <></>
+                <span key={index}></span>
               );
             })}
           {nrOfTopics === 5 && project.topics && project.topics.length >= 6 && <span>...</span>}
