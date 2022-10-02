@@ -1,4 +1,6 @@
 import { useEffect, useRef } from 'react';
+import Contact from '../components/contact/Contact';
+import Experience from '../components/experience/Experience';
 import LandingPage from '../components/landing/LandingPage';
 import Toast from '../components/util/Toast';
 import { formatDate } from '../components/work/Card';
@@ -7,8 +9,6 @@ import config from '../config.json';
 import { loadLocalData, mergeGitProjectData, ProjectInterface, TimelineCard } from '../lib/load-data';
 import { changeToastValue, setAuroraLastUpdated, setCurrentPage, setNumberOfProjects } from '../state/appSlice';
 import { RootState, useAppDispatch, useAppSelector } from '../state/store';
-import Experience from "../components/experience/Experience";
-import Contact from "../components/contact/Contact";
 
 type HomeProps = {
   projects: ProjectInterface[];
@@ -28,7 +28,7 @@ export default function Home({ projects, techTypes, timeLineCards }: HomeProps):
   const experienceRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
   const landingRef = useRef<HTMLDivElement>(null);
-  const projectRef = useRef<HTMLDivElement>(null);
+  const showcaseRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isToastShown) {
@@ -48,6 +48,8 @@ export default function Home({ projects, techTypes, timeLineCards }: HomeProps):
     });
   }, [projects, dispatch]);
 
+  function checkForCounter() {}
+
   useEffect(() => {
     const intersectionCallback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry: IntersectionObserverEntry) => {
@@ -63,7 +65,7 @@ export default function Home({ projects, techTypes, timeLineCards }: HomeProps):
       threshold: 0.8,
     };
     const observer = new IntersectionObserver(intersectionCallback, intersectionOptions);
-    const sections = [experienceRef.current, contactRef.current, landingRef.current, projectRef.current];
+    const sections = [experienceRef.current, contactRef.current, landingRef.current, showcaseRef.current];
 
     sections.forEach((section: HTMLDivElement | null) => {
       return section && observer.observe(section);
@@ -74,14 +76,14 @@ export default function Home({ projects, techTypes, timeLineCards }: HomeProps):
         return section && observer.unobserve(section);
       });
     };
-  }, [experienceRef, projectRef, landingRef, contactRef, dispatch]);
+  }, [experienceRef, showcaseRef, landingRef, contactRef, dispatch]);
 
   return (
     <>
       {isToastShown && <Toast message="Added to clipboard" />}
       <LandingPage ref={landingRef} />
-      <Experience timeLineCards={timeLineCards} ref={experienceRef} />
-      <Showcase showcaseProps={showcaseProps} ref={projectRef} />
+      <Experience ref={experienceRef} />
+      <Showcase showcaseProps={showcaseProps} ref={showcaseRef} />
       <Contact ref={contactRef} />
     </>
   );
