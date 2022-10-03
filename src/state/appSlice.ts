@@ -45,7 +45,6 @@ export const appSlice = createSlice({
       state.isToastShown = !state.isToastShown;
     },
     setCurrentPage: (state, action: PayloadAction<string>) => {
-      console.log('new current is ', action.payload);
       state.currentPage = action.payload;
     },
     setNumberOfProjects: (state, action: PayloadAction<number>) => {

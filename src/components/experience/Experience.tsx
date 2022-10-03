@@ -39,8 +39,6 @@ const Experience = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JS
   const sortedEvents = getAllYears(experience);
   const eventYears = Array.from(sortedEvents.keys()) as number[];
 
-  console.log('XP ref', ref);
-
   // https://excalidraw.com/#room=5ac138994a903ddb6b8b,FOI9bwwGzZM-R3KmGJzyqA
   return (
     <ExperienceStyle id="experience" ref={ref}>

@@ -24,7 +24,7 @@ export default function SectionCounter(): JSX.Element {
           </i>
           <p>{HERO_SECTION_PROJECTS_TITLE}</p>
           <h3>
-            <NumberCounter numberValue={numberOfProjects} />
+            <NumberCounter endNumberValue={numberOfProjects} startNumberValue={0} duration={2000}  />
           </h3>
         </div>
         <div className="sectionCard">
@@ -33,7 +33,7 @@ export default function SectionCounter(): JSX.Element {
           </i>
           <p>{HERO_SECTION_CODING_SINCE[0]}</p>
           <h3>
-            <NumberCounter numberValue={HERO_SECTION_CODING_SINCE[1]} />
+            <NumberCounter endNumberValue={parseInt(HERO_SECTION_CODING_SINCE[1])} startNumberValue={1995} duration={2000} />
           </h3>
         </div>
         <div className="sectionCard">

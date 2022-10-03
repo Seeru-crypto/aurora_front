@@ -1,14 +1,15 @@
-import { useEffect, useRef } from 'react';
+import {useEffect, useRef, useState} from 'react';
 import Contact from '../components/contact/Contact';
 import Experience from '../components/experience/Experience';
 import LandingPage from '../components/landing/LandingPage';
 import Toast from '../components/util/Toast';
-import { formatDate } from '../components/work/Card';
-import Showcase, { ShowcaseProps } from '../components/work/Showcase';
+import {formatDate} from '../components/work/Card';
+import Showcase, {ShowcaseProps} from '../components/work/Showcase';
 import config from '../config.json';
-import { loadLocalData, mergeGitProjectData, ProjectInterface, TimelineCard } from '../lib/load-data';
-import { changeToastValue, setAuroraLastUpdated, setCurrentPage, setNumberOfProjects } from '../state/appSlice';
-import { RootState, useAppDispatch, useAppSelector } from '../state/store';
+import {loadLocalData, mergeGitProjectData, ProjectInterface, TimelineCard} from '../lib/load-data';
+import {changeToastValue, setAuroraLastUpdated, setNumberOfProjects} from '../state/appSlice';
+import {RootState, useAppDispatch, useAppSelector} from '../state/store';
+import useIntersectionObserver, {IntersectionOption} from "../useIntersectionObserver";
 
 type HomeProps = {
   projects: ProjectInterface[];
@@ -16,10 +17,10 @@ type HomeProps = {
   techTypes: Iterable<readonly [string, string]>;
 };
 
-export default function Home({ projects, techTypes, timeLineCards }: HomeProps): JSX.Element {
+export default function Home({ projects, techTypes }: HomeProps): JSX.Element {
   const isToastShown: boolean = useAppSelector((state: RootState) => state.app.isToastShown);
   const dispatch = useAppDispatch();
-
+  const [sections, setSections] = useState<(HTMLDivElement | null)[]>([]);
   const showcaseProps: ShowcaseProps = {
     projects,
     techTypes: new Map<string, string>(techTypes),
@@ -29,6 +30,18 @@ export default function Home({ projects, techTypes, timeLineCards }: HomeProps):
   const contactRef = useRef<HTMLDivElement>(null);
   const landingRef = useRef<HTMLDivElement>(null);
   const showcaseRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setSections([contactRef.current, experienceRef.current, landingRef.current, showcaseRef.current])
+  }, []);
+
+  const intersectionOptions : IntersectionOption = {
+    root: null,
+    rootMargin: '0px',
+    threshold: [0.25, 0.5, 0.75, 1],
+  };
+
+  useIntersectionObserver(intersectionOptions, sections);
 
   useEffect(() => {
     if (isToastShown) {
@@ -47,36 +60,6 @@ export default function Home({ projects, techTypes, timeLineCards }: HomeProps):
         dispatch(setAuroraLastUpdated(formatDate(project.updatedAt, false)));
     });
   }, [projects, dispatch]);
-
-  function checkForCounter() {}
-
-  useEffect(() => {
-    const intersectionCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry: IntersectionObserverEntry) => {
-        if (entry.isIntersecting) {
-          dispatch(setCurrentPage(entry.target.id));
-        }
-      });
-    };
-
-    const intersectionOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.8,
-    };
-    const observer = new IntersectionObserver(intersectionCallback, intersectionOptions);
-    const sections = [experienceRef.current, contactRef.current, landingRef.current, showcaseRef.current];
-
-    sections.forEach((section: HTMLDivElement | null) => {
-      return section && observer.observe(section);
-    });
-
-    return () => {
-      sections.forEach((section: HTMLDivElement | null) => {
-        return section && observer.unobserve(section);
-      });
-    };
-  }, [experienceRef, showcaseRef, landingRef, contactRef, dispatch]);
 
   return (
     <>
