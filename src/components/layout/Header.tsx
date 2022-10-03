@@ -53,7 +53,7 @@ export default function Header(): JSX.Element {
 
 export const HeaderStyles = styled.header<{ isScrolling: boolean }>`
   align-items: center;
-  background-color: ${(props) => (props.isScrolling ? transparentize(0.3, props.theme.secondary) : 'transparent')};
+  background-color: ${(props) => (props.isScrolling ? transparentize(0.3, props.theme.primaryColor.$200) : 'transparent')};
   backdrop-filter: blur(8px);
   display: flex;
   max-height: 4.5rem;
