@@ -68,7 +68,6 @@ export const DayTheme = {
   ...baseTheme,
   background: '#fffffe',
   primary: '#6246ea',
-  red200: 'sdsds',
   secondary: '#d1d1e9',
   textColor: '#2b2c34',
 };
