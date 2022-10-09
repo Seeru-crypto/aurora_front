@@ -1,7 +1,7 @@
-import React from "react";
+import React, { HTMLAttributes } from "react";
 import styled from "styled-components";
 
-interface EmploymentProps {
+interface EmploymentProps extends HTMLAttributes<HTMLDivElement> {
     title: string;
     employer: string;
 }

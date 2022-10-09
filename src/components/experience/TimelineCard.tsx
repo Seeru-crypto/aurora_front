@@ -1,11 +1,16 @@
-import React from 'react';
+import { HTMLAttributes } from 'react';
 import styled from 'styled-components';
-import {ExperienceType} from './Experience';
-import EmploymentDetail from "./EmploymentDetail";
-import EmploymentTitle from "./EmploymentTitle";
+import EmploymentDetail from './EmploymentDetail';
+import EmploymentTitle from './EmploymentTitle';
+import { ExperienceType } from './Timeline';
 
-const TimelineCard = ({event, isLeftSide}: { event: ExperienceType; isLeftSide: boolean }) => {
+type TimelineCardProps = {
+  event: ExperienceType;
+  isLeftSide: boolean;
+} & HTMLAttributes<HTMLDivElement>;
 
+export function TimelineCard(props: TimelineCardProps): JSX.Element {
+  const { event, isLeftSide } = props;
 
   function getEventDuration(nrOfMonths: number | undefined): string {
     if (nrOfMonths === undefined || nrOfMonths === 0) return 'ongoing';
@@ -23,31 +28,30 @@ const TimelineCard = ({event, isLeftSide}: { event: ExperienceType; isLeftSide: 
   }
 
   return (
-    <CardStyle>
+    <CardStyle {...props}>
       <div className={`container ${isLeftSide ? 'isLeftSide' : 'isRightSide'}`}>
         <div className="cardHeader">
           <div className="firstRow">
-            <EmploymentTitle title={event.title} employer={event.employer}/>
+            <EmploymentTitle title={event.title} employer={event.employer} />
           </div>
-          <EmploymentDetail value={`${event.typeOfEmployment} for ${getEventDuration(event.durationMonths)}`}/>
+          <EmploymentDetail value={`${event.typeOfEmployment} for ${getEventDuration(event.durationMonths)}`} />
         </div>
         <div className="cardBody">
-            <span>Responsibilites:</span>
-            <ul>
-              {event.responsibilities.map((responsibility, index) => (
-                  <li className="responsibility" key={index}>{responsibility}</li>
-              ))}
-            </ul>
+          <span>Responsibilites:</span>
+          <ul>
+            {event.responsibilities.map((responsibility, index) => (
+              <li className="responsibility" key={index}>
+                {responsibility}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </CardStyle>
   );
-};
-
-export default TimelineCard;
+}
 
 const CardStyle = styled.div`
-
   .firstRow {
     padding: 0 0 0.5rem 0;
   }
@@ -55,9 +59,13 @@ const CardStyle = styled.div`
   .responsibility {
     line-height: 1.5;
   }
-  
+
   .cardBody {
     padding: 0;
+
+    > span {
+      font-size: 0.8em;
+    }
   }
 
   .cardHeader {
