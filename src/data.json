@@ -74,8 +74,8 @@
       "title": " Junior whipping boy",
       "durationMonths": 2,
       "typeOfEmployment": "Self-employed",
-      "responsibilities": ["Bring a lot of coffee", "Local bitch boy"],
-      "achievements": ["Best Power bottom of 2022"]
+      "responsibilities": ["Bring a lot of coffee", "Local bitch boy", "WON STUFF DUNK"],
+      "techStack": ["react"]
     },
     {
       "startDate": "2016-06-09T16:04:47.518Z",
@@ -84,7 +84,7 @@
       "durationMonths": 0,
       "typeOfEmployment": "part-time",
       "responsibilities": ["Confidential"],
-      "achievements": ["Ever heard of 9/11?"]
+      "techStack": ["vue"]
     },
 
     {
@@ -99,7 +99,7 @@
         "Manager´s power bottom",
         "getting the job done"
       ],
-      "achievements": ["Best Power bottom of 2022"]
+      "techStack": ["angular"]
     },
     {
       "startDate": "2021-04-09T16:04:48.318Z",
@@ -112,7 +112,7 @@
         "Front end development",
         "Lead coffee procurer"
       ],
-      "achievements": ["Caused only a few live crashes", "'good guy' by some dude"]
+      "techStack": ["java", "react typescrit"]
     },
     {
       "startDate": "2022-09-09T16:04:49.318Z",
@@ -121,7 +121,7 @@
       "durationMonths": 13,
       "typeOfEmployment": "full-time",
       "responsibilities": ["Bring a lot of coffee", "Local bitch boy"],
-      "achievements": ["Best Power bottom of 2022"]
+      "techStack": ["node.js", "next.js"]
     },
     {
       "startDate": "2021-04-09T16:04:41.318Z",
@@ -134,7 +134,7 @@
         "Front end development",
         "Lead coffee procurer"
       ],
-      "achievements": ["Caused only a few live crashes", "'good guy' by some dude"]
+      "techStack": ["java", "angular"]
     },
     {
       "startDate": "2022-09-09T16:04:42.318Z",
@@ -143,7 +143,7 @@
       "title": " Junior whipping boy;",
       "typeOfEmployment": "full-time",
       "responsibilities": ["Bring a lot of coffee", "In volutpat imperdiet turpis, ac fringilla dui egestas volutpat. Nunc non efficitur lectus, sed suscipit sem. Quisque feugiat velit ac purus tempor feugiat. Etiam pretium risus nec malesuada accumsan. Suspendisse potenti. Vivamus ullamcorper quis justo congue tincidunt. Curabitur pulvinar quam sed ex iaculis fringilla.\n\n"],
-      "achievements": ["Best Power bottom of 2022"]
+      "techStack": ["docker"]
     },
     {
       "startDate": "2021-04-09T16:04:43.318Z",
@@ -156,7 +156,7 @@
         "In volutpat imperdiet turpis, ac fringilla dui egestas volutpat. Nunc non efficitur lectus, sed suscipit sem. Quisque feugiat velit ac purus tempor feugiat. Etiam pretium risus nec malesuada accumsan. Suspendisse potenti. Vivamus ullamcorper quis justo congue tincidunt. Curabitur pulvinar quam sed ex iaculis fringilla.",
         "Lead coffee procurer"
       ],
-      "achievements": ["Caused only a few live crashes", "'good guy' by some dude"]
+      "techStack": ["azure", "react typescript"]
     }
   ],
   "text": {

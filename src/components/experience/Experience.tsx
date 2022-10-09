@@ -11,8 +11,8 @@ export type ExperienceType = {
   title: string;
   typeOfEmployment: string;
   responsibilities: string[];
-  achievements: string[];
   durationMonths?: number;
+  techStack: string[];
 };
 
 const Experience = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JSX.Element => {
