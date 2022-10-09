@@ -4,6 +4,7 @@ import data from '../../data.json';
 import { ProjectInterface, TechTypes } from '../../lib/load-data';
 import Archive from './Archive';
 import Card from './Card';
+import TanTable from "./TanTable";
 
 export interface ShowcaseProps {
   projects: ProjectInterface[];
@@ -24,6 +25,7 @@ const Showcase = React.forwardRef(
           ))}
         </div>
         <Archive projects={workProps.projects.filter((project) => !project.showcase)} />
+          <TanTable projects={workProps.projects.filter((project) => !project.showcase)} />
       </ShowcaseStyles>
     );
   }
