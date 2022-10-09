@@ -66,17 +66,16 @@ const SectionCounterStyle = styled.div`
 
   .icon {
     font-size: ${(props) => props.theme.size.$400};
-    margin: 0.5rem 0;
+    padding: 0.5rem 0;
   }
 
   .sectionCard {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: normal;
     align-items: center;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border: 2px solid ${(props) => props.theme.primaryColor.$100};
-    color: ${(props) => props.theme.gray.$700};
     min-width: 21%;
     border-radius: 1rem;
     flex: 1 1 auto;

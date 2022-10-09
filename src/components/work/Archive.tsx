@@ -67,7 +67,7 @@ const ArchiveStyle = styled.div`
     }
 
     .tableHeader {
-      background-color: ${(props) => props.theme.primary};
+      background-color: ${(props) => props.theme.archiveTableHeaderBkgColor};
       color: ${(props) => props.theme.textColor};
 
       th {
@@ -80,7 +80,12 @@ const ArchiveStyle = styled.div`
       transition: background-color ${(props) => props.theme.transition};
 
       :hover {
-        background-color: ${(props) => lighten(0.2, props.theme.primary)};
+        background-color: ${(props) => (props.theme.arhiveTableHoverBkgColor)};
+        color: ${(props) => (props.theme.arhiveTableHoverColor)};
+        
+        .projectType{
+          color: ${(props) => (props.theme.arhiveTableHoverColor)};
+        }
       }
     }
 
@@ -94,7 +99,7 @@ const ArchiveStyle = styled.div`
 
     .projectType {
       font-size: 0.7rem;
-      color: #6f6e6ef3;
+      color: ${(props) => props.theme.detailTextColor};
     }
   }
 `;
@@ -108,13 +113,12 @@ const ArchiveIconStyle = styled.a`
   margin: 0 0.5rem;
 
   svg {
-    fill: ${(props) => props.theme.secondary};
+    fill: transparent;
     transition: fill ${(props) => props.theme.transition}, transform ${(props) => props.theme.transition};
   }
 
   :hover svg {
-    fill: ${(props) => props.theme.primary};
-
+    stroke: ${(props) => props.theme.secondary};
     transform: translate3d(0, -15%, 0);
   }
 `;

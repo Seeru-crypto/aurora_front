@@ -62,7 +62,7 @@ export const HeaderStyles = styled.header<{ isScrolling: boolean }>`
   top: 0;
   transition: background-color ${(props) => props.theme.transition};
   z-index: 999;
-
+  
   .logo,
   .navigation,
   .controls {
