@@ -91,7 +91,7 @@ const ExperienceStyle = styled.section`
 
   .cards {
     display: grid;
-    grid-template-columns: 300px 300px;
+    grid-template-columns: 500px 500px;
     grid-row: auto;
     grid-column-gap: 1rem;
     grid-row-gap: 1rem;

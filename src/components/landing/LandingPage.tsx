@@ -59,7 +59,4 @@ const LandingStyle = styled.section`
     justify-content: center;
     color: ${(props) => props.theme.gray.$900};
   }
-
-  .cta {
-  }
 `;
