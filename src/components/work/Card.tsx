@@ -82,7 +82,7 @@ export default Card;
 const CardStyle = styled.div`
   margin: 1rem;
   overflow: auto;
-  box-shadow: 0 15px 50px ${(props) => props.theme.secondary};
+  box-shadow: 0 15px 50px ${(props) => props.theme.showCaseBoxShadowColor};
   margin-left: auto;
   margin-right: auto;
   width: 30%;

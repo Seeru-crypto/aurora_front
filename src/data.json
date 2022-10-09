@@ -80,7 +80,8 @@
         "Phasellus sit amet libero eget quam maximus mollis.",
         "Duis est velit, euismod scelerisque ullamcorper quis, ullamcorper non nunc."
       ],
-      "achievements": ["Best Power bottom of 2022"]
+      "achievements": ["Best Power bottom of 2022"],
+      "techStack": ["react"]
     },
     {
       "startDate": "2016-06-09T16:04:47.518Z",
@@ -89,7 +90,7 @@
       "durationMonths": 0,
       "typeOfEmployment": "part-time",
       "responsibilities": ["Confidential"],
-      "achievements": ["Ever heard of 9/11?"]
+      "techStack": ["vue"]
     },
 
     {
@@ -104,7 +105,7 @@
         "Aliquam non velit id justo interdum bibendum vitae vitae ipsum.",
         "Fusce eu aliquet nisl, ut rhoncus lacus, fucse maximus interdum laoreet, nam quis pharetra velit."
       ],
-      "achievements": ["Best Power bottom of 2022"]
+      "techStack": ["angular"]
     },
     {
       "startDate": "2021-04-09T16:04:48.318Z",
@@ -117,7 +118,7 @@
         "In quis metus sit amet felis tincidunt facilisis.",
         "Duis vitae semper elit, et sollicitudin dui, quisque lacinia urna in lacinia tristique, proin nec ipsum metus."
       ],
-      "achievements": ["Caused only a few live crashes", "'good guy' by some dude"]
+      "techStack": ["java", "react typescrit"]
     },
     {
       "startDate": "2022-09-09T16:04:49.318Z",
@@ -130,7 +131,8 @@
         "Curabitur ultrices id lacus a aliquam. Donec placerat pharetra fringilla. Sed vel efficitur nunc, sit amet suscipit urna.",
         "Sed sollicitudin ipsum elit, eget finibus nisl consectetur et. Suspendisse tempor accumsan nulla sed tincidunt."
       ],
-      "achievements": ["Best Power bottom of 2022"]
+      "achievements": ["Best Power bottom of 2022"],
+      "techStack": ["node.js", "next.js"]
     },
     {
       "startDate": "2021-04-09T16:04:41.318Z",
@@ -143,7 +145,7 @@
         "Sed iaculis aliquam tincidunt. Duis molestie felis at ex sagittis, eu aliquet dui feugiat. Cras convallis pretium ligula.",
         "Nulla tellus lacus, sollicitudin sed dignissim a, mattis eu sapien. Mauris ac nibh at sem maximus tincidunt."
       ],
-      "achievements": ["Caused only a few live crashes", "'good guy' by some dude"]
+      "techStack": ["java", "angular"]
     },
     {
       "startDate": "2022-09-09T16:04:42.318Z",
@@ -156,7 +158,8 @@
         "Nulla ullamcorper, neque nec lobortis tempus, elit metus dapibus est, condimentum rutrum velit turpis et ex.",
         "Maecenas bibendum efficitur feugiat. Curabitur in augue bibendum, consectetur lectus nec, gravida est. Nam convallis tempus accumsan."
       ],
-      "achievements": ["Best Power bottom of 2022"]
+      "achievements": ["Best Power bottom of 2022"],
+      "techStack": ["docker"]
     },
     {
       "startDate": "2021-04-09T16:04:43.318Z",
@@ -169,7 +172,7 @@
         "In volutpat imperdiet turpis, ac fringilla dui egestas volutpat. Nunc non efficitur lectus, sed suscipit sem. Quisque feugiat velit ac purus tempor feugiat. Etiam pretium risus nec malesuada accumsan. Suspendisse potenti. Vivamus ullamcorper quis justo congue tincidunt. Curabitur pulvinar quam sed ex iaculis fringilla.",
         "Lead coffee procurer"
       ],
-      "achievements": ["Caused only a few live crashes", "'good guy' by some dude"]
+      "techStack": ["azure", "react typescript"]
     }
   ],
   "text": {
@@ -186,7 +189,7 @@
     "HERO_SECTION_PROJECTS_TITLE": "Number of projects",
     "HERO_SECTION_CODING_SINCE": ["Coding since", "2016"],
     "HERO_SECTION_LAST_UPDATED_TITLE": "Site last updated",
-    "HERO_SECTION_LOCATION": ["Current location", "Estonia, Tallinn ", "127.0.0.1"],
+    "HERO_SECTION_LOCATION": ["Current location", "Estonia, Tallinn "],
     "SHOWCASE_TITLE": "Showcase"
   }
 }

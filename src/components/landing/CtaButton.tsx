@@ -28,7 +28,7 @@ const CtaStyle = styled.div<{
   position: relative;
 
   .cta {
-    background-color: ${(props) => (props.activeTheme === ActiveTheme.DAY ? props.theme.primaryColor.$500 : props.theme.primaryColor.$100)};;
+    background-color: ${(props) => props.theme.primary};
     border: 2px solid transparent;
     border-radius: ${(props) => props.theme.borderRadius};
     cursor: pointer;

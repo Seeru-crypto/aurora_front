@@ -31,7 +31,7 @@ export default Button;
 
 const DefaultStyles = css`
   background-color: ${(props) => props.theme.primary};
-  color: ${(props) => props.theme.white};
+  color: ${(props) => props.theme.buttonTextColor};
 
   > svg {
     fill: ${(props) => props.theme.primary};
@@ -41,9 +41,9 @@ const DefaultStyles = css`
 
   &.active,
   :hover {
-    background-color: ${(props) => props.theme.secondary};
+    background-color: ${(props) => props.theme.buttonHoverBkgColor};
     border-color: ${(props) => props.theme.secondary};
-    color: ${(props) => props.theme.background};
+    color: ${(props) => props.theme.buttonHoverTextColor};
 
     > svg {
       fill: ${(props) => props.theme.background};
@@ -65,7 +65,7 @@ const GhostStyles = css`
   &.active,
   :hover {
     background-color: ${(props) => props.theme.primary};
-    color: ${(props) => props.theme.white};
+    color: ${(props) => props.theme.gray.$900};
 
     > svg {
       fill: ${(props) => props.theme.white};
