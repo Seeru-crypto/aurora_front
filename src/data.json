@@ -118,7 +118,7 @@
         "In quis metus sit amet felis tincidunt facilisis.",
         "Duis vitae semper elit, et sollicitudin dui, quisque lacinia urna in lacinia tristique, proin nec ipsum metus."
       ],
-      "techStack": ["java", "react typescrit"]
+      "techStack": ["java", "react", "typescript"]
     },
     {
       "startDate": "2022-09-09T16:04:49.318Z",
@@ -172,7 +172,7 @@
         "In volutpat imperdiet turpis, ac fringilla dui egestas volutpat. Nunc non efficitur lectus, sed suscipit sem. Quisque feugiat velit ac purus tempor feugiat. Etiam pretium risus nec malesuada accumsan. Suspendisse potenti. Vivamus ullamcorper quis justo congue tincidunt. Curabitur pulvinar quam sed ex iaculis fringilla.",
         "Lead coffee procurer"
       ],
-      "techStack": ["azure", "react typescript"]
+      "techStack": ["azure", "react", "typescript"]
     }
   ],
   "text": {

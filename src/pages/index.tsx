@@ -1,15 +1,15 @@
-import {useEffect, useRef, useState} from 'react';
-import Contact from '../components/contact/Contact';
-import Experience from '../components/experience/Experience';
+import { useEffect, useRef, useState } from 'react';
+import Contact from '../components/Contact/Contact';
+import Experience from '../components/Experience/Experience';
 import LandingPage from '../components/landing/LandingPage';
 import Toast from '../components/util/Toast';
-import {formatDate} from '../components/work/Card';
-import Showcase, {ShowcaseProps} from '../components/work/Showcase';
+import { formatDate } from '../components/work/Card';
+import Showcase, { ShowcaseProps } from '../components/work/Showcase';
 import config from '../config.json';
-import {loadLocalData, mergeGitProjectData, ProjectInterface, TimelineCard} from '../lib/load-data';
-import {changeToastValue, setAuroraLastUpdated, setNumberOfProjects} from '../state/appSlice';
-import {RootState, useAppDispatch, useAppSelector} from '../state/store';
-import useIntersectionObserver, {IntersectionOption} from "../useIntersectionObserver";
+import { loadLocalData, mergeGitProjectData, ProjectInterface, TimelineCard } from '../lib/load-data';
+import { changeToastValue, setAuroraLastUpdated, setNumberOfProjects } from '../state/appSlice';
+import { RootState, useAppDispatch, useAppSelector } from '../state/store';
+import useIntersectionObserver, { IntersectionOption } from '../useIntersectionObserver';
 
 type HomeProps = {
   projects: ProjectInterface[];
@@ -32,10 +32,10 @@ export default function Home({ projects, techTypes }: HomeProps): JSX.Element {
   const showcaseRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setSections([contactRef.current, experienceRef.current, landingRef.current, showcaseRef.current])
+    setSections([contactRef.current, experienceRef.current, landingRef.current, showcaseRef.current]);
   }, []);
 
-  const intersectionOptions : IntersectionOption = {
+  const intersectionOptions: IntersectionOption = {
     root: null,
     rootMargin: '0px',
     threshold: [0.25, 0.5, 0.75, 1],

@@ -1,4 +1,3 @@
-import { lighten } from 'polished';
 import { FiExternalLink } from 'react-icons/fi';
 import styled from 'styled-components';
 import config from '../../config.json';
@@ -80,11 +79,11 @@ const ArchiveStyle = styled.div`
       transition: background-color ${(props) => props.theme.transition};
 
       :hover {
-        background-color: ${(props) => (props.theme.arhiveTableHoverBkgColor)};
-        color: ${(props) => (props.theme.arhiveTableHoverColor)};
-        
-        .projectType{
-          color: ${(props) => (props.theme.arhiveTableHoverColor)};
+        background-color: ${(props) => props.theme.arhiveTableHoverBkgColor};
+        color: ${(props) => props.theme.arhiveTableHoverColor};
+
+        .projectType {
+          color: ${(props) => props.theme.arhiveTableHoverColor};
         }
       }
     }

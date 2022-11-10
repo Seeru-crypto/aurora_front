@@ -17,7 +17,7 @@ const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<HTMLButtonEleme
   return (
     <ButtonStyles
       {...props}
-      className={`${props.className}${isActive ? ' active' : ''}`}
+      className={`${props.className} ${isActive && ' active'}`}
       buttonType={buttonType}
       ref={ref}>
       {children}

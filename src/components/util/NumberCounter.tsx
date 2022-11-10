@@ -1,13 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import { useEffect, useState } from 'react';
 import { setIsInitialHeroCounterAnimation } from '../../state/appSlice';
 import { RootState, useAppDispatch, useAppSelector } from '../../state/store';
 
-const NumberCounter = ({ startNumberValue, endNumberValue, duration }: { startNumberValue: number, endNumberValue:  number, duration: number }) => {
-  const [currentValue, setCurrentValue] = useState(0);
-  const isInView = true;
-  const currentPage = useAppSelector<string>((state: RootState) => state.app.currentPage);
+type NumberCounterProps = {
+  className?: string;
+  startNumberValue: number;
+  endNumberValue: number;
+  duration: number;
+};
 
+export default function NumberCounter(props: NumberCounterProps): JSX.Element {
+  const { startNumberValue, endNumberValue, duration, className } = props;
+  const [currentValue, setCurrentValue] = useState(0);
+  // TODO: Why just keep a static boolean, if you could toggle it?
+  const [isInView] = useState(true);
+  const currentPage = useAppSelector<string>((state: RootState) => state.app.currentPage);
   const isInitialAnimation = useAppSelector<boolean>((state: RootState) => state.app.isInitialHeroCounterAnimation);
   const dispatch = useAppDispatch();
 
@@ -35,17 +42,5 @@ const NumberCounter = ({ startNumberValue, endNumberValue, duration }: { startNu
     }
   }, [startNumberValue, endNumberValue, duration, isInView, currentPage, isInitialAnimation, dispatch]);
 
-  return <CounterStyle>{currentValue}</CounterStyle>;
-};
-
-export default NumberCounter;
-
-const CounterStyle = styled.div`
-  display: inherit;
-  font-size: inherit;
-  margin-block-start: inherit;
-  margin-block-end: inherit;
-  margin-inline-start: inherit;
-  margin-inline-end: inherit;
-  font-weight: inherit;
-`;
+  return <span className={className}>{currentValue}</span>;
+}

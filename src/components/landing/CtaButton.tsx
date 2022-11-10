@@ -1,27 +1,24 @@
-import {BiChevronsDown} from 'react-icons/bi';
+import { BiChevronsDown } from 'react-icons/bi';
 import styled from 'styled-components';
 import data from '../../data.json';
-import {RootState, useAppSelector} from "../../state/store";
-import {ActiveTheme} from "../../state/themeSlice";
+import { RootState, useAppSelector } from '../../state/store';
 
 export default function CtaButton(props: any): JSX.Element {
-    const activeTheme = useAppSelector((state: RootState) => state.theme.activeTheme);
+  const activeTheme = useAppSelector((state: RootState) => state.theme.activeTheme);
 
-    const {CTA_LABEL} = data.text;
-    return (
-        <CtaStyle
-            activeTheme={activeTheme}
-            {...props}>
-            <a href="#showcase" className="cta">
-                {CTA_LABEL}
-            </a>
-            <BiChevronsDown className="chevrons"/>
-        </CtaStyle>
-    );
+  const { CTA_LABEL } = data.text;
+  return (
+    <CtaStyle activeTheme={activeTheme} {...props}>
+      <a href="#showcase" className="cta">
+        {CTA_LABEL}
+      </a>
+      <BiChevronsDown className="chevrons" />
+    </CtaStyle>
+  );
 }
 
 const CtaStyle = styled.div<{
-    activeTheme: string;
+  activeTheme: string;
 }>`
   display: flex;
   flex-flow: column wrap;
@@ -39,7 +36,7 @@ const CtaStyle = styled.div<{
     padding: 1rem 2rem;
     text-decoration: none;
     transition: border-color ${(props) => props.theme.transition}, background-color ${(props) => props.theme.transition},
-    color ${(props) => props.theme.transition};
+      color ${(props) => props.theme.transition};
     z-index: 10;
 
     :hover {
