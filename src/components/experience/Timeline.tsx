@@ -1,7 +1,8 @@
-import { Fragment, HTMLAttributes, useEffect, useRef, useState } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import data from '../../data.json';
 import Button from '../util/Button';
+import TimelineExperience from './TimelineExperience';
 
 export type ExperienceType = {
   achievements: string[];
@@ -15,7 +16,7 @@ export type ExperienceType = {
 };
 
 type TimelineProps = {
-  filteredTechs: string[];
+  filteredTechs?: string[];
 };
 
 export default function Timeline(props: TimelineProps): JSX.Element {
@@ -25,6 +26,7 @@ export default function Timeline(props: TimelineProps): JSX.Element {
   const [viewportHeight, setViewportHeight] = useState(0);
   const [timelineHeight, setTimelineHeight] = useState(defaultTimelineHeight);
   // NOTE: Keep tech stacks lowercase otherwise you'll break the filter
+  // TODO: Probably move it to Redux
   const [sortedExperiences, setSortedExperiences] = useState<ExperienceType[]>([]);
   const isFilterApplied = filteredTechs.length > 0;
   const viewportRef = useRef<HTMLDivElement>(null);
@@ -77,11 +79,11 @@ export default function Timeline(props: TimelineProps): JSX.Element {
                 return (
                   <Fragment key={index}>
                     <span className="year">{experienceYear}</span>
-                    <Experience className="experience" experience={experience} />
+                    <TimelineExperience className="experience" experience={experience} />
                   </Fragment>
                 );
               } else {
-                return <Experience className="experience" key={index} experience={experience} />;
+                return <TimelineExperience className="experience" key={index} experience={experience} />;
               }
             })}
         </div>
@@ -91,26 +93,6 @@ export default function Timeline(props: TimelineProps): JSX.Element {
         Show {isExpanded ? 'less' : 'more'}
       </Button>
     </TimelineStyles>
-  );
-}
-
-type ExperienceProps = {
-  experience: ExperienceType;
-} & HTMLAttributes<HTMLDivElement>;
-
-function Experience(props: ExperienceProps): JSX.Element {
-  const { achievements, durationMonths, employer, responsibilities, startDate, title, typeOfEmployment } =
-    props.experience;
-  return (
-    <div {...props}>
-      <p>{achievements}</p>
-      <p>{durationMonths}</p>
-      <p>{employer}</p>
-      <p>{responsibilities}</p>
-      <p>{startDate}</p>
-      <p>{title}</p>
-      <p>{typeOfEmployment}</p>
-    </div>
   );
 }
 
@@ -153,42 +135,6 @@ const TimelineStyles = styled.div<{ viewportHeight: number; timelineHeight: stri
 
   .year + .experience {
     margin-top: 0;
-  }
-
-  .experience {
-    border: 2px solid ${(props) => props.theme.primaryColor.$500};
-    border-radius: ${(props) => props.theme.borderRadius};
-    box-shadow: 0 4px 8px 0 ${(props) => props.theme.primaryColor.$300};
-    break-inside: avoid-column;
-    margin: 1rem 0;
-    padding: 0.5rem 1rem;
-    position: relative;
-
-    ::after,
-    ::before {
-      background-color: ${(props) => props.theme.primaryColor.$500};
-      content: '';
-      height: 0.5rem;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 1.5rem;
-
-      @media (max-width: 768px) {
-        ::after,
-        ::before {
-          display: none;
-        }
-      }
-    }
-
-    ::after {
-      right: -1.5rem;
-    }
-
-    ::before {
-      left: -1.5rem;
-    }
   }
 
   .year {
