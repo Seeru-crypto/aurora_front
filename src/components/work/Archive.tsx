@@ -1,11 +1,9 @@
 import { FiExternalLink } from 'react-icons/fi';
 import styled from 'styled-components';
-import config from '../../config.json';
 import { ProjectInterface } from '../../lib/load-data';
+import { GITHUB_URL } from '../../config';
 
 export default function Archive({ projects }: { projects: ProjectInterface[] }) {
-  const { GITHUB_URL } = config;
-
   function getYear(project: ProjectInterface): number {
     if (project.updatedAt) return new Date(project.updatedAt).getFullYear();
     return 1984;

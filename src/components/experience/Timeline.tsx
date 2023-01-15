@@ -1,8 +1,8 @@
 import { Fragment, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import data from '../../data.json';
 import Button from '../util/Button';
 import TimelineExperience from './TimelineExperience';
+import { EXPERIENCE_DATA } from '../../data';
 
 export type ExperienceType = {
   achievements: string[];
@@ -35,7 +35,7 @@ export default function Timeline(props: TimelineProps): JSX.Element {
   useEffect(() => {
     try {
       // NOTE: ISO8601 can be lexically sorted
-      const experiences = data.experience.sort((a, b) => -a.startDate.localeCompare(b.startDate)) as ExperienceType[];
+      const experiences = EXPERIENCE_DATA.sort((a, b) => -a.startDate.localeCompare(b.startDate)) as ExperienceType[];
       setSortedExperiences(experiences);
     } catch (error) {
       setSortedExperiences([]);
@@ -75,7 +75,6 @@ export default function Timeline(props: TimelineProps): JSX.Element {
                 if (yearCount - experienceYear > 0) {
                   yearCount = experienceYear;
                 }
-
                 return (
                   <Fragment key={index}>
                     <span className="year">{experienceYear}</span>
@@ -126,7 +125,6 @@ const TimelineStyles = styled.div<{ viewportHeight: number; timelineHeight: stri
   .experiences {
     column-count: 2;
     column-gap: 2.5rem;
-    column-width: 50%;
 
     @media (max-width: 768px) {
       column-count: 1;

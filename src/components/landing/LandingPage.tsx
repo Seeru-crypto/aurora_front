@@ -1,12 +1,12 @@
 import React, { ForwardedRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import data from '../../data.json';
 import CtaButton from './CtaButton';
+import { LABELS } from '../../data';
 
 const LandingPage = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>) => {
   const [greetingMessage, setGreetingMessage] = useState('');
   const { GREETING_MORNING, GREETING_DAY, GREETING_MAIN_BODY, GREETING_EVENING, LANDING_HERO_TEXT, GREETING_DEFAULT } =
-    data.text;
+    LABELS;
 
   useEffect(() => {
     const sysTimeHour = new Date().getHours();

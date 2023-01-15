@@ -1,12 +1,12 @@
 import { BiChevronsDown } from 'react-icons/bi';
 import styled from 'styled-components';
-import data from '../../data.json';
 import { RootState, useAppSelector } from '../../state/store';
+import { LABELS } from '../../data';
 
 export default function CtaButton(props: any): JSX.Element {
   const activeTheme = useAppSelector((state: RootState) => state.theme.activeTheme);
 
-  const { CTA_LABEL } = data.text;
+  const { CTA_LABEL } = LABELS;
   return (
     <CtaStyle activeTheme={activeTheme} {...props}>
       <a href="#showcase" className="cta">

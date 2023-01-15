@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-import { TechTypes } from '../../lib/load-data';
+import { Tech } from '../../data';
 
-export default function TopicBubble({ topic, techTypes }: { topic: string; techTypes: TechTypes }) {
-  const topicType = techTypes.get(topic);
+export default function TopicBubble({ topic, techTypes }: { topic: string; techTypes: Tech[] }) {
+  const selectedTech: Tech | undefined = techTypes.find((tech) => tech.name === topic);
+  const topicType = selectedTech === undefined ? '' : selectedTech.type;
   return (
     <TopicStyle topicType={topicType} className={`${topicType}`}>
       {topic}
@@ -17,7 +18,7 @@ const TopicStyle = styled.div<{ topicType: string | undefined }>`
   padding: 0.15rem 0.3rem;
   border-radius: 0.25rem;
   margin: 0.15rem;
-  font-size: ${(props) => props.theme.size.$200};;
+  font-size: ${(props) => props.theme.size.$200};
 
   &.front {
     background-color: ${(props) => props.theme.frontend};

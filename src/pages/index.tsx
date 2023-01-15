@@ -1,20 +1,20 @@
 import { useEffect, useRef, useState } from 'react';
 import Contact from '../components/Contact/Contact';
-import Experience from '../components/Experience/Experience';
+import ExperienceLanding from '../components/Experience/ExperienceLanding';
 import LandingPage from '../components/landing/LandingPage';
 import Toast from '../components/util/Toast';
 import { formatDate } from '../components/work/Card';
 import Showcase, { ShowcaseProps } from '../components/work/Showcase';
-import config from '../config.json';
-import { loadLocalData, mergeGitProjectData, ProjectInterface, TimelineCard } from '../lib/load-data';
+import { mergeGitProjectData, ProjectInterface } from '../lib/load-data';
 import { changeToastValue, setAuroraLastUpdated, setNumberOfProjects } from '../state/appSlice';
 import { RootState, useAppDispatch, useAppSelector } from '../state/store';
 import useIntersectionObserver, { IntersectionOption } from '../useIntersectionObserver';
+import { EXPERIENCE_DATA, PROJECTS, Tech, TECHNOLOGIES, TimelineCard } from '../data';
 
 type HomeProps = {
   projects: ProjectInterface[];
   timeLineCards: TimelineCard[];
-  techTypes: Iterable<readonly [string, string]>;
+  techTypes: Tech[];
 };
 
 export default function Home({ projects, techTypes }: HomeProps): JSX.Element {
@@ -23,7 +23,7 @@ export default function Home({ projects, techTypes }: HomeProps): JSX.Element {
   const [sections, setSections] = useState<(HTMLDivElement | null)[]>([]);
   const showcaseProps: ShowcaseProps = {
     projects,
-    techTypes: new Map<string, string>(techTypes),
+    techTypes,
   };
 
   const experienceRef = useRef<HTMLDivElement>(null);
@@ -65,7 +65,7 @@ export default function Home({ projects, techTypes }: HomeProps): JSX.Element {
     <>
       {isToastShown && <Toast message="Added to clipboard" />}
       <LandingPage ref={landingRef} />
-      <Experience ref={experienceRef} />
+      <ExperienceLanding ref={experienceRef} />
       <Showcase showcaseProps={showcaseProps} ref={showcaseRef} />
       <Contact ref={contactRef} />
     </>
@@ -73,21 +73,14 @@ export default function Home({ projects, techTypes }: HomeProps): JSX.Element {
 }
 
 export async function getStaticProps(): Promise<{ props: HomeProps; revalidate: string | undefined }> {
-  const localJsonData = await loadLocalData();
-  const projects = await mergeGitProjectData(
-    localJsonData.projects,
-    process.env.GIT_REPO_DATA_URL,
-    process.env.GITHUB_TOKEN
-  );
-  const techTypeList: string[][] = config.TECH_TYPES;
-  const timeLineCards: TimelineCard[] = localJsonData.experience;
+  const projects = await mergeGitProjectData(PROJECTS, process.env.GIT_REPO_DATA_URL, process.env.GITHUB_TOKEN);
 
   // TODO: Fix the actual type for 'techTypes' (see Iterator<Map> vs string[][])
   return {
     props: {
       projects: projects,
-      techTypes: techTypeList as any,
-      timeLineCards: timeLineCards,
+      techTypes: TECHNOLOGIES,
+      timeLineCards: EXPERIENCE_DATA,
     },
     revalidate: process.env.REVALIDATE_VALUE,
   };

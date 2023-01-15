@@ -1,9 +1,9 @@
 import { BsCalendarCheck } from 'react-icons/bs';
 import { MdOutlineDone, MdOutlineLocationOn, MdUpdate } from 'react-icons/md';
 import styled from 'styled-components';
-import data from '../../data.json';
 import { RootState, useAppSelector } from '../../state/store';
 import NumberCounter from '../util/NumberCounter';
+import { LABELS } from '../../data';
 
 export default function SectionCounter(): JSX.Element {
   const auroraLastUpdated = useAppSelector<string>((state: RootState) => state.app.auroraLastUpdated);
@@ -13,7 +13,7 @@ export default function SectionCounter(): JSX.Element {
     HERO_SECTION_CODING_SINCE,
     HERO_SECTION_LAST_UPDATED_TITLE,
     HERO_SECTION_LOCATION,
-  } = data.text;
+  } = LABELS;
 
   // TODO: Fix rerendering bug, where counter becomes wider and thinner when counters are running up
   return (
