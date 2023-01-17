@@ -1,8 +1,8 @@
-import { Fragment, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import Button from '../util/Button';
-import TimelineExperience from './TimelineExperience';
 import { EXPERIENCE_DATA } from '../../data';
+import TimelineSection from './TimelineSection';
 
 export type ExperienceType = {
   achievements: string[];
@@ -30,7 +30,6 @@ export default function Timeline(props: TimelineProps): JSX.Element {
   const [sortedExperiences, setSortedExperiences] = useState<ExperienceType[]>([]);
   const isFilterApplied = filteredTechs.length > 0;
   const viewportRef = useRef<HTMLDivElement>(null);
-  let yearCount = 9999;
 
   useEffect(() => {
     try {
@@ -55,39 +54,21 @@ export default function Timeline(props: TimelineProps): JSX.Element {
     return isExpanded ? sortedExperiences.length : 3;
   }
 
+  function getExperienceListToDisplay(XP: ExperienceType[]): ExperienceType[] {
+    return XP.slice(0, getShownAmount()).filter((experience: ExperienceType) =>
+      isFilterApplied
+        ? filteredTechs.some((filteredTech: string) => experience.techStack.includes(filteredTech.toLowerCase()))
+        : experience
+    );
+  }
+
   return (
     <TimelineStyles viewportHeight={viewportHeight} timelineHeight={timelineHeight}>
       <div className="viewport">
         <div className="experiences" ref={viewportRef}>
-          {sortedExperiences
-            .slice(0, getShownAmount())
-            .filter((experience: ExperienceType) =>
-              isFilterApplied
-                ? filteredTechs.some((filteredTech: string) =>
-                    experience.techStack.includes(filteredTech.toLowerCase())
-                  )
-                : experience
-            )
-            .map((experience: ExperienceType, index: number) => {
-              const experienceYear = new Date(experience.startDate).getFullYear();
-
-              if (experienceYear !== yearCount) {
-                if (yearCount - experienceYear > 0) {
-                  yearCount = experienceYear;
-                }
-                return (
-                  <Fragment key={index}>
-                    <span className="year">{experienceYear}</span>
-                    <TimelineExperience className="experience" experience={experience} />
-                  </Fragment>
-                );
-              } else {
-                return <TimelineExperience className="experience" key={index} experience={experience} />;
-              }
-            })}
+          <TimelineSection sortedExperienceList={getExperienceListToDisplay(sortedExperiences)} />
         </div>
       </div>
-
       <Button className="toggle-extra" onClick={() => setIsExpanded(!isExpanded)}>
         Show {isExpanded ? 'less' : 'more'}
       </Button>
@@ -129,23 +110,6 @@ const TimelineStyles = styled.div<{ viewportHeight: number; timelineHeight: stri
     @media (max-width: 768px) {
       column-count: 1;
     }
-  }
-
-  .year + .experience {
-    margin-top: 0;
-  }
-
-  .year {
-    background-color: ${(props) => props.theme.primaryColor.$500};
-    border-radius: ${(props) => props.theme.borderRadius};
-    column-span: all;
-    color: ${(props) => props.theme.secondary};
-    display: block;
-    font-size: 1.2em;
-    font-weight: bold;
-    margin: 1rem 0;
-    padding: 0.5rem 1rem;
-    text-align: center;
   }
 
   .toggle-extra {
