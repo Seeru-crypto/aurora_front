@@ -1,13 +1,13 @@
 import { transparentize } from 'polished';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import config from '../../config.json';
 import Logo from '../../icons/Logo.svg';
 import { setActiveSection } from '../../state/appSlice';
 import { RootState, useAppDispatch, useAppSelector } from '../../state/store';
 import ResumeLink from '../ResumeLink';
 import ThemeSelector from '../ThemeSelector';
 import NavLink from './NavLink';
+import { CV_DOWNLOAD_LINK, NAVIGATION_PATHS } from '../../config';
 
 export default function Header(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -20,8 +20,8 @@ export default function Header(): JSX.Element {
 
   useEffect(() => {
     window.onscroll = () => {
-      window.pageYOffset === 0 && setIsScrolling(false);
-      window.pageYOffset > 0 && setIsScrolling(true);
+      window.scrollY === 0 && setIsScrolling(false);
+      window.scrollY > 0 && setIsScrolling(true);
     };
 
     return () => {
@@ -33,7 +33,7 @@ export default function Header(): JSX.Element {
     <HeaderStyles isScrolling={isScrolling}>
       <Logo className="logo" />
       <nav className="navigation">
-        {config.NAVIGATION_PATHS.map((object) => (
+        {NAVIGATION_PATHS.map((object) => (
           <NavLink
             href={object.key}
             key={object.value}
@@ -45,7 +45,7 @@ export default function Header(): JSX.Element {
       </nav>
       <div className="controls">
         <ThemeSelector />
-        <ResumeLink href={config.CV_DOWNLOAD_LINK} label="Résumé" />
+        <ResumeLink href={CV_DOWNLOAD_LINK} label="Résumé" />
       </div>
     </HeaderStyles>
   );
@@ -53,7 +53,8 @@ export default function Header(): JSX.Element {
 
 export const HeaderStyles = styled.header<{ isScrolling: boolean }>`
   align-items: center;
-  background-color: ${(props) => (props.isScrolling ? transparentize(0.3, props.theme.secondary) : 'transparent')};
+  background-color: ${(props) =>
+    props.isScrolling ? transparentize(0.3, props.theme.primaryColor.$200) : 'transparent'};
   backdrop-filter: blur(8px);
   display: flex;
   max-height: 4.5rem;

@@ -2,12 +2,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import styled from 'styled-components';
-import config from '../../config.json';
-import { ProjectInterface, TechTypes } from '../../lib/load-data';
+import { ProjectInterface } from '../../lib/load-data';
 import Button, { ButtonType } from '../util/Button';
 import TopicBubble from './TopicBubble';
-
-const { MAX_TOPICS, MIN_TOPICS } = config;
+import { Tech } from '../../data';
+import { MAX_TOPICS, MIN_TOPICS } from '../../config';
 
 export const formatDate = (isoDateString: string, shortFormat: boolean) => {
   const newDate = new Date(isoDateString);
@@ -20,7 +19,7 @@ export const formatDate = (isoDateString: string, shortFormat: boolean) => {
   }
 };
 
-const Card = ({ project, techTypes }: { project: ProjectInterface; techTypes: TechTypes }) => {
+const Card = ({ project, techTypes }: { project: ProjectInterface; techTypes: Tech[] }) => {
   const [nrOfTopics, setNrOfTopics] = useState<number>(MIN_TOPICS);
   const pictureUrl: string = project.picture_url ? project.picture_url : '/resources/default.jpg';
 
@@ -46,7 +45,7 @@ const Card = ({ project, techTypes }: { project: ProjectInterface; techTypes: Te
                   <TopicBubble techTypes={techTypes} topic={topic} />
                 </span>
               ) : (
-                <></>
+                <span key={index}></span>
               );
             })}
           {nrOfTopics === 5 && project.topics && project.topics.length >= 6 && <span>...</span>}
@@ -82,7 +81,7 @@ export default Card;
 const CardStyle = styled.div`
   margin: 1rem;
   overflow: auto;
-  box-shadow: 0 15px 50px ${(props) => props.theme.secondary};
+  box-shadow: 0 15px 50px ${(props) => props.theme.showCaseBoxShadowColor};
   margin-left: auto;
   margin-right: auto;
   width: 30%;

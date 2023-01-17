@@ -1,12 +1,9 @@
-import { lighten } from 'polished';
 import { FiExternalLink } from 'react-icons/fi';
 import styled from 'styled-components';
-import config from '../../config.json';
 import { ProjectInterface } from '../../lib/load-data';
+import { GITHUB_URL } from '../../config';
 
 export default function Archive({ projects }: { projects: ProjectInterface[] }) {
-  const { GITHUB_URL } = config;
-
   function getYear(project: ProjectInterface): number {
     if (project.updatedAt) return new Date(project.updatedAt).getFullYear();
     return 1984;
@@ -20,14 +17,14 @@ export default function Archive({ projects }: { projects: ProjectInterface[] }) 
             <th>Year</th>
             <th>Name</th>
             <th>Type</th>
-            <th>Topics</th>
             <th>Links</th>
           </tr>
           {projects.map((project, index) => (
             <tr className={`tableRow ${index % 2 === 0 ? 'even' : 'unEven'}`} key={index}>
               <td className="tableContent">{getYear(project)}</td>
-              <td className="tableContent">{project.project_name}</td>
-              <td className="tableContent">{project.project_type}</td>
+              <td className="tableContent">
+                {project.project_name} <div className="projectType"> {project.project_type} </div>
+              </td>
               <td className="tableContent">
                 {project.topics?.map((topic) => (
                   <span key={topic}>{`${topic}, `}</span>
@@ -67,7 +64,7 @@ const ArchiveStyle = styled.div`
     }
 
     .tableHeader {
-      background-color: ${(props) => props.theme.primary};
+      background-color: ${(props) => props.theme.archiveTableHeaderBkgColor};
       color: ${(props) => props.theme.textColor};
 
       th {
@@ -80,7 +77,12 @@ const ArchiveStyle = styled.div`
       transition: background-color ${(props) => props.theme.transition};
 
       :hover {
-        background-color: ${(props) => lighten(0.2, props.theme.primary)};
+        background-color: ${(props) => props.theme.arhiveTableHoverBkgColor};
+        color: ${(props) => props.theme.arhiveTableHoverColor};
+
+        .projectType {
+          color: ${(props) => props.theme.arhiveTableHoverColor};
+        }
       }
     }
 
@@ -90,6 +92,11 @@ const ArchiveStyle = styled.div`
 
     .unEven {
       background-color: ${(props) => props.theme.white};
+    }
+
+    .projectType {
+      font-size: 0.7rem;
+      color: ${(props) => props.theme.detailTextColor};
     }
   }
 `;
@@ -103,14 +110,12 @@ const ArchiveIconStyle = styled.a`
   margin: 0 0.5rem;
 
   svg {
-    fill: ${(props) => props.theme.secondary};
+    fill: transparent;
     transition: fill ${(props) => props.theme.transition}, transform ${(props) => props.theme.transition};
   }
 
   :hover svg {
-      fill: ${(props) => props.theme.primary};
-
-      transform: translate3d(0, -15%, 0);
-    }
+    stroke: ${(props) => props.theme.secondary};
+    transform: translate3d(0, -15%, 0);
   }
 `;

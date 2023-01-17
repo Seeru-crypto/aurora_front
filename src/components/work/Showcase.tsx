@@ -1,21 +1,23 @@
 import React, { ForwardedRef } from 'react';
 import styled from 'styled-components';
-import { ProjectInterface, TechTypes } from '../../lib/load-data';
+import { ProjectInterface } from '../../lib/load-data';
 import Archive from './Archive';
 import Card from './Card';
+import { LABELS, Tech } from '../../data';
 
 export interface ShowcaseProps {
   projects: ProjectInterface[];
-  techTypes: TechTypes;
+  techTypes: Tech[];
 }
 
 const Showcase = React.forwardRef(
   ({ showcaseProps: workProps }: { showcaseProps: ShowcaseProps }, ref: ForwardedRef<HTMLElement>) => {
     const showcaseList: ProjectInterface[] = workProps.projects.filter((project) => project.showcase);
+    const { SHOWCASE_TITLE } = LABELS;
 
     return (
       <ShowcaseStyles ref={ref} id="showcase">
-        <h1>All projects</h1>
+        <h1>{SHOWCASE_TITLE}</h1>
         <div className={'workCards'}>
           {showcaseList.map((project, index) => (
             <Card key={index} project={project} techTypes={workProps.techTypes} />

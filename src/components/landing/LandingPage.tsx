@@ -1,11 +1,12 @@
 import React, { ForwardedRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import data from '../../data.json';
 import CtaButton from './CtaButton';
+import { LABELS } from '../../data';
 
 const LandingPage = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>) => {
   const [greetingMessage, setGreetingMessage] = useState('');
-  const { GREETING_MORNING, GREETING_DAY, GREETING_EVENING, LANDING_HERO_TEXT } = data;
+  const { GREETING_MORNING, GREETING_DAY, GREETING_MAIN_BODY, GREETING_EVENING, LANDING_HERO_TEXT, GREETING_DEFAULT } =
+    LABELS;
 
   useEffect(() => {
     const sysTimeHour = new Date().getHours();
@@ -23,14 +24,17 @@ const LandingPage = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>) =>
         setGreetingMessage(GREETING_EVENING);
         break;
       default:
-        setGreetingMessage('Howdy');
+        setGreetingMessage(GREETING_DEFAULT);
     }
-  }, [GREETING_EVENING, GREETING_MORNING, GREETING_DAY]);
+  }, [GREETING_EVENING, GREETING_MORNING, GREETING_DAY, GREETING_DEFAULT]);
 
   return (
-    <LandingStyle id="about" ref={ref} className="container">
+    <LandingStyle id="landing" ref={ref} className="container">
       <div className="hero">
-        <h1>{greetingMessage} My name is Fred</h1>
+        <h1>
+          {greetingMessage}&nbsp;
+          {GREETING_MAIN_BODY}
+        </h1>
         <p>{LANDING_HERO_TEXT}</p>
       </div>
 
@@ -39,7 +43,7 @@ const LandingPage = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>) =>
   );
 });
 
-LandingPage.displayName = 'landing page';
+LandingPage.displayName = 'landing main component';
 
 export default LandingPage;
 
@@ -53,8 +57,6 @@ const LandingStyle = styled.section`
     flex-flow: column wrap;
     flex-grow: 1;
     justify-content: center;
-  }
-
-  .cta {
+    color: ${(props) => props.theme.textColor};
   }
 `;

@@ -8,6 +8,7 @@ export interface AppState {
   currentPage: string;
   numberOfProjects: number;
   auroraLastUpdated: string;
+  isInitialHeroCounterAnimation: boolean;
 }
 
 const initialState: AppState = {
@@ -18,6 +19,7 @@ const initialState: AppState = {
   currentPage: '',
   numberOfProjects: 0,
   auroraLastUpdated: '',
+  isInitialHeroCounterAnimation: true,
 };
 
 export const appSlice = createSlice({
@@ -51,6 +53,9 @@ export const appSlice = createSlice({
     setAuroraLastUpdated: (state, action: PayloadAction<string | undefined>) => {
       if (action.payload) state.auroraLastUpdated = action.payload;
     },
+    setIsInitialHeroCounterAnimation: (state) => {
+      state.isInitialHeroCounterAnimation = false;
+    },
   },
 });
 
@@ -63,6 +68,7 @@ export const {
   setNumberOfProjects,
   setAuroraLastUpdated,
   setActiveSection,
+  setIsInitialHeroCounterAnimation,
 } = appSlice.actions;
 
 export default appSlice.reducer;

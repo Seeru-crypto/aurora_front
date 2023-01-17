@@ -1,20 +1,19 @@
 import Link from 'next/link';
 import React, { ForwardedRef, useEffect, useState } from 'react';
 import { RiLinkedinFill } from 'react-icons/ri';
+import { SiGoodreads } from 'react-icons/si';
 import { VscGithubAlt } from 'react-icons/vsc';
 import styled from 'styled-components';
-import config from '../../config.json';
-import data from '../../data.json';
 import { RootState, useAppSelector } from '../../state/store';
+import Footer from '../layout/footer';
 import Button, { ButtonType } from '../util/Button';
 import ContactButton from './ContactButton';
-import Footer from "../layout/footer";
+import { LABELS } from '../../data';
+import { CV_DOWNLOAD_LINK, EMAIL_ADDRESS, GITHUB_URL, GOODREADS_URL, LINKEDIN_URL } from '../../config';
 
 const Contact = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JSX.Element => {
   const isToastShown: boolean = useAppSelector((state: RootState) => state.app.isToastShown);
   const [isEmailShown, setIsEmailShown] = useState(isToastShown);
-  const { CONTACT_HEADER, CONTACT_BODY } = data;
-  const { EMAIL_ADDRESS, CV_DOWNLOAD_LINK, LINKEDIN_URL, GITHUB_URL } = config;
 
   useEffect(() => {
     if (isToastShown && !isEmailShown) setIsEmailShown(true);
@@ -24,8 +23,8 @@ const Contact = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JSX.E
     <>
       <ContactStyle ref={ref} id="contact">
         <div className="contactContent">
-          <h1 className="contactHeader">{CONTACT_HEADER}</h1>
-          <p>{CONTACT_BODY}</p>
+          <h1 className="contactHeader">{LABELS.CONTACT_HEADER}</h1>
+          <p>{LABELS.CONTACT_BODY}</p>
 
           <div className="contactLinks">
             <Link href={CV_DOWNLOAD_LINK} passHref>
@@ -43,6 +42,9 @@ const Contact = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JSX.E
           </IconStyle>
           <IconStyle href={GITHUB_URL} id="gitHub" target="_blank">
             <VscGithubAlt />
+          </IconStyle>
+          <IconStyle href={GOODREADS_URL} id={'goodReads'} target="_blank">
+            <SiGoodreads />
           </IconStyle>
         </div>
 
@@ -107,9 +109,8 @@ const IconStyle = styled.a`
   }
 
   :hover svg {
-      fill: ${(props) => props.theme.primary};
+    fill: ${(props) => props.theme.primary};
 
-      transform: translate3d(0, -15%, 0);
-    }
+    transform: translate3d(0, -15%, 0);
   }
 `;
