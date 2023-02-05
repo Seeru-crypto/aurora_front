@@ -102,6 +102,7 @@ const IconStyle = styled.a`
   font-size: 2rem;
   justify-content: center;
   margin: 0 0.5rem;
+  height: 80vh;
 
   svg {
     fill: ${(props) => props.theme.secondary};

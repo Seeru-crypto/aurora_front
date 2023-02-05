@@ -2,17 +2,19 @@ import { transparentize } from 'polished';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Logo from '../../icons/Logo.svg';
-import { setActiveSection } from '../../state/appSlice';
+import { setActiveSection, setIsFilterActive } from '../../state/appSlice';
 import { RootState, useAppDispatch, useAppSelector } from '../../state/store';
 import ResumeLink from '../ResumeLink';
 import ThemeSelector from '../ThemeSelector';
 import NavLink from './NavLink';
 import { CV_DOWNLOAD_LINK, NAVIGATION_PATHS } from '../../config';
+import { AiOutlineFilter } from 'react-icons/ai';
 
 export default function Header(): JSX.Element {
   const dispatch = useAppDispatch();
   const currentPage = useAppSelector((state: RootState) => state.app.currentPage);
   const [isScrolling, setIsScrolling] = useState(false);
+  const isFilterActive = useAppSelector((state) => state.app.isFilterActive);
 
   function isInView(pageName: string): boolean {
     return pageName.toLowerCase() === currentPage.toLowerCase();
@@ -29,9 +31,16 @@ export default function Header(): JSX.Element {
     };
   }, []);
 
+  function filterClick() {
+    dispatch(setIsFilterActive(!isFilterActive));
+  }
+
   return (
     <HeaderStyles isScrolling={isScrolling}>
-      <Logo className="logo" />
+      <span className="leftSide">
+        <Logo className="logo" />
+        <AiOutlineFilter onClick={() => filterClick()} className="filter" />
+      </span>
       <nav className="navigation">
         {NAVIGATION_PATHS.map((object) => (
           <NavLink
@@ -64,7 +73,22 @@ export const HeaderStyles = styled.header<{ isScrolling: boolean }>`
   transition: background-color ${(props) => props.theme.transition};
   z-index: 999;
 
-  .logo,
+  .filter {
+    justify-content: start;
+    font-size: 2.5rem;
+    border: 1px solid gray;
+    border-radius: 0.35rem;
+    cursor: pointer;
+  }
+
+  .leftSide {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .leftSide,
   .navigation,
   .controls {
     flex: 1;

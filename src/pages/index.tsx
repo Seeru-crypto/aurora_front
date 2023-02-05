@@ -1,6 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import Contact from '../components/Contact/Contact';
-import ExperienceLanding from '../components/Experience/ExperienceLanding';
 import LandingPage from '../components/landing/LandingPage';
 import Toast from '../components/util/Toast';
 import { formatDate } from '../components/work/Card';
@@ -10,6 +8,10 @@ import { changeToastValue, setAuroraLastUpdated, setNumberOfProjects } from '../
 import { RootState, useAppDispatch, useAppSelector } from '../state/store';
 import useIntersectionObserver, { IntersectionOption } from '../useIntersectionObserver';
 import { EXPERIENCE_DATA, PROJECTS, Tech, TECHNOLOGIES, TimelineCard } from '../data';
+import ExperienceLanding from '../components/experience/ExperienceLanding';
+import Contact from '../components/contact/Contact';
+import styled from 'styled-components';
+import FilterPane from '../FilterPane';
 
 type HomeProps = {
   projects: ProjectInterface[];
@@ -21,6 +23,7 @@ export default function Home({ projects, techTypes }: HomeProps): JSX.Element {
   const isToastShown: boolean = useAppSelector((state: RootState) => state.app.isToastShown);
   const dispatch = useAppDispatch();
   const [sections, setSections] = useState<(HTMLDivElement | null)[]>([]);
+  const isFilterVisible: boolean = useAppSelector((state) => state.app.isFilterActive);
   const showcaseProps: ShowcaseProps = {
     projects,
     techTypes,
@@ -62,15 +65,49 @@ export default function Home({ projects, techTypes }: HomeProps): JSX.Element {
   }, [projects, dispatch]);
 
   return (
-    <>
-      {isToastShown && <Toast message="Added to clipboard" />}
-      <LandingPage ref={landingRef} />
-      <ExperienceLanding ref={experienceRef} />
-      <Showcase showcaseProps={showcaseProps} ref={showcaseRef} />
-      <Contact ref={contactRef} />
-    </>
+    <IndexStyle isFilterVisible={isFilterVisible}>
+      <div className="filterPane">
+        <FilterPane />
+      </div>
+      <div className="mainContent">
+        {isToastShown && <Toast message="Added to clipboard" />}
+        <LandingPage ref={landingRef} />
+        <ExperienceLanding ref={experienceRef} />
+        <Showcase showcaseProps={showcaseProps} ref={showcaseRef} />
+        <Contact ref={contactRef} />
+      </div>
+    </IndexStyle>
   );
 }
+
+const IndexStyle = styled.div<{ isFilterVisible: boolean }>`
+  display: flex;
+  flex-direction: row;
+`;
+// ${(props) => (props.isFilterVisible ? OpenSidebar : ClosedSidebar)};
+// TODO: https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_sidebar_shift
+// Jäin kinni stiilide switchimise juures
+
+// const ClosedSidebar = styled(IndexStyle)`
+//   .filterPane {
+//     display: none;
+//   }
+//
+//   .mainContent {
+//     margin-left: 0;
+//   }
+// `;
+//
+// const OpenSidebar = styled`
+//   .filterPane {
+//     width: 25%;
+//   }
+//
+//   .mainContent {
+//     margin-left: 25%;
+//     display: block;
+//   }
+// `;
 
 export async function getStaticProps(): Promise<{ props: HomeProps; revalidate: string | undefined }> {
   const projects = await mergeGitProjectData(PROJECTS, process.env.GIT_REPO_DATA_URL, process.env.GITHUB_TOKEN);

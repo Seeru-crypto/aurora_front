@@ -51,6 +51,7 @@ const LandingStyle = styled.section`
   align-items: center;
   display: flex;
   flex-flow: column;
+  height: 80vh;
 
   .hero {
     display: flex;
