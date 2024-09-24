@@ -10,6 +10,6 @@ export const NAVIGATION_PATHS = [
   { value: 'Landing', key: '#landing' },
   { value: 'Skills', key: '#skills' },
   { value: 'Experience', key: '#experience' },
-  { value: 'Showcase', key: '#showcase' },
+  { value: 'Projects', key: '#projects' },
   { value: 'Contact', key: '#contact' },
 ];

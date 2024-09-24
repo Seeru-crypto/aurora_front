@@ -75,13 +75,12 @@ const Skills = (props: ISkills) => {
 }
 
 const SkillsStyle = styled.section`
-  border: 1px solid #b74e91;
   display: flex;
   flex-direction: column;
   margin-bottom: 2rem;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: 0 1rem;
 
   .inner {
     max-width: 95%;

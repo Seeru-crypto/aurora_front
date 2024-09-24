@@ -13,11 +13,10 @@ export interface ShowcaseProps {
 const Showcase = React.forwardRef(
   ({ showcaseProps: workProps }: { showcaseProps: ShowcaseProps }, ref: ForwardedRef<HTMLElement>) => {
     const showcaseList: ProjectInterface[] = workProps.projects.filter((project) => project.showcase);
-    const { SHOWCASE_TITLE } = LABELS;
 
     return (
       <ShowcaseStyles ref={ref} id="showcase">
-        <h1>{SHOWCASE_TITLE}</h1>
+        <h1>Projects</h1>
         <div className={'workCards'}>
           {showcaseList.map((project, index) => (
             <Card key={index} project={project} techTypes={workProps.techTypes} />

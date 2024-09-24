@@ -96,7 +96,7 @@ export const baseTheme = {
 
 export const DayTheme = {
   ...baseTheme,
-  background: gray.$50,
+  background: gray.$200,
   primary: primaryColor.$600,
   secondary: primaryColor.$100,
   textColor: gray.$800,
@@ -108,7 +108,10 @@ export const DayTheme = {
   detailTextColor: gray.$500,
   buttonTextColor: gray.$100,
   buttonHoverTextColor: gray.$900,
-  buttonHoverBkgColor: primaryColor.$400
+  buttonHoverBkgColor: primaryColor.$400,
+  clipboardBkgColor: primaryColor.$600,
+  clipboardColor: violet.$600,
+  clipboardHoverBkgColor: primaryColor.$400
 };
 
 export const NightTheme = {
@@ -123,6 +126,9 @@ export const NightTheme = {
   arhiveTableHoverColor: gray.$900,
   arhiveTableDetailColor: gray.$500,
   buttonHoverTextColor: gray.$900,
-  buttonHoverBkgColor: violet.$300
+  buttonHoverBkgColor: violet.$300,
+  clipboardBkgColor: primaryColor.$600,
+  clipboardColor: violet.$600,
+  clipboardHoverBkgColor: primaryColor.$400
 }
 export type FredTheme = typeof baseTheme & (typeof DayTheme | typeof NightTheme) & DefaultTheme;

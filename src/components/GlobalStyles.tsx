@@ -22,7 +22,6 @@ main {
   flex-flow: column wrap;
   margin: 0 auto;
   max-width: 100%;
-  padding: 0 1rem;
 
   /* TODO: Get the dynamic size of Header */
   > section {

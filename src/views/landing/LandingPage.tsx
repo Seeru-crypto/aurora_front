@@ -48,9 +48,16 @@ LandingPage.displayName = 'landing main component';
 export default LandingPage;
 
 const LandingStyle = styled.section`
+  background-image: url("intro.svg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  
   align-items: center;
   display: flex;
   flex-flow: column;
+
+  padding: 0 1rem;
 
   .hero {
     display: flex;
