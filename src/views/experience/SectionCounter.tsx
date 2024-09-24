@@ -2,7 +2,7 @@ import { BsCalendarCheck } from 'react-icons/bs';
 import { MdOutlineDone, MdOutlineLocationOn, MdUpdate } from 'react-icons/md';
 import styled from 'styled-components';
 import { RootState, useAppSelector } from '../../state/store';
-import NumberCounter from '../util/NumberCounter';
+import NumberCounter from '../../components/util/NumberCounter';
 import { LABELS } from '../../data';
 
 export default function SectionCounter(): JSX.Element {

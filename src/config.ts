@@ -8,6 +8,7 @@ export const GOODREADS_URL = 'https://www.goodreads.com/review/list/156116017?re
 
 export const NAVIGATION_PATHS = [
   { value: 'Landing', key: '#landing' },
+  { value: 'Skills', key: '#skills' },
   { value: 'Experience', key: '#experience' },
   { value: 'Showcase', key: '#showcase' },
   { value: 'Contact', key: '#contact' },

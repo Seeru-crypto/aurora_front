@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import Button from '../util/Button';
+import Button from '../../components/util/Button';
 import { EXPERIENCE_DATA } from '../../data';
 import TimelineSection from './TimelineSection';
 

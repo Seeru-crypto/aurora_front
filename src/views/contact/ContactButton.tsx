@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { changeToastValue } from '../../state/appSlice';
 import { useAppDispatch } from '../../state/store';
-import Button from '../util/Button';
+import Button from '../../components/util/Button';
 
 interface ContactButtonProps {
   contactEmail: string;

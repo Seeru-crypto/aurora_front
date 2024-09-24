@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import Moon from '../icons/Moon.svg';
-import Sun from '../icons/Sun.svg';
-import { RootState, useAppDispatch } from '../state/store';
-import { ActiveTheme, changeTheme } from '../state/themeSlice';
+import Moon from '../../../icons/Moon.svg';
+import Sun from '../../../icons/Sun.svg';
+import { RootState, useAppDispatch } from '../../../state/store';
+import { ActiveTheme, changeTheme } from '../../../state/themeSlice';
 
 export default function ThemeSelector(): JSX.Element {
   const activeTheme = useSelector((state: RootState) => state.theme.activeTheme);

@@ -1,15 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
-import LandingPage from '../components/landing/LandingPage';
+import LandingPage from '../views/landing/LandingPage';
 import Toast from '../components/util/Toast';
-import { formatDate } from '../components/work/Card';
-import Showcase, { ShowcaseProps } from '../components/work/Showcase';
+import { formatDate } from '../views/showcase/Card';
+import Showcase, { ShowcaseProps } from '../views/showcase/Showcase';
 import { mergeGitProjectData, ProjectInterface } from '../lib/load-data';
 import { changeToastValue, setAuroraLastUpdated, setNumberOfProjects } from '../state/appSlice';
 import { RootState, useAppDispatch, useAppSelector } from '../state/store';
 import useIntersectionObserver, { IntersectionOption } from '../useIntersectionObserver';
 import { EXPERIENCE_DATA, PROJECTS, Tech, TECHNOLOGIES, TimelineCard } from '../data';
-import ExperienceLanding from "../components/experience/ExperienceLanding";
-import Contact from "../components/contact/Contact";
+import ExperienceLanding from "../views/experience/ExperienceLanding";
+import Contact from "../views/contact/Contact";
+import Skills from "../views/skills/Skills";
 
 type HomeProps = {
   projects: ProjectInterface[];
@@ -30,6 +31,7 @@ export default function Home({ projects, techTypes }: HomeProps): JSX.Element {
   const contactRef = useRef<HTMLDivElement>(null);
   const landingRef = useRef<HTMLDivElement>(null);
   const showcaseRef = useRef<HTMLDivElement>(null);
+  const skillsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setSections([contactRef.current, experienceRef.current, landingRef.current, showcaseRef.current]);
@@ -65,6 +67,7 @@ export default function Home({ projects, techTypes }: HomeProps): JSX.Element {
     <>
       {isToastShown && <Toast message="Added to clipboard" />}
       <LandingPage ref={landingRef} />
+      <Skills ref={skillsRef} />
       <ExperienceLanding ref={experienceRef} />
       <Showcase showcaseProps={showcaseProps} ref={showcaseRef} />
       <Contact ref={contactRef} />

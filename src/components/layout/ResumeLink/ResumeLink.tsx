@@ -1,6 +1,6 @@
 import { HTMLProps } from 'react';
-import Download from '../icons/Download.svg';
-import Button from './util/Button';
+import Download from '../../../icons/Download.svg';
+import Button from '../../util/Button';
 
 interface ResumeLinkProps extends HTMLProps<HTMLAnchorElement> {
   label: string;

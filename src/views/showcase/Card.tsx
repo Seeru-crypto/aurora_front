@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import styled from 'styled-components';
 import { ProjectInterface } from '../../lib/load-data';
-import Button, { ButtonType } from '../util/Button';
+import Button, { ButtonType } from '../../components/util/Button';
 import TopicBubble from './TopicBubble';
 import { Tech } from '../../data';
 import { MAX_TOPICS, MIN_TOPICS } from '../../config';
