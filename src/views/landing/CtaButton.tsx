@@ -1,18 +1,16 @@
 import { BiChevronsDown } from 'react-icons/bi';
 import styled from 'styled-components';
 import { RootState, useAppSelector } from '../../state/store';
-import { LABELS } from '../../data';
 
 export default function CtaButton(props: any): JSX.Element {
   const activeTheme = useAppSelector((state: RootState) => state.theme.activeTheme);
 
-  const { CTA_LABEL } = LABELS;
   return (
     <CtaStyle activeTheme={activeTheme} {...props}>
-      <a href="#showcase" className="cta">
-        {CTA_LABEL}
+      <a href='#projects' className='cta'>
+        Check out my projects
       </a>
-      <BiChevronsDown className="chevrons" />
+      <BiChevronsDown className='chevrons' />
     </CtaStyle>
   );
 }
@@ -36,7 +34,7 @@ const CtaStyle = styled.div<{
     padding: 1rem 2rem;
     text-decoration: none;
     transition: border-color ${(props) => props.theme.transition}, background-color ${(props) => props.theme.transition},
-      color ${(props) => props.theme.transition};
+    color ${(props) => props.theme.transition};
     z-index: 10;
 
     :hover {

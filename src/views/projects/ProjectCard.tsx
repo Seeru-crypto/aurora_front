@@ -24,7 +24,6 @@ const ProjectCard = (props: IProjectCard) => {
         </ProjectCardStyle>
 
     )
-
 }
 
 const ProjectCardStyle = styled.section`

@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import Button from '../../components/util/Button';
-import { EXPERIENCE_DATA } from '../../data';
 import TimelineSection from './TimelineSection';
+import { TIMELINE_DATA } from './timelineData';
 
 export type ExperienceType = {
   achievements: string[];
@@ -34,7 +34,7 @@ export default function Timeline(props: TimelineProps): JSX.Element {
   useEffect(() => {
     try {
       // NOTE: ISO8601 can be lexically sorted
-      const experiences = EXPERIENCE_DATA.sort((a, b) => -a.startDate.localeCompare(b.startDate)) as ExperienceType[];
+      const experiences = TIMELINE_DATA.sort((a, b) => -a.startDate.localeCompare(b.startDate)) as ExperienceType[];
       setSortedExperiences(experiences);
     } catch (error) {
       setSortedExperiences([]);

@@ -27,4 +27,12 @@ Navigate to `http://localhost:3000/`
 - TODO
 - [ ] add What We do section, kinda like [here]()
 - [ ] add prod profile and automatic switching (data is pulled from external source via .env)
-- 
+
+
+
+https://www.canva.com/colors/color-wheel/
+
+https://react-icons.github.io/react-icons/search/#q=clipboard
+
+https://www.happyhues.co/palettes/6
+

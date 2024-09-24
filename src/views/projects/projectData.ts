@@ -9,7 +9,7 @@ export const projectData: IProjectCard[] = [{
     title: "Helmes homework",
     desc: "A advanced version of a old homework, with advanced filtering and user registration logic"
 },{
-    imageSrc:"/pic03.jpg",
+    imageSrc:"/resources/FreeNAS.png",
     title: "TrueNas homelab",
     desc: "A Homeserver, which provides a number of services, including plex, keycloak, grafana, etc"
 }
