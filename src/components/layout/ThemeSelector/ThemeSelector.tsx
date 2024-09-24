@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Moon from '../../../icons/Moon.svg';
 import Sun from '../../../icons/Sun.svg';
 import { RootState, useAppDispatch } from '../../../state/store';
-import { ActiveTheme, changeTheme } from '../../../state/themeSlice';
+import { ActiveTheme, setTheme } from '../../../state/themeSlice';
 
 export default function ThemeSelector(): JSX.Element {
   const activeTheme = useSelector((state: RootState) => state.theme.activeTheme);
@@ -13,12 +13,22 @@ export default function ThemeSelector(): JSX.Element {
   const dispatch = useAppDispatch();
   const animationDuration = 1500;
 
+  useEffect(() => {
+    const savedTheme = sessionStorage.getItem("theme")
+    if (savedTheme) {
+      const activeTheme:ActiveTheme = savedTheme === ActiveTheme.DAY ? ActiveTheme.DAY : ActiveTheme.NIGHT
+      dispatch(setTheme(activeTheme));
+    }
+  }, [])
+
   function handleOnClick() {
     if (!isAnimationActive) {
-      dispatch(changeTheme());
+      const newTheme = activeTheme===ActiveTheme.DAY? ActiveTheme.NIGHT : ActiveTheme.DAY
+      dispatch(setTheme(newTheme));
       setIsAnimationActive(true);
       setTimeout(() => setIsAnimationActive(false), animationDuration);
       setActiveRotation(activeRotation + 180);
+      sessionStorage.setItem("theme", newTheme);
     }
   }
 
