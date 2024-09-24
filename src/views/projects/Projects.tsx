@@ -4,26 +4,26 @@ import ProjectCard from './ProjectCard';
 import { projectData } from './projectData';
 
 interface IProjects {
-    ref: ForwardedRef<HTMLElement>
+  ref: ForwardedRef<HTMLElement>;
 }
 
 const Projects = (props: IProjects) => {
-    return (
-        <ProjectsStyle ref={props.ref} id="projects">
-            <h1>Projects</h1>
+  return (
+    <ProjectsStyle ref={props.ref} id='projects'>
+      <h1>Projects</h1>
+      {projectData.map(card => (<ProjectCard key={card.title}
+                                             tags={card.tags}
+                                             title={card.title}
+                                             desc={card.desc}
+                                             imageSrc={card.imageSrc}
+      />))}
+    </ProjectsStyle>
 
-            {projectData.map(card => (<ProjectCard key={card.title}
-                                            title={card.title}
-                                            desc={card.desc}
-                                            imageSrc={card.imageSrc}
-            />) )}
-        </ProjectsStyle>
-
-    )
-}
+  );
+};
 
 const ProjectsStyle = styled.section`
-  padding: 0 1rem;  
-`
+  padding: 0 1rem;
+`;
 
 export default Projects;
