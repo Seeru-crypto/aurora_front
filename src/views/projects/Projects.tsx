@@ -13,6 +13,7 @@ const Projects = (props: IProjects) => {
       <h1>Projects</h1>
       {projectData.map(card => (<ProjectCard key={card.title}
                                              tags={card.tags}
+                                             link={card.link}
                                              title={card.title}
                                              desc={card.desc}
                                              imageSrc={card.imageSrc}
@@ -23,7 +24,7 @@ const Projects = (props: IProjects) => {
 };
 
 const ProjectsStyle = styled.section`
-  padding: 0 1rem;
+  padding: 0 2rem;
 `;
 
 export default Projects;

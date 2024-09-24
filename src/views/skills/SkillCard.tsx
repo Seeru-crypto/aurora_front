@@ -44,13 +44,23 @@ const SkillCardStyle = styled.section`
   justify-content: flex-start;
   border: 1px solid #ccc;
   padding: 20px;
+  
+  :hover {
+    box-shadow: 0 4px 8px 0 ${(props) => props.theme.primaryColor.$800};
+    border-color: ${(props) => props.theme.primaryColor.$800};
+    
+    .icon {
+      border-color: ${(props) => props.theme.primaryColor.$800};
+    }
+  }
 
   .item-content {
     max-width: 80%;
   }
 
   .icon {
-    border: 1px solid red;
+    border: 1px solid;
+    border-color: ${(props) => props.theme.textColor};
     border-radius: 2rem;
     width: 2.5em;
     height: 2.5em;

@@ -26,21 +26,21 @@ const TopicStyle = styled.div<{ topicType: string | undefined }>`
 
   &.front {
     background-color: ${(props) => props.theme.frontend};
-    color: ${(props) => props.theme.gray.$50};
+    color: ${(props) => props.theme.textColor};
   }
 
   &.back {
     background-color: ${(props) => props.theme.backend};
-    color: ${(props) => props.theme.gray.$50};
+    color: ${(props) => props.theme.textColor};
   }
 
   &.other {
     background-color: ${(props) => props.theme.other};
-    color: ${(props) => props.theme.gray.$50};
+    color: ${(props) => props.theme.textColor};
   }
   &.db {
     background-color: ${(props) => props.theme.database};
-    color: ${(props) => props.theme.gray.$50};
+    color: ${(props) => props.theme.textColor};
   }
 `;
 

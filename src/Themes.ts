@@ -60,6 +60,7 @@ const primaryColor = {
 };
 
 const gray = {
+  $0: '#EEEEEE',
   $50: '#fffffe',
   $100: '#f1f5f9',
   $200: '#e2e8f0',
@@ -81,10 +82,6 @@ export const baseTheme = {
   transition: '350ms linear',
   primaryFont: "'Montserrat', sans-serif",
   secondaryFont: "'IBM Plex Mono', monospace",
-  frontend: red.$300,
-  backend: emerald.$300,
-  database: lime.$400,
-  other: primaryColor.$300,
   red,
   gray,
   primaryColor,
@@ -96,22 +93,24 @@ export const baseTheme = {
 
 export const DayTheme = {
   ...baseTheme,
-  background: gray.$200,
+  // background: gray.$200,
+  background: gray.$0,
   primary: primaryColor.$600,
   secondary: primaryColor.$100,
   textColor: gray.$800,
   showCaseBoxShadowColor:primaryColor.$200,
-  archiveTableHeaderBkgColor: primaryColor.$400,
-  arhiveTableHoverBkgColor: violet.$400,
-  arhiveTableHoverColor: gray.$100,
-  arhiveTableDetailColor: gray.$500,
   detailTextColor: gray.$500,
   buttonTextColor: gray.$100,
   buttonHoverTextColor: gray.$900,
   buttonHoverBkgColor: primaryColor.$400,
   clipboardBkgColor: primaryColor.$600,
   clipboardColor: violet.$600,
-  clipboardHoverBkgColor: primaryColor.$400
+  clipboardHoverBkgColor: primaryColor.$400,
+  frontend: red.$300,
+  backend: emerald.$300,
+  database: lime.$400,
+  other: primaryColor.$300,
+  headerBkgColor: primaryColor.$200
 };
 
 export const NightTheme = {
@@ -121,14 +120,15 @@ export const NightTheme = {
   secondary: gray.$600,
   textColor: gray.$300,
   showCaseBoxShadowColor: primaryColor.$700,
-  archiveTableHeaderBkgColor: violet.$800,
-  arhiveTableHoverBkgColor: violet.$400,
-  arhiveTableHoverColor: gray.$900,
-  arhiveTableDetailColor: gray.$500,
   buttonHoverTextColor: gray.$900,
   buttonHoverBkgColor: violet.$300,
   clipboardBkgColor: primaryColor.$600,
   clipboardColor: violet.$600,
-  clipboardHoverBkgColor: primaryColor.$400
+  clipboardHoverBkgColor: primaryColor.$400,
+  frontend: red.$700,
+  backend: emerald.$700,
+  database: lime.$600,
+  other: primaryColor.$800,
+  headerBkgColor: primaryColor.$900
 }
 export type FredTheme = typeof baseTheme & (typeof DayTheme | typeof NightTheme) & DefaultTheme;

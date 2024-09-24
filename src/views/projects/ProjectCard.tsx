@@ -1,13 +1,15 @@
-import styled from "styled-components";
-import React from "react";
-import Image from "next/image";
-import ProjectTag, {IProjectTag} from "./ProjectTag";
+import styled from 'styled-components';
+import React from 'react';
+import Image from 'next/image';
+import ProjectTag, { IProjectTag } from './ProjectTag';
+import Button from '../../components/util/Button';
 
 export interface IProjectCard {
     imageSrc: string;
     title: string;
     desc: string;
-    tags: IProjectTag[]
+    tags: IProjectTag[];
+    link: string
 }
 
 const ProjectCard = (props: IProjectCard) => {
@@ -22,7 +24,8 @@ const ProjectCard = (props: IProjectCard) => {
                 <div className="card-top">
                     <h2>{props.title}</h2>
                     <p>{props.desc}</p>
-                    <a href="generic.html" className="button">Learn more</a>
+                    <Button> <a target="_blank" href={props.link} className="nav-button">github</a></Button>
+
                 </div>
                 <div className="tags-container">
                     {props.tags.map(tag => <ProjectTag
@@ -57,8 +60,15 @@ const ProjectCardStyle = styled.section`
   .tags-container {
     display: flex;
     flex-direction: row;
-    gap: .5rem;
+    gap: 1rem;
   }
+    
+    .nav-button {
+        text-decoration: none;
+        color: inherit;
+        border: none;
+        background-color: transparent;
+    }
 `
 
 export default ProjectCard;

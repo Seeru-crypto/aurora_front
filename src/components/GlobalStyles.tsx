@@ -28,4 +28,10 @@ export default createGlobalStyle<{ activeTheme: string; theme: FredTheme }>`
       min-height: calc(100vh - 80px);
     }
   }
+
+  p {
+    line-height: 1.4;
+    font-size: 16px;
+    max-width: 70ch;
+  }
 `;

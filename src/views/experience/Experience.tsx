@@ -19,6 +19,6 @@ Experience.displayName = 'Experience main component';
 export default Experience;
 
 const ExperienceStyle = styled.section`
-padding: 0 1rem;
+padding: 0 4rem;
   margin-bottom: 2rem;
 `;

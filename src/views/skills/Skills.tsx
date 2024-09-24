@@ -30,12 +30,9 @@ const SkillsStyle = styled.section`
   margin-bottom: 2rem;
   align-items: center;
   justify-content: center;
-  padding: 0 1rem;
+  padding: 0 4rem;
 
   .inner {
-    max-width: 95%;
-    background-color: #f1f5f9;
-    padding: 2rem 4rem;
     border-radius: 1rem;
   }
 

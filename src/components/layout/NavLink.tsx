@@ -5,7 +5,7 @@ interface NavLinkProps {
   children?: ReactNode | ReactNode[];
   isActive?: boolean;
   href: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export default function NavLink(props: NavLinkProps): JSX.Element {
