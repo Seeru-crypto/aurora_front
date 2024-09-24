@@ -7,7 +7,7 @@ export const SkillData: ISkillCard[] = [
     icon: 'FaCode'
   },  {
     title: 'Hosting',
-    desc: 'I manage self-hosted environments and cloud infrastructure, ensuring secure and efficient deployments using <b>Docker</b> and <b>Nginx</b>. With expertise in automating processes, optimizing server configurations, and maintaining uptime, I ensure that applications run smoothly and scale effortlessly.',
+    desc: 'I manage self-hosted environments and cloud infrastructure, ensuring secure and efficient deployments using <b>Docker</b> and <b>Nginx</b>. With expertise in automating processes through <b>github actions</b>, I ensure that applications run smoothly and scale effortlessly.',
     icon: 'FaServer'
   }, {
     title: 'Front-end',

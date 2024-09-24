@@ -25,7 +25,7 @@ const Contact = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JSX.E
           <p>{LABELS.CONTACT_BODY}</p>
 
           <div className="contactLinks">
-            <EmailField label="my email" contactEmail={EMAIL_ADDRESS} showEmail={isEmailShown} />
+            <EmailField contactEmail={EMAIL_ADDRESS} />
           </div>
         </div>
 

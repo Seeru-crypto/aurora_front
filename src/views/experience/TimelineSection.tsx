@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import TimelineExperience from './TimelineExperience';
 import { ExperienceType } from './Timeline';
 import styled from 'styled-components';

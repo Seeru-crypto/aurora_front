@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import EmploymentDetail from './EmploymentDetail';
 import EmploymentTitle from './EmploymentTitle';
 import { ExperienceType } from './Timeline';
-import {EXPERIENCE_DATA} from "../../data";
+import { TIMELINE_DATA } from './timelineData';
 
 export default function TimelineWithLibrary(): JSX.Element {
-  const experience = EXPERIENCE_DATA as ExperienceType[];
+  const experience = TIMELINE_DATA as ExperienceType[];
 
   function getAllYears(experience: ExperienceType[]) {
     const sortedList = new Map<number, ExperienceType[]>();

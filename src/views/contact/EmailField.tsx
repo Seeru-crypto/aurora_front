@@ -5,12 +5,10 @@ import {FaClipboard} from "react-icons/fa";
 
 interface IEmailField {
   contactEmail: string;
-  label: string;
-  showEmail: boolean;
 }
 
 export default function EmailField(props: IEmailField) {
-  const { contactEmail, label, showEmail } = props;
+  const { contactEmail } = props;
   const dispatch = useAppDispatch();
   
   function saveToClipboard() {
