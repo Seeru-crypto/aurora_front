@@ -1,13 +1,13 @@
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import styled from 'styled-components';
-import data from '../../data.json';
 import EmploymentDetail from './EmploymentDetail';
 import EmploymentTitle from './EmploymentTitle';
 import { ExperienceType } from './Timeline';
+import {EXPERIENCE_DATA} from "../../data";
 
 export default function TimelineWithLibrary(): JSX.Element {
-  const experience = data.experience as ExperienceType[];
+  const experience = EXPERIENCE_DATA as ExperienceType[];
 
   function getAllYears(experience: ExperienceType[]) {
     const sortedList = new Map<number, ExperienceType[]>();

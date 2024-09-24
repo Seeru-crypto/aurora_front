@@ -22,3 +22,9 @@ Navigate to `http://localhost:3000/`
 [UI Design](https://xd.adobe.com/view/7287b312-a7b8-4109-bd3e-290e263ac828-27d4/)
 
 [Trello board](https://trello.com/b/O17GOkWF/aurora-board?filter=label:none,label:Nice+to+have,label:spike,label:ASAP,label:DOC,label:CI%2FCD,label:X-program,label:UI%2FUX)
+
+
+- TODO
+- [ ] add What We do section, kinda like [here]()
+- [ ] add prod profile and automatic switching (data is pulled from external source via .env)
+- 

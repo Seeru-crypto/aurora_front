@@ -1,6 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import Contact from '../components/Contact/Contact';
-import ExperienceLanding from '../components/Experience/ExperienceLanding';
 import LandingPage from '../components/landing/LandingPage';
 import Toast from '../components/util/Toast';
 import { formatDate } from '../components/work/Card';
@@ -10,6 +8,8 @@ import { changeToastValue, setAuroraLastUpdated, setNumberOfProjects } from '../
 import { RootState, useAppDispatch, useAppSelector } from '../state/store';
 import useIntersectionObserver, { IntersectionOption } from '../useIntersectionObserver';
 import { EXPERIENCE_DATA, PROJECTS, Tech, TECHNOLOGIES, TimelineCard } from '../data';
+import ExperienceLanding from "../components/experience/ExperienceLanding";
+import Contact from "../components/contact/Contact";
 
 type HomeProps = {
   projects: ProjectInterface[];

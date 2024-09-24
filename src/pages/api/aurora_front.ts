@@ -167,6 +167,5 @@ export default function handler(
         network_count: 0,
         subscribers_count: 1,
     };
-
     res.status(200).json(responseBody);
 }
