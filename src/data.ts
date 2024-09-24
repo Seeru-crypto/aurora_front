@@ -44,8 +44,4 @@ export const LABELS = {
   GREETING_DEFAULT: 'Howdy!',
   GREETING_MAIN_BODY: 'My name is Fred',
   LANDING_HERO_TEXT: 'I do stuff for the interwebz',
-  HERO_SECTION_PROJECTS_TITLE: 'Number of projects',
-  HERO_SECTION_CODING_SINCE: ['Coding since', '2016'],
-  HERO_SECTION_LAST_UPDATED_TITLE: 'Site last updated',
-  HERO_SECTION_LOCATION: ['Current location', 'Estonia, Tallinn '],
 };

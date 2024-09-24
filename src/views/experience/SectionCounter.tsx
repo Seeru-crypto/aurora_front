@@ -3,37 +3,33 @@ import { MdOutlineDone, MdOutlineLocationOn, MdUpdate } from 'react-icons/md';
 import styled from 'styled-components';
 import { RootState, useAppSelector } from '../../state/store';
 import NumberCounter from '../../components/util/NumberCounter';
-import { LABELS } from '../../data';
 
 export default function SectionCounter(): JSX.Element {
-  const auroraLastUpdated = useAppSelector<string>((state: RootState) => state.app.auroraLastUpdated);
-  const numberOfProjects = useAppSelector<number>((state: RootState) => state.app.numberOfProjects);
-  const {
-    HERO_SECTION_PROJECTS_TITLE,
-    HERO_SECTION_CODING_SINCE,
-    HERO_SECTION_LAST_UPDATED_TITLE,
-    HERO_SECTION_LOCATION,
-  } = LABELS;
+  const auroraLastUpdated = "2024-09-24T19:01:26.718Z";
+
+  function formatIsoToLocal() {
+    return new Date(auroraLastUpdated).toLocaleDateString()
+  }
 
   // TODO: Fix rerendering bug, where counter becomes wider and thinner when counters are running up
   return (
     <SectionCounterStyle>
       <div className="card">
         <MdOutlineDone className="icon" />
-        <p>{HERO_SECTION_PROJECTS_TITLE}</p>
+        <p>Number of private projects</p>
         <NumberCounter
           className="highlight"
-          endNumberValue={numberOfProjects | 0}
+          endNumberValue={17}
           startNumberValue={0}
           duration={2000}
         />
       </div>
 
       <div className="card">
-        <BsCalendarCheck className="icon" />
-        <p>{HERO_SECTION_CODING_SINCE[0]}</p>
+        <BsCalendarCheck className="icon" />,
+        <p>Coding since</p>
         <NumberCounter
-          endNumberValue={parseInt(HERO_SECTION_CODING_SINCE[1])}
+          endNumberValue={2016}
           startNumberValue={1995}
           duration={2000}
           className="highlight"
@@ -42,14 +38,14 @@ export default function SectionCounter(): JSX.Element {
 
       <div className="card">
         <MdUpdate className="icon" />
-        <p>{HERO_SECTION_LAST_UPDATED_TITLE}</p>
-        <span className="highlight">{auroraLastUpdated}</span>
+        <p>Site last updated</p>
+        <span className="highlight">{formatIsoToLocal()}</span>
       </div>
 
       <div className="card">
         <MdOutlineLocationOn className="icon" />
-        <p>{HERO_SECTION_LOCATION[0]}</p>
-        <span>{HERO_SECTION_LOCATION[1]}</span>
+        <p>Current location</p>
+        <span>Estonia, Tallinn</span>
         <span className="highlight">
           <NumberCounter endNumberValue={127} startNumberValue={0} duration={2000} />
           .0.0.1

@@ -7,7 +7,6 @@ export interface AppState {
   isToastShown: boolean;
   currentPage: string;
   numberOfProjects: number;
-  auroraLastUpdated: string;
   isInitialHeroCounterAnimation: boolean;
 }
 
@@ -18,7 +17,6 @@ const initialState: AppState = {
   isToastShown: false,
   currentPage: '',
   numberOfProjects: 0,
-  auroraLastUpdated: '',
   isInitialHeroCounterAnimation: true,
 };
 
@@ -50,9 +48,6 @@ export const appSlice = createSlice({
     setNumberOfProjects: (state, action: PayloadAction<number>) => {
       state.numberOfProjects = action.payload;
     },
-    setAuroraLastUpdated: (state, action: PayloadAction<string | undefined>) => {
-      if (action.payload) state.auroraLastUpdated = action.payload;
-    },
     setIsInitialHeroCounterAnimation: (state) => {
       state.isInitialHeroCounterAnimation = false;
     },
@@ -66,7 +61,6 @@ export const {
   changeToastValue,
   setCurrentPage,
   setNumberOfProjects,
-  setAuroraLastUpdated,
   setActiveSection,
   setIsInitialHeroCounterAnimation,
 } = appSlice.actions;
