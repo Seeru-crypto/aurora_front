@@ -52,7 +52,7 @@ const LandingStyle = styled.section`
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  
+
   align-items: center;
   display: flex;
   flex-flow: column;
@@ -65,5 +65,13 @@ const LandingStyle = styled.section`
     flex-grow: 1;
     justify-content: center;
     color: ${(props) => props.theme.textColor};
+  }
+
+  h1 {
+    font-size: ${(props) => props.theme.size.$500};
+  }
+
+  p {
+    font-size: ${(props) => props.theme.size.$400};
   }
 `;

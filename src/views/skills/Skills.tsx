@@ -12,11 +12,6 @@ const Skills = (props: ISkills) => {
     <SkillsStyle ref={props.ref} id='skills' className='wrapper style3 fade-up'>
       <div className='inner'>
         <h2>How can I help you?</h2>
-        <p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat
-          malesuada
-          quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet imperdiet est
-          velit
-          quis lorem.</p>
         <div className='features'>
           {SkillData.map(card => <SkillCard
             key={card.title}
@@ -39,7 +34,6 @@ const SkillsStyle = styled.section`
 
   .inner {
     max-width: 95%;
-    //width: 75em;
     background-color: #f1f5f9;
     padding: 2rem 4rem;
     border-radius: 1rem;
@@ -47,9 +41,9 @@ const SkillsStyle = styled.section`
 
   .features {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Creates 2 equal columns */
-    grid-template-rows: repeat(2, 1fr); /* Creates 2 equal rows */
-    gap: 10px; /* Optional: Adds spacing between the grid items */
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-rows: repeat(2, 1fr); 
+    gap: 10px;
   }
 `;
 

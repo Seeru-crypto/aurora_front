@@ -31,7 +31,7 @@ const SkillCard = (props: ISkillCard) => {
       <span className='icon'>{getIcon(props.icon)}</span>
       <div className={'item-content'}>
         <h3>{props.title}</h3>
-        <p>{props.desc}</p>
+        <p dangerouslySetInnerHTML={{__html:props.desc}} />
       </div>
     </SkillCardStyle>
   );
@@ -47,7 +47,6 @@ const SkillCardStyle = styled.section`
 
   .item-content {
     max-width: 80%;
-    //background-color: yellow;
   }
 
   .icon {
@@ -60,6 +59,14 @@ const SkillCardStyle = styled.section`
     display: flex;
     font-weight: 900;
     font-size: x-large;
+  }
+
+  h3 {
+    font-size: ${(props) => props.theme.size.$400};
+  }
+  
+  p {
+    font-size: ${(props) => props.theme.size.$400};
   }
 `;
 
