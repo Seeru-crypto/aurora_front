@@ -1,7 +1,6 @@
 import { BsCalendarCheck } from 'react-icons/bs';
 import { MdOutlineDone, MdOutlineLocationOn, MdUpdate } from 'react-icons/md';
 import styled from 'styled-components';
-import { RootState, useAppSelector } from '../../state/store';
 import NumberCounter from '../../components/util/NumberCounter';
 
 export default function SectionCounter(): JSX.Element {
@@ -26,7 +25,7 @@ export default function SectionCounter(): JSX.Element {
       </div>
 
       <div className="card">
-        <BsCalendarCheck className="icon" />,
+        <BsCalendarCheck className="icon" />
         <p>Coding since</p>
         <NumberCounter
           endNumberValue={2016}

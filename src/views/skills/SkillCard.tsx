@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { FaCode, FaServer } from 'react-icons/fa';
 import { FiMonitor } from 'react-icons/fi';
 import { MdSettings } from 'react-icons/md';
+import { motion, Variants } from 'framer-motion';
 
 type IconTypes = 'FaCode' | 'FaServer' | 'FiMonitor' | 'MdSettings'
 
@@ -12,23 +13,45 @@ export interface ISkillCard {
 }
 
 const SkillCard = (props: ISkillCard) => {
-
   function getIcon(iconName: IconTypes) {
     switch (iconName) {
       case 'FaCode':
-        return (<FaCode />);
+        return ( <FaCode className="icon" />);
       case 'FaServer':
-        return (<FaServer />);
+        return (<FaServer className="icon" />);
       case 'FiMonitor':
-        return (<FiMonitor />);
+        return (<FiMonitor className="icon" />);
       case 'MdSettings':
-        return (<MdSettings />);
+        return (<MdSettings className="icon" />);
     }
   }
 
+  const springConfig: Variants = {
+    offscreen: {
+      y: -300,
+      opacity: 0
+    },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        bounce: 0.5,
+        duration: 1.8
+      }
+    }
+  };
+
   return (
     <SkillCardStyle>
-      <span className='icon'>{getIcon(props.icon)}</span>
+      <motion.div
+        initial="offscreen"
+        whileInView="onscreen"
+        viewport={{ once: true, amount: 0.8 }}
+        className="icon-container"
+        variants={springConfig}>
+        {getIcon(props.icon)}
+        </motion.div>
       <div className={'item-content'}>
         <h3>{props.title}</h3>
         <p dangerouslySetInnerHTML={{__html:props.desc}} />
@@ -58,7 +81,7 @@ const SkillCardStyle = styled.section`
     max-width: 80%;
   }
 
-  .icon {
+  .icon-container {
     border: 1px solid;
     border-color: ${(props) => props.theme.textColor};
     border-radius: 2rem;
@@ -69,6 +92,10 @@ const SkillCardStyle = styled.section`
     display: flex;
     font-weight: 900;
     font-size: x-large;
+
+    .icon {
+      color: ${(props) => props.theme.primaryColor.$600};
+    }
   }
 
   h3 {
