@@ -1,4 +1,5 @@
-export const CV_DOWNLOAD_LINK = 'https://dl.dropboxusercontent.com/s/x5riy30cqyyr3a1/dev-cv.pdf?dl=0' as string;
+export const CV_DOWNLOAD_LINK = 'https://dl.dropboxusercontent.com/s/zcixralaq295g9gj095al/Fred_Oja_EST.pdf?rlkey=bzv4yuanr70lsm3iy3vpgsnsq&st=zlihl52e&dl=0' as string;
+
 export const EMAIL_ADDRESS = 'seeru.crypto@gmail.com' as string;
 export const MAX_TOPICS = 30 as number;
 export const MIN_TOPICS = 5 as number;
