@@ -45,6 +45,7 @@ const Timeline_v2 = () => {
           position={item.position}
         />)}
         <VerticalTimelineElement
+          className="first-element"
           iconStyle={{ background: 'rgb(16, 204, 82)', color: '#fff' }}
           icon={<GoCalendar />}
         />
@@ -54,7 +55,14 @@ const Timeline_v2 = () => {
 };
 
 const TimelineStyles = styled.div`
-
+  .vertical-timeline-element-content.bounce-in {
+    color: ${(props) => props.theme.textColor};
+    background-color: ${(props) => props.theme.timelineBkgColor};
+  }
+  
+  .first-element > .vertical-timeline-element-content {
+    background-color: transparent;
+  }
 `;
 
 

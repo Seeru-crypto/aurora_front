@@ -60,7 +60,7 @@ const SectionCounterStyle = styled.div`
 
   .card {
     align-items: center;
-    border: 2px solid ${(props) => props.theme.primaryColor.$100};
+    border: 2px solid ${(props) => props.theme.primaryColor.$200};
     border-radius: ${(props) => props.theme.borderRadius};
     box-shadow: 0 4px 8px 0 ${(props) => props.theme.primaryColor.$100};
     cursor: default;

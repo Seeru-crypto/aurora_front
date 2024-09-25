@@ -110,7 +110,8 @@ export const DayTheme = {
   backend: emerald.$300,
   database: lime.$400,
   other: primaryColor.$300,
-  headerBkgColor: primaryColor.$200
+  headerBkgColor: primaryColor.$200,
+  timelineBkgColor: gray.$200
 };
 
 export const NightTheme = {
@@ -129,6 +130,7 @@ export const NightTheme = {
   backend: emerald.$700,
   database: lime.$600,
   other: primaryColor.$800,
-  headerBkgColor: primaryColor.$900
+  headerBkgColor: primaryColor.$900,
+  timelineBkgColor: gray.$500
 }
 export type FredTheme = typeof baseTheme & (typeof DayTheme | typeof NightTheme) & DefaultTheme;
