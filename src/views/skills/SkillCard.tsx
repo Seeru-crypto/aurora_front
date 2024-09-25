@@ -29,7 +29,7 @@ const SkillCard = (props: ISkillCard) => {
   const springConfig: Variants = {
     offscreen: {
       y: -300,
-      opacity: 0
+      opacity: 0,
     },
     onscreen: {
       y: 0,
@@ -37,7 +37,8 @@ const SkillCard = (props: ISkillCard) => {
       transition: {
         type: "spring",
         bounce: 0.5,
-        duration: 1.8
+        duration: 1.8,
+        delay: 0.4
       }
     }
   };
@@ -66,13 +67,14 @@ const SkillCardStyle = styled.section`
   gap: 1rem;
   justify-content: flex-start;
   border: 1px solid #ccc;
+  border-radius: 1rem;
   padding: 20px;
   
   :hover {
     box-shadow: 0 4px 8px 0 ${(props) => props.theme.primaryColor.$800};
     border-color: ${(props) => props.theme.primaryColor.$800};
     
-    .icon {
+    .icon-container {
       border-color: ${(props) => props.theme.primaryColor.$800};
     }
   }

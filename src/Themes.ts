@@ -96,7 +96,7 @@ export const DayTheme = {
   // background: gray.$200,
   background: gray.$0,
   primary: primaryColor.$600,
-  secondary: primaryColor.$100,
+  secondary: primaryColor.$200,
   textColor: gray.$800,
   showCaseBoxShadowColor:primaryColor.$200,
   detailTextColor: gray.$500,

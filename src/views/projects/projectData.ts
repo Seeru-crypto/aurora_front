@@ -2,7 +2,7 @@ import { IProjectCard } from './ProjectCard';
 
 export const projectData: IProjectCard[] = [{
   imageSrc: '/pic01.jpg',
-  link: "",
+  link: "https://github.com/Seeru-crypto/aurora_front",
   title: 'Aurora',
   desc: 'One of the first projects I did, with the emphasis on FE development and good SEO scrores. On the css side I tried to follow style systems (Tailwind colors 50 - 900). One of the main difficulties was to get it to look "right", goal which I hopefully achieved',
   tags: [
@@ -10,7 +10,7 @@ export const projectData: IProjectCard[] = [{
   ],
 }, {
   imageSrc: '/pic02.jpg',
-  link: "sdsd",
+  link: "https://github.com/Seeru-crypto/helmes_homework",
   title: 'Helmes homework',
   desc: 'A old homework project, which I used as a base to develop more advanced functionality. Currently you can create users, with dynamic sectors, and add custom filters to view said users.',
   tags: [

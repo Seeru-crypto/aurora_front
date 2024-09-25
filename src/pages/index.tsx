@@ -8,6 +8,7 @@ import Experience from '../views/experience/Experience';
 import Contact from '../views/contact/Contact';
 import Skills from '../views/skills/Skills';
 import Projects from '../views/projects/Projects';
+import Timeline_v2 from '../views/timeline_v2/Timeline_v2';
 
 export default function Home(): JSX.Element {
   const isToastShown: boolean = useAppSelector((state: RootState) => state.app.isToastShown);
@@ -49,6 +50,7 @@ export default function Home(): JSX.Element {
       <Experience ref={experienceRef} />
       {/*<Showcase showcaseProps={showcaseProps} ref={showcaseRef} />*/}
       <Projects ref={projectsRef} />
+      <Timeline_v2 />
       <Contact ref={contactRef} />
     </>
   );

@@ -19,7 +19,7 @@ const TopicStyle = styled.div<{ topicType: string | undefined }>`
   background-color: ${(props) => props.theme.gray.$400};
 
   width: fit-content;
-  padding: 0.15rem 0.3rem;
+  padding: 0.35rem 0.5rem;
   border-radius: 0.25rem;
   margin: 0.15rem;
   font-size: ${(props) => props.theme.size.$300};
