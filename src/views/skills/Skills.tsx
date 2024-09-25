@@ -7,9 +7,9 @@ interface ISkills {
   ref: ForwardedRef<HTMLElement>;
 }
 
-const Skills = (props: ISkills) => {
+const Skills = ({ ref }: ISkills) => {
   return (
-    <SkillsStyle ref={props.ref} id='skills' className='wrapper style3 fade-up'>
+    <SkillsStyle ref={ref} id='skills' className='wrapper style3 fade-up'>
       <div className='inner'>
         <h2>How can I help you?</h2>
         <div className='features'>
