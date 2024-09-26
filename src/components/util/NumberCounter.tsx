@@ -11,6 +11,7 @@ type NumberCounterProps = {
 
 export default function NumberCounter(props: NumberCounterProps): JSX.Element {
   const { startNumberValue, endNumberValue, duration, className } = props;
+  const isAnimationEnabled: boolean = false;
   const [currentValue, setCurrentValue] = useState(0);
   // TODO: Why just keep a static boolean, if you could toggle it?
   const [isInView] = useState(true);
@@ -36,9 +37,12 @@ export default function NumberCounter(props: NumberCounterProps): JSX.Element {
   }
 
   useEffect(() => {
-    if (currentPage === 'experience' && isInitialAnimation) {
+    if (currentPage === 'experience' && isInitialAnimation && isAnimationEnabled) {
       animateValue(startNumberValue, endNumberValue, duration);
       dispatch(setIsInitialHeroCounterAnimation());
+    }
+    else if (!isAnimationEnabled) {
+      setCurrentValue(endNumberValue);
     }
   }, [startNumberValue, endNumberValue, duration, isInView, currentPage, isInitialAnimation, dispatch]);
 

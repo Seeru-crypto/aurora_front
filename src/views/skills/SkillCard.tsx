@@ -105,7 +105,7 @@ const SkillCardStyle = styled.section`
   }
   
   p {
-    font-size: ${(props) => props.theme.size.$400};
+    font-size: ${(props) => props.theme.size.$350};
   }
 `;
 

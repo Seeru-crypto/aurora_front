@@ -9,7 +9,6 @@ const Experience = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JS
     <ExperienceStyle id="experience" ref={ref}>
       <h2>Experience</h2>
       <SectionCounter />
-      {/*<Timeline />*/}
       <Timeline_v2 />
     </ExperienceStyle>
   );

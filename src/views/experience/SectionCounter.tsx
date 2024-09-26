@@ -19,7 +19,7 @@ export default function SectionCounter(): JSX.Element {
     <SectionCounterStyle>
       <div className="card">
         <MdOutlineDone className="icon" />
-        <p>Number of private projects</p>
+        <p className="card-description">Number of private projects</p>
         <NumberCounter
           className="highlight"
           endNumberValue={17}
@@ -30,7 +30,7 @@ export default function SectionCounter(): JSX.Element {
 
       <div className="card">
         <BsCalendarCheck className="icon" />
-        <p>Coding since</p>
+        <p className="card-description">Coding since</p>
         <NumberCounter
           endNumberValue={2016}
           startNumberValue={1995}
@@ -41,13 +41,13 @@ export default function SectionCounter(): JSX.Element {
 
       <div className="card">
         <MdUpdate className="icon" />
-        <p>Site last updated</p>
+        <p className="card-description">Site last updated</p>
         <span className="highlight">{formatIsoToLocal()}</span>
       </div>
 
       <div className="card">
         <MdOutlineLocationOn className="icon" />
-        <p>Current location</p>
+        <p className="card-description">Current location</p>
         <span>Estonia, Tallinn</span>
         <span className="highlight">
           <NumberCounter endNumberValue={127} startNumberValue={0} duration={2000} />
@@ -74,12 +74,13 @@ const SectionCounterStyle = styled.div`
     margin: 0.5rem;
     padding: 0 0 1rem 0;
     transition: border ${(props) => props.theme.transition};
+    font-size: ${(props) => props.theme.size.$350};
 
     :hover {
       border: 2px solid ${(props) => props.theme.primaryColor.$400};
 
       .icon {
-        fill: ${(props) => props.theme.buttonHoverBkgColor};
+        fill: ${(props) => props.theme.buttFonHoverBkgColor};
       }
 
       .highlight {
