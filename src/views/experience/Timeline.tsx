@@ -3,8 +3,10 @@ import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeli
 import 'react-vertical-timeline-component/style.min.css';
 import { GoAlert, GoCalendar } from 'react-icons/go';
 import TimelineElement, { ITimelineElement } from './TimelineElement'; // Update the path to your image
+import NetGroup_icon from '../../icons/NetGroup_icon.svg';
+import Helmes_icon from '../../icons/Helmes_icon.svg';
 
-const Timeline_v2 = () => {
+const Timeline = () => {
   const data: ITimelineElement[] = [
     {
       title: 'Helmes OÜ',
@@ -19,8 +21,8 @@ const Timeline_v2 = () => {
       position: 'Full-stack junior developer',
       desc: 'Implemented several projects which ranged from a few months to a year. In larger projects focused on UI development.',
       date: '2021-2023',
-      icon: <GoAlert />,
-      iconStyle: { background: 'rgb(33, 150, 243)', color: '#fff' },
+      icon: <NetGroup_icon className="NG-icon" />,
+      iconStyle: { background: 'beige', color: 'black', display: 'flex', justifyContent: 'center', alignItems: 'center' },
     },
     {
       title: 'Police and Border patrol',
@@ -63,7 +65,20 @@ const TimelineStyles = styled.div`
   .first-element > .vertical-timeline-element-content {
     background-color: transparent;
   }
+  
+  .NG-icon {
+    height: 36px;
+    width: 36px;
+    fill: beige;
+    font-size: 2rem;
+    background-color: red;
+    
+    left: 0;
+    top: 0;
+    margin-left: 0;
+    margin-top: 0;
+  }
 `;
 
 
-export default Timeline_v2;
+export default Timeline
