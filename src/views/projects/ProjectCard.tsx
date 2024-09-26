@@ -69,6 +69,10 @@ const ProjectCardStyle = styled.section`
         border: none;
         background-color: transparent;
     }
+    
+    @media (max-width: 1200px) {
+        max-width: 100%;
+    }
 `
 
 export default ProjectCard;

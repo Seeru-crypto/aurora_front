@@ -82,4 +82,8 @@ export const HeaderStyles = styled.header<{ isScrolling: boolean }>`
     display: flex;
     justify-content: flex-end;
   }
+
+  @media (max-width: 1200px) {
+    display: none;
+  }
 `;
