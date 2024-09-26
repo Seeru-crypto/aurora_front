@@ -4,10 +4,14 @@ import styled from 'styled-components';
 import NumberCounter from '../../components/util/NumberCounter';
 
 export default function SectionCounter(): JSX.Element {
-  const auroraLastUpdated = "2024-09-24T19:01:26.718Z";
-
   function formatIsoToLocal() {
-    return new Date(auroraLastUpdated).toLocaleDateString()
+    const lastcommit = process.env.LAST_COMMIT_DATE;
+    if (lastcommit) {
+      return new Date(lastcommit).toLocaleDateString()
+    }
+    else {
+      return "error getting last commit"
+    }
   }
 
   // TODO: Fix rerendering bug, where counter becomes wider and thinner when counters are running up
