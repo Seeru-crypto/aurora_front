@@ -1,7 +1,7 @@
 import React, { ForwardedRef } from 'react';
 import styled from 'styled-components';
 import SectionCounter from './SectionCounter';
-import Timeline_v2 from '../timeline_v2/Timeline_v2';
+import Timeline_v2 from './Timeline_v2';
 
 const Experience = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JSX.Element => {
   // https://excalidraw.com/#room=5ac138994a903ddb6b8b,FOI9bwwGzZM-R3KmGJzyqA
