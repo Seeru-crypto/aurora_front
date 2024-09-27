@@ -1,4 +1,4 @@
-import { ForwardedRef } from 'react';
+import React, { ForwardedRef } from 'react';
 import styled from 'styled-components';
 import { SkillData } from './skillData';
 import SkillCard from './SkillCard';
@@ -7,7 +7,7 @@ interface ISkills {
   ref: ForwardedRef<HTMLElement>;
 }
 
-const Skills = ({ ref }: ISkills) => {
+const Skills = React.forwardRef ((_props, ref: ForwardedRef<HTMLElement>): JSX.Element => {
   return (
     <SkillsStyle ref={ref} id='skills' className='wrapper style3 fade-up'>
       <div className='inner'>
@@ -22,7 +22,7 @@ const Skills = ({ ref }: ISkills) => {
       </div>
     </SkillsStyle>
   );
-};
+});
 
 const SkillsStyle = styled.section`
   display: flex;
@@ -51,5 +51,7 @@ const SkillsStyle = styled.section`
     }
   }
 `;
+
+Skills.displayName = 'Skills main component';
 
 export default Skills;

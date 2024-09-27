@@ -7,9 +7,9 @@ interface IProjects {
   ref: ForwardedRef<HTMLElement>;
 }
 
-const Projects = (props: IProjects) => {
+const Projects = React.forwardRef ((_props, ref: ForwardedRef<HTMLElement>): JSX.Element => {
   return (
-    <ProjectsStyle ref={props.ref} id='projects'>
+    <ProjectsStyle ref={ref} id='projects'>
       <h1>Projects</h1>
       {projectData.map(card => (<ProjectCard key={card.title}
                                              tags={card.tags}
@@ -21,10 +21,12 @@ const Projects = (props: IProjects) => {
     </ProjectsStyle>
 
   );
-};
+});
 
 const ProjectsStyle = styled.section`
   padding: 0 2rem;
 `;
+
+Projects.displayName="Projects main component"
 
 export default Projects;
