@@ -31,6 +31,7 @@ const SkillsStyle = styled.section`
   align-items: center;
   justify-content: center;
   padding: 0 4rem;
+  background-color: ${(props) => props.theme.backgroundAlternative};
 
   .inner {
     border-radius: 1rem;

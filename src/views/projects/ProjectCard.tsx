@@ -3,6 +3,9 @@ import React from 'react';
 import Image from 'next/image';
 import ProjectTag, { IProjectTag } from './ProjectTag';
 import Button from '../../components/util/Button';
+import { RootState, useAppSelector } from '../../state/store';
+import { ActiveTheme } from '../../state/themeSlice';
+import { motion, Variants } from 'framer-motion';
 
 export interface IProjectCard {
   imageSrc: string;
@@ -10,14 +13,25 @@ export interface IProjectCard {
   desc: string;
   tags: IProjectTag[];
   link?: string;
+  alternativeImageSrc?: string
 }
 
 const ProjectCard = (props: IProjectCard) => {
+  const activeTheme = useAppSelector((state: RootState) => state.theme.activeTheme);
+
+  function getImage(imageSrc: string, alternativeImageSrc?: string) {
+    if (alternativeImageSrc === undefined) return imageSrc;
+
+    // for aurora dual dm picture
+    if (activeTheme === ActiveTheme.DAY) return alternativeImageSrc
+    else return imageSrc
+  }
+
   return (
     <ProjectCardStyle>
-      <Image src={props.imageSrc}
+      <Image src={getImage(props.imageSrc, props.alternativeImageSrc)}
              className='image'
-             width={500}
+             width={750}
              height={500}
              alt='project_image'
              data-position='center center' />
@@ -42,8 +56,8 @@ const ProjectCard = (props: IProjectCard) => {
 
 const ProjectCardStyle = styled.section`
   max-width: 80%;
-  padding-right: .5rem;
-  border: 1px solid green;
+  padding: 1rem;
+  border: 1px solid ${(props) => props.theme.primaryColor.$300};
   border-radius: 1rem;
   display: flex;
   flex-direction: row;
@@ -83,6 +97,7 @@ const ProjectCardStyle = styled.section`
   }
 
   :hover {
+    border-color: ${(props) => props.theme.primaryColor.$400};
     .project-title {
       color: ${(props) => props.theme.primaryColor.$500};
     }
