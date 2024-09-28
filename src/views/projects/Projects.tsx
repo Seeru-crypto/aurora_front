@@ -24,7 +24,7 @@ const Projects = React.forwardRef ((_props, ref: ForwardedRef<HTMLElement>): JSX
 });
 
 const ProjectsStyle = styled.section`
-  padding: 0 2rem;
+  padding: 0 4rem;
 `;
 
 Projects.displayName="Projects main component"

@@ -9,8 +9,8 @@ interface ResumeLinkProps extends HTMLProps<HTMLAnchorElement> {
 export default function ResumeLink(props: ResumeLinkProps): JSX.Element {
 
   return  (
-    <TimelineStyles href={props.href}>
-        <Download className="download" />
+    <TimelineStyles href={props.href} download>
+        <Download className="download"/>
         {props.label}
     </TimelineStyles>
   )

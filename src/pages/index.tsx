@@ -17,12 +17,11 @@ export default function Home(): JSX.Element {
   const experienceRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
   const landingRef = useRef<HTMLDivElement>(null);
-  const showcaseRef = useRef<HTMLDivElement>(null);
   const skillsRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setSections([contactRef.current, experienceRef.current, landingRef.current, showcaseRef.current]);
+    setSections([contactRef.current, experienceRef.current, landingRef.current, skillsRef.current, projectsRef.current]);
   }, []);
 
   const intersectionOptions: IntersectionOption = {

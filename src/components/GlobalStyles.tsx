@@ -30,6 +30,11 @@ export default createGlobalStyle<{ activeTheme: string; theme: FredTheme }>`
 
     @media (max-width: 1200px) {
       max-width: 100vw;
+
+      p {
+        max-width: 40ch;
+      }
+
     }
   }
 

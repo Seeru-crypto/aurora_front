@@ -1,7 +1,7 @@
 import { IProjectCard } from './ProjectCard';
 
 export const projectData: IProjectCard[] = [{
-  imageSrc: '/pic01.jpg',
+  imageSrc: '/resources/aurora_image_2.png',
   link: "https://github.com/Seeru-crypto/aurora_front",
   title: 'Aurora',
   desc: 'One of the first projects I did, with the emphasis on FE development and good SEO scrores. On the css side I tried to follow style systems (Tailwind colors 50 - 900). One of the main difficulties was to get it to look "right", goal which I hopefully achieved',
@@ -22,7 +22,6 @@ export const projectData: IProjectCard[] = [{
 }, {
   imageSrc: '/resources/FreeNAS.png',
   title: 'TrueNas homelab',
-  link: "",
   desc: 'A Home server/ home lab, which provides a number of services of personal use, including plex, keycloak, grafana, etc. Everything is behind a nginx proxy and keycloak auth service.',
   tags: [
     {name: 'TrueNas', type: 'other'},
