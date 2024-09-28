@@ -48,7 +48,7 @@ const SkillCard = (props: ISkillCard) => {
       <motion.div
         initial="offscreen"
         whileInView="onscreen"
-        viewport={{ once: true, amount: 0.8 }}
+        viewport={{ once: true, amount: 1 }}
         className="icon-container"
         variants={springConfig}>
         {getIcon(props.icon)}

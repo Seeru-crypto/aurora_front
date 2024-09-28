@@ -8,6 +8,7 @@ import ResumeLink from './ResumeLink/ResumeLink';
 import ThemeSelector from './ThemeSelector/ThemeSelector';
 import NavLink from './NavLink';
 import { CV_DOWNLOAD_LINK, NAVIGATION_PATHS } from '../../config';
+import Link from 'next/link';
 
 export default function Header(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -31,7 +32,9 @@ export default function Header(): JSX.Element {
 
   return (
     <HeaderStyles isScrolling={isScrolling}>
-      <Logo className="logo" />
+      <Link href="/">
+        <Logo className="logo" />
+      </Link>
       <nav className="navigation">
         {NAVIGATION_PATHS.map((object) => (
           <NavLink
