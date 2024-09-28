@@ -3,13 +3,17 @@ import styled from 'styled-components';
 import { SkillData } from './skillData';
 import SkillCard from './SkillCard';
 
-interface ISkills {
-  ref: ForwardedRef<HTMLElement>;
-}
-
-const Skills = React.forwardRef ((_props, ref: ForwardedRef<HTMLElement>): JSX.Element => {
+const Skills = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JSX.Element => {
   return (
     <SkillsStyle ref={ref} id='skills' className='wrapper style3 fade-up'>
+      <div className='custom-shape-divider-top-1727522936'>
+        <svg data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'>
+          <path
+            d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z'
+            className='shape-fill'></path>
+        </svg>
+      </div>
+
       <div className='inner'>
         <h2>How can I help you?</h2>
         <div className='features'>
@@ -25,15 +29,14 @@ const Skills = React.forwardRef ((_props, ref: ForwardedRef<HTMLElement>): JSX.E
 });
 
 const SkillsStyle = styled.section`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 2rem;
-  align-items: center;
-  justify-content: center;
-  padding: 0 4rem;
   background-color: ${(props) => props.theme.backgroundAlternative};
 
   .inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4rem;
     border-radius: 1rem;
   }
 
@@ -42,6 +45,17 @@ const SkillsStyle = styled.section`
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 1rem;
+  }
+
+  .custom-shape-divider-top-1727522936 svg {
+    position: relative;
+    display: block;
+    width: calc(206% + 1.3px);
+    height: 84px;
+  }
+
+  .custom-shape-divider-top-1727522936 .shape-fill {
+    fill: ${(props) => props.theme.background};
   }
 
   @media (max-width: 1200px) {
