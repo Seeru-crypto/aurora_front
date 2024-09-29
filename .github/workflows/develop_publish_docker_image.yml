@@ -9,6 +9,7 @@ on:
 env:
 #  DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
   DOCKER_USERNAME: ${{ vars.DOCKERHUB_USERNAME }}
+#  PROJECT_NAME: aurora
 #  VERSION_TAG: ${{ github.event.release.tag_name }}
 
 jobs:
@@ -21,7 +22,7 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ env.DOCKER_USERNAME }}
+          username: $DOCKER_USERNAME
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build Image
         run: |
