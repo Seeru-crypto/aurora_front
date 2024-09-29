@@ -42,7 +42,7 @@ export default function Home(): JSX.Element {
 
   return (
     <>
-      {isToastShown && <Toast message="Added to clipboard" />}
+      {isToastShown && <Toast message='Added to clipboard' />}
       <LandingPage ref={landingRef} />
       <Skills ref={skillsRef} />
       <Experience ref={experienceRef} />

@@ -21,9 +21,7 @@ const useIntersectionObserver = (intersectionOptions:IntersectionOption, section
         };
 
         const observer = new IntersectionObserver(intersectionCallback, intersectionOptions);
-        console.log({ sections });
         sections.forEach((section: HTMLDivElement | null) => {
-            console.log({ section });
             if (section) {
                 return section && observer.observe(section);
             }

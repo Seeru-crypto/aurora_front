@@ -13,7 +13,7 @@ function getLastCommitDate() {
 
 // If this script is executed directly, log the last commit date
 if (require.main === module) {
-  console.log(getLastCommitDate());
+  // console.log(getLastCommitDate());
 }
 
 module.exports = getLastCommitDate;
