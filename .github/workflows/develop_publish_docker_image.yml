@@ -1,6 +1,6 @@
 name: develop docker image publishing
 on:
-  push:
+  release:
     branches:
       - feature/develop_dockerhub
 
