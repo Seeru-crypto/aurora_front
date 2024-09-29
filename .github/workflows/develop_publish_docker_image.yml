@@ -1,16 +1,11 @@
-# If a new version is published against main branch, build a new docker image and push it to docker hub
-name: Publish LIVE Docker image
-
+name: develop docker image publishing
 on:
   push:
     branches:
       - feature/develop_dockerhub
 
 env:
-#  DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
   DOCKER_USERNAME: ${{ vars.DOCKERHUB_USERNAME }}
-#  PROJECT_NAME: aurora
-#  VERSION_TAG: ${{ github.event.release.tag_name }}
 
 jobs:
   build-and-publish:
@@ -27,8 +22,7 @@ jobs:
       - name: Build Image
         run: |
           docker build \
-#          -t $DOCKER_USERNAME/vitalitas:$VERSION_TAG \
-          -t $DOCKER_USERNAME/vitalitas:latest \
+          -t $DOCKER_USERNAME/aurora:latest \
           -f ./Dockerfile \
           ./
       - name: Push Image
