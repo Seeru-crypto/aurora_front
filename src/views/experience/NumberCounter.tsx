@@ -41,7 +41,7 @@ export default function NumberCounter(props: NumberCounterProps): JSX.Element {
     else if (!isAnimationEnabled) {
       setCurrentValue(endNumberValue);
     }
-  }, [startNumberValue, endNumberValue, duration, currentPage, isInitialAnimation, dispatch]);
+  }, [startNumberValue, endNumberValue, duration, currentPage, isInitialAnimation, dispatch, isAnimationEnabled]);
 
   return <span className={className}>{currentValue}</span>;
 }
