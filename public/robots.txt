@@ -1,0 +1,4 @@
+# Disallow specific directories
+User-agent: *
+Disallow: /loading
+Disallow: /404
