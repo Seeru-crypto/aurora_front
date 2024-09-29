@@ -6,6 +6,7 @@ on:
 
 env:
   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  PROJECT_NAME: aurora
 
 jobs:
   build-and-publish:
@@ -22,9 +23,9 @@ jobs:
       - name: Build Image
         run: |
           docker build \
-          -t $DOCKER_USERNAME/aurora:latest \
+          -t $DOCKER_USERNAME/$PROJECT_NAME:latest \
           -f ./Dockerfile \
           ./
       - name: Push Image
         run: |
-          docker push --all-tags $DOCKER_USERNAME/aurora
+          docker push --all-tags $DOCKER_USERNAME/$PROJECT_NAME
