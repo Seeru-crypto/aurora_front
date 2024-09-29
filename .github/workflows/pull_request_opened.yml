@@ -1,0 +1,49 @@
+#    assigned	                a user is assigned to the pull request
+#    unassigned       	        a user is unassigned from the pull request
+#    labeled	                a label is applied to the pull request
+#    unlabeled        	        a label is removed from the pull request
+#    opened	                    pull request is created
+#    edited	                    title, body, or the base branch of the PR is modified
+#    closed	                    pull request is closed (as opposed to merged)
+#    reopened	                closed pull request is reopened
+#    synchronize	            commit(s) pushed to the pull request
+#    ready_for_review	        pull request is taken out from draft mode
+#    locked	pull                request is locked
+#    unlocked	                pull request is unlocked
+#    review_requested	        request a user for review
+#    review_request_removed	    remove request from user for review
+
+# run build and tests if a PR is opened or updated against main branch
+name: pull-request-checks
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Set up Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '21'  # Use Node.js version that works with your project
+
+      # Install dependencies with npm (you can switch to yarn if necessary)
+      - name: Install dependencies
+        run: npm ci
+
+      # Build the project
+      - name: Build Next.js project
+        run: npm run build

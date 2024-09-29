@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export enum ActiveTheme {
   DAY = 'light',
@@ -17,11 +17,11 @@ export const themeSlice = createSlice({
   name: 'theme',
   initialState,
   reducers: {
-    changeTheme: (state) => {
-      state.activeTheme = state.activeTheme === ActiveTheme.DAY ? ActiveTheme.NIGHT : ActiveTheme.DAY;
-    },
+    setTheme: (state, action: PayloadAction<ActiveTheme>) => {
+      state.activeTheme = action.payload;
+    }
   },
 });
 
-export const { changeTheme } = themeSlice.actions;
+export const { setTheme } = themeSlice.actions;
 export default themeSlice.reducer;

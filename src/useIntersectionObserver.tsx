@@ -2,7 +2,7 @@ import {useEffect} from "react";
 import {setCurrentPage} from "./state/appSlice";
 import {useAppDispatch} from "./state/store";
 
-export interface IntersectionOption{
+export interface IntersectionOption {
     root: Element | Document | null | undefined,
     rootMargin: string,
     threshold: number | number[]
@@ -21,9 +21,10 @@ const useIntersectionObserver = (intersectionOptions:IntersectionOption, section
         };
 
         const observer = new IntersectionObserver(intersectionCallback, intersectionOptions);
-
         sections.forEach((section: HTMLDivElement | null) => {
-            return section && observer.observe(section);
+            if (section) {
+                return section && observer.observe(section);
+            }
         });
 
         return () => {

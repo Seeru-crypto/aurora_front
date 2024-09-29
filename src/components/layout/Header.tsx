@@ -4,10 +4,11 @@ import styled from 'styled-components';
 import Logo from '../../icons/Logo.svg';
 import { setActiveSection } from '../../state/appSlice';
 import { RootState, useAppDispatch, useAppSelector } from '../../state/store';
-import ResumeLink from '../ResumeLink';
-import ThemeSelector from '../ThemeSelector';
+import ResumeLink from './ResumeLink/ResumeLink';
+import ThemeSelector from './ThemeSelector/ThemeSelector';
 import NavLink from './NavLink';
 import { CV_DOWNLOAD_LINK, NAVIGATION_PATHS } from '../../config';
+import Link from 'next/link';
 
 export default function Header(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -31,7 +32,9 @@ export default function Header(): JSX.Element {
 
   return (
     <HeaderStyles isScrolling={isScrolling}>
-      <Logo className="logo" />
+      <Link className="logo-container" href="/">
+        <Logo />
+      </Link>
       <nav className="navigation">
         {NAVIGATION_PATHS.map((object) => (
           <NavLink
@@ -54,7 +57,7 @@ export default function Header(): JSX.Element {
 export const HeaderStyles = styled.header<{ isScrolling: boolean }>`
   align-items: center;
   background-color: ${(props) =>
-    props.isScrolling ? transparentize(0.3, props.theme.primaryColor.$200) : 'transparent'};
+    props.isScrolling ? transparentize(0.3, props.theme.headerBkgColor) : 'transparent'};
   backdrop-filter: blur(8px);
   display: flex;
   max-height: 4.5rem;
@@ -64,7 +67,7 @@ export const HeaderStyles = styled.header<{ isScrolling: boolean }>`
   transition: background-color ${(props) => props.theme.transition};
   z-index: 999;
 
-  .logo,
+  .logo-container,
   .navigation,
   .controls {
     flex: 1;
@@ -74,11 +77,16 @@ export const HeaderStyles = styled.header<{ isScrolling: boolean }>`
     align-items: center;
     display: flex;
     justify-content: center;
+    gap: 1rem;
   }
 
   .controls {
     align-items: center;
     display: flex;
     justify-content: flex-end;
+  }
+
+  @media (max-width: 1200px) {
+    display: none;
   }
 `;

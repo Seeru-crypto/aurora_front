@@ -1,8 +1,11 @@
+const getLastCommitDate = require('./src/getCommitInfo');
+
 module.exports = {
   reactStrictMode: true,
   swcMinify: true,
   env: {
-    REVALIDATE_VALUE: 7 * 86400,
+    LAST_COMMIT_DATE: getLastCommitDate(),
+    REVALIDATE_VALUE: (7 * 86400).toString(),
   },
   compiler: {
     styledComponents: true,

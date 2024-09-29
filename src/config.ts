@@ -1,4 +1,5 @@
-export const CV_DOWNLOAD_LINK = 'https://dl.dropboxusercontent.com/s/x5riy30cqyyr3a1/dev-cv.pdf?dl=0' as string;
+export const CV_DOWNLOAD_LINK = '/Fred_Oja_EST.pdf' as string;
+
 export const EMAIL_ADDRESS = 'seeru.crypto@gmail.com' as string;
 export const MAX_TOPICS = 30 as number;
 export const MIN_TOPICS = 5 as number;
@@ -8,7 +9,8 @@ export const GOODREADS_URL = 'https://www.goodreads.com/review/list/156116017?re
 
 export const NAVIGATION_PATHS = [
   { value: 'Landing', key: '#landing' },
+  { value: 'Skills', key: '#skills' },
   { value: 'Experience', key: '#experience' },
-  { value: 'Showcase', key: '#showcase' },
+  { value: 'Projects', key: '#projects' },
   { value: 'Contact', key: '#contact' },
 ];
