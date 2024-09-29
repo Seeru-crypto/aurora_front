@@ -3,9 +3,9 @@ import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeli
 import 'react-vertical-timeline-component/style.min.css';
 import { GoCalendar } from 'react-icons/go';
 import TimelineElement, { ITimelineElement } from './TimelineElement';
-import NetGroup_icon from '../../icons/NetGroup_icon.svg';
-import Helmes_icon from '../../icons/Helmes_icon.svg';
-import PPA_ICON from '../../icons/PPA_icon.png';
+import NetGroup_icon from '../../../public/resources/icons/NetGroup_icon.svg';
+import Helmes_icon from '../../../public/resources/icons/Helmes_icon.svg';
+import PPA_ICON from '../../../public/resources/icons/PPA_icon.png';
 
 const Timeline = () => {
   const data: ITimelineElement[] = [

@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../components/GlobalStyles';
-import Header from '../components/layout/Header';
+import Header from './Header';
 import { RootState, useAppSelector } from '../state/store';
 import { ActiveTheme } from '../state/themeSlice';
 import { DayTheme, NightTheme } from '../Themes';

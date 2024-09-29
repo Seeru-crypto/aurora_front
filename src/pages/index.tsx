@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import LandingPage from '../views/landing/LandingPage';
-import Toast from '../components/util/Toast';
+import Toast from '../components/Toast';
 import { changeToastValue } from '../state/appSlice';
 import { RootState, useAppDispatch, useAppSelector } from '../state/store';
 import useIntersectionObserver, { IntersectionOption } from '../useIntersectionObserver';

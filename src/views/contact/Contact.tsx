@@ -4,7 +4,7 @@ import { SiGoodreads } from 'react-icons/si';
 import { VscGithubAlt } from 'react-icons/vsc';
 import styled from 'styled-components';
 import { RootState, useAppSelector } from '../../state/store';
-import Footer from '../../components/layout/footer';
+import Footer from './Footer';
 import EmailField from './EmailField';
 import { LABELS } from '../../data';
 import { EMAIL_ADDRESS, GITHUB_URL, GOODREADS_URL, LINKEDIN_URL } from '../../config';

@@ -1,4 +1,4 @@
-export const CV_DOWNLOAD_LINK = '/Fred_Oja_EST.pdf' as string;
+export const CV_DOWNLOAD_LINK = '/resources/files/Fred_Oja_EST.pdf' as string;
 
 export const EMAIL_ADDRESS = 'seeru.crypto@gmail.com' as string;
 export const MAX_TOPICS = 30 as number;

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import React from 'react';
 import Image from 'next/image';
 import ProjectTag, { IProjectTag } from './ProjectTag';
-import Button from '../../components/util/Button';
+import Button from '../../components/Button';
 import { RootState, useAppSelector } from '../../state/store';
 import { ActiveTheme } from '../../state/themeSlice';
 import { motion, Variants } from 'framer-motion';

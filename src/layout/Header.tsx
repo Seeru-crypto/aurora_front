@@ -1,13 +1,13 @@
 import { transparentize } from 'polished';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Logo from '../../icons/Logo.svg';
-import { setActiveSection } from '../../state/appSlice';
-import { RootState, useAppDispatch, useAppSelector } from '../../state/store';
-import ResumeLink from './ResumeLink/ResumeLink';
-import ThemeSelector from './ThemeSelector/ThemeSelector';
+import Logo from '../../public/resources/icons/Logo.svg';
+import { setActiveSection } from '../state/appSlice';
+import { RootState, useAppDispatch, useAppSelector } from '../state/store';
+import ResumeLink from './ResumeLink';
+import ThemeSelector from './ThemeSelector';
 import NavLink from './NavLink';
-import { CV_DOWNLOAD_LINK, NAVIGATION_PATHS } from '../../config';
+import { CV_DOWNLOAD_LINK, NAVIGATION_PATHS } from '../config';
 import Link from 'next/link';
 
 export default function Header(): JSX.Element {
