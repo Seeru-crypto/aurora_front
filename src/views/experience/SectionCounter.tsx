@@ -14,7 +14,6 @@ export default function SectionCounter(): JSX.Element {
     }
   }
 
-  // TODO: Fix rerendering bug, where counter becomes wider and thinner when counters are running up
   return (
     <SectionCounterStyle>
       <div className="card">

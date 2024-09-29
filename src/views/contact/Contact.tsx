@@ -90,7 +90,6 @@ const ContactStyle = styled.section`
       flex: 1;
       flex-flow: column wrap;
 
-      /* TODO: Make dynamic */
       @media screen and (max-width: 1200px) {
         margin: 0 auto;
         max-width: 80%;

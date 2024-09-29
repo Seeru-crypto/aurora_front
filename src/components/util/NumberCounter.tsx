@@ -13,13 +13,10 @@ export default function NumberCounter(props: NumberCounterProps): JSX.Element {
   const { startNumberValue, endNumberValue, duration, className } = props;
   const isAnimationEnabled: boolean = false;
   const [currentValue, setCurrentValue] = useState(0);
-  // TODO: Why just keep a static boolean, if you could toggle it?
-  const [isInView] = useState(true);
   const currentPage = useAppSelector<string>((state: RootState) => state.app.currentPage);
   const isInitialAnimation = useAppSelector<boolean>((state: RootState) => state.app.isInitialHeroCounterAnimation);
   const dispatch = useAppDispatch();
 
-  // TODO: this should only run when user is in view and only once!
   function animateValue(start: number, end: number, duration: number) {
     let startTimestamp: number | null = null;
 
@@ -44,7 +41,7 @@ export default function NumberCounter(props: NumberCounterProps): JSX.Element {
     else if (!isAnimationEnabled) {
       setCurrentValue(endNumberValue);
     }
-  }, [startNumberValue, endNumberValue, duration, isInView, currentPage, isInitialAnimation, dispatch]);
+  }, [startNumberValue, endNumberValue, duration, currentPage, isInitialAnimation, dispatch]);
 
   return <span className={className}>{currentValue}</span>;
 }

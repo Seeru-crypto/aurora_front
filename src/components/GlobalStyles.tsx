@@ -21,9 +21,7 @@ export default createGlobalStyle<{ activeTheme: string; theme: FredTheme }>`
     flex-flow: column wrap;
     margin: 0 auto;
     max-width: 100%;
-
-    /* TODO: Get the dynamic size of Header */
-
+    
     > section {
       min-height: calc(100vh - 80px);
     }

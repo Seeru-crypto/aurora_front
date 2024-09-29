@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { GoCalendar } from 'react-icons/go';
-import TimelineElement, { ITimelineElement } from './TimelineElement'; // Update the path to your image
+import TimelineElement, { ITimelineElement } from './TimelineElement';
 import NetGroup_icon from '../../icons/NetGroup_icon.svg';
 import Helmes_icon from '../../icons/Helmes_icon.svg';
 import PPA_ICON from '../../icons/PPA_icon.png';

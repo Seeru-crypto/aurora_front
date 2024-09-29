@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export default function Loading() {
-  // You can add any UI inside Loading, including a Skeleton.
   return (
     <LoadingStyle>
     </LoadingStyle>

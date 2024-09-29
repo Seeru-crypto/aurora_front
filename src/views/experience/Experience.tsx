@@ -4,7 +4,6 @@ import SectionCounter from './SectionCounter';
 import Timeline from './Timeline';
 
 const Experience = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JSX.Element => {
-  // https://excalidraw.com/#room=5ac138994a903ddb6b8b,FOI9bwwGzZM-R3KmGJzyqA
   return (
     <ExperienceStyle id='experience' ref={ref}>
       <div className='custom-shape-divider-top-1727523338'>
