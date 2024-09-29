@@ -2,15 +2,14 @@
 name: Publish LIVE Docker image
 
 on:
-  release:
+  push:
     branches:
-      - main
-    types:
-      - published
+      - feature/develop_dockerhub
 
 env:
-  DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-  VERSION_TAG: ${{ github.event.release.tag_name }}
+#  DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+  DOCKER_USERNAME: ${{ vars.DOCKERHUB_USERNAME }}
+#  VERSION_TAG: ${{ github.event.release.tag_name }}
 
 jobs:
   build-and-publish:
@@ -27,7 +26,7 @@ jobs:
       - name: Build Image
         run: |
           docker build \
-          -t $DOCKER_USERNAME/vitalitas:$VERSION_TAG \
+#          -t $DOCKER_USERNAME/vitalitas:$VERSION_TAG \
           -t $DOCKER_USERNAME/vitalitas:latest \
           -f ./Dockerfile \
           ./
