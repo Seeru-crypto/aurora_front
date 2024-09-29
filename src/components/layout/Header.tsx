@@ -32,8 +32,8 @@ export default function Header(): JSX.Element {
 
   return (
     <HeaderStyles isScrolling={isScrolling}>
-      <Link href="/">
-        <Logo className="logo" />
+      <Link className="logo-container" href="/">
+        <Logo />
       </Link>
       <nav className="navigation">
         {NAVIGATION_PATHS.map((object) => (
@@ -67,7 +67,7 @@ export const HeaderStyles = styled.header<{ isScrolling: boolean }>`
   transition: background-color ${(props) => props.theme.transition};
   z-index: 999;
 
-  .logo,
+  .logo-container,
   .navigation,
   .controls {
     flex: 1;
