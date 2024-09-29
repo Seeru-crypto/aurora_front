@@ -7,10 +7,18 @@ export default createGlobalStyle<{ activeTheme: string; theme: FredTheme }>`
     scroll-padding-top: 5vmax;
   }
 
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('/resources/fonts/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
   body {
     background-color: ${(props) => props.theme.background};
     color: ${(props) => props.theme.textColor};
-    font-family: ${(props) => props.theme.primaryFont};
+    font-family: 'Montserrat', sans-serif;
+    //font-family: ${(props) => props.theme.primaryFont};
     margin: 0;
     padding: 0;
     transition: background-color ${(props) => props.theme.transition};
