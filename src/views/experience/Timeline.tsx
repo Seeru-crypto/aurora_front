@@ -2,10 +2,11 @@ import styled from 'styled-components';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { GoCalendar } from 'react-icons/go';
-import TimelineElement, { ITimelineElement } from './TimelineElement'; // Update the path to your image
-import NetGroup_icon from '../../icons/NetGroup_icon.svg';
-import Helmes_icon from '../../icons/Helmes_icon.svg';
-import PPA_ICON from '../../icons/PPA_icon.png';
+import TimelineElement, { ITimelineElement } from './TimelineElement';
+import NetGroupIcon from '../../../public/resources/icons/NetGroupIcon.svg';
+import HelmesIcon from '../../../public/resources/icons/HelmesIcon.svg';
+import PPAIcon from '../../../public/resources/icons/PPAIcon.png';
+import Image from 'next/image';
 
 const Timeline = () => {
   const data: ITimelineElement[] = [
@@ -14,7 +15,7 @@ const Timeline = () => {
       position: 'Full-stack developer',
       desc: 'Main tasks were maintanace and new feature development on a microservice project, with over 20 modules.',
       date: '2023-2024',
-      icon: <Helmes_icon className="HLM-icon" />,
+      icon: <HelmesIcon className="HLM-icon" />,
       iconStyle: {background: 'beige', display: 'flex', justifyContent: 'center', alignItems: 'center'},
     },
     {
@@ -22,7 +23,7 @@ const Timeline = () => {
       position: 'Full-stack junior developer',
       desc: 'Implemented several projects which ranged from a few months to a year. In larger projects focused on UI development.',
       date: '2021-2023',
-      icon: <NetGroup_icon className="NG-icon" />,
+      icon: <NetGroupIcon className="NG-icon" />,
       iconStyle: { background: 'beige', color: 'black', display: 'flex', justifyContent: 'center', alignItems: 'center' },
     },
     {
@@ -30,7 +31,7 @@ const Timeline = () => {
       position: 'System a dministrator',
       desc: 'I was responsible for the PPA\'s management information system, which had over 150 users. I created data models, ETL pipelines, and wrote documentation (information models, user stories, detailed analysis of new functionalities, and descriptions of processes affecting services).',
       date: '2018-2020',
-      icon: <img src={PPA_ICON.src} height='42px' width="42px" />,
+      icon: <Image alt="PPA icon missing" src={PPAIcon.src} height='42' width="42" />,
       iconStyle: { background: 'beige', color: '#fff', display: 'flex', justifyContent: 'center', alignItems: 'center' },
     },
   ];

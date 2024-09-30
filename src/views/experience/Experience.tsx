@@ -2,25 +2,19 @@ import React, { ForwardedRef } from 'react';
 import styled from 'styled-components';
 import SectionCounter from './SectionCounter';
 import Timeline from './Timeline';
+import Wave from "./Wave.svg"
 
 const Experience = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JSX.Element => {
-  // https://excalidraw.com/#room=5ac138994a903ddb6b8b,FOI9bwwGzZM-R3KmGJzyqA
   return (
     <ExperienceStyle id='experience' ref={ref}>
       <div className='custom-shape-divider-top-1727523338'>
-        <svg data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'>
-          <path
-            d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z'
-            className='shape-fill'></path>
-        </svg>
+        <Wave className='shape-fill' />
       </div>
-
       <div className='container'>
         <h2>Experience</h2>
         <SectionCounter />
         <Timeline />
       </div>
-
     </ExperienceStyle>
   );
 });

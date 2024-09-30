@@ -94,7 +94,6 @@ export const baseTheme = {
 
 export const DayTheme = {
   ...baseTheme,
-  // background: gray.$200,
   background: gray.$0,
   primary: primaryColor.$600,
   secondary: primaryColor.$200,

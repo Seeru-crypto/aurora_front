@@ -1,5 +1,5 @@
 import { HTMLProps } from 'react';
-import Download from '../../../icons/Download.svg';
+import Download from '../../public/resources/icons/Download.svg';
 import styled from 'styled-components';
 
 interface ResumeLinkProps extends HTMLProps<HTMLAnchorElement> {

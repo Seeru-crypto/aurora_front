@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Moon from '../../../icons/Moon.svg';
-import Sun from '../../../icons/Sun.svg';
-import { RootState, useAppDispatch, useAppSelector } from '../../../state/store';
-import { ActiveTheme, setTheme } from '../../../state/themeSlice';
+import Moon from '../../public/resources/icons/Moon.svg';
+import Sun from '../../public/resources/icons/Sun.svg';
+import { RootState, useAppDispatch, useAppSelector } from '../state/store';
+import { ActiveTheme, setTheme } from '../state/themeSlice';
 
 export default function ThemeSelector(): JSX.Element {
   const activeTheme = useAppSelector((state: RootState) => state.theme.activeTheme);

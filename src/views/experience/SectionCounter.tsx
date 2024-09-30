@@ -1,7 +1,7 @@
 import { BsCalendarCheck } from 'react-icons/bs';
 import { MdOutlineDone, MdOutlineLocationOn, MdUpdate } from 'react-icons/md';
 import styled from 'styled-components';
-import NumberCounter from '../../components/util/NumberCounter';
+import NumberCounter from './NumberCounter';
 
 export default function SectionCounter(): JSX.Element {
   function formatIsoToLocal() {
@@ -14,7 +14,6 @@ export default function SectionCounter(): JSX.Element {
     }
   }
 
-  // TODO: Fix rerendering bug, where counter becomes wider and thinner when counters are running up
   return (
     <SectionCounterStyle>
       <div className="card">
