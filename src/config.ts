@@ -1,6 +1,6 @@
 export const CV_DOWNLOAD_LINK = '/resources/files/Fred_Oja_EST.pdf' as string;
 
-export const EMAIL_ADDRESS = 'andreeoja@gmail.com' as string;
+export const EMAIL_ADDRESS = 'fred_0ja@proton.me' as string;
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/fred-oja-8749b1182/' as string;
 export const GITHUB_URL = 'https://github.com/Seeru-crypto' as string;
 export const GOODREADS_URL = 'https://www.goodreads.com/review/list/156116017?ref=nav_mybooks' as string;
