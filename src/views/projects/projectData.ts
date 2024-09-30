@@ -1,7 +1,7 @@
 import { IProjectCard } from './ProjectCard';
 
 export const projectData: IProjectCard[] = [{
-  imageSrc: '/resources/pictures/aurora_image_2.png',
+  imageSrc: '/resources/pictures/aurora.png',
   alternativeImageSrc: '/resources/pictures/aurora_dm.png',
   link: "https://github.com/Seeru-crypto/aurora_front",
   title: 'Aurora',

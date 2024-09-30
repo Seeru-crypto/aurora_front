@@ -29,15 +29,14 @@ const LandingPage = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>) =>
   }, [GREETING_EVENING, GREETING_MORNING, GREETING_DAY, GREETING_DEFAULT]);
 
   return (
-    <LandingStyle id="landing" ref={ref} className="container">
-      <div className="hero">
+    <LandingStyle id='landing' ref={ref} className='container'>
+      <div className='hero'>
         <h1>
           {greetingMessage}&nbsp;
           {GREETING_MAIN_BODY}
         </h1>
         <p>{LANDING_HERO_TEXT}</p>
       </div>
-
       <CtaButton />
     </LandingStyle>
   );

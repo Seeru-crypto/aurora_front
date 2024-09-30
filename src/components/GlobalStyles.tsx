@@ -32,6 +32,7 @@ export default createGlobalStyle<{ activeTheme: string; theme: FredTheme }>`
     
     > section {
       min-height: calc(100vh - 80px);
+      padding-bottom: 2rem;
     }
 
     @media (max-width: 1200px) {
