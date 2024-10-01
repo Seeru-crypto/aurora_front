@@ -113,6 +113,7 @@ export const DayTheme = {
   headerBkgColor: primaryColor.$200,
   timelineBkgColor: gray.$200,
   backgroundAlternative: gray.$100,
+  experienceBoxShadowColor: gray.$300,
 };
 
 export const NightTheme = {
@@ -132,7 +133,9 @@ export const NightTheme = {
   database: lime.$600,
   other: primaryColor.$800,
   headerBkgColor: primaryColor.$900,
-  timelineBkgColor: gray.$500,
+  timelineBkgColor: gray.$600,
   backgroundAlternative: gray.$700,
+  buttonTextColor: gray.$100,
+  experienceBoxShadowColor: gray.$500,
 }
 export type FredTheme = typeof baseTheme & (typeof DayTheme | typeof NightTheme) & DefaultTheme;
