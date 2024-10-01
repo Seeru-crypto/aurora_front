@@ -27,15 +27,20 @@ const ExperienceStyle = styled.section`
     padding: 0 4rem;
   }
 
-  .custom-shape-divider-top-1727523338 svg {
-    position: relative;
-    display: block;
-    width: calc(149% + 1.3px);
-    height: 84px;
-  }
+  .custom-shape-divider-top-1727523338 {
+    max-width: 100vw;
+    
+    svg {
+      max-width: inherit;
+      position: relative;
+      display: block;
+      width: calc(149% + 1.3px);
+      height: 84px;
+    }
 
-  .custom-shape-divider-top-1727523338 .shape-fill {
-    fill: ${(props) => props.theme.backgroundAlternative};
+    .shape-fill {
+      fill: ${(props) => props.theme.backgroundAlternative};
+    }
   }
 `;
 

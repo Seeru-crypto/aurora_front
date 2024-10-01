@@ -45,16 +45,21 @@ const SkillsStyle = styled.section`
     grid-template-rows: repeat(2, 1fr);
     gap: 1rem;
   }
+  
+  .custom-shape-divider-top-1727522936 {
+    max-width: 100vw;
+    
+    svg {
+      max-width: inherit;
+      position: relative;
+      display: block;
+      width: calc(206% + 1.3px);
+      height: 84px;
+    }
 
-  .custom-shape-divider-top-1727522936 svg {
-    position: relative;
-    display: block;
-    width: calc(206% + 1.3px);
-    height: 84px;
-  }
-
-  .custom-shape-divider-top-1727522936 .shape-fill {
-    fill: ${(props) => props.theme.background};
+    .shape-fill {
+      fill: ${(props) => props.theme.background};
+    }
   }
 
   @media (max-width: 1200px) {

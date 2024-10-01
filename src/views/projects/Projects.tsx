@@ -29,17 +29,21 @@ const Projects = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JSX.
 const ProjectsStyle = styled.section`
   background-color: ${(props) => props.theme.backgroundAlternative};
 
-  .custom-shape-divider-top-1727521972 svg {
-    padding: 0;
-    position: relative;
-    display: block;
-    width: calc(130% + 1.3px);
-    height: 98px;
-  }
+  .custom-shape-divider-top-1727521972 {
+    max-width: 100vw;
+    
+    svg {
+      max-width: inherit;
+      padding: 0;
+      position: relative;
+      display: block;
+      width: calc(130% + 1.3px);
+      height: 98px;      
+    }
+    .shape-fill {
+      fill: ${(props) => props.theme.background};
+    }
 
-  .custom-shape-divider-top-1727521972 .shape-fill {
-    //fill: red;
-    fill: ${(props) => props.theme.background};
   }
 
   h1 {

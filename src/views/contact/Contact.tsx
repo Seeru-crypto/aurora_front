@@ -47,25 +47,23 @@ const Contact = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JSX.E
 });
 
 const ContactStyle = styled.section`
-
   background-color: ${(props) => props.theme.background};
   min-height: calc(80vh - 80px);
   position: relative;
-
-
+  
   .custom-shape-divider-top-1727523569 {
-    margin-bottom: 20vh
-  }
+    margin-bottom: 20vh;
 
-  .custom-shape-divider-top-1727523569 svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 84px;
-  }
-
-  .custom-shape-divider-top-1727523569 .shape-fill {
-    fill: ${(props) => props.theme.backgroundAlternative};
+    svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 84px;
+    }
+    
+    .shape-fill {
+      fill: ${(props) => props.theme.backgroundAlternative};
+    }
   }
 
   .container {
