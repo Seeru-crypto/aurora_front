@@ -7,6 +7,7 @@ COPY --chown=node:node . .
 USER node
 ENV NEXT_TELEMETRY_DISABLED 1
 ENV HOSTNAME "0.0.0.0"
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD [ "wget", "-q0", "http://localhost:3000/health" ]
 
 RUN npm ci
 RUN npm run build

@@ -18,7 +18,7 @@ export default function EmailField(props: IEmailField) {
 
     return (
         <EmailFieldStyle>
-            <span className="email-text">email@gmail.com</span>
+            <span className="email-text">{contactEmail}</span>
             <FaClipboard onClick={saveToClipboard} className="icon" />
         </EmailFieldStyle>
     )
