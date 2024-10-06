@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import LandingPage from '../views/landing/LandingPage';
 import Toast from '../components/Toast';
 import { changeToastValue } from '../state/appSlice';
@@ -8,6 +8,10 @@ import Experience from '../views/experience/Experience';
 import Contact from '../views/contact/Contact';
 import Skills from '../views/skills/Skills';
 import Projects from '../views/projects/Projects';
+import Wave1 from '../../public/resources/icons/Wave1.svg';
+import Wave2 from '../../public/resources/icons/Wave2.svg';
+import Wave3 from '../../public/resources/icons/Wave3.svg';
+import Wave4 from '../../public/resources/icons/Wave4.svg';
 
 export default function Home(): JSX.Element {
   const isToastShown: boolean = useAppSelector((state: RootState) => state.app.isToastShown);
@@ -44,9 +48,21 @@ export default function Home(): JSX.Element {
     <>
       {isToastShown && <Toast message='Added to clipboard' />}
       <LandingPage ref={landingRef} />
+      <div className='divider-1'>
+        <Wave1 className='shape-fill' />
+      </div>
       <Skills ref={skillsRef} />
+      <div className='divider-2'>
+        <Wave2 className='shape-fill' />
+      </div>
       <Experience ref={experienceRef} />
+      <div className='divider-1'>
+        <Wave3 className='shape-fill' />
+      </div>
       <Projects ref={projectsRef} />
+      <div className='divider-2'>
+        <Wave4 className='shape-fill' />
+      </div>
       <Contact ref={contactRef} />
     </>
   );

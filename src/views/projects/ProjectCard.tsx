@@ -131,15 +131,6 @@ const ProjectCardStyle = styled.section`
       }
     }
     
-
-    // @media (min-width: ${(props) => props.theme.viewSizesMin.$screenSm}) {
-    //   border: 1px solid red;
-    // }
-    //
-    // @media (min-width: ${(props) => props.theme.viewSizesMin.$screenMd}) {
-    //   border: 1px solid yellow;
-    // }
-
     @media (min-width: ${(props) => props.theme.viewSizesMin.$screenLg}) {
       border: 1px solid green;
     }

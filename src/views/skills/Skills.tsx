@@ -2,15 +2,11 @@ import React, { ForwardedRef } from 'react';
 import styled from 'styled-components';
 import { SkillData } from './skillData';
 import SkillCard from './SkillCard';
-import Wave from "./Wave.svg"
 
 const Skills = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JSX.Element => {
   return (
     <SkillsStyle ref={ref} id='skills' className='wrapper style3 fade-up'>
       <div className='svg-container'>
-        <div className='custom-shape-divider-top-1727522936'>
-          <Wave className='shape-fill' />
-        </div>
       </div>
       <div className='inner'>
         <h2>How can I help you?</h2>
@@ -44,22 +40,7 @@ const SkillsStyle = styled.section`
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 1rem;
-  }
-  
-  .custom-shape-divider-top-1727522936 {
-    max-width: 100vw;
-    
-    svg {
-      max-width: inherit;
-      position: relative;
-      display: block;
-      width: calc(206% + 1.3px);
-      height: 84px;
-    }
-
-    .shape-fill {
-      fill: ${(props) => props.theme.background};
-    }
+    padding: 0 2rem;
   }
 
   @media (max-width: 1200px) {

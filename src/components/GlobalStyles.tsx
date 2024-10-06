@@ -50,4 +50,40 @@ export default createGlobalStyle<{ activeTheme: string; theme: FredTheme }>`
     font-size: 16px;
     max-width: 70ch;
   }
+
+  .divider-1 {
+    background-color: ${(props) => props.theme.backgroundAlternative};
+    max-width: 100vw;
+    padding-bottom:84px ;
+
+    svg {
+      max-width: inherit;
+      //position: relative;
+      display: block;
+      width: calc(206% + 1.3px);
+      height: 84px;
+    }
+
+    .shape-fill {
+      fill: ${(props) => props.theme.background};
+    }
+  }
+
+  .divider-2 {
+    background-color: ${(props) => props.theme.background};
+    padding-bottom:84px ;
+    max-width: 100vw;
+
+    svg {
+      max-width: inherit;
+      position: relative;
+      display: block;
+      width: calc(149% + 1.3px);
+      height: 84px;
+    }
+
+    .shape-fill {
+      fill: ${(props) => props.theme.backgroundAlternative};
+    }
+  }
 `;

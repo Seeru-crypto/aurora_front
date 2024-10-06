@@ -2,14 +2,10 @@ import React, { ForwardedRef } from 'react';
 import styled from 'styled-components';
 import SectionCounter from './SectionCounter';
 import Timeline from './Timeline';
-import Wave from "./Wave.svg"
 
 const Experience = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JSX.Element => {
   return (
     <ExperienceStyle id='experience' ref={ref}>
-      <div className='custom-shape-divider-top-1727523338'>
-        <Wave className='shape-fill' />
-      </div>
       <div className='container'>
         <h2>Experience</h2>
         <SectionCounter />
@@ -25,22 +21,6 @@ const ExperienceStyle = styled.section`
 
   .container {
     padding: 0 4rem;
-  }
-
-  .custom-shape-divider-top-1727523338 {
-    max-width: 100vw;
-    
-    svg {
-      max-width: inherit;
-      position: relative;
-      display: block;
-      width: calc(149% + 1.3px);
-      height: 84px;
-    }
-
-    .shape-fill {
-      fill: ${(props) => props.theme.backgroundAlternative};
-    }
   }
 `;
 

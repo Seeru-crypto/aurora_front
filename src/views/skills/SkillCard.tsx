@@ -69,6 +69,7 @@ const SkillCardStyle = styled.section`
   border: 1px solid #ccc;
   border-radius: 1rem;
   padding: 20px;
+  margin: 1rem;
   
   :hover {
     box-shadow: 0 4px 8px 0 ${(props) => props.theme.primaryColor.$800};
@@ -103,9 +104,27 @@ const SkillCardStyle = styled.section`
   h3 {
     font-size: ${(props) => props.theme.size.$400};
   }
-  
-  p {
-    font-size: ${(props) => props.theme.size.$350};
+
+  @media (min-width: ${(props) => props.theme.viewSizesMin.$screenMd}) {
+    border: 1px solid yellow;
+  }
+
+  @media (min-width: ${(props) => props.theme.viewSizesMin.$screenLg}) {
+    border: 1px solid green;
+    p {
+      font-size: 1.25rem;
+      //font-size: 1rem;
+    }
+       //p {
+       //  font-size: 1rem;
+       //}
+  }
+
+  @media (min-width: ${(props) => props.theme.viewSizesMin.$screenXl}) {
+    border: 1px solid blue;
+       p {
+         font-size: 1.25rem;
+       }
   }
 `;
 

@@ -94,7 +94,7 @@ const viewSizesMin = {
   $screenSm: '768px',
   $screenMd: '992px',
   $screenLg: '1200px',
-  $screenXl: '1400px',
+  $screenXl: '2000px',
 };
 
 
