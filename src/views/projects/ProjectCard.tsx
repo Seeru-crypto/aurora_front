@@ -132,15 +132,17 @@ const ProjectCardStyle = styled.section`
     }
     
     @media (min-width: ${(props) => props.theme.viewSizesMin.$screenLg}) {
-      border: 1px solid green;
+      .image {
+        height: 25rem;
+        max-width: 40rem;
+      }
     }
 
     @media (min-width: ${(props) => props.theme.viewSizesMin.$screenXl}) {
-      border: 1px solid black;
-      //.image {
-      //  height: 10rem;
-      //  width: 15rem;
-      //}
+      .image {
+        height: 25rem;
+        width: 40rem;
+      }
     }
 
     @media (max-width: 1200px) {

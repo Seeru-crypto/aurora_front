@@ -5,7 +5,7 @@ export const projectData: IProjectCard[] = [{
   alternativeImageSrc: '/resources/pictures/aurora_dm.png',
   link: "https://github.com/Seeru-crypto/aurora_front",
   title: 'Aurora',
-  desc: 'One of the first projects I did, with the emphasis on FE development and good SEO scrores. On the css side I tried to follow style systems (Tailwind colors 50 - 900). One of the main difficulties was to get it to look "right", goal which I hopefully achieved',
+  desc: 'One of the first projects I did, with the emphasis on FE development and good SEO scores. On the css side I tried to follow style systems (Tailwind colors 50 - 900). One of the main difficulties was to get it to look "right", goal which I hopefully achieved',
   tags: [
     {name: 'next.js', type: 'front'}
   ],

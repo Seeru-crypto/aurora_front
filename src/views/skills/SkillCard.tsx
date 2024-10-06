@@ -94,7 +94,6 @@ const SkillCardStyle = styled.section`
     align-items: center;
     display: flex;
     font-weight: 900;
-    font-size: x-large;
 
     .icon {
       color: ${(props) => props.theme.primaryColor.$600};
@@ -105,26 +104,8 @@ const SkillCardStyle = styled.section`
     font-size: ${(props) => props.theme.size.$400};
   }
 
-  @media (min-width: ${(props) => props.theme.viewSizesMin.$screenMd}) {
-    border: 1px solid yellow;
-  }
-
-  @media (min-width: ${(props) => props.theme.viewSizesMin.$screenLg}) {
-    border: 1px solid green;
-    p {
-      font-size: 1.25rem;
-      //font-size: 1rem;
-    }
-       //p {
-       //  font-size: 1rem;
-       //}
-  }
-
-  @media (min-width: ${(props) => props.theme.viewSizesMin.$screenXl}) {
-    border: 1px solid blue;
-       p {
-         font-size: 1.25rem;
-       }
+  p {
+    font-size: 1.25rem;
   }
 `;
 
