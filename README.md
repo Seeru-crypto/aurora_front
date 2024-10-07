@@ -1,7 +1,7 @@
-# aurora_front
+# Aurora
 
 A Next.js portfolio SPA project. 
-Created By Fred Oja & Risto Kitsing. 
+Created By F.Oja & R.Kitsing. 
 
 Using github actions it builds and publishes the image to a private repo.
 
