@@ -63,6 +63,10 @@ const TimelineStyles = styled.div`
     color: ${(props) => props.theme.textColor};
     background-color: ${(props) => props.theme.timelineBkgColor};
   }
+  
+  .vertical-timeline-element--work > .vertical-timeline-element-content {
+    box-shadow: 0 3px 0 ${(props) => props.theme.experienceBoxShadowColor};
+  }
 
   .first-element > .vertical-timeline-element-content {
     background-color: transparent;

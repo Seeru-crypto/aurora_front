@@ -5,7 +5,6 @@ import Footer from './Footer';
 import EmailField from './EmailField';
 import { LABELS } from '../../data';
 import { EMAIL_ADDRESS } from '../../config';
-import WaveSvg from './wave.svg';
 import SocialIcon from './SocialIcon';
 import { icons } from './SocialIconsData';
 
@@ -19,10 +18,6 @@ const Contact = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JSX.E
 
   return (
     <ContactStyle ref={ref} id='contact'>
-      <div className='custom-shape-divider-top-1727523569'>
-        <WaveSvg className='shape-fill' />
-      </div>
-
       <div className='container'>
         <div className='contactContent'>
           <h1 className='contactHeader'>{LABELS.CONTACT_HEADER}</h1>
@@ -47,32 +42,20 @@ const Contact = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JSX.E
 });
 
 const ContactStyle = styled.section`
-
   background-color: ${(props) => props.theme.background};
   min-height: calc(80vh - 80px);
   position: relative;
-
-
-  .custom-shape-divider-top-1727523569 {
-    margin-bottom: 20vh
-  }
-
-  .custom-shape-divider-top-1727523569 svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 84px;
-  }
-
-  .custom-shape-divider-top-1727523569 .shape-fill {
-    fill: ${(props) => props.theme.backgroundAlternative};
-  }
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
   .container {
     display: flex;
     flex-flow: column wrap;
 
     .contactContent {
+      margin-top: -25rem;
       align-items: center;
       display: flex;
       justify-content: center;

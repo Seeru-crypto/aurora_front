@@ -17,6 +17,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Removed
 
+
+## [1.1.0] - 07-10-2024
+
+### Added
+- Licence.md
+### Fixed
+- Font sizes between smaller and bigger screens
+- Wave.svg´s
+- Skill box shadow
+
 ## [1.0.0] - 30-09-2024
 
 ### Added
@@ -35,8 +45,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - inital project version commit
 - add light/ dark mode
-
-### Fixed
-### Changed
-### Removed
-

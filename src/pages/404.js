@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import styled from 'styled-components';
@@ -17,24 +16,17 @@ const NotFound = () => {
     <NotFoundStyle>
       <h1>Ooops.. </h1>
       <h2>The page cannot be found</h2>
-      <p>
-        Go back to the main page&nbsp;
-        <Link className="homeButton" href="/">
-          Homepage
-        </Link>
-      </p>
     </NotFoundStyle>
   );
 };
 export default NotFound;
 
 const NotFoundStyle = styled.div`
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   color: rebeccapurple;
-
-  .homeButton {
-    color: #4979ff;
-    text-decoration: underline;
-    cursor: pointer;
-  }
 `;

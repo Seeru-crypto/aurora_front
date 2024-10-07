@@ -130,6 +130,20 @@ const ProjectCardStyle = styled.section`
         color: ${(props) => props.theme.primaryColor.$500};
       }
     }
+    
+    @media (min-width: ${(props) => props.theme.viewSizesMin.$screenLg}) {
+      .image {
+        height: 25rem;
+        max-width: 40rem;
+      }
+    }
+
+    @media (min-width: ${(props) => props.theme.viewSizesMin.$screenXl}) {
+      .image {
+        height: 25rem;
+        width: 40rem;
+      }
+    }
 
     @media (max-width: 1200px) {
       max-width: 100%;

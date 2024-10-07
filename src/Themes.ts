@@ -13,7 +13,7 @@ const lime = {
   $400: '#a3e635',
   $500: '#84cc16',
   $600: '#65a30d',
-}
+};
 
 const emerald = {
   $300: '#6ee7b7',
@@ -21,7 +21,7 @@ const emerald = {
   $500: '#10b981',
   $600: '#059669',
   $700: '#047857',
-}
+};
 
 const size = {
   $100: '8px',
@@ -72,7 +72,15 @@ const gray = {
   $700: '#1F2733',
   $800: '#1e293b',
   $900: '#0f172a',
-  $950: '#16161a'
+  $950: '#16161a',
+};
+
+const viewSizesMin = {
+  $screenXs: '576px',
+  $screenSm: '768px',
+  $screenMd: '992px',
+  $screenLg: '1200px',
+  $screenXl: '2000px',
 };
 
 export const baseTheme = {
@@ -81,15 +89,16 @@ export const baseTheme = {
   positive: emerald.$500,
   negative: red.$500,
   transition: '350ms linear',
-  primaryFont: "'Montserrat', sans-serif",
-  secondaryFont: "'IBM Plex Mono', monospace",
+  primaryFont: '\'Montserrat\', sans-serif',
+  secondaryFont: '\'IBM Plex Mono\', monospace',
   red,
   gray,
   primaryColor,
   size,
   lime,
   emerald,
-  violet
+  violet,
+  viewSizesMin,
 };
 
 export const DayTheme = {
@@ -98,7 +107,7 @@ export const DayTheme = {
   primary: primaryColor.$600,
   secondary: primaryColor.$200,
   textColor: gray.$800,
-  showCaseBoxShadowColor:primaryColor.$200,
+  showCaseBoxShadowColor: primaryColor.$200,
   detailTextColor: gray.$500,
   buttonTextColor: gray.$100,
   buttonHoverTextColor: gray.$900,
@@ -113,6 +122,7 @@ export const DayTheme = {
   headerBkgColor: primaryColor.$200,
   timelineBkgColor: gray.$200,
   backgroundAlternative: gray.$100,
+  experienceBoxShadowColor: gray.$300,
 };
 
 export const NightTheme = {
@@ -132,7 +142,9 @@ export const NightTheme = {
   database: lime.$600,
   other: primaryColor.$800,
   headerBkgColor: primaryColor.$900,
-  timelineBkgColor: gray.$500,
+  timelineBkgColor: gray.$600,
   backgroundAlternative: gray.$700,
-}
+  buttonTextColor: gray.$100,
+  experienceBoxShadowColor: gray.$500,
+};
 export type FredTheme = typeof baseTheme & (typeof DayTheme | typeof NightTheme) & DefaultTheme;

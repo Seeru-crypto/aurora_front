@@ -66,9 +66,10 @@ const SkillCardStyle = styled.section`
   flex-direction: row;
   gap: 1rem;
   justify-content: flex-start;
-  border: 1px solid #ccc;
+  border: 1px solid #CCC;
   border-radius: 1rem;
   padding: 20px;
+  margin: 1rem;
   
   :hover {
     box-shadow: 0 4px 8px 0 ${(props) => props.theme.primaryColor.$800};
@@ -85,7 +86,7 @@ const SkillCardStyle = styled.section`
 
   .icon-container {
     border: 1px solid;
-    border-color: ${(props) => props.theme.textColor};
+    border-color: #CCC;
     border-radius: 2rem;
     width: 2.5em;
     height: 2.5em;
@@ -93,7 +94,6 @@ const SkillCardStyle = styled.section`
     align-items: center;
     display: flex;
     font-weight: 900;
-    font-size: x-large;
 
     .icon {
       color: ${(props) => props.theme.primaryColor.$600};
@@ -103,9 +103,9 @@ const SkillCardStyle = styled.section`
   h3 {
     font-size: ${(props) => props.theme.size.$400};
   }
-  
+
   p {
-    font-size: ${(props) => props.theme.size.$350};
+    font-size: 1.25rem;
   }
 `;
 
