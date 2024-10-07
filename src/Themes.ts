@@ -75,20 +75,6 @@ const gray = {
   $950: '#16161a',
 };
 
-// const viewSizesMax = {
-//   // Small tablets and large smartphones (landscape view)
-//   $screenSm: '576px',
-//
-//   // Small tablets (portrait view)
-//   $screenMd: '768px',
-//
-//   // Tablets and small desktops
-//   $screenLg: '992px',
-//
-//   // Large tablets and desktops
-//   $screenXl: '1200px',
-// };
-
 const viewSizesMin = {
   $screenXs: '576px',
   $screenSm: '768px',
@@ -96,8 +82,6 @@ const viewSizesMin = {
   $screenLg: '1200px',
   $screenXl: '2000px',
 };
-
-
 
 export const baseTheme = {
   blurAmount: size.$100,

@@ -66,7 +66,7 @@ const SkillCardStyle = styled.section`
   flex-direction: row;
   gap: 1rem;
   justify-content: flex-start;
-  border: 1px solid #ccc;
+  border: 1px solid #CCC;
   border-radius: 1rem;
   padding: 20px;
   margin: 1rem;
@@ -86,7 +86,7 @@ const SkillCardStyle = styled.section`
 
   .icon-container {
     border: 1px solid;
-    border-color: ${(props) => props.theme.textColor};
+    border-color: #CCC;
     border-radius: 2rem;
     width: 2.5em;
     height: 2.5em;

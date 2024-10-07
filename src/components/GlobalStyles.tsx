@@ -18,7 +18,6 @@ export default createGlobalStyle<{ activeTheme: string; theme: FredTheme }>`
     background-color: ${(props) => props.theme.background};
     color: ${(props) => props.theme.textColor};
     font-family: 'Montserrat', sans-serif;
-    //font-family: ${(props) => props.theme.primaryFont};
     margin: 0;
     padding: 0;
     transition: background-color ${(props) => props.theme.transition};
@@ -29,7 +28,7 @@ export default createGlobalStyle<{ activeTheme: string; theme: FredTheme }>`
     flex-flow: column wrap;
     margin: 0 auto;
     max-width: 100%;
-    
+
     > section {
       min-height: calc(100vh - 80px);
       padding-bottom: 2rem;
@@ -51,37 +50,39 @@ export default createGlobalStyle<{ activeTheme: string; theme: FredTheme }>`
     max-width: 70ch;
   }
 
-  .divider-1 {
-    background-color: ${(props) => props.theme.backgroundAlternative};
-    max-width: 100vw;
-    padding-bottom:84px ;
 
-    svg {
-      max-width: inherit;
-      //position: relative;
-      display: block;
-      width: calc(206% + 1.3px);
-      height: 84px;
-    }
+  .divider-1, .divider-2 {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .divider-1 {
+    padding-bottom: 143px;
+    background-color: ${(props) => props.theme.backgroundAlternative};
 
     .shape-fill {
       fill: ${(props) => props.theme.background};
     }
-  }
-
-  .divider-2 {
-    background-color: ${(props) => props.theme.background};
-    padding-bottom:84px ;
-    max-width: 100vw;
 
     svg {
       max-width: inherit;
-      position: relative;
       display: block;
-      width: calc(149% + 1.3px);
-      height: 84px;
+      width: calc(111% + 1.3px);
+      height: 143px;
     }
+  }
 
+  .divider-2 {
+    padding-bottom: 113px;
+    background-color: ${(props) => props.theme.background};
+
+    svg {
+      max-width: inherit;
+      display: block;
+      width: calc(216% + 1.3px);
+      height: 113px;
+    }
+    
     .shape-fill {
       fill: ${(props) => props.theme.backgroundAlternative};
     }
