@@ -30,6 +30,19 @@ export default function Header(): JSX.Element {
     };
   }, []);
 
+
+  useEffect(() => {
+    console.log(window.location.pathname);
+  }, [window.location.pathname])
+
+  function formatHref(href: string): string {
+    if (currentPage === '404') {
+      return `http://${window.location.host}/${href}`
+    }
+
+    return href
+  }
+
   return (
     <HeaderStyles isScrolling={isScrolling}>
       <Link className="logo-container" href="/">
@@ -38,7 +51,7 @@ export default function Header(): JSX.Element {
       <nav className="navigation">
         {NAVIGATION_PATHS.map((object) => (
           <NavLink
-            href={object.key}
+            href={formatHref(object.key)}
             key={object.value}
             isActive={isInView(object.value)}
             onClick={() => dispatch(setActiveSection(object.value))}>
