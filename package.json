@@ -6,10 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint && prettier --check 'src/**/*.(ts|x)'"
+    "lint": "next lint && prettier --check 'src/**/*.(ts|x)'",
+    "storybook": "start-storybook -p 3006 --ci",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.4",
+    "@tanstack/react-table": "^8.5.15",
     "date-fns": "^2.29.3",
     "framer-motion": "^11.5.6",
     "next": "^14.2.13",
