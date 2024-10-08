@@ -94,6 +94,12 @@ const ContactStyle = styled.section`
       width: 100%;
     }
   }
+
+  @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenXs}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenSm}) {
+    .contactContent {
+      margin-top: -10rem;
+    }
+  }
 `;
 
 Contact.displayName = 'Contact display';

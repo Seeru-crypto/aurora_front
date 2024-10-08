@@ -49,18 +49,18 @@ export default function Home(): JSX.Element {
         <Wave className='shape-fill' />
       </div>
       <Skills ref={skillsRef} />
-      {/*<div className='divider-2'>*/}
-      {/*  <Wave className='shape-fill' />*/}
-      {/*</div>*/}
-      {/*<Experience ref={experienceRef} />*/}
-      {/*<div className='divider-1'>*/}
-      {/*  <Wave className='shape-fill' />*/}
-      {/*</div>*/}
-      {/*<Projects ref={projectsRef} />*/}
-      {/*<div className='divider-2'>*/}
-      {/*  <Wave className='shape-fill' />*/}
-      {/*</div>*/}
-      {/*<Contact ref={contactRef} />*/}
+      <div className='divider-2'>
+        <Wave className='shape-fill' />
+      </div>
+      <Experience ref={experienceRef} />
+      <div className='divider-1'>
+        <Wave className='shape-fill' />
+      </div>
+      <Projects ref={projectsRef} />
+      <div className='divider-2'>
+        <Wave className='shape-fill' />
+      </div>
+      <Contact ref={contactRef} />
     </>
   );
 }

@@ -62,7 +62,7 @@ const LandingStyle = styled.section`
   }
 
   h1 {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 
   p {

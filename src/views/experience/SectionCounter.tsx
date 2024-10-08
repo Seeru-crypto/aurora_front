@@ -18,7 +18,7 @@ export default function SectionCounter(): JSX.Element {
     <SectionCounterStyle>
       <div className="card">
         <MdOutlineDone className="icon" />
-        <p className="card-description">Number of private projects</p>
+        <p className="card-description">Number of projects</p>
         <NumberCounter
           className="highlight"
           endNumberValue={17}
@@ -98,5 +98,12 @@ const SectionCounterStyle = styled.div`
     font-weight: bold;
     margin: 0;
     transition: color ${(props) => props.theme.transition};
+  }
+
+  @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenXs}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenSm}) {
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    
   }
 `;

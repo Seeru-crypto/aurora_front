@@ -21,7 +21,6 @@ export default createGlobalStyle<{ activeTheme: string; theme: FredTheme }>`
     margin: 0;
     padding: 0;
     transition: background-color ${(props) => props.theme.transition};
-    border: 1px solid yellow;
   }
 
   main {
@@ -93,11 +92,7 @@ export default createGlobalStyle<{ activeTheme: string; theme: FredTheme }>`
     max-width: 100vw;
 
     .divider-1 {
-      background-color: ${(props) => props.theme.backgroundAlternative};
-
-      .shape-fill {
-        fill: ${(props) => props.theme.background};
-      }
+      padding-bottom: 0;
 
       svg {
         max-width: inherit;
@@ -107,41 +102,44 @@ export default createGlobalStyle<{ activeTheme: string; theme: FredTheme }>`
       }
     }
 
-
-    @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenXl}) {
-      body {
-        border: 1px solid green;
-      }
+    .divider-2 {
+      padding-bottom: 0;
     }
+  }
 
-    @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenLg }) and (max-width: ${(props) => props.theme.viewSizesMin.$screenXl }) {
-      body {
-        border: 1px solid blue;
-      }
-    }
-
-    @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenMd}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenLg}) {
-      body {
-        border: 1px solid aqua;
-      }
-    }
-
-    @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenSm}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenMd}) {
-      body {
-        border: 1px solid rosybrown;
-      }
-    }
-
-    @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenXs}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenSm}) {
-      body {
-        border: 1px solid lightpink;
-      }
-    }
+    // @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenXl}) {
+    //   body {
+    //     border: 2px solid green;
+    //   }
+    // }
+    //
+    // @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenLg }) and (max-width: ${(props) => props.theme.viewSizesMin.$screenXl }) {
+    //   body {
+    //     border: 2px solid blue;
+    //   }
+    // }
+    //
+    // @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenMd}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenLg}) {
+    //   body {
+    //     border: 2px solid aqua;
+    //   }
+    // }
+    //
+    // @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenSm}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenMd}) {
+    //   body {
+    //     border: 2px solid rosybrown;
+    //   }
+    // }
+    //
+    // @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenXs}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenSm}) {
+    //   body {
+    //     border: 2px solid lightseagreen;
+    //   }
+    // }
 
     @media screen and (max-width: ${(props) => props.theme.viewSizesMin.$screenXs}) {
       body {
-        border: 1px solid red;
+        border: 2px solid red;
       }
     }
-  }
 `;
