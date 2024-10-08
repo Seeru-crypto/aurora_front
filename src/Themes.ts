@@ -76,7 +76,7 @@ const gray = {
 };
 
 const viewSizesMin = {
-  $screenXs: '576px',
+  $screenXs: '300px',
   $screenSm: '768px',
   $screenMd: '992px',
   $screenLg: '1200px',

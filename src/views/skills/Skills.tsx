@@ -6,8 +6,6 @@ import SkillCard from './SkillCard';
 const Skills = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JSX.Element => {
   return (
     <SkillsStyle ref={ref} id='skills' className='wrapper style3 fade-up'>
-      <div className='svg-container'>
-      </div>
       <div className='inner'>
         <h2>How can I help you?</h2>
         <div className='features'>
@@ -27,7 +25,6 @@ const SkillsStyle = styled.section`
   min-height: 75vh;
 
   .inner {
-    height: 50vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,14 +39,16 @@ const SkillsStyle = styled.section`
     gap: 1rem;
     padding: 0 2rem;
   }
+  
+  @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenXs}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenSm}) {
+      .features {
+        padding: 0 .1rem;
+        gap: .5rem;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1, 1fr);
 
-  @media (max-width: 1200px) {
-    .features {
-      gap: 2rem;
-      grid-template-columns: repeat(1, 1fr);
-      grid-template-rows: repeat(1, 1fr);
+      }
     }
-  }
 `;
 
 Skills.displayName = 'Skills main component';

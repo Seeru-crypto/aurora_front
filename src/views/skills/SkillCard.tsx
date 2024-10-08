@@ -101,11 +101,22 @@ const SkillCardStyle = styled.section`
   }
 
   h3 {
-    font-size: ${(props) => props.theme.size.$400};
+    font-size: 2rem;
   }
 
   p {
     font-size: 1.25rem;
+  }
+
+
+  @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenXs}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenSm}) {
+    h3 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
   }
 `;
 
