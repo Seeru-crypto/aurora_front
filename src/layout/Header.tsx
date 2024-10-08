@@ -30,11 +30,6 @@ export default function Header(): JSX.Element {
     };
   }, []);
 
-
-  useEffect(() => {
-    console.log(window.location.pathname);
-  }, [window.location.pathname])
-
   function formatHref(href: string): string {
     if (currentPage === '404') {
       return `http://${window.location.host}/${href}`
