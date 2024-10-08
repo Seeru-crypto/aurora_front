@@ -10,9 +10,13 @@ Using github actions it builds and publishes the image to a private repo.
 ### dev
 #### Navigate to root
 
-#### install and start
+#### install dependency´s
 ````bash
 npm ci
+````
+
+#### install and start
+````bash
 npm run build
 npm run start
 echo "service available at `http://localhost:3000/`"
