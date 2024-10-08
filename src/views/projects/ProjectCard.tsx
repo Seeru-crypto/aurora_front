@@ -91,7 +91,7 @@ const ProjectCardStyle = styled.section`
     flex-direction: row;
     gap: 1rem;
   }
-  
+
   .container {
     padding: 1rem;
     border: 1px solid ${(props) => props.theme.primaryColor.$300};
@@ -118,7 +118,6 @@ const ProjectCardStyle = styled.section`
       border: none;
       background-color: transparent;
     }
-
 
 
     .image {
@@ -150,33 +149,33 @@ const ProjectCardStyle = styled.section`
 
   @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenXs}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenSm}) {
     //border: 2px solid lightseagreen;
-    padding:  0 1rem;
+    padding: 0 1rem;
     max-width: 100%;
 
     .image {
       height: 20rem;
       width: 30rem;
     }
-    
+
     .container {
       flex-direction: column;
       justify-content: center;
       align-items: center;
       padding: 1rem;
       margin-bottom: .5rem;
-  }
-    
+    }
+
     .card-desc {
       font-size: 1rem;
     }
-    
+
     .tags-container {
       padding-top: 2rem;
       margin-bottom: -2rem;
       gap: .5rem;
     }
 
-}
+  }
 `;
 
 export default ProjectCard;

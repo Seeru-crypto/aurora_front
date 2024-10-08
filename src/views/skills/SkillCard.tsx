@@ -16,13 +16,13 @@ const SkillCard = (props: ISkillCard) => {
   function getIcon(iconName: IconTypes) {
     switch (iconName) {
       case 'FaCode':
-        return ( <FaCode className="icon" />);
+        return (<FaCode className='icon' />);
       case 'FaServer':
-        return (<FaServer className="icon" />);
+        return (<FaServer className='icon' />);
       case 'FiMonitor':
-        return (<FiMonitor className="icon" />);
+        return (<FiMonitor className='icon' />);
       case 'MdSettings':
-        return (<MdSettings className="icon" />);
+        return (<MdSettings className='icon' />);
     }
   }
 
@@ -35,27 +35,27 @@ const SkillCard = (props: ISkillCard) => {
       y: 0,
       opacity: 1,
       transition: {
-        type: "spring",
+        type: 'spring',
         bounce: 0.5,
         duration: 1.8,
-        delay: 0.4
-      }
-    }
+        delay: 0.4,
+      },
+    },
   };
 
   return (
     <SkillCardStyle>
       <motion.div
-        initial="offscreen"
-        whileInView="onscreen"
+        initial='offscreen'
+        whileInView='onscreen'
         viewport={{ once: true, amount: 1 }}
-        className="icon-container"
+        className='icon-container'
         variants={springConfig}>
         {getIcon(props.icon)}
-        </motion.div>
+      </motion.div>
       <div className={'item-content'}>
         <h3>{props.title}</h3>
-        <p dangerouslySetInnerHTML={{__html:props.desc}} />
+        <p dangerouslySetInnerHTML={{ __html: props.desc }} />
       </div>
     </SkillCardStyle>
   );
@@ -70,11 +70,11 @@ const SkillCardStyle = styled.section`
   border-radius: 1rem;
   padding: 20px;
   margin: 1rem;
-  
+
   :hover {
     box-shadow: 0 4px 8px 0 ${(props) => props.theme.primaryColor.$800};
     border-color: ${(props) => props.theme.primaryColor.$800};
-    
+
     .icon-container {
       border-color: ${(props) => props.theme.primaryColor.$800};
     }
@@ -107,7 +107,6 @@ const SkillCardStyle = styled.section`
   p {
     font-size: 1.25rem;
   }
-
 
   @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenXs}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenSm}) {
     h3 {

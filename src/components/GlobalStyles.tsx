@@ -107,39 +107,38 @@ export default createGlobalStyle<{ activeTheme: string; theme: FredTheme }>`
     }
   }
 
-    // @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenXl}) {
-    //   body {
-    //     border: 2px solid green;
-    //   }
-    // }
-    //
-    // @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenLg }) and (max-width: ${(props) => props.theme.viewSizesMin.$screenXl }) {
-    //   body {
-    //     border: 2px solid blue;
-    //   }
-    // }
-    //
-    // @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenMd}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenLg}) {
-    //   body {
-    //     border: 2px solid aqua;
-    //   }
-    // }
-    //
-    // @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenSm}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenMd}) {
-    //   body {
-    //     border: 2px solid rosybrown;
-    //   }
-    // }
-    //
-    // @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenXs}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenSm}) {
-    //   body {
-    //     border: 2px solid lightseagreen;
-    //   }
-    // }
-
-    @media screen and (max-width: ${(props) => props.theme.viewSizesMin.$screenXs}) {
-      body {
-        border: 2px solid red;
-      }
-    }
+  // @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenXl}) {
+  //   body {
+  //     border: 2px solid green;
+  //   }
+  // }
+  //
+  // @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenLg}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenXl}) {
+  //   body {
+  //     border: 2px solid blue;
+  //   }
+  // }
+  //
+  // @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenMd}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenLg}) {
+  //   body {
+  //     border: 2px solid aqua;
+  //   }
+  // }
+  //
+  // @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenSm}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenMd}) {
+  //   body {
+  //     border: 2px solid rosybrown;
+  //   }
+  // }
+  //
+  // @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenXs}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenSm}) {
+  //   body {
+  //     border: 2px solid lightseagreen;
+  //   }
+  // }
+  // @media screen and (max-width: ${(props) => props.theme.viewSizesMin.$screenXs}) {
+  //   body {
+  //     border: 2px solid red;
+  //   }
+  // }
 `;

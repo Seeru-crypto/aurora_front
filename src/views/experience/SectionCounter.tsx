@@ -104,6 +104,5 @@ const SectionCounterStyle = styled.div`
     flex-direction: column;
     gap: 1rem;
     padding-bottom: 1rem;
-    
   }
 `;
