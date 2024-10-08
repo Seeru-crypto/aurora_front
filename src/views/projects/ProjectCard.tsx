@@ -82,6 +82,16 @@ const ProjectCard = (props: IProjectCard) => {
 const ProjectCardStyle = styled.section`
   max-width: 80%;
 
+  .card-desc {
+    font-size: ${(props) => props.theme.size.$350};
+  }
+
+  .tags-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
   .container {
     padding: 1rem;
     border: 1px solid ${(props) => props.theme.primaryColor.$300};
@@ -102,12 +112,6 @@ const ProjectCardStyle = styled.section`
       justify-content: space-between;
     }
 
-    .tags-container {
-      display: flex;
-      flex-direction: row;
-      gap: 1rem;
-    }
-
     .nav-button {
       text-decoration: none;
       color: inherit;
@@ -115,9 +119,6 @@ const ProjectCardStyle = styled.section`
       background-color: transparent;
     }
 
-    .card-desc {
-      font-size: ${(props) => props.theme.size.$350};
-    }
 
     .image {
       border-radius: 1rem;
@@ -130,7 +131,7 @@ const ProjectCardStyle = styled.section`
         color: ${(props) => props.theme.primaryColor.$500};
       }
     }
-    
+
     @media (min-width: ${(props) => props.theme.viewSizesMin.$screenLg}) {
       .image {
         height: 25rem;
@@ -144,10 +145,36 @@ const ProjectCardStyle = styled.section`
         width: 40rem;
       }
     }
+  }
 
-    @media (max-width: 1200px) {
-      max-width: 100%;
+  @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenXs}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenSm}) {
+    //border: 2px solid lightseagreen;
+    padding: 0 1rem;
+    max-width: 100%;
+
+    .image {
+      height: 20rem;
+      width: 30rem;
     }
+
+    .container {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      margin-bottom: .5rem;
+    }
+
+    .card-desc {
+      font-size: 1rem;
+    }
+
+    .tags-container {
+      padding-top: 2rem;
+      margin-bottom: -2rem;
+      gap: .5rem;
+    }
+
   }
 `;
 

@@ -17,6 +17,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Removed
 
+## [1.2.0] - 08-10-2024
+
+### Added
+- Basic mobile view´s to all sections
+### Fixed
+- 404 page navigation back
+### Changed
+### Removed
+- deprecated wave.svg files
+
 
 ## [1.1.0] - 07-10-2024
 

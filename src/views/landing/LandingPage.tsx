@@ -62,10 +62,24 @@ const LandingStyle = styled.section`
   }
 
   h1 {
-    font-size: ${(props) => props.theme.size.$500};
+    font-size: 2rem;
   }
 
   p {
-    font-size: ${(props) => props.theme.size.$400};
+    font-size: 1.5rem;
+  }
+
+  @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenXs}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenSm}) {
+    .hero {
+      margin: 1rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
   }
 `;

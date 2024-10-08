@@ -82,9 +82,63 @@ export default createGlobalStyle<{ activeTheme: string; theme: FredTheme }>`
       width: calc(216% + 1.3px);
       height: 113px;
     }
-    
+
     .shape-fill {
       fill: ${(props) => props.theme.backgroundAlternative};
     }
   }
+
+  @media (min-width: ${(props) => props.theme.viewSizesMin.$screenXs}) {
+    max-width: 100vw;
+
+    .divider-1 {
+      padding-bottom: 0;
+
+      svg {
+        max-width: inherit;
+        display: block;
+        width: calc(111% + 1.3px);
+        height: 50px;
+      }
+    }
+
+    .divider-2 {
+      padding-bottom: 0;
+    }
+  }
+
+  // @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenXl}) {
+  //   body {
+  //     border: 2px solid green;
+  //   }
+  // }
+  //
+  // @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenLg}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenXl}) {
+  //   body {
+  //     border: 2px solid blue;
+  //   }
+  // }
+  //
+  // @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenMd}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenLg}) {
+  //   body {
+  //     border: 2px solid aqua;
+  //   }
+  // }
+  //
+  // @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenSm}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenMd}) {
+  //   body {
+  //     border: 2px solid rosybrown;
+  //   }
+  // }
+  //
+  // @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenXs}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenSm}) {
+  //   body {
+  //     border: 2px solid lightseagreen;
+  //   }
+  // }
+  // @media screen and (max-width: ${(props) => props.theme.viewSizesMin.$screenXs}) {
+  //   body {
+  //     border: 2px solid red;
+  //   }
+  // }
 `;

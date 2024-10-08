@@ -1,12 +1,16 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import styled from 'styled-components';
+import { useAppDispatch } from '../state/store';
+import { setCurrentPage } from '../state/appSlice';
 
 const NotFound = () => {
   const router = useRouter();
   const timer = 10 * 1000;
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
+    dispatch(setCurrentPage('404'))
     setTimeout(() => {
       router.push('/');
     }, timer);
