@@ -93,6 +93,7 @@ export default createGlobalStyle<{ activeTheme: string; theme: FredTheme }>`
 
     .divider-1 {
       padding-bottom: 0;
+      width: inherit;
 
       svg {
         max-width: inherit;
@@ -104,6 +105,7 @@ export default createGlobalStyle<{ activeTheme: string; theme: FredTheme }>`
 
     .divider-2 {
       padding-bottom: 0;
+      width: inherit;
     }
   }
 
@@ -114,30 +116,31 @@ export default createGlobalStyle<{ activeTheme: string; theme: FredTheme }>`
   // }
   //
   // @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenLg}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenXl}) {
-  //   body {
+  //   section {
   //     border: 2px solid blue;
   //   }
   // }
   //
   // @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenMd}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenLg}) {
-  //   body {
+  //   section {
   //     border: 2px solid aqua;
   //   }
   // }
   //
   // @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenSm}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenMd}) {
-  //   body {
+  //   section {
   //     border: 2px solid rosybrown;
   //   }
   // }
   //
   // @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenXs}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenSm}) {
-  //   body {
+  //   section {
   //     border: 2px solid lightseagreen;
   //   }
   // }
+  //
   // @media screen and (max-width: ${(props) => props.theme.viewSizesMin.$screenXs}) {
-  //   body {
+  //   section {
   //     border: 2px solid red;
   //   }
   // }

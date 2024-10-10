@@ -28,6 +28,7 @@ jobs:
       - name: Build Image
         run: |
           docker build \
+          --build-arg NEXT_PUBLIC_VERSION_NUMBER=$VERSION_TAG \
           -t $DOCKER_USERNAME/$PROJECT_NAME:$VERSION_TAG \
           -t $DOCKER_USERNAME/$PROJECT_NAME:latest \
           -f ./Dockerfile \

@@ -147,7 +147,7 @@ const ProjectCardStyle = styled.section`
     }
   }
 
-  @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenXs}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenSm}) {
+  @media screen and (max-width: ${(props) => props.theme.viewSizesMin.$screenLg}) {
     //border: 2px solid lightseagreen;
     padding: 0 1rem;
     max-width: 100%;
