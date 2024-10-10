@@ -4,7 +4,7 @@ export default function Footer(): JSX.Element {
 
   return (
     <FooterStyle>
-      <small>&copy; Aurora v{process.env.NEXT_PUBLIC_VERSION_NUMBER} {new Date().getFullYear()}</small>
+      <small>&copy; Aurora {process.env.NEXT_PUBLIC_VERSION_NUMBER} {new Date().getFullYear()}</small>
     </FooterStyle>
   );
 }
