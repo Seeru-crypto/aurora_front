@@ -1,6 +1,7 @@
 FROM node:21.4.0
 
 ARG NEXT_PUBLIC_VERSION_NUMBER
+ENV NEXT_PUBLIC_VERSION_NUMBER=${NEXT_PUBLIC_VERSION_NUMBER}
 RUN mkdir -p /home/app/ && chown -R node:node /home/app
 WORKDIR /home/app
 COPY --chown=node:node . .
