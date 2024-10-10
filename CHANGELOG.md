@@ -17,6 +17,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Removed
 
+## [1.3.0] - 10-10-2024
+
+### Added
+- footer version number
+- sharp package
+### Fixed
+- wave svg in mobile view
+- project cards in mobile
+### Changed
+- Last changed date format
+### Removed
+
+
 ## [1.2.0] - 08-10-2024
 
 ### Added
