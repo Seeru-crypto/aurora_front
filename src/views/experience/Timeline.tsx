@@ -28,10 +28,10 @@ const Timeline = () => {
     },
     {
       title: 'Police and Border Guard Board',
-      position: 'System a dministrator',
+      position: 'System administrator',
       desc: 'I was responsible for the PPA\'s management information system, which had over 150 users. I created data models, ETL pipelines, and wrote documentation (information models, user stories, detailed analysis of new functionalities, and descriptions of processes affecting services).',
       date: '2018-2020',
-      icon: <Image alt="PPA icon missing" src={PPAIcon.src} height='42' width="42" />,
+      icon: <Image className="PPA-icon" alt="PPA icon missing" src={PPAIcon.src} height='42' width="42" />,
       iconStyle: { background: 'beige', color: '#fff', display: 'flex', justifyContent: 'center', alignItems: 'center' },
     },
   ];
@@ -94,6 +94,18 @@ const TimelineStyles = styled.div`
     top: 0;
     margin-left: 0;
     margin-top: 0;
+  }
+
+  @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenXs}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenSm}) {
+    .NG-icon {
+      border-radius: 1rem;
+    }
+    
+    .PPA-icon {
+      margin-bottom: -5px;
+      height: 34px;
+      width: 34px;
+    }
   }
 `;
 
