@@ -10,12 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - MINOR version when you add functionality in a backward compatible manner
 - PATCH version when you make backward compatible bug fixes
 
-## [MAJOR.MINOR.PATCH] - DD-MM-YYYY
+## [1.3.2] - DD-MM-YYYY
 
-### Added
-### Fixed
 ### Changed
-### Removed
+- Added new env var NEXT_PUBLIC_VERSION_NUMBER
 
 ## [1.3.0] - 10-10-2024
 
@@ -27,8 +25,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - project cards in mobile
 ### Changed
 - Last changed date format
-### Removed
-
 
 ## [1.2.0] - 08-10-2024
 
@@ -36,7 +32,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Basic mobile view´s to all sections
 ### Fixed
 - 404 page navigation back
-### Changed
 ### Removed
 - deprecated wave.svg files
 
