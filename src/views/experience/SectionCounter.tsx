@@ -7,7 +7,13 @@ export default function SectionCounter(): JSX.Element {
   function formatIsoToLocal() {
     const lastcommit = process.env.LAST_COMMIT_DATE;
     if (lastcommit) {
-      return new Date(lastcommit).toLocaleDateString()
+      // return new Date(lastcommit).toLocaleDateString()
+      const date = new Date(lastcommit);
+      return date.toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "short",
+        year: "numeric"
+      })
     }
     else {
       return "error getting last commit"
