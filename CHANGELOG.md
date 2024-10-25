@@ -10,7 +10,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - MINOR version when you add functionality in a backward compatible manner
 - PATCH version when you make backward compatible bug fixes
 
-## [1.3.2] - DD-MM-YYYY
+## [MAJOR.MINOR.PATCH] - DD-MM-YYYY
+
+### Added
+### Fixed
+### Changed
+### Removed
+
+## [1.3.3] - 25-10-2024
+
+### Removed
+- Incorrect dockerfile healthcheck
+
+## [1.3.2] - 10-10-2024
 
 ### Changed
 - Added new env var NEXT_PUBLIC_VERSION_NUMBER
