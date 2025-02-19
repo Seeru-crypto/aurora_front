@@ -25,7 +25,7 @@ export default createGlobalStyle<{ activeTheme: string; theme: FredTheme }>`
 
   main {
     display: flex;
-    flex-flow: column wrap;
+    flex-direction: column;
     margin: 0 auto;
     max-width: 100%;
 
