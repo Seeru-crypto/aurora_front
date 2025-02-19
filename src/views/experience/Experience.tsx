@@ -16,9 +16,7 @@ const Experience = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JS
 });
 
 const ExperienceStyle = styled.section`
-  margin-bottom: 2rem;
   background-color: ${(props) => props.theme.background};
-
   .container {
     padding: 0 4rem;
   }

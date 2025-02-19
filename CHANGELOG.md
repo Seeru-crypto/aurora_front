@@ -17,6 +17,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Removed
 
+
+## [1.3.4] - 19-02-2025
+
+### Changed
+- updated experience, section adding intelex
+
+### Fixed
+- Mobile view, spacing bug
+
 ## [1.3.3] - 25-10-2024
 
 ### Removed
