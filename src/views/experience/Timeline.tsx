@@ -5,15 +5,23 @@ import { GoCalendar } from 'react-icons/go';
 import TimelineElement, { ITimelineElement } from './TimelineElement';
 import NetGroupIcon from '../../../public/resources/icons/NetGroupIcon.svg';
 import HelmesIcon from '../../../public/resources/icons/HelmesIcon.svg';
+import IntelexIcon from '../../../public/resources/icons/IntelexIcon.svg';
 import PPAIcon from '../../../public/resources/icons/PPAIcon.png';
 import Image from 'next/image';
 
 const Timeline = () => {
   const data: ITimelineElement[] = [
     {
+      title: 'Intelex Insight',
+      position: 'Data engineer',
+      desc: 'Main tasks were creating data pipelines to data lakes, SQL optimization and creating simpler PowerBi reports.',
+      date: '2024-present',
+      icon: <IntelexIcon className="INTX-icon" />,
+      iconStyle: {background: 'beige', display: 'flex', justifyContent: 'center', alignItems: 'center'},
+    }, {
       title: 'Helmes OÜ',
       position: 'Full-stack developer',
-      desc: 'Main tasks were maintanace and new feature development on a microservice project, with over 20 modules.',
+      desc: 'Main tasks were maintanace and new feature development on a Java microservice project, with over 20 modules.',
       date: '2023-2024',
       icon: <HelmesIcon className="HLM-icon" />,
       iconStyle: {background: 'beige', display: 'flex', justifyContent: 'center', alignItems: 'center'},
@@ -74,13 +82,24 @@ const TimelineStyles = styled.div`
 
   .HLM-icon {
     width: 156px;
-    height: inherit;
+    height: 86px;
     margin-left: 0;
     margin-top: 0;
     fill: blue;
 
     top: 40%;
     left: 25%;
+  }
+  
+  .INTX-icon {
+    width: 146px;
+    height: 52px;
+    font-size: 1rem;
+    fill: rgb(90, 24, 154);
+
+    top: 10%;
+    left: 10%;
+
   }
 
   .NG-icon {
