@@ -18,6 +18,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 
+
+
+## [1.3.5] - 20-02-2025
+
+### Fixed
+- Mobile view, for project images
+- Mobile view, weird extra widht
+
 ## [1.3.4] - 19-02-2025
 
 ### Changed
