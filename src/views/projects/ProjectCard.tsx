@@ -53,12 +53,18 @@ const ProjectCard = (props: IProjectCard) => {
         variants={animationConfig}
         className='container'
       >
-        <Image src={getImage(props.imageSrc, props.alternativeImageSrc)}
-               className='image'
-               width={750}
-               height={500}
-               alt='project_image'
-               data-position='center center' />
+        <div className='image-container'>
+          <Image src={getImage(props.imageSrc, props.alternativeImageSrc)}
+                 className='image'
+                 width={0}
+                 height={0}
+                 sizes="100vw"
+                 style={{ width: '100%', height: '100%' }}
+
+                 alt='project_image'
+                 data-position='center center' />
+        </div>
+
         <div className='card-content'>
           <div className='card-top'>
             <h2 className='project-title'>{props.title}</h2>
@@ -84,6 +90,12 @@ const ProjectCardStyle = styled.section`
 
   .card-desc {
     font-size: ${(props) => props.theme.size.$350};
+  }
+  
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .tags-container {
@@ -156,12 +168,20 @@ const ProjectCardStyle = styled.section`
       height: 20rem;
       width: 30rem;
     }
+    
+    .card-top {
+      padding:  0 .5rem;
+    }
+    
+    .card-content {
+      padding: .5rem !important;
+    }
 
     .container {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 1rem;
+      padding: 0;
       margin-bottom: .5rem;
     }
 
@@ -170,11 +190,15 @@ const ProjectCardStyle = styled.section`
     }
 
     .tags-container {
+      font-size: .5rem;
       padding-top: 2rem;
-      margin-bottom: -2rem;
       gap: .5rem;
     }
 
+    .image-container {
+      padding-top: 1rem;
+      width: 90%;
+    }
   }
 `;
 

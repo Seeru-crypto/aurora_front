@@ -42,6 +42,10 @@ const TopicStyle = styled.div<{ topicType: string | undefined }>`
     background-color: ${(props) => props.theme.database};
     color: ${(props) => props.theme.textColor};
   }
+  @media screen and (max-width: ${(props) => props.theme.viewSizesMin.$screenLg}) {
+    font-size: .75rem;
+  }
+
 `;
 
 export default ProjectTag;
