@@ -27,7 +27,7 @@ const ProjectCard = (props: IProjectCard) => {
     else return imageSrc;
   }
 
-
+  let framerConfig: Variants = {}
   const animationConfig: Variants = {
     offscreen: {
       y: 150,
@@ -44,13 +44,18 @@ const ProjectCard = (props: IProjectCard) => {
     },
   };
 
+  const isMobile = window.innerWidth < 768; //should be same as $screenSm
+  if (!isMobile) {
+    framerConfig = animationConfig
+  }
+
   return (
     <ProjectCardStyle>
       <motion.div
         initial='offscreen'
         whileInView='onscreen'
         viewport={{ once: true, amount: 0.6 }}
-        variants={animationConfig}
+        variants={framerConfig}
         className='container'
       >
         <div className='image-container'>

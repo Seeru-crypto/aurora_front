@@ -8,6 +8,7 @@ import HelmesIcon from '../../../public/resources/icons/HelmesIcon.svg';
 import IntelexIcon from '../../../public/resources/icons/IntelexIcon.svg';
 import PPAIcon from '../../../public/resources/icons/PPAIcon.png';
 import Image from 'next/image';
+import { IS_MOBILE } from '../../utils';
 
 const Timeline = () => {
   const data: ITimelineElement[] = [
@@ -44,9 +45,15 @@ const Timeline = () => {
     },
   ];
 
+  let is_animated = false;
+
+  if (!IS_MOBILE) {
+    is_animated = true
+  }
+
   return (
     <TimelineStyles>
-      <VerticalTimeline>
+      <VerticalTimeline animate={is_animated}>
         {data.map(item => <TimelineElement
           iconStyle={item.iconStyle}
           icon={item.icon}
