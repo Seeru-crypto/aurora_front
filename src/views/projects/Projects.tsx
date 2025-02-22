@@ -11,7 +11,8 @@ const Projects = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JSX.
       <div className='project-card-container'>
         {projectData.map(card => (<ProjectCard key={card.title}
                                                tags={card.tags}
-                                               link={card.link}
+                                               codeRepository={card.codeRepository}
+                                               liveInstance={card.liveInstance}
                                                title={card.title}
                                                desc={card.desc}
                                                imageSrc={card.imageSrc}

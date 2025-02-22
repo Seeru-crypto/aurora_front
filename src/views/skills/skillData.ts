@@ -3,7 +3,7 @@ import { ISkillCard } from './SkillCard';
 export const SkillData: ISkillCard[] = [
   {
     title: 'back-end',
-    desc: 'I specialize in building scalable, high-performance back-end systems using <b>Java</b> (Spring Boot). When it comes to databases, I’m experienced with both relational databases like <b>PostgreSQL</b> and <b>Oracle</b>, as well as NoSQL solutions like <b>MongoDB</b>',
+    desc: 'I specialize in developing scalable, high-performance back-end systems with <b>Java</b> (Spring Boot). I\'m experienced in both SQL and NoSQL databases, ensuring efficient data management. Additionally, I have expertise in headless CRM solutions like <b>Strapi</b> and full CRM platforms such as <b>WordPress</b> when needed.',
     icon: 'FaCode'
   },  {
     title: 'Hosting',

@@ -12,7 +12,8 @@ export interface IProjectCard {
   title: string;
   desc: string;
   tags: IProjectTag[];
-  link?: string;
+  codeRepository?: string;
+  liveInstance?: string;
   alternativeImageSrc?: string;
 }
 
@@ -74,9 +75,15 @@ const ProjectCard = (props: IProjectCard) => {
           <div className='card-top'>
             <h2 className='project-title'>{props.title}</h2>
             <p className='card-desc'>{props.desc}</p>
-            {props.link && (
-              <Button> <a target='_blank' href={props.link} className='nav-button'>github</a></Button>
-            )}
+            <div className='link-container'>
+              {props.codeRepository && (
+                <Button> <a target='_blank' href={props.codeRepository} className='nav-button'>code</a></Button>
+              )}
+              {props.liveInstance && (
+                <Button> <a target='_blank' href={props.liveInstance} className='nav-button'>live</a></Button>
+              )}
+            </div>
+
           </div>
           <div className='tags-container'>
             {props.tags.map(tag => <ProjectTag
@@ -91,7 +98,7 @@ const ProjectCard = (props: IProjectCard) => {
 };
 
 const ProjectCardStyle = styled.section`
-  max-width: 80%;
+  max-width: 60%;
 
   .card-desc {
     font-size: ${(props) => props.theme.size.$350};
@@ -107,6 +114,12 @@ const ProjectCardStyle = styled.section`
     display: flex;
     flex-direction: row;
     gap: 1rem;
+  }
+  
+  .link-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
   }
 
   .container {
