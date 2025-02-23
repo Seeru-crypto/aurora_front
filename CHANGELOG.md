@@ -17,10 +17,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Removed
 
-## [1.3.6] - DRAFT
+## [1.3.6] - 22-02-2025
+
+### Added
+- Project live links
 
 ### Changed
 - Disabled animations on mobile screen
+- Reduced project card with
+- Update skill card desc text
+- Update robots.txt to disallow indexing pdf´s
 
 
 ## [1.3.5] - 20-02-2025
