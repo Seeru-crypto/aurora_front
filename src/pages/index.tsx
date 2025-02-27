@@ -9,6 +9,7 @@ import Contact from '../views/contact/Contact';
 import Skills from '../views/skills/Skills';
 import Projects from '../views/projects/Projects';
 import Wave from '../../public/resources/icons/Wave.svg';
+import Position from "../components/Position";
 
 export default function Home(): JSX.Element {
   const isToastShown: boolean = useAppSelector((state: RootState) => state.app.isToastShown);
@@ -45,6 +46,8 @@ export default function Home(): JSX.Element {
     <>
       {isToastShown && <Toast message='Added to clipboard' />}
       <LandingPage ref={landingRef} />
+      <Position />
+
       <div className='divider-1'>
         <Wave className='shape-fill' />
       </div>

@@ -2,6 +2,7 @@ import React, { ForwardedRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import CtaButton from './CtaButton';
 import { LABELS } from '../../data';
+import Title from "./Title/Title";
 
 const LandingPage = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>) => {
   const [greetingMessage, setGreetingMessage] = useState('');
@@ -36,6 +37,7 @@ const LandingPage = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>) =>
           {GREETING_MAIN_BODY}
         </h1>
         <p>{LANDING_HERO_TEXT}</p>
+        <Title />
       </div>
       <CtaButton />
     </LandingStyle>

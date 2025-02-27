@@ -1,0 +1,84 @@
+.position {
+  position: relative;
+  cursor: default;
+  font-size: 16px;
+  line-height: 32px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textContainer {
+  position: absolute;
+  inset: 0;
+  top: -30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  position: absolute;
+  left: 4px;
+  display: flex;
+}
+
+.first {
+  z-index: 1;
+  color: blue;
+}
+
+.second {
+  z-index: 2;
+  color: red;
+}
+
+.inlineBlock {
+  display: inline-block;
+}
+
+.transformStyle3d {
+  transform-style: preserve-3d;
+}
+
+.originBottom {
+  transform-origin: bottom;
+}
+
+.animateTextRotate1 {
+  animation: textRotate1 10s ease infinite 2s;
+}
+
+.animateTextRotate2 {
+  animation: textRotate2 10s ease infinite 2s;
+}
+
+@keyframes textRotate1 {
+  0%, 20% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  30%, 70% {
+    transform: rotateX(-90deg);
+    opacity: 0;
+  }
+  80%, 100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes textRotate2 {
+  0%, 20% {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+  30%, 70% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  80%, 100% {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+}
