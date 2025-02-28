@@ -74,7 +74,7 @@ const pink = {
 
 export const PageHeaderStyled = styled.h2`
   grid-column: 2 / 13;
-  font-size: ${typeScale.headline};
+  font-size: ${typeScale.subtitle};
   font-weight: bold;
   color: ${blue["110"]};
   padding-block: 1.25rem;
@@ -124,7 +124,7 @@ export const Position = styled(PageHeaderStyled)`
     }
   }
   @media screen and (max-width: 1204px) {
-    font-size: ${typeScale.title};
+    font-size: ${typeScale.subtitle};
   }
   @media screen and (max-width: 480px) {
     font-size: ${typeScale.subtitle};

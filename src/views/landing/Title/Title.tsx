@@ -30,6 +30,11 @@ const PositionContainer = styled.div`
         line-height: 40px;
     }
 `;
+const Container = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
 
 const produceSpans = (name) => {
     return name.split("").map((letter, index) => (
@@ -46,16 +51,16 @@ const produceSpans = (name) => {
 
 const title: React.FC = () => {
     return (
-        <PositionContainer>
+        <Container>
             <Position>
                 <div className="text first" aria-label="Full Stack Developer">
                     {produceSpans("Full Stack Developer")}
                 </div>
-                <div className="text second" aria-label="UI/UX Enthusiast">
+                <div className="text second" aria-label="Homelab Enthusiast">
                     {produceSpans("Homelab Enthusiast")}
                 </div>
             </Position>
-        </PositionContainer>
+        </Container>
     );
 };
 
