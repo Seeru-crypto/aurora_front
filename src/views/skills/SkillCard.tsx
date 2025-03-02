@@ -3,7 +3,6 @@ import { FaCode, FaServer } from 'react-icons/fa';
 import { FiMonitor } from 'react-icons/fi';
 import { MdSettings } from 'react-icons/md';
 import { motion, Variants } from 'framer-motion';
-import { IS_MOBILE } from '../../utils';
 
 type IconTypes = 'FaCode' | 'FaServer' | 'FiMonitor' | 'MdSettings'
 
@@ -14,6 +13,7 @@ export interface ISkillCard {
 }
 
 const SkillCard = (props: ISkillCard) => {
+
   function getIcon(iconName: IconTypes) {
     switch (iconName) {
       case 'FaCode':
@@ -30,7 +30,7 @@ const SkillCard = (props: ISkillCard) => {
 
   const springConfig: Variants = {
     offscreen: {
-      y: -300,
+      y: 100,
       opacity: 0,
     },
     onscreen: {
@@ -39,22 +39,19 @@ const SkillCard = (props: ISkillCard) => {
       transition: {
         type: 'spring',
         bounce: 0.5,
-        duration: 1.8,
-        delay: 0.4,
+        duration: 1,
+        delay: 0.4
       },
     },
   };
-
-  if (!IS_MOBILE) {
-    framerConfiguration = springConfig
-  }
+  framerConfiguration = springConfig
 
   return (
     <SkillCardStyle>
       <motion.div
         initial='offscreen'
         whileInView='onscreen'
-        viewport={{ once: true, amount: 1 }}
+        viewport={{ once: true, amount: 0.5, margin: "-50px" }}
         className='icon-container'
         variants={framerConfiguration}>
         {getIcon(props.icon)}

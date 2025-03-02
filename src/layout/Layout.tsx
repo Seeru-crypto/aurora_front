@@ -12,7 +12,10 @@ export default function Layout({ children }: any): JSX.Element {
   return (
     <ThemeProvider theme={activeTheme === ActiveTheme.DAY ? DayTheme : NightTheme}>
       <Head>
-        <title>Aurora</title>
+        <title>Fred Oja</title>
+        <meta name='keywords' content='IT development, programming, software engineering, web development' />
+        <meta name='description' content='Your IT development and programming resource hub' />
+        <meta name='robots' content='index, follow' />
       </Head>
       <GlobalStyles activeTheme={activeTheme} />
       <Header />
