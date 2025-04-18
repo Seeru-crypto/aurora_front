@@ -17,7 +17,7 @@ export const projectData: IProjectCard[] = [{
   desc: 'A old homework project, which I used as a base to develop more advanced functionality. Currently you can create users, with dynamic sectors, and add custom filters to view said users.',
   tags: [
     { name: 'java 17', type: 'back' },
-    { name: 'Postgre', type: 'back' },
+    { name: 'PostgreSQL', type: 'back' },
     { name: 'vite', type: 'front' },
     { name: 'Redux', type: 'front' },
   ],
@@ -39,7 +39,18 @@ export const projectData: IProjectCard[] = [{
   tags: [
     {name: 'next.js', type: 'front'},
     {name: 'Strapi', type: 'back'},
+    {name: 'PostgreSQL', type: 'db'},
     {name: 'Traefik', type: 'other'},
+  ],
+},{
+  imageSrc: '/resources/pictures/TrafficLight.png',
+  title: 'Lights',
+  desc: 'A small educational project, where the main focus was on learning websockets and java threads',
+  codeRepository: "https://github.com/Seeru-crypto/Lights",
+  tags: [
+    {name: 'vite.js', type: 'front'},
+    {name: 'H2', type: 'db'},
+    {name: 'Java 21', type: 'back'}
   ],
 },
 ];
