@@ -15,13 +15,13 @@ const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<HTMLButtonEleme
   const { buttonType = ButtonType.GHOST, children, isActive } = props;
 
   return (
-    <ButtonStyles
+    <BaseStyle
       {...props}
       className={`${props.className} ${isActive && ' active'}`}
       buttonType={buttonType}
       ref={ref}>
       {children}
-    </ButtonStyles>
+    </BaseStyle>
   );
 });
 
@@ -65,7 +65,7 @@ const GhostStyles = css`
   &.active,
   :hover {
     background-color: ${(props) => props.theme.primary};
-    color: ${(props) => props.theme.gray.$900};
+    color: ${(props) => props.theme.buttonHoverTextColor};
 
     > svg {
       fill: ${(props) => props.theme.white};
@@ -75,7 +75,7 @@ const GhostStyles = css`
   }
 `;
 
-const ButtonStyles = styled.button<{ buttonType: ButtonType }>`
+const BaseStyle = styled.button<{ buttonType: ButtonType }>`
   border: 2px solid transparent;
   border-radius: ${(props) => props.theme.borderRadius};
   align-items: center;

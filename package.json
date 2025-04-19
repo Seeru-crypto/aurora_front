@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start",
     "lint": "next lint && prettier --check 'src/**/*.(ts|x)'",
@@ -11,6 +11,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@fontsource/ibm-plex-mono": "^5.1.1",
     "@reduxjs/toolkit": "^1.8.4",
     "@tanstack/react-table": "^8.5.15",
     "date-fns": "^2.29.3",

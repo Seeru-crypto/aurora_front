@@ -2,10 +2,11 @@ import React, { ForwardedRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import CtaButton from './CtaButton';
 import { LABELS } from '../../data';
+import Title from './Title/AnimatedTitle';
 
 const LandingPage = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>) => {
   const [greetingMessage, setGreetingMessage] = useState('');
-  const { GREETING_MORNING, GREETING_DAY, GREETING_MAIN_BODY, GREETING_EVENING, LANDING_HERO_TEXT, GREETING_DEFAULT } =
+  const { GREETING_MORNING, GREETING_DAY, GREETING_MAIN_BODY, GREETING_EVENING, GREETING_DEFAULT } =
     LABELS;
 
   useEffect(() => {
@@ -35,7 +36,7 @@ const LandingPage = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>) =>
           {greetingMessage}&nbsp;
           {GREETING_MAIN_BODY}
         </h1>
-        <p>{LANDING_HERO_TEXT}</p>
+        <Title />
       </div>
       <CtaButton />
     </LandingStyle>
@@ -60,6 +61,11 @@ const LandingStyle = styled.section`
     justify-content: center;
     color: ${(props) => props.theme.textColor};
   }
+  
+  .test {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1rem;
+  }
 
   h1 {
     font-size: 2rem;
@@ -71,7 +77,9 @@ const LandingStyle = styled.section`
 
   @media screen and (min-width: ${(props) => props.theme.viewSizesMin.$screenXs}) and (max-width: ${(props) => props.theme.viewSizesMin.$screenSm}) {
     .hero {
+      padding-top: 2rem;
       margin: 1rem;
+      justify-content: flex-start;
     }
 
     h1 {

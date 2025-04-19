@@ -43,5 +43,4 @@ export const LABELS = {
   GREETING_EVENING: 'Good evening!',
   GREETING_DEFAULT: 'Howdy!',
   GREETING_MAIN_BODY: 'My name is Fred',
-  LANDING_HERO_TEXT: 'I do stuff for the interwebz',
 };

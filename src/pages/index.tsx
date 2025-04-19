@@ -9,6 +9,7 @@ import Contact from '../views/contact/Contact';
 import Skills from '../views/skills/Skills';
 import Projects from '../views/projects/Projects';
 import Wave from '../../public/resources/icons/Wave.svg';
+import '@fontsource/ibm-plex-mono';
 
 export default function Home(): JSX.Element {
   const isToastShown: boolean = useAppSelector((state: RootState) => state.app.isToastShown);
