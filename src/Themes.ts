@@ -123,6 +123,9 @@ export const DayTheme = {
   timelineBkgColor: gray.$200,
   backgroundAlternative: gray.$100,
   experienceBoxShadowColor: gray.$300,
+  ctaButtonColor: gray.$50,
+  ctaButtonBkg: primaryColor.$600,
+  ctaButtonBkgAlt: gray.$50
 };
 
 export const NightTheme = {
@@ -146,5 +149,8 @@ export const NightTheme = {
   backgroundAlternative: gray.$700,
   buttonTextColor: gray.$100,
   experienceBoxShadowColor: gray.$500,
+  ctaButtonColor: gray.$50,
+  ctaButtonBkg: primaryColor.$700,
+  ctaButtonBkgAlt: gray.$0
 };
 export type FredTheme = typeof baseTheme & (typeof DayTheme | typeof NightTheme) & DefaultTheme;

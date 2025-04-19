@@ -2,7 +2,9 @@ import React, { ForwardedRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import CtaButton from './CtaButton';
 import { LABELS } from '../../data';
-import Title from "./Title/Title";
+import Title from './Title/Title';
+import AnimatedButton, { AnimatedButtonType } from '../../components/AnimatedButton';
+import Button, { ButtonType } from '../../components/Button';
 
 const LandingPage = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>) => {
   const [greetingMessage, setGreetingMessage] = useState('');
