@@ -75,6 +75,9 @@ const ProjectCard = (props: IProjectCard) => {
           <div className='card-top'>
             <h2 className='project-title'>{props.title}</h2>
             <p className='card-desc'>{props.desc}</p>
+
+          </div>
+          <div className='card-bottom'>
             <div className='link-container'>
               {props.codeRepository && (
                 <Button> <a target='_blank' href={props.codeRepository} className='nav-button'>code</a></Button>
@@ -83,13 +86,12 @@ const ProjectCard = (props: IProjectCard) => {
                 <Button> <a target='_blank' href={props.liveInstance} className='nav-button'>live</a></Button>
               )}
             </div>
-
-          </div>
-          <div className='tags-container'>
-            {props.tags.map(tag => <ProjectTag
-              key={tag.name}
-              name={tag.name}
-              type={tag.type} />)}
+            <div className='tags'>
+              {props.tags.map(tag => <ProjectTag
+                key={tag.name}
+                name={tag.name}
+                type={tag.type} />)}
+            </div>
           </div>
         </div>
       </motion.div>
@@ -110,16 +112,22 @@ const ProjectCardStyle = styled.section`
     align-items: center;
   }
 
-  .tags-container {
+  .card-bottom {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 1rem;
   }
   
   .link-container {
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    gap: 1rem;
+  }
+  
+  .tags {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
   }
 
   .container {
@@ -147,6 +155,10 @@ const ProjectCardStyle = styled.section`
       color: inherit;
       border: none;
       background-color: transparent;
+      
+      :hover {
+        color: inherit;
+      }
     }
 
 
@@ -207,7 +219,7 @@ const ProjectCardStyle = styled.section`
       font-size: 1rem;
     }
 
-    .tags-container {
+    .card-bottom {
       font-size: .5rem;
       padding-top: 2rem;
       gap: .5rem;

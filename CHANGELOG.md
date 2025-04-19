@@ -17,6 +17,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Removed
 
+## [1.3.8] - xx-04-2025
+
+### Added
+- animated title in landing page
+- special animation for CTA button.
+- Traffic light project
+
+### Changed
+- update project card link structure
+
+### Fixed
+- project button on-hover color
 
 ## [1.3.7] - 02-03-2025
 
