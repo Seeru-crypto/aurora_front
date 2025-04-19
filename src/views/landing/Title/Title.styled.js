@@ -128,7 +128,6 @@ export const Position = styled(PageHeaderStyled)`
   }
   @media screen and (max-width: 480px) {
     font-size: ${typeScale.subtitle};
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;

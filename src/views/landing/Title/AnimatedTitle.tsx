@@ -1,38 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import {AnimatedSpan, Position} from "./Title.styled";
+import { AnimatedSpan, Position } from './Title.styled';
 
-const PositionContainer = styled.div`
-    position: relative;
-    cursor: default;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 32px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    @media (min-width: 375px) {
-        font-size: 20px;
-    }
-
-    @media (min-width: 640px) {
-        font-size: 30px;
-    }
-
-    @media (min-width: 768px) {
-        font-size: 36px;
-    }
-
-    @media (min-width: 1536px) {
-        font-size: 66px;
-        line-height: 40px;
-    }
-`;
 const Container = styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 `
 
@@ -49,7 +21,7 @@ const produceSpans = (name) => {
     ));
 };
 
-const title: React.FC = () => {
+const AnimatedTitle: React.FC = () => {
     return (
         <Container>
             <Position>
@@ -64,4 +36,4 @@ const title: React.FC = () => {
     );
 };
 
-export default title;
+export default AnimatedTitle;
