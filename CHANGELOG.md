@@ -17,6 +17,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Removed
 
+
+## [1.3.7] - 02-03-2025
+
+### Changed
+- updated robots.txt & added meta tags, in <head
+
+### Fixed
+- Skills icon animation bug
+- Experience PPA icon bug
+
 ## [1.3.6] - 22-02-2025
 
 ### Added

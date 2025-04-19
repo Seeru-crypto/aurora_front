@@ -1,7 +1,7 @@
 # Disallow specific directories
 User-agent: *
 Allow: /
-Disallow: /resources/*
+Disallow: /resources/files/
 Disallow: /loading
 Disallow: /404
 Host: https://fredoja.com

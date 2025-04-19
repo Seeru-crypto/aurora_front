@@ -6,9 +6,11 @@ import TimelineElement, { ITimelineElement } from './TimelineElement';
 import NetGroupIcon from '../../../public/resources/icons/NetGroupIcon.svg';
 import HelmesIcon from '../../../public/resources/icons/HelmesIcon.svg';
 import IntelexIcon from '../../../public/resources/icons/IntelexIcon.svg';
-import PPAIcon from '../../../public/resources/icons/PPAIcon.png';
+
 import Image from 'next/image';
 import { IS_MOBILE } from '../../utils';
+
+const PPAIcon = '/resources/icons/PPAIcon.png'
 
 const Timeline = () => {
   const data: ITimelineElement[] = [
@@ -40,7 +42,7 @@ const Timeline = () => {
       position: 'System administrator',
       desc: 'I was responsible for the PPA\'s management information system, which had over 150 users. I created data models, ETL pipelines, and wrote documentation (information models, user stories, detailed analysis of new functionalities, and descriptions of processes affecting services).',
       date: '2018-2020',
-      icon: <Image className="PPA-icon" alt="PPA icon missing" src={PPAIcon.src} height='42' width="42" />,
+      icon: <Image className="PPA-icon" alt="PPA icon missing" src={PPAIcon} height='42' width="42" />,
       iconStyle: { background: 'beige', color: '#fff', display: 'flex', justifyContent: 'center', alignItems: 'center' },
     },
   ];
