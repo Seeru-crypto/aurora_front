@@ -9,7 +9,7 @@ export default function CtaButton(props: any): JSX.Element {
   return (
     <CtaStyle activeTheme={activeTheme} {...props}>
       <a href='#projects' className="cta">
-        <AnimatedButton buttonType={AnimatedButtonType.ANIMATED_CTA} onClick={() => console.log("project")}>Check out my projects</AnimatedButton>
+        <AnimatedButton buttonType={AnimatedButtonType.ANIMATED_CTA}>Check out my projects</AnimatedButton>
       </a>
       <BiChevronsDown className='chevrons' />
     </CtaStyle>

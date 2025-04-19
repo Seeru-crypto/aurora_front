@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Removed
 
-## [1.3.8] - xx-04-2025
+## [1.3.8] - 19-04-2025
 
 ### Added
 - animated title in landing page
