@@ -65,7 +65,7 @@ const GhostStyles = css`
   &.active,
   :hover {
     background-color: ${(props) => props.theme.primary};
-    color: ${(props) => props.theme.gray.$900};
+    color: ${(props) => props.theme.buttonHoverTextColor};
 
     > svg {
       fill: ${(props) => props.theme.white};

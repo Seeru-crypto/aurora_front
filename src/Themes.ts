@@ -110,7 +110,7 @@ export const DayTheme = {
   showCaseBoxShadowColor: primaryColor.$200,
   detailTextColor: gray.$500,
   buttonTextColor: gray.$100,
-  buttonHoverTextColor: gray.$900,
+  buttonHoverTextColor: gray.$200,
   buttonHoverBkgColor: primaryColor.$400,
   clipboardBkgColor: primaryColor.$600,
   clipboardColor: violet.$600,
