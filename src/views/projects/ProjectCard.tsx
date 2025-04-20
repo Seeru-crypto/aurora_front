@@ -193,6 +193,7 @@ const ProjectCardStyle = styled.section`
     //border: 2px solid lightseagreen;
     padding: 0 1rem;
     max-width: 100%;
+    width: 100%;
 
     .image {
       height: 20rem;
