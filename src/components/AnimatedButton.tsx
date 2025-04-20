@@ -26,7 +26,7 @@ const AnimatedButton = forwardRef((props: ButtonProps, ref: ForwardedRef<HTMLBut
   );
 });
 
-AnimatedButton.displayName = 'Button';
+AnimatedButton.displayName = 'Animated Button';
 
 export default AnimatedButton;
 

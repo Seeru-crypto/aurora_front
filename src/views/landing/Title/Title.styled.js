@@ -137,8 +137,3 @@ export const Position = styled(PageHeaderStyled)`
   }
 `;
 
-export const AnimatedSpan = styled.span`
-  transition: 0.5s;
-  animation-delay: ${(props) => props.index * 0.05}s !important;
-  padding: ${(props) => (props.letter === " " ? "0.325rem" : null)};
-`;

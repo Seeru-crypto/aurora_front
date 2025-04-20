@@ -17,6 +17,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Removed
 
+
+## [1.3.9] - 20-04-2025
+
+### Fixed
+- Typing error, causing build errors
+
 ## [1.3.8] - 19-04-2025
 
 ### Added
