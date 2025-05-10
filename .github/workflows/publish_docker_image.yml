@@ -1,5 +1,5 @@
 # If a new version is published against main branch, build a new docker image and push it to docker hub
-name: Publish LIVE Docker image
+name: Publish Docker image
 
 on:
   release:
