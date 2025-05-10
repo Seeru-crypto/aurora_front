@@ -28,9 +28,10 @@ jobs:
           password: ${{ secrets.DOCKER_TOKEN }}
       - name: Build v8 Image
         run: |
-          docker buildx \
+          docker build \
           --build-arg NEXT_PUBLIC_VERSION_NUMBER=0 \
           -t $DOCKER_USERNAME/$PROJECT_NAME:v8-latest \
+          --platform linux/arm64 \
           -f ./Dockerfile_v8 \
           ./
       - name: Push Image
