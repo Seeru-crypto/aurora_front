@@ -36,3 +36,14 @@ jobs:
       - name: Push Image
         run: |
           docker push --all-tags $DOCKER_USERNAME/$PROJECT_NAME
+      - name: Build v8 Image
+        run: |
+          docker build \
+          --build-arg NEXT_PUBLIC_VERSION_NUMBER=$VERSION_TAG \
+          -t $DOCKER_USERNAME/$PROJECT_NAME:v8-$VERSION_TAG \
+          -t $DOCKER_USERNAME/$PROJECT_NAME:v8-latest \
+          -f ./Dockerfile_v8 \
+          ./
+      - name: Push Image
+        run: |
+          docker push --all-tags $DOCKER_USERNAME/$PROJECT_NAME
