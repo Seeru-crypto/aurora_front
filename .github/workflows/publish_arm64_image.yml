@@ -30,7 +30,7 @@ jobs:
           --build-arg NEXT_PUBLIC_VERSION_NUMBER=$VERSION_TAG \
           -t $DOCKER_USERNAME/$PROJECT_NAME:$VERSION_TAG-arm64 \
           -t $DOCKER_USERNAME/$PROJECT_NAME:latest-arm64 \
-          -f ./Dockerfile_v8 \
+          -f ./Dockerfile \
           ./
       - name: Push Image
         run: |
