@@ -16,7 +16,7 @@ env:
 
 jobs:
   build-and-publish:
-    runs-on: self-hosted
+    runs-on: arm64/alpine/latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
