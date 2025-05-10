@@ -1,4 +1,5 @@
-FROM --platform=linux/arm64 node:latest
+#FROM --platform=linux/arm64 node:latest
+FROM node:21.4.0
 
 ARG NEXT_PUBLIC_VERSION_NUMBER
 ENV NEXT_PUBLIC_VERSION_NUMBER=${NEXT_PUBLIC_VERSION_NUMBER}
