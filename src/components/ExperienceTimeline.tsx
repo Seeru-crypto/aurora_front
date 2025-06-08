@@ -75,6 +75,7 @@ const ExperienceList = styled.div`
   border-right: 1px solid ${props => props.theme.gray.$300};
   padding-right: 2rem;
 
+
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
     max-width: 100%;
     border-right: none;
@@ -88,7 +89,8 @@ const ExperienceItem = styled.div<{ isActive: boolean }>`
   cursor: pointer;
   border-radius: ${props => props.theme.borderRadius};
   transition: all ${props => props.theme.transition};
-  background: ${props => props.isActive ? props.theme.primary + '20' : 'transparent'};
+  background: ${props => props.isActive ? props.theme.primary + '20' : props.theme.gray.$50};
+
   border: 1px solid ${props => props.isActive ? props.theme.primary : props.theme.gray.$300};
 
   &:hover {
@@ -153,9 +155,10 @@ const DetailsDescription = styled.p`
 `;
 
 const ToggleButton = styled.button`
-  width: 100%;
+  width: 70%;
   padding: 0.75rem;
-  margin-top: 1rem;
+  margin: 1rem auto;
+  display: block;
   background: ${props => props.theme.primary};
   color: ${props => props.theme.buttonTextColor};
   border: none;
