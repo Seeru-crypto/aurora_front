@@ -10,6 +10,7 @@ import Skills from '../views/skills/Skills';
 import Projects from '../views/projects/Projects';
 import Wave from '../../public/resources/icons/Wave.svg';
 import '@fontsource/ibm-plex-mono';
+import ExperienceTimeline from '../components/ExperienceTimeline';
 
 export default function Home(): JSX.Element {
   const isToastShown: boolean = useAppSelector((state: RootState) => state.app.isToastShown);

@@ -2,6 +2,7 @@ import React, { ForwardedRef } from 'react';
 import styled from 'styled-components';
 import SectionCounter from './SectionCounter';
 import Timeline from './Timeline';
+import ExperienceTimeline from '../../components/ExperienceTimeline';
 
 const Experience = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JSX.Element => {
   return (
@@ -9,7 +10,7 @@ const Experience = React.forwardRef((_props, ref: ForwardedRef<HTMLElement>): JS
       <div className='container'>
         <h2>Experience</h2>
         <SectionCounter />
-        <Timeline />
+        <ExperienceTimeline />
       </div>
     </ExperienceStyle>
   );
